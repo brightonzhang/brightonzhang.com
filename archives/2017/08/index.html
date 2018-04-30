@@ -130,11 +130,11 @@
                     </li>
 
                     <li>
-                        <a href="/tags">Tags</a>
+                        <a href="/tags/">Tags</a>
                     </li>
 
                     <li>
-                        <a href="/about">About</a>
+                        <a href="/about/">About</a>
                     </li>
 
                     <!-- Brighton, 3/10/2018, hardcoded the navbar elements order
@@ -229,6 +229,30 @@
 
              <!-- 归档列表 -->
 
+            
+            <div class="one-tag-list">
+                <span class="fa fa-calendar-times-o listing-seperator" id="2018">
+                    <span class="tag-text">2018</span>
+                </span>
+                <ul>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
+                    04-30
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="/zh/2018/ios11-password-manager/" style="color: #0085a1">
+                        <span>
+                            iOS11密码管理器的安全顾虑
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
+                
+                </ul>
+            </div>
             
             <div class="one-tag-list">
                 <span class="fa fa-calendar-times-o listing-seperator" id="2017">
@@ -523,6 +547,10 @@
     <ul>
       
         <li>
+          <a href="/zh/2018/ios11-password-manager/">iOS11密码管理器的安全顾虑</a>
+        </li>
+      
+        <li>
           <a href="/zh/2017/bitcoin-explained-with-emoji-2/">比特币的另类解释之表情包·中篇</a>
         </li>
       
@@ -536,10 +564,6 @@
       
         <li>
           <a href="/zh/2016/mac-notes/">MAC使用笔记</a>
-        </li>
-      
-        <li>
-          <a href="/zh/2016/sorting-algorithms/">排序算法</a>
         </li>
       
     </ul>

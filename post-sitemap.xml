@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://brightonzhang.com/zh/2018/ios11-password-manager/</loc>
+        <lastmod>2018-04-30T14:56:34.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://brightonzhang.com/zh/2015/test/</loc>
         <lastmod>2018-03-10T08:16:49.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -63,7 +71,7 @@
     </url>
 
     <url>
-        <loc>https://brightonzhang.com/zh/2015/programmer-competency-matrix/</loc>
+        <loc>https://brightonzhang.com/zh/2015/reading_Asserton_of_Zhou_Hongwei_My_Own_Methodology_on_Internet/</loc>
         <lastmod>2018-03-01T01:07:31.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -71,7 +79,7 @@
     </url>
 
     <url>
-        <loc>https://brightonzhang.com/zh/2015/reading_Asserton_of_Zhou_Hongwei_My_Own_Methodology_on_Internet/</loc>
+        <loc>https://brightonzhang.com/zh/2015/programmer-competency-matrix/</loc>
         <lastmod>2018-03-01T01:07:31.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
