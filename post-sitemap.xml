@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>https://brightonzhang.com/zh/2016/sorting-algorithms/</loc>
+        <lastmod>2018-05-01T06:40:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://brightonzhang.com/zh/2015/test/</loc>
+        <lastmod>2018-05-01T06:37:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://brightonzhang.com/zh/2015/Homebrew-install-failed/</loc>
         <lastmod>2018-05-01T01:45:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -39,14 +55,6 @@
     </url>
 
     <url>
-        <loc>https://brightonzhang.com/zh/2016/sorting-algorithms/</loc>
-        <lastmod>2018-05-01T01:45:15.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://brightonzhang.com/zh/2018/ios11-password-manager/</loc>
         <lastmod>2018-05-01T01:44:50.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -57,14 +65,6 @@
     <url>
         <loc>https://brightonzhang.com/zh/2016/ubuntu-on-windows/</loc>
         <lastmod>2018-05-01T01:39:27.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://brightonzhang.com/zh/2015/test/</loc>
-        <lastmod>2018-03-10T08:16:49.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
