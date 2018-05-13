@@ -37,15 +37,29 @@
     </url>
 
     <url>
-        <loc>https://brightonzhang.com/tags/%E8%A7%82%E4%B8%8E%E5%BF%B5/</loc>
-        <lastmod>2018-05-01T01:45:15.000Z</lastmod>
+        <loc>https://brightonzhang.com/tags/%E7%AE%97%E6%B3%95/</loc>
+        <lastmod>2018-05-01T06:40:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://brightonzhang.com/tags/%E7%AE%97%E6%B3%95/</loc>
-        <lastmod>2018-05-01T06:40:43.000Z</lastmod>
+        <loc>https://brightonzhang.com/tags/%E8%A7%82%E4%B8%8E%E5%BF%B5/</loc>
+        <lastmod>2018-05-12T12:36:47.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://brightonzhang.com/tags/OpenSSL/</loc>
+        <lastmod>2018-05-13T15:11:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://brightonzhang.com/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
+        <lastmod>2018-05-13T15:11:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

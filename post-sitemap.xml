@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>https://brightonzhang.com/zh/2018/openssl-ca/</loc>
+        <lastmod>2018-05-13T15:11:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://brightonzhang.com/zh/2018/ios11-password-manager/</loc>
+        <lastmod>2018-05-12T12:36:47.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://brightonzhang.com/zh/2016/sorting-algorithms/</loc>
         <lastmod>2018-05-01T06:40:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -49,14 +65,6 @@
     <url>
         <loc>https://brightonzhang.com/zh/2015/reading_Asserton_of_Zhou_Hongwei_My_Own_Methodology_on_Internet/</loc>
         <lastmod>2018-05-01T01:45:15.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://brightonzhang.com/zh/2018/ios11-password-manager/</loc>
-        <lastmod>2018-05-01T01:44:50.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
