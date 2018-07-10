@@ -14,7 +14,7 @@
     </url>
     
     <url>
-        <loc>https://brightonzhang.com/about/</loc>
+        <loc>https://brightonzhang.com/tags/</loc>
         <lastmod>2018-02-28T13:40:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -28,7 +28,7 @@
     </url>
     
     <url>
-        <loc>https://brightonzhang.com/tags/</loc>
+        <loc>https://brightonzhang.com/about/</loc>
         <lastmod>2018-02-28T13:40:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

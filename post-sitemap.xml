@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://brightonzhang.com/zh/2018/python-notes/</loc>
+        <lastmod>2018-07-10T13:22:49.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://brightonzhang.com/zh/2018/openssl-ca/</loc>
         <lastmod>2018-05-13T15:11:00.000Z</lastmod>
         <changefreq>weekly</changefreq>

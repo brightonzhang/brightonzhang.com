@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          由iOS11密码管理器想到的 - Brighton Zhang
+          Python学习笔记 - Brighton Zhang
         
     </title>
 
-    <link rel="canonical" href="https://brightonzhang.com/zh/2018/ios11-password-manager/">
+    <link rel="canonical" href="https://brightonzhang.com/zh/2018/python-notes/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/2018/macbook__iphone_6s__lady__technology.jpg')
+            background-image: url('null')
             /*post*/
         
     }
@@ -86,13 +86,11 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#观与念" title="观与念">观与念</a>
-                            
                         </div>
-                        <h1>由iOS11密码管理器想到的</h1>
+                        <h1>Python学习笔记</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
-                            Posted on 04/30/2018
+                            Posted on 07/10/2018
                         </span>
                     </div>
                 
@@ -223,28 +221,16 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>iOS11引入了密码管理器，其功能类似Safari和Chrome等浏览器保存密码的功能，只不过这是系统级的功能，在应用、浏览器等任何需要输入密码的地方，键盘右上角会有一个钥匙图标，点击并完成认证后就可以调出保存的密码列表，选择对应的账号密码就可以了，不再需要手工逐个字符输入。我不知道是我的原因，还是本来就是这样——每次都需要我手动选择密码，而不能根据域名等信息自动填充密码。</p>
-<p>这一波操作是这样的：<br>
-<img src="/img/2018/ios11_pw_mgr.gif" alt="ios11_pw_mgr"><br>
-使用起来还是比较方便的，原则上，我们不再需要记忆各种乱七八糟的账号密码，也极大地提升输入效率。原生系统的支持，一般都会比第三方app实现的方便一点点。</p>
-<p>在iOS 11 public beta 1版本里，进入设置/账号和密码就可以直接看到所有保存的密码的明文，我觉得这有安全风险——PC上Chrome里如果要查看密码也需要输入设备用户密码——我给Apple反馈了我的顾虑。在后来的正式版本里，需要Touch ID或解锁密码验证通过才能查看保存的账号密码。<br>
-刚开始，我没有觉得这有不妥。</p>
-<p>直到有一天，我在公共汽车上想到这样一个问题：如果旁边的人不小心看到了我输入的解锁密码——其实这很常见，一般人iPhone的解锁密码都是只有4位或6位数字，如果用心，还是很容易得到的。然后我的手机不小心掉了，并且刚好被这个人捡到，那我还能找回来么？他有了解锁密码，但没有Apple ID密码，还不能注销我的Apple ID，那我还是可以Find my iPhone。然后我突然想到，如果有了解锁密码，就可以直接去密码管理器里面查看所有密码，如果不幸刚好保存了Apple ID，那就可以轻易获取到，就可以注销擦除设备了。并且，在擦除前，还可以把密码管理器里面的所有密码翻个遍，这里面可能有邮箱、社交账号、网银。。。</p>
-<p>想到这儿，我赶紧打开我的账号和密码看了下，果断删除了里面的Apple ID，Google账号等敏感账号。</p>
-<p>在个人账号密码管理上，我推荐采用账号分级管理：</p>
-<ul>
-<li>一级账号：如银行账号、支付宝账号、Google账号、Apple ID、社交账号等，一旦泄露，可能倾家荡产或者身败名裂，所以要重点保护。</li>
-<li>二级账号：如手机解锁密码，如果泄露，可以通过一级账号来止损——如通过Apple ID远程锁定或擦除设备。</li>
-<li>三级账号：某些非要先注册才能用的僵尸账号。</li>
-</ul>
-<p>密码的复杂程度也需要随账号的重要性而递增——这一点应该是公认的。那从Apple对Apple ID密码和iPhone解锁密码复杂程度对要求来看，Apple也是认为Apple ID的重要性要高于解锁密码。<br>
-但是在iOS的密码管理器上，我觉得这里出现了用一个安全性较低的密码却可以查看安全性较高的密码，这不符合密钥分级管理的要求。</p>
-<p>后来，我接着想了拿到手机解锁密码之后还能干啥。我发现，即使密码管理器没有保存Apple ID，别人还是获取到——可以通过邮箱重置——因为我手机还登陆Apple ID的邮箱。手机解锁之后，不再需要进一步验证即可处理邮件。如果可以控制我邮箱，那基本也就可以控制全部了。。。</p>
-<p>想到这里，觉得我的手机解锁密码真是设得太简单了。</p>
-<p>PS：本文应该是在3月上旬完成的。</p>
-<blockquote>
-<p>The header image is from <a href="http://lobopc.com/contact/" target="_blank" rel="noopener">LOBOCOMPUTERS</a></p>
-</blockquote>
+                <h1 id="入门">入门</h1>
+<p>Python语句无需分号结束。</p>
+<p>注释以 ‘#’ 开始，直到该行结束。</p>
+<p>python代码示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># import modules used here -- sys is a very standard one</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gather our code in a main() function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Hello there'</span>, sys.argv[<span class="number">1</span>]</span><br><span class="line">    <span class="comment"># Command line args are in sys.argv[1], sys.argv[2] ...</span></span><br><span class="line">    <span class="comment"># sys.argv[0] is the script name itself and can be ignored</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Standard boilerplate to call the main() function to begin</span></span><br><span class="line"><span class="comment"># the program.</span></span><br><span class="line"><span class="comment"># When a Python file is run directly, the special variable </span></span><br><span class="line"><span class="comment"># "__name__" is set to "__main__". </span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<p>The outermost statements in a Python file, or “module”, do its one-time setup — those statements run from top to bottom the first time the module is imported somewhere, setting up its variables and functions.</p>
+<h2 id="缩进">缩进</h2>
+<p>Python的一个不寻常的特性是代码的空白缩进影响代码含义。一个代码逻辑块，如一个函数代码，应该有相同的缩进，与它的父函数或if语句或其他的缩进区分开来。由于不同平台或不同IDE上TABs可能有不同含义，所以建议避免在Python中使用TABs——在编辑器中设置空格替换TABs。至于说应该缩进多少个空格，Python官方建议是4个空格<a href="http://python.org/dev/peps/pep-0008/#indentation" target="_blank" rel="noopener">the official Python style guide (PEP 8)</a>。而Google的内部规范却是2个空格。</p>
+<p>参考资料：</p>
+<p><a href="https://developers.google.com/edu/python/introduction" target="_blank" rel="noopener">Google’s Python online tutorial</a></p>
 
                 
 
@@ -252,13 +238,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/zh/2018/openssl-ca/" data-toggle="tooltip" data-placement="top" title="OpenSSL CA实践">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/zh/2017/bitcoin-explained-with-emoji-2/" data-toggle="tooltip" data-placement="top" title="比特币的另类解释之表情包·中篇">Next Post &rarr;</a>
+                            <a href="/zh/2018/openssl-ca/" data-toggle="tooltip" data-placement="top" title="OpenSSL CA实践">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -283,6 +265,17 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#入门"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">入门</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#缩进"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">缩进</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
                 
             <!-- Sidebar Container -->
             <div class="
@@ -297,8 +290,6 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#观与念" title="观与念">观与念</a>
-                        
                     </div>
                 </section>
                 
@@ -317,8 +308,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "brightonzhang-com";
-    var disqus_identifier = "https://brightonzhang.com/zh/2018/ios11-password-manager/";
-    var disqus_url = "https://brightonzhang.com/zh/2018/ios11-password-manager/";
+    var disqus_identifier = "https://brightonzhang.com/zh/2018/python-notes/";
+    var disqus_url = "https://brightonzhang.com/zh/2018/python-notes/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
