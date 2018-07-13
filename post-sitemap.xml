@@ -8,7 +8,7 @@
 
     <url>
         <loc>https://brightonzhang.com/zh/2018/python-notes/</loc>
-        <lastmod>2018-07-11T08:35:28.000Z</lastmod>
+        <lastmod>2018-07-13T09:35:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -47,14 +47,6 @@
     </url>
 
     <url>
-        <loc>https://brightonzhang.com/zh/2015/about-google-play-return-to-china/</loc>
-        <lastmod>2018-05-01T01:45:15.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://brightonzhang.com/zh/2015/Homebrew-install-failed/</loc>
         <lastmod>2018-05-01T01:45:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -64,6 +56,14 @@
 
     <url>
         <loc>https://brightonzhang.com/zh/2016/mac-notes/</loc>
+        <lastmod>2018-05-01T01:45:15.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://brightonzhang.com/zh/2015/about-google-play-return-to-china/</loc>
         <lastmod>2018-05-01T01:45:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

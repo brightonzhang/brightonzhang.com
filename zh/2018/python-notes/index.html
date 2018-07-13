@@ -150,7 +150,7 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -164,7 +164,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -221,8 +221,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="入门">入门</h1>
-<p>本文为个人Python学习笔记，主要为帮助自己记录重点，也可作为其他语言（如C/C++）程序员学习Python的参考资料。</p>
+                <p>本文为个人Python学习笔记，主要为帮助自己记录重点，也可作为其他语言（如C/C++）程序员学习Python的参考资料。</p>
+<h1 id="入门">入门</h1>
 <ul>
 <li>Python语句无需分号结束。</li>
 <li>注释以 ‘#’ 开始，直到该行结束。</li>
@@ -237,12 +237,58 @@
 <p>The outermost statements in a Python file, or “module”, do its one-time setup — those statements run from top to bottom the first time the module is imported somewhere, setting up its variables and functions.</p>
 <h2 id="缩进">缩进</h2>
 <p>Python的一个不寻常的特性是代码的空白缩进影响代码含义。一个代码逻辑块，如一个函数代码，应该有相同的缩进，与它的父函数或if语句或其他的缩进区分开来。由于不同平台或不同IDE上TABs可能有不同含义，所以建议避免在Python中使用TABs——在编辑器中设置空格替换TABs。至于说应该缩进多少个空格，Python官方建议是4个空格<a href="http://python.org/dev/peps/pep-0008/#indentation" target="_blank" rel="noopener">the official Python style guide (PEP 8)</a>。而Google的内部规范却是2个空格。</p>
-<h2 id="modules-and-namespace">Modules and Namespace</h2>
+<h2 id="模块与命名空间">模块与命名空间</h2>
+<p>模块是最高级别的程序组成单元，它将程序代码和数据封装起来以便重用。模块往往对应Python程序文件。每一个文件都是一个模块，并且模块导入其他模块后可以使用导入模块定义的变量名。</p>
+<p>每个模块都有他们自己的命名空间。</p>
+<p>假如有个模块“<a href="http://pinky.py" target="_blank" rel="noopener">pinky.py</a>”包含“def foo()”，foo函数的完整名称是“binky.foo”。</p>
 <h2 id="help-dir">help(), dir()</h2>
 <p>Inside the Python interpreter, the help() function pulls up documentation strings for various modules, functions, and methods.</p>
 <p>The dir() function tells you what the attributes of an object are.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">SWAN:Brighton ~$ python</span><br><span class="line">Python 2.7.14 (default, Oct 22 2017, 15:36:48) </span><br><span class="line">[GCC 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.38)] on darwin</span><br><span class="line">Type "help", "copyright", "credits" or "license" for more information.</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; import sys</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; help(sys)</span><br><span class="line"><span class="meta">#</span>help on built-in module sys:</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span>NAME</span><br><span class="line"><span class="meta">#</span>    sys</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span>FILE</span><br><span class="line"><span class="meta">#</span>    (built-in)</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span>MODULE DOCS</span><br><span class="line"><span class="meta">#</span>    https://docs.python.org/library/sys</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span>DESCRIPTION</span><br><span class="line"><span class="meta">#</span>    This module provides access to some objects used or maintained by the</span><br><span class="line"><span class="meta">#</span>    interpreter and to functions that interact strongly with the interpreter.</span><br><span class="line"><span class="meta">#</span>    ...</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; dir(sys)</span><br><span class="line">['__displayhook__', '__doc__', '__excepthook__', '__name__', '__package__', '__stderr__', '__stdin__', '__stdout__', '_clear_type_cache', '_current_frames', '_getframe', '_git', 'api_version', 'argv', 'builtin_module_names', 'byteorder', 'call_tracing', 'callstats', 'copyright', 'displayhook', 'dont_write_bytecode', 'exc_clear', 'exc_info', 'exc_type', 'excepthook', 'exec_prefix', 'executable', 'exit', 'flags', 'float_info', 'float_repr_style', 'getcheckinterval', 'getdefaultencoding', 'getdlopenflags', 'getfilesystemencoding', 'getprofile', 'getrecursionlimit', 'getrefcount', 'getsizeof', 'gettrace', 'hexversion', 'long_info', 'maxint', 'maxsize', 'maxunicode', 'meta_path', 'modules', 'path', 'path_hooks', 'path_importer_cache', 'platform', 'prefix', 'ps1', 'ps2', 'py3kwarning', 'setcheckinterval', 'setdlopenflags', 'setprofile', 'setrecursionlimit', 'settrace', 'stderr', 'stdin', 'stdout', 'subversion', 'version', 'version_info', 'warnoptions']</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; quit()</span><br><span class="line">SWAN:Brighton ~$</span><br></pre></td></tr></table></figure>
 <h1 id="strings">Strings</h1>
+<p>Python中有个名为“str”的内建字符串类型。字符串常量可以使用单引号或双引号包括——单引号使用更多一些。反斜杠在单引号和双引号都可以转义。双引号中可以直接包含单引号（如 “I didn’t do it”），就像单引号也可以直接包含双引号一样。一个字符串常量可以分为多行，但每行行尾需要有反斜杠。三重引号，&quot;&quot;&quot;或’’’，可以方便的实现多行文本。</p>
+<p>Python字符串是不可变的，即创建之后不可更改。因为字符串不可改变，当我们计算值是构建了一个新的字符串。</p>
+<p>字符串中的字符可以用[]访问，序列从0开始。序列越界，Python会报错。</p>
+<p>'+'不会自动将数字或其他类型转换为字符串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pi = <span class="number">3.14</span></span><br><span class="line"><span class="comment">##text = 'The value of pi is ' + pi      ## NO, does not work</span></span><br><span class="line">text = <span class="string">'The value of pi is '</span>  + str(pi)  <span class="comment">## yes</span></span><br></pre></td></tr></table></figure>
+<p>对于数字，标准运算符，+，/，*正常工作。没有++，但+=，-=有效。对于整数除法，最好使用两个斜线，如6//5是1。</p>
+<p>The “print” operator prints out one or more python items followed by a newline (leave a trailing comma at the end of the items to inhibit the newline).</p>
+<p>“raw”字符串常量是以‘r’开头的，后续字符中的反斜杠不再特殊处理。所以<code>r'x\nx'</code>值就是4个字符的 ‘x\nx’. ’u‘前缀则表示unicode字符串常量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">raw = <span class="string">r'this\t\n and that'</span></span><br><span class="line"><span class="keyword">print</span> raw     <span class="comment">## this\t\n and that</span></span><br><span class="line">  </span><br><span class="line">multi = <span class="string">"""It was the best of times.</span></span><br><span class="line"><span class="string">It was the worst of times."""</span></span><br></pre></td></tr></table></figure>
+<h2 id="字符串方法">字符串方法</h2>
+<p>如下是最常用的字符串方法：</p>
+<ul>
+<li>s.lower(), s.upper() – returns the lowercase or uppercase version of the string</li>
+<li>s.strip() – returns a string with whitespace removed <u>from the start and end</u></li>
+<li>s.isalpha()/s.isdigit()/s.isspace()… – tests if all the string chars are in the various character classes</li>
+<li>s.startswith(‘other’), s.endswith(‘other’) – tests if the string starts or ends with the given other string</li>
+<li>s.find(‘other’) – searches for the given other string (not a regular expression) within s, and returns the first index where it begins or -1 if not found</li>
+<li>s.replace(‘old’, ‘new’) – returns a string where all occurrences of ‘old’ have been replaced by ‘new’</li>
+<li>s.split(‘delim’) – returns a list of substrings separated by the given delimiter. The delimiter is not a regular expression, it’s just text. ‘aaa,bbb,ccc’.split(’,’) -&gt; [‘aaa’, ‘bbb’, ‘ccc’]. As a convenient special case s.split() (with no arguments) splits on all whitespace chars.</li>
+<li>s.join(list) – opposite of split(), joins the elements in the given list together using the string as the delimiter. e.g. ‘—’.join([‘aaa’, ‘bbb’, ‘ccc’]) -&gt; aaa—bbb—ccc</li>
+</ul>
+<p>Python没有单独的character类型。如s[8]返回一个string length为1的字符串包含一个元素，且运算符==, &lt;=, …都可以正常工作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">'hello world'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="number">3</span>]</span><br><span class="line"><span class="string">'l'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(a)</span><br><span class="line"><span class="number">11</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(a[<span class="number">3</span>])</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="number">3</span>] == a[<span class="number">2</span>]</span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h2 id="字符串分片">字符串分片</h2>
+<p>分片（slice）可以方便地获取到序列（如字符串strings和列表lists）的一部分。分片<code>s[start:end]</code>包含从索引start开始，直到但不包括索引end的所有元素。</p>
+<p>标准的基于0的索引序列可以轻松获取字符串开头附近的字符。Python使用负数来获取结尾处的字符。s[-1]是最后一个字符，s[-2]是倒数第二个字符。</p>
+<p>对于任何索引，甚至是负数或越界，都会有<code>s[:n] + s[n:] == s</code>。</p>
+<h2 id="字符串">字符串%</h2>
+<p>Python有类似printf()合并字符串功能。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># % operator</span></span><br><span class="line">text = <span class="string">"%d little pigs come out or I'll %s and %s and %s"</span> % (<span class="number">3</span>, <span class="string">'huff'</span>, <span class="string">'puff'</span>, <span class="string">'blow down'</span>)</span><br></pre></td></tr></table></figure>
+<p>不同与其他语言，我们不能在%后换行——因为Python默认将每一行作为独立的指令。我们可以将完整的语句包含在括号中来解决这一问题——(), [], {}都可以。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># add parens to make the long-line work:</span></span><br><span class="line">text = (<span class="string">"%d little pigs come out or I'll %s and %s and %s"</span> %</span><br><span class="line">  (<span class="number">3</span>, <span class="string">'huff'</span>, <span class="string">'puff'</span>, <span class="string">'blow down'</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="i18n-strings-unicode">i18n Strings (Unicode)</h2>
+<p>普通的Python字符串不是unicode的，只是普通的字节。用‘u’前缀创建unicode字符串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; ustring = <span class="string">u'A unicode \u018e string \xf1'</span></span><br><span class="line">&gt; ustring</span><br><span class="line"><span class="string">u'A unicode \u018e string \xf1'</span></span><br></pre></td></tr></table></figure>
+<p>unicode string是不同与普通str的类型，但是兼容的。</p>
+<p>使用<code>ustring.encode('utf-8')</code>将unicode字符串转为utf-8编码。而unicode(s, encoding) 函数将 plain bytes 转化为 unicode string:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## (ustring from above contains a unicode string)</span></span><br><span class="line">&gt; s = ustring.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">&gt; s</span><br><span class="line"><span class="string">'A unicode \xc6\x8e string \xc3\xb1'</span>  <span class="comment">## bytes of utf-8 encoding</span></span><br><span class="line">&gt; t = unicode(s, <span class="string">'utf-8'</span>)             <span class="comment">## Convert bytes back to a unicode string</span></span><br><span class="line">&gt; t == ustring                      <span class="comment">## It's the same as the original, yay!</span></span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h2 id="if语句">if语句</h2>
+<p>Python不使用{}来封闭if、循环和函数，而是使用分号和缩进空格来组织语句。if的条件判断不必放在括号里，还有elif和else语句。</p>
+<p>任何值都可以作为if判断。所有的零值都作为false：None，0，空字符串，空列表，空字典。当然也有Boolean类型。也支持比较运算符： ==, !=, &lt;, &lt;=, &gt;, &gt;=。逻辑运算符直接使用单词<code>and</code>, <code>or</code>, <code>not</code>，而不是 C-style &amp;&amp; || !。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> speed &gt;= <span class="number">80</span>:</span><br><span class="line">  <span class="keyword">print</span> <span class="string">'License and registration please'</span></span><br><span class="line">  <span class="keyword">if</span> mood == <span class="string">'terrible'</span> <span class="keyword">or</span> speed &gt;= <span class="number">100</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'You have the right to remain silent.'</span></span><br><span class="line">  <span class="keyword">elif</span> mood == <span class="string">'bad'</span> <span class="keyword">or</span> speed &gt;= <span class="number">90</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"I'm going to have to write you a ticket."</span></span><br><span class="line">    write_ticket()</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Let's try to keep it under 80 ok?"</span></span><br></pre></td></tr></table></figure>
+<p>如果代码很短，代码可以直接放在分号后而不换号。</p>
 <p>参考资料：</p>
 <p><a href="https://developers.google.com/edu/python/introduction" target="_blank" rel="noopener">Google’s Python online tutorial</a></p>
 
@@ -284,7 +330,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#入门"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">入门</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#缩进"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">缩进</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#modules-and-namespace"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Modules and Namespace</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#help-dir"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">help(), dir()</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#strings"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Strings</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#入门"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">入门</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#缩进"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">缩进</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#模块与命名空间"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">模块与命名空间</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#help-dir"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">help(), dir()</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#strings"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Strings</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#字符串方法"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">字符串方法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#字符串分片"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">字符串分片</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#字符串"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">字符串%</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#i18n-strings-unicode"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">i18n Strings (Unicode)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#if语句"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">if语句</span></a></li></ol></li></ol>
         
         </div>
       </aside>
