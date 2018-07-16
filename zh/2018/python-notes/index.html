@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('null')
+            background-image: url('/img/2018/2AIEQMwjaAihNME0.jpg')
             /*post*/
         
     }
@@ -85,6 +85,8 @@
                 
                     <div class="post-heading">
                         <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Python" title="Python">Python</a>
                             
                         </div>
                         <h1>Python学习笔记</h1>
@@ -157,14 +159,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -276,6 +278,7 @@
 <h2 id="字符串">字符串%</h2>
 <p>Python有类似printf()合并字符串功能。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># % operator</span></span><br><span class="line">text = <span class="string">"%d little pigs come out or I'll %s and %s and %s"</span> % (<span class="number">3</span>, <span class="string">'huff'</span>, <span class="string">'puff'</span>, <span class="string">'blow down'</span>)</span><br></pre></td></tr></table></figure>
+<p>运算符%左边引号里面的%*是占位符，与C类似： %d int, %s string, %f/%g floating point。而右边元组tupe里面是匹配的值。</p>
 <p>不同与其他语言，我们不能在%后换行——因为Python默认将每一行作为独立的指令。我们可以将完整的语句包含在括号中来解决这一问题——(), [], {}都可以。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># add parens to make the long-line work:</span></span><br><span class="line">text = (<span class="string">"%d little pigs come out or I'll %s and %s and %s"</span> %</span><br><span class="line">  (<span class="number">3</span>, <span class="string">'huff'</span>, <span class="string">'puff'</span>, <span class="string">'blow down'</span>))</span><br></pre></td></tr></table></figure>
 <h2 id="i18n-strings-unicode">i18n Strings (Unicode)</h2>
@@ -289,6 +292,42 @@
 <p>任何值都可以作为if判断。所有的零值都作为false：None，0，空字符串，空列表，空字典。当然也有Boolean类型。也支持比较运算符： ==, !=, &lt;, &lt;=, &gt;, &gt;=。逻辑运算符直接使用单词<code>and</code>, <code>or</code>, <code>not</code>，而不是 C-style &amp;&amp; || !。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> speed &gt;= <span class="number">80</span>:</span><br><span class="line">  <span class="keyword">print</span> <span class="string">'License and registration please'</span></span><br><span class="line">  <span class="keyword">if</span> mood == <span class="string">'terrible'</span> <span class="keyword">or</span> speed &gt;= <span class="number">100</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'You have the right to remain silent.'</span></span><br><span class="line">  <span class="keyword">elif</span> mood == <span class="string">'bad'</span> <span class="keyword">or</span> speed &gt;= <span class="number">90</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"I'm going to have to write you a ticket."</span></span><br><span class="line">    write_ticket()</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Let's try to keep it under 80 ok?"</span></span><br></pre></td></tr></table></figure>
 <p>如果代码很短，代码可以直接放在分号后而不换号。</p>
+<h1 id="list列表">List列表</h1>
+<p>Python有一个内建的列表类型名为list。List产量用中括号[]初始化。与字符串类似，list也支持len()函数，用中括号获取数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">colors = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>]</span><br><span class="line"><span class="keyword">print</span> colors[<span class="number">0</span>]    <span class="comment">## red</span></span><br><span class="line"><span class="keyword">print</span> colors[<span class="number">2</span>]    <span class="comment">## green</span></span><br><span class="line"><span class="keyword">print</span> len(colors)  <span class="comment">## 3</span></span><br></pre></td></tr></table></figure>
+<p>用等号=赋值list并不会拷贝list，而是让两个变量指向内存里的同一个list。</p>
+<p>空list是一对空的中括号[]。‘+’可以组合两个list，[1, 2] + [3, 4]生成[1, 2, 3, 4]。</p>
+<h2 id="for与in">FOR与IN</h2>
+<p>python中for结构<code>for var in list</code>是一种简单的遍历list（或其他组合）元素的方法。在遍历期间不要增减list。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">squares = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>]</span><br><span class="line">sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> squares:</span><br><span class="line">  sum += num</span><br><span class="line"><span class="keyword">print</span> sum  <span class="comment">## 30</span></span><br></pre></td></tr></table></figure>
+<p>in结构<code>value in collection</code>可以测试value是否在collection中，返回True或False。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list = [<span class="string">'larry'</span>, <span class="string">'curly'</span>, <span class="string">'moe'</span>]</span><br><span class="line"><span class="keyword">if</span> <span class="string">'curly'</span> <span class="keyword">in</span> list:</span><br><span class="line">  <span class="keyword">print</span> <span class="string">'yay'</span></span><br></pre></td></tr></table></figure>
+<p>for/in亦可用于字符串——字符串似一个字符列表——<code>for ch in s: print ch</code>输出字符串中所有字符。</p>
+<h3 id="range">Range</h3>
+<p>range(n)函数产生数字0, 1, … n-1，而range(a, b)返回a, a+1, …b-1。for循环和range()结合即可构建循环中的数字：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## print the numbers from 0 through 99</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">  <span class="keyword">print</span> i</span><br></pre></td></tr></table></figure>
+<h3 id="while循环">while循环</h3>
+<p>python也有标准的while循环，break和continue语句。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Access every 3rd element in a list</span></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; len(a):</span><br><span class="line">  <span class="keyword">print</span> a[i]</span><br><span class="line">  i = i + <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="list方法">List方法</h3>
+<p>List常用方法：</p>
+<ul>
+<li>list.append(elem) – adds a single element to the end of the list. <u>Common error: does not return the new list, just modifies the original.</u></li>
+<li>list.insert(index, elem) – inserts the element at the given index, shifting elements to the right.</li>
+<li>list.extend(list2) adds the elements in list2 to the end of the list. Using + or += on a list is similar to using extend().</li>
+<li>list.index(elem) – searches for the given element from the start of the list and returns its index. Throws a ValueError if the element does not appear (use “in” to check without a ValueError).</li>
+<li>list.remove(elem) – searches for the first instance of the given element and removes it (throws ValueError if not present)</li>
+<li>list.sort() – sorts the list in place (does not return it). (The sorted() function shown later is preferred.)</li>
+<li>list.reverse() – reverses the list in place (does not return it)</li>
+<li>list.pop(index) – removes and returns the element at the given index. Returns the rightmost element if index is omitted (roughly the opposite of append()).</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">list = [<span class="string">'larry'</span>, <span class="string">'curly'</span>, <span class="string">'moe'</span>]</span><br><span class="line">list.append(<span class="string">'shemp'</span>)         <span class="comment">## append elem at end</span></span><br><span class="line">list.insert(<span class="number">0</span>, <span class="string">'xxx'</span>)        <span class="comment">## insert elem at index 0</span></span><br><span class="line">list.extend([<span class="string">'yyy'</span>, <span class="string">'zzz'</span>])  <span class="comment">## add list of elems at end</span></span><br><span class="line"><span class="keyword">print</span> list  <span class="comment">## ['xxx', 'larry', 'curly', 'moe', 'shemp', 'yyy', 'zzz']</span></span><br><span class="line"><span class="keyword">print</span> list.index(<span class="string">'curly'</span>)    <span class="comment">## 2</span></span><br><span class="line"></span><br><span class="line">list.remove(<span class="string">'curly'</span>)         <span class="comment">## search and remove that element</span></span><br><span class="line">list.pop(<span class="number">1</span>)                  <span class="comment">## removes and returns 'larry'</span></span><br><span class="line"><span class="keyword">print</span> list  <span class="comment">## ['xxx', 'moe', 'shemp', 'yyy', 'zzz']</span></span><br></pre></td></tr></table></figure>
+<h3 id="list构建">List构建</h3>
+<p>通常先创建一个空list，然后用append() 或 extend() 添加元素。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list = []          <span class="comment">## Start as the empty list</span></span><br><span class="line">list.append(<span class="string">'a'</span>)   <span class="comment">## Use append() to add elements</span></span><br><span class="line">list.append(<span class="string">'b'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="list分片">List分片</h3>
+<p>与String一样，list也支持分片。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br><span class="line"><span class="keyword">print</span> list[<span class="number">1</span>:<span class="number">-1</span>]   <span class="comment">## ['b', 'c']</span></span><br><span class="line">list[<span class="number">0</span>:<span class="number">2</span>] = <span class="string">'z'</span>    <span class="comment">## replace ['a', 'b'] with ['z']</span></span><br><span class="line"><span class="keyword">print</span> list         <span class="comment">## ['z', 'c', 'd']</span></span><br></pre></td></tr></table></figure>
 <p>参考资料：</p>
 <p><a href="https://developers.google.com/edu/python/introduction" target="_blank" rel="noopener">Google’s Python online tutorial</a></p>
 
@@ -330,7 +369,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#入门"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">入门</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#缩进"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">缩进</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#模块与命名空间"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">模块与命名空间</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#help-dir"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">help(), dir()</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#strings"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Strings</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#字符串方法"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">字符串方法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#字符串分片"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">字符串分片</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#字符串"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">字符串%</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#i18n-strings-unicode"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">i18n Strings (Unicode)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#if语句"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">if语句</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#入门"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">入门</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#缩进"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">缩进</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#模块与命名空间"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">模块与命名空间</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#help-dir"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">help(), dir()</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#strings"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Strings</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#字符串方法"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">字符串方法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#字符串分片"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">字符串分片</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#字符串"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">字符串%</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#i18n-strings-unicode"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">i18n Strings (Unicode)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#if语句"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">if语句</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#list列表"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">List列表</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#for与in"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">FOR与IN</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#range"><span class="toc-nav-number">3.1.1.</span> <span class="toc-nav-text">Range</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#while循环"><span class="toc-nav-number">3.1.2.</span> <span class="toc-nav-text">while循环</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#list方法"><span class="toc-nav-number">3.1.3.</span> <span class="toc-nav-text">List方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#list构建"><span class="toc-nav-number">3.1.4.</span> <span class="toc-nav-text">List构建</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#list分片"><span class="toc-nav-number">3.1.5.</span> <span class="toc-nav-text">List分片</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
@@ -350,6 +389,8 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
                     </div>
                 </section>
                 

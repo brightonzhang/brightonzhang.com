@@ -7,6 +7,13 @@
     </url>
     
     <url>
+        <loc>https://brightonzhang.com/tags/</loc>
+        <lastmod>2018-07-16T08:34:23.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>https://brightonzhang.com/404.html</loc>
         <lastmod>2018-02-28T13:40:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -15,13 +22,6 @@
     
     <url>
         <loc>https://brightonzhang.com/about/</loc>
-        <lastmod>2018-02-28T13:40:13.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://brightonzhang.com/tags/</loc>
         <lastmod>2018-02-28T13:40:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
