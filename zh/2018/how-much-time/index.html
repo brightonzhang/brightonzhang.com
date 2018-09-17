@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Homebrew安装失败 - Brighton Zhang
+          我还有多长时间 - Brighton Zhang
         
     </title>
 
-    <link rel="canonical" href="https://brightonzhang.com/zh/2015/Homebrew-install-failed/">
+    <link rel="canonical" href="https://brightonzhang.com/zh/2018/how-much-time/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('undefined')
+            background-image: url('null')
             /*post*/
         
     }
@@ -87,10 +87,10 @@
                         <div class="tags">
                             
                         </div>
-                        <h1>Homebrew安装失败</h1>
+                        <h1>我还有多长时间</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
-                            Posted on 11/30/2015
+                            Posted on 09/17/2018
                         </span>
                     </div>
                 
@@ -221,75 +221,25 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>按照 <a href="http://brew.sh/index.html" target="_blank" rel="noopener">http://brew.sh/index.html</a> 安装Homebrew 执行如下命令：<br>
-ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)”</p>
-<p>然后失败：<br>
-fatal: unable to access ‘<a href="https://github.com/Homebrew/homebrew/" target="_blank" rel="noopener">https://github.com/Homebrew/homebrew/</a>’: SSLRead() return error -9806<br>
-Failed during: git fetch origin master:refs/remotes/origin/master -n --depth=1</p>
-<p>google一圈，这个问题似乎和我的一致<br>
-<a href="http://stackoverflow.com/questions/26461966/osx-10-10-curl-post-to-https-url-gives-sslread-error" target="_blank" rel="noopener">http://stackoverflow.com/questions/26461966/osx-10-10-curl-post-to-https-url-gives-sslread-error</a><br>
-需要安装使用openssl的curl</p>
-<p>遂先安装openssl<br>
-获取openssl代码，<a href="https://wiki.openssl.org/index.php/Use_of_Git" target="_blank" rel="noopener">https://wiki.openssl.org/index.php/Use_of_Git</a><br>
-git clone <a href="https://github.com/openssl/openssl.git" target="_blank" rel="noopener">https://github.com/openssl/openssl.git</a></p>
-<p>编译安装，<a href="https://wiki.openssl.org/index.php/Compilation_and_Installation#Mac" target="_blank" rel="noopener">https://wiki.openssl.org/index.php/Compilation_and_Installation#Mac</a><br>
-./Configure darwin64-x86_64-cc enable-ec_nistp_64_gcc_128  no-ssl3 no-comp<br>
-make<br>
-sudo make install</p>
-<p>获取curl代码,<a href="http://curl.haxx.se/download/curl-7.45.0.tar.bz2" target="_blank" rel="noopener">http://curl.haxx.se/download/curl-7.45.0.tar.bz2</a><br>
-安装，<a href="http://curl.haxx.se/docs/install.html" target="_blank" rel="noopener">http://curl.haxx.se/docs/install.html</a><br>
-./configure --with-ssl=/usr/local/ssl<br>
-make<br>
-编译报错：<br>
-vtls/openssl.c:2349:13: error: incomplete definition of type 'struct x509_st’<br>
-cinf = x-&gt;cert_info;<br>
-~^<br>
-/usr/local/ssl/include/openssl/ossl_typ.h:154:16: note: forward declaration of 'struct x509_st’<br>
-typedef struct x509_st X509;<br>
-^<br>
-…</p>
-<p>再google，发现这是个已知问题，<a href="https://github.com/bagder/curl/issues/491" target="_blank" rel="noopener">https://github.com/bagder/curl/issues/491</a><br>
-subscribe那个issues。</p>
-<p>作此文纪录，先睡觉了。</p>
-<p>12/13/2015 更新<br>
-收到issue 491＃的邮件通知说编译问题已经解决了。<br>
-<a href="https://github.com/bagder/curl/commit/7f683b0ea87ed158eb4bd22cdd1f26eb901a97d0" target="_blank" rel="noopener">https://github.com/bagder/curl/commit/7f683b0ea87ed158eb4bd22cdd1f26eb901a97d0</a><br>
-该commit解决了curl与openssl 9446daac5b7be3210e9c5d80c3d95309d946ee38 版本编译不过的问题。</p>
-<p>于是我更新了最新的curl代码<br>
-git clone <a href="https://github.com/bagder/curl.git" target="_blank" rel="noopener">https://github.com/bagder/curl.git</a><br>
-./buildconf<br>
-./configure --with-ssl=/usr/local/ssl/<br>
-make<br>
-make install</p>
-<p>当再执行curl时<br>
-ruby -e &quot;$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)&quot;<br>
-curl: (35) error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed</p>
-<p>这个google也没找到原因了。 我想了下，可能是最新的openssl的问题。于是去openssl下载了一个release版本，<a href="https://www.openssl.org/source/openssl-1.0.1q.tar.gz%EF%BC%8C%E6%95%85%E6%84%8F%E9%80%89%E6%8B%A9%E4%BA%861.1.0%E4%B9%8B%E5%89%8D%E7%9A%84%E7%89%88%E6%9C%AC%E3%80%82%E8%A7%A3%E5%8E%8B%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E3%80%82%E5%8F%91%E7%8E%B0%E8%AF%A5%E7%89%88%E6%9C%AC%E5%A6%82%E6%9E%9C%E9%85%8D%E7%BD%AE%E4%B8%BA%E2%80%9Cno-ssl3" target="_blank" rel="noopener">https://www.openssl.org/source/openssl-1.0.1q.tar.gz，故意选择了1.1.0之前的版本。解压编译安装。发现该版本如果配置为“no-ssl3</a> no-comp”也会有编译问题，索性直接“./Configure darwin64-x86_64-cc enable-ec_nistp_64_gcc_128”，然后编译安装一路通畅。</p>
-<p>然后重新编译安装了7.45.0版本的curl，安装成功。尝试运行：<br>
-curl <a href="https://google.com" target="_blank" rel="noopener">https://google.com</a><br>
-curl: (60) SSL certificate problem: unable to get local issuer certificate<br>
-More details here: <a href="http://curl.haxx.se/docs/sslcerts.html" target="_blank" rel="noopener">http://curl.haxx.se/docs/sslcerts.html</a></p>
-<p>curl performs SSL certificate verification by default, using a &quot;bundle&quot;<br>
-of Certificate Authority (CA) public keys (CA certs). If the default<br>
-bundle file isn’t adequate, you can specify an alternate file<br>
-using the --cacert option.<br>
-If this HTTPS server uses a certificate signed by a CA represented in<br>
-the bundle, the certificate verification probably failed due to a<br>
-problem with the certificate (it might be expired, or the name might<br>
-not match the domain name in the URL).<br>
-If you’d like to turn off curl’s verification of the certificate, use<br>
-the -k (or --insecure) option.</p>
-<p>这里说本地CA证书有问题，参考http://curl.haxx.se/docs/sslcerts.html，从http://curl.haxx.se/docs/caextract.html下载了CA证书，然后<br>
-export CURL_CA_BUNDLE=&quot;/usr/local/etc/pki/cacert.pem&quot;</p>
-<p>然后执行<br>
-ruby -e &quot;$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)&quot;<br>
-终于<br>
-…<br>
-==&gt; Installation successful!<br>
-==&gt; Next steps<br>
-Run <code>brew help</code> to get started</p>
-<p>上面的本地CA证书，可以通过–cacert来配置，如下<br>
-curl --cacert /usr/local/etc/pki/cacert.pem  <a href="https://cn.bing.com" target="_blank" rel="noopener">https://cn.bing.com</a></p>
+                <p>我还有多长时间</p>
+<p>一个一直萦绕的问题</p>
+<p>没人知道答案</p>
+<p>也没有神明给我指点</p>
+<br>
+<p>二十岁八</p>
+<p>是我小时候可以想象的最美好的年华</p>
+<p>但不曾想我就可能止于此戛</p>
+<p>现在也不想</p>
+<br>
+<p>我还没看到人工智能颠覆天下</p>
+<p>我还没开过特斯拉</p>
+<p>我的小星星还没铺满谷歌地球</p>
+<p>我还等着维斯特洛大陆熬过凛冬迎来初夏</p>
+<br>
+<p>我一直希望能做一点点贡献</p>
+<p>能让世界变成更美好人间</p>
+<p>如今只能努力不让周围变糟</p>
+<p>顺便多看看世界的美好</p>
 
                 
 
@@ -297,13 +247,9 @@ curl --cacert /usr/local/etc/pki/cacert.pem  <a href="https://cn.bing.com" targe
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/zh/2016/sorting-algorithms/" data-toggle="tooltip" data-placement="top" title="排序算法">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/zh/2015/about-google-play-return-to-china/" data-toggle="tooltip" data-placement="top" title="关于Google Play商店入华的想法">Next Post &rarr;</a>
+                            <a href="/zh/2018/python-notes/" data-toggle="tooltip" data-placement="top" title="Python学习笔记">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -360,8 +306,8 @@ curl --cacert /usr/local/etc/pki/cacert.pem  <a href="https://cn.bing.com" targe
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "brightonzhang-com";
-    var disqus_identifier = "https://brightonzhang.com/zh/2015/Homebrew-install-failed/";
-    var disqus_url = "https://brightonzhang.com/zh/2015/Homebrew-install-failed/";
+    var disqus_identifier = "https://brightonzhang.com/zh/2018/how-much-time/";
+    var disqus_url = "https://brightonzhang.com/zh/2018/how-much-time/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
