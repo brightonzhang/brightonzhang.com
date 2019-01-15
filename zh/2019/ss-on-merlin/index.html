@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('null')
+            background-image: url('/img/2019/3180568124.jpg')
             /*post*/
         
     }
@@ -227,7 +227,7 @@
 
                 <h1 id="准备">准备</h1>
 <h2 id="网络模型">网络模型</h2>
-<p>说网络总是绕不开网路模型，所以先祭出此表。</p>
+<p>说网络总是绕不开网络模型，所以先祭出此表。</p>
 <table>
 <thead>
 <tr>
@@ -260,32 +260,15 @@
 </tbody>
 </table>
 <h2 id="ipv4与ipv6">IPv4与IPv6</h2>
-<p>IPv4地址一共32位，用点分十进制表示，每一个部分是8位。子网掩码有两种表示：</p>
-<ol>
-<li>
-<p>ip: 192.168.1.3; mask:255.255.255.0</p>
-</li>
-<li>
-<p>CIDR标记法: 192.168.1.3/24</p>
-</li>
-</ol>
-<p>这两种表示的意义是一样的，第一种ip&amp;mask得到子网，表示ip的前24位是网络位，后8位是主机位，也就是前24位相同的ip地址是同一个子网的。第二种只不过是直接用位数来表示子网，意义是ip 192.168.1.3的32位地址中的前24位表示网络位，后8位表示主机位，IP前24位相同，表示是同一个子网的。</p>
-<p>IPv6地址一共128位，用十六进制表示，中间用“:”隔开，每一部分是16位。如：21DA:D3:0:2F3B:2AA:FF:FE28:9C5A</p>
-<p>IPv6可以将每4个十六进制数字中的前导零位去除做简化表示，但每个分组必须至少保留一位数字。去除前导零位后，上述地址可写成： 21DA:D3:0:2F3B:2AA:FF:FE28:9C5A</p>
-<p>零压缩：某些类型的地址中可能包含很长的零序列，为进一步简化表示法，IPv6还可以将冒号十六进制格式中相邻的连续零位进行零压缩，用双冒号“::”表示。 例如链路本地地址FE80:0:0:0:2AA:FF:FE9A:4CA2可压缩成FE80::2AA:FF:FE9A:4CA2；多点传送地址FF02:0:0:0:0:0:0:2压缩后，可表示为FF02::2。在一个特定的地址中，零压缩只能使用一次，也就是说，在任意一个冒号分十六进制格式中只能出现一个双冒号“::”，否则我们就无法知道每个“::”所代表的确切零位数了。</p>
-<p>IPv6 前缀：前缀是地址中具有固定值的位数部分或表示网络标识的位数部分。IPv6的子网标识、路由器和地址范围前缀表示法与IPv4采用的CIDR标记法相同，其前缀可书写为：地址/前缀长度。例如21DA:D3::/48是一个路由器前缀，而21DA:D3:0:2F3B::/64是一个子网前缀。</p>
-<p>补充一些常用的地址前缀：<br>
-::/128，即0:0:0:0:0:0:0:0，等于::。只能作为尚未获得正式地址的主机的源地址，不能作为目的地址，不能分配给真实的网络接口。<br>
-::1/128，即0:0:0:0:0:0:0:1，等于::1。回环地址，相当于ipv4中的localhost（127.0.0.1），ping locahost可得到此地址。2000::/3，全球单播地址范围。<br>
-FE80::/10，链路本地单播地址范围，用于单一链路，适用于自动配置、邻机发现等，路由器不转发。<br>
-FC00::/7，本地唯一单播地址范围。<br>
-FF00::/8， 组播地址范围。<br>
-2002::/16，6 to 4 地址，用于6to4自动构造隧道技术的地址。<br>
-::A.B.C.D，其中&lt;A.B.C.D&gt;代表ipv4地址，兼容IPv4的IPv6地址。自动将IPv6包以隧道方式在IPv4网络中传送的IPv4/IPv6节点将使用这些地址<br>
-::FFFF:A.B.C.D，其中&lt;A.B.C.D&gt;代表ipv4地址，例如 ::ffff:202.120.2.30 ，是IPv4映射过来的IPv6地址，它是在不支持IPv6的网上用于表示IPv4节点</p>
-<h2 id="路由与route">路由与route</h2>
-<p>非区网内数据交换</p>
-<p>route命令</p>
+<p>IPv4地址一共32位，用点分十进制表示，每一个部分是8位。子网掩码有两种表示：<br>
+1) ip: 192.168.1.3; mask:255.255.255.0，ip&mask得到子网，表示ip的前24位是网络位，后8位是主机位，也就是前24位相同的ip地址是同一个子网的。<br>
+2) CIDR标记法: 192.168.1.3/24，直接用位数来表示子网，意义是ip 192.168.1.3的32位地址中的前24位表示网络位，后8位表示主机位，IP前24位相同，表示是同一个子网的。</p>
+IPv6地址一共128位，用十六进制表示，中间用“:”隔开，每一部分是16位。如：21DA:D3:0:2F3B:2AA:FF:FE28:9C5A。IPv6可以将每4个十六进制数字中的前导零位去除做简化表示，但每个分组必须至少保留一位数字。IPv6还可以将冒号十六进制格式中相邻的连续零位进行零压缩，用双冒号“::”表示。 如多点传送地址FF02:0:0:0:0:0:0:2压缩后，可表示为FF02::2。在一个特定的地址中，零压缩只能使用一次，否则我们就无法知道每个“::”所代表的确切零位数了。 
+<p>IPv6 前缀：前缀是地址中具有固定值的位数部分或表示网络标识的位数部分。IPv6的子网标识、路由器和地址范围前缀表示法与IPv4采用的CIDR标记法相同，其前缀可书写为：地址/前缀长度。例如21DA:D3::/48是一个路由器前缀，而21DA:D3:0:2F3B::/64是一个子网前缀。 ::1/128，即0:0:0:0:0:0:0:1，等于::1，回环地址，相当于ipv4中的localhost（127.0.0.1），ping locahost可得到此地址。</p>
+<h2 id="路由与route命令">路由与route命令</h2>
+<p>路由（routing）是通过互联的网络把信息从源地址传输到目的地址的活动。路由发生在OSI网络参考模型中的第三层即网络层。路由引导分组转送，经过一些中间的节点后，到它们最后的目的地。路由通常根据路由表——一个存储到各个目的地的最佳路径的表——来引导分组转送。<br>
+Linux上可以通过route命令来查看管理路由表。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">brighton@WINTERFELL:/tmp/home/root# route </span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">192.168.1.1     *               255.255.255.255 UH    0      0        0 eth0</span><br><span class="line">192.168.50.0    *               255.255.255.0   U     0      0        0 br0</span><br><span class="line">192.168.1.0     *               255.255.255.0   U     0      0        0 eth0</span><br><span class="line">127.0.0.0       *               255.0.0.0       U     0      0        0 lo</span><br><span class="line">default         192.168.1.1     0.0.0.0         UG    0      0        0 eth0</span><br></pre></td></tr></table></figure>
 <h2 id="防火墙与iptables">防火墙与iptables</h2>
 <h2 id="代理">代理</h2>
 <h3 id="正向代理">正向代理</h3>
@@ -337,7 +320,7 @@ FF00::/8， 组播地址范围。<br>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#准备"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">准备</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#网络模型"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">网络模型</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ipv4与ipv6"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">IPv4与IPv6</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#路由与route"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">路由与route</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#防火墙与iptables"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">防火墙与iptables</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#代理"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">代理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#正向代理"><span class="toc-nav-number">1.5.1.</span> <span class="toc-nav-text">正向代理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#透明代理"><span class="toc-nav-number">1.5.2.</span> <span class="toc-nav-text">透明代理</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#常用工具与命令"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">常用工具与命令</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ping"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">ping</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#准备"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">准备</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#网络模型"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">网络模型</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ipv4与ipv6"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">IPv4与IPv6</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#路由与route命令"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">路由与route命令</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#防火墙与iptables"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">防火墙与iptables</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#代理"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">代理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#正向代理"><span class="toc-nav-number">1.5.1.</span> <span class="toc-nav-text">正向代理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#透明代理"><span class="toc-nav-number">1.5.2.</span> <span class="toc-nav-text">透明代理</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#常用工具与命令"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">常用工具与命令</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ping"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">ping</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
