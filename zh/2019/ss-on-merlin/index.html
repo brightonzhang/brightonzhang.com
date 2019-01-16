@@ -2,13 +2,13 @@
 <html lang="en">
 
 <!-- Head tag -->
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="keyword"  content="">
+    <meta name="keyword" content="">
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -76,7 +76,7 @@
     
 </style>
 
-<header class="intro-header" >
+<header class="intro-header">
     <!-- Signature -->
     <div id="signature">
         <div class="container">
@@ -270,6 +270,13 @@ IPv6地址一共128位，用十六进制表示，中间用“:”隔开，每一
 Linux上可以通过route命令来查看管理路由表。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">brighton@WINTERFELL:/tmp/home/root# route </span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">192.168.1.1     *               255.255.255.255 UH    0      0        0 eth0</span><br><span class="line">192.168.50.0    *               255.255.255.0   U     0      0        0 br0</span><br><span class="line">192.168.1.0     *               255.255.255.0   U     0      0        0 eth0</span><br><span class="line">127.0.0.0       *               255.0.0.0       U     0      0        0 lo</span><br><span class="line">default         192.168.1.1     0.0.0.0         UG    0      0        0 eth0</span><br></pre></td></tr></table></figure>
 <h2 id="防火墙与iptables">防火墙与iptables</h2>
+<p>防火墙通过订定一些有顺序的规则，管制进入到网络的数据封包。Linux防火墙主要有封包过滤型的 Netfilter 与依据服务软件程序作为分析的 TCP Wrappers 两种。</p>
+<ul>
+<li><strong>Netfilter (<strong>封包过滤机制</strong>)</strong>，所谓的封包过滤，亦即是分析进入主机的网络封包，将封包的表头数据捉出来进行分析，以决定该联机为放行或抵挡的机制。 由于这种方式可以直接分析封包表头数据，所以包括硬件地址(MAC), 软件地址 (IP), TCP, UDP, ICMP 等封包的信息都可以进行过滤分析的功能，因此用途非常的广泛。(其实主要分析的是 OSI 七层协议的 2, 3, 4 层啦)。在 Linux 上面我们使用核心内建的 Netfilter 这个机制，而 Netfilter 提供了 iptables 这个软件来作为防火墙封包过滤的指令。</li>
+<li><strong>TCP Wrappers (<strong>程序控管</strong>)</strong>，另一种抵挡封包进入的方法，为透过服务器程序的外挂 (tcpd) 来处置的！与封包过滤不同的是， 这种机制主要是分析谁对某程序进行存取，然后透过规则去分析该服务器程序谁能够联机、谁不能联机。 由于主要是透过分析服务器程序来控管，因此与启动的端口无关，只与程序的名称有关。 举例来说，我们知道 FTP 可以启动在非正规的 port 21 进行监听，当你透过 Linux 内建的 TCP wrappers 限制 FTP 时， 那么你只要知道 FTP 的软件名称 (vsftpd) ，然后对他作限制，则不管 FTP 启动在哪个埠口，都会被该规则管理的。</li>
+</ul>
+<p>iptables实现防火墙功能的原理是：在数据包经过内核的过程中有五处关键地方，分别是PREROUTING、INPUT、OUTPUT、FORWARD、POSTROUTING，称为钩子函数，iptables这款用户空间的软件可以在这5处地方写规则，对经过的数据包进行处理，规则一般的定义为“如果数据包头符合这样的条件，就这样处理数据包”。</p>
+<p>iptables中定义有表，分别表示提供的功能，有filter表（实现包过滤）、nat表（实现网络地址转换）、mangle表（实现包修改）、raw表（实现数据跟踪），这些表具有一定的优先级：raw–&gt;mangle–&gt;nat–&gt;filter</p>
 <h2 id="代理">代理</h2>
 <h3 id="正向代理">正向代理</h3>
 <h3 id="透明代理">透明代理</h3>
@@ -438,7 +445,7 @@ Linux上可以通过route命令来查看管理路由表。</p>
 
                 
                     <li>
-                        <a target="_blank"  href="https://github.com/brightonzhang">
+                        <a target="_blank" href="https://github.com/brightonzhang">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
