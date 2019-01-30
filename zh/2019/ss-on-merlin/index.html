@@ -319,20 +319,20 @@ Linux上可以通过route命令来查看管理路由表。</p>
 <p>/etc/resolv.conf 文件样例</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nameserver 114.114.114.114</span><br><span class="line">nameserver 8.8.8.8</span><br></pre></td></tr></table></figure>
 <p>/etc/hosts 文件样例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1         localhost </span><br><span class="line">192.168.101.107   web.gz.cvte.com web01</span><br><span class="line">192.168.101.103   hrm.gz.cvte.com web02</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1         localhost </span><br><span class="line">2001:4860:4860::8888 google-public-dns-a.google.com</span><br><span class="line">2001:4860:4860::8844 google-public-dns-b.google.com</span><br></pre></td></tr></table></figure>
 <h2 id="代理">代理</h2>
 <p>代理（Proxy），或网络代理，是一种特殊的网络服务，允许一个网络终端（一般为客户端）通过这个服务与另一个网络终端（一般为服务器）进行非直接的连接。</p>
 <h3 id="正向反向代理">正向/反向代理</h3>
-<p>正向代理是一个位于客户端和目标服务器之间的代理服务器(中间服务器)。为了从原始服务器取得内容，客户端向代理服务器发送一个请求，并且指定目标服务器，之后代理向目标服务器转交并且将获得的内容返回给客户端。正向代理的情况下客户端需要主动设置代理服务器ip或者域名进行访问，由设置的服务器ip或者域名去获取访问内容并返回。一般情况下，代理技术默认说的是正向代理技术。</p>
-<p>正向代理的用途：</p>
+<p>正向代理是一个位于客户端和目标服务器之间的代理服务器(中间服务器)。为了从原始服务器取得内容，客户端向代理服务器发送一个请求，并且指定目标服务器，之后代理向目标服务器转交并且将获得的内容返回给客户端。正向代理的情况下客户端需要主动设置代理服务器ip或者域名进行访问，由设置的服务器ip或者域名去获取访问内容并返回。一般情况下，代理技术默认说的是正向代理技术。<br>
+正向代理的用途：</p>
 <ol>
 <li>访问原来无法访问的资源</li>
 <li>缓存，加速访问资源</li>
 <li>对客户端访问授权，上网进行认证</li>
 <li>代理可以记录用户访问记录（上网行为管理），对外隐藏用户信息</li>
 </ol>
-<p>反向代理服务器架设在服务器端，与正向代理正好相反。对于客户端来说，反向代理就好像目标服务器。客户端向反向代理发送请求，接着反向代理判断请求走向何处，并将请求转交给客户端，使得这些内容就好似他自己一样，一次客户端并不会感知到反向代理后面的服务，也因此不需要客户端做任何设置，只需要把反向代理服务器当成真正的服务器就好了。</p>
-<p>反向代理的常用用途：</p>
+<p>反向代理服务器架设在服务器端，与正向代理正好相反。对于客户端来说，反向代理就好像目标服务器。客户端向反向代理发送请求，接着反向代理判断请求走向何处，并将请求转交给客户端，使得这些内容就好似他自己一样，一次客户端并不会感知到反向代理后面的服务，也因此不需要客户端做任何设置，只需要把反向代理服务器当成真正的服务器就好了。<br>
+反向代理的常用用途：</p>
 <ol>
 <li>保护和隐藏原始资源服务器</li>
 <li>加密和SSL加速</li>
@@ -344,8 +344,8 @@ Linux上可以通过route命令来查看管理路由表。</p>
 <li>外网发布</li>
 </ol>
 <h3 id="透明代理">透明代理</h3>
-<p>Transparent proxy，透明代理的意思是客户端根本不需要知道有代理服务器的存在，它在网络层拦截普通通信。透明代理一般架设在网关或路由器中。</p>
-<p>Use of Transparent Proxies：</p>
+<p>Transparent proxy，透明代理的意思是客户端根本不需要知道有代理服务器的存在，它在网络层拦截普通通信。透明代理一般架设在网关或路由器中。<br>
+Use of Transparent Proxies：</p>
 <ol>
 <li>Proxy caches create copies of the data stored on a server and serve the cached content to users. This reduces the strain on the web service by having the proxy provide the content instead of the service itself.</li>
 <li>Filtering proxies prevent access to certain websites or web services. These are commonly implemented by organizations to prevent users from accessing resources that are unrelated or disruptive to the organization.</li>
@@ -380,7 +380,8 @@ The Docker daemon binds to a Unix socket instead of a TCP port. By default that 
 也可以通过编辑 <code>/etc/sysctl.conf</code> 在其末尾添加：</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.tcp_fastopen = 3</span><br></pre></td></tr></table></figure>
-<p>然后执行 <code>sysctl --system</code> 使之生效。</p>
+<p>然后执行 <code>sysctl --system</code> 使之生效。<br>
+注意：IPv4 support for TFO was merged into the Linux kernel mainline in kernel versions 3.6 (support for clients) and 3.7 (support for servers), and was turned on by default in kernel version 3.13. TFO support for IPv6 servers was merged in kernel version 3.16.</p>
 <p>下面通过ss-local来验证服务端是否正常。<br>
 ss-local 是运行在本地的socks5代理服务器，根据 OSI 模型，socks5 是会话层协议，支持 TCP 和 UDP 的代理，默认监听 127.0.0.1:1080。如果需要利用该socks5代理上外网，必须在命令中指定对应的代理。</p>
 <p>MacOS可以使用Homebrew安装 <code>brew install shadowsocks-libev</code>，其中包含了ss-local。ss-local可以直接使用各种参数启动，也可以使用配置文件。配置文件示例如下（与ss-server对应，一目了然）：</p>
@@ -465,8 +466,8 @@ dnsmasq.conf.add修改完成后，重启dnsmasq：<code>service restart_dnsmasq<
 </blockquote>
 <p>手动启动ss-tunnel和ss-redir服务：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/opt/etc/init.d/S22ssredir start</span><br><span class="line">/opt/etc/init.d/S23sstunnel start</span><br></pre></td></tr></table></figure>
-<p>另外，为了路由器重启后iptables自动添加转发规则，可以创建<code>/jffs/scripts/nat-start</code>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh</span><br><span class="line"></span><br><span class="line">logger "firewall" "Applying nat-start rules"</span><br><span class="line">iptables -t nat -A PREROUTING -p tcp -m set --match-set GFWLIST dst -j REDIRECT --to-port 1080</span><br><span class="line">iptables -t nat -A OUTPUT -p tcp -m set --match-set GFWLIST dst -j REDIRECT --to-port 1080</span><br></pre></td></tr></table></figure>
+<p>另外，为了路由器重启后iptables自动添加转发规则，可以创建<code>/jffs/scripts/nat-start</code>保存如下内容，并注意添加该文件可执行权限：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh</span><br><span class="line"></span><br><span class="line">logger "firewall" "Applying nat-start rules"</span><br><span class="line">ipset create GFWLIST hash:ip</span><br><span class="line">iptables -t nat -A PREROUTING -p tcp -m set --match-set GFWLIST dst -j REDIRECT --to-port 1080</span><br><span class="line">iptables -t nat -A OUTPUT -p tcp -m set --match-set GFWLIST dst -j REDIRECT --to-port 1080</span><br></pre></td></tr></table></figure>
 <h4 id="gfwlist更新">gfwlist更新</h4>
 <p>GitHub GFW List会不定期更新，但路由器上没有必要安装git获取整个仓，我选择周期性地通过GitHub Development API获取GFW List项目的提交记录，从而判断更新本地的GFW List。</p>
 <p>自动检测GFW List更新，并将最新的List转换为dnsmasq配置文件的源码可以参考我的python实现<a href="https://github.com/brightonzhang/ApplePy/blob/master/gfwlist2dnsmasqupdater.py" target="_blank" rel="noopener">gfwlist2dnsmasqupdater.py</a>。</p>
