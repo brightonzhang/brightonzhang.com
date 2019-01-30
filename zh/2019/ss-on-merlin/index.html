@@ -382,6 +382,11 @@ The Docker daemon binds to a Unix socket instead of a TCP port. By default that 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.tcp_fastopen = 3</span><br></pre></td></tr></table></figure>
 <p>然后执行 <code>sysctl --system</code> 使之生效。<br>
 注意：IPv4 support for TFO was merged into the Linux kernel mainline in kernel versions 3.6 (support for clients) and 3.7 (support for servers), and was turned on by default in kernel version 3.13. TFO support for IPv6 servers was merged in kernel version 3.16.</p>
+<ol start="4">
+<li>enable bbr</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo "net.core.default_qdisc=fq" &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo "net.ipv4.tcp_congestion_control=bbr" &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<p>执行 <code>sysctl --system</code> 使之生效，可以使用<code>sysctl net.ipv4.tcp_congestion_control</code>确认。</p>
 <p>下面通过ss-local来验证服务端是否正常。<br>
 ss-local 是运行在本地的socks5代理服务器，根据 OSI 模型，socks5 是会话层协议，支持 TCP 和 UDP 的代理，默认监听 127.0.0.1:1080。如果需要利用该socks5代理上外网，必须在命令中指定对应的代理。</p>
 <p>MacOS可以使用Homebrew安装 <code>brew install shadowsocks-libev</code>，其中包含了ss-local。ss-local可以直接使用各种参数启动，也可以使用配置文件。配置文件示例如下（与ss-server对应，一目了然）：</p>
