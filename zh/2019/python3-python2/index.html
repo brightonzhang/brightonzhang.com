@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          比特币的另类解释之表情包·上篇 - Brighton Zhang
+          Python3与Python2 - Brighton Zhang
         
     </title>
 
-    <link rel="canonical" href="https://brightonzhang.com/zh/2017/bitcoin-explained-with-emoji-1/">
+    <link rel="canonical" href="https://brightonzhang.com/zh/2019/python3-python2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('undefined')
+            background-image: url('/img/2018/2AIEQMwjaAihNME0.jpg')
             /*post*/
         
     }
@@ -86,17 +86,13 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#比特币" title="比特币">比特币</a>
-                            
-                              <a class="tag" href="/tags/#区块链" title="区块链">区块链</a>
-                            
-                              <a class="tag" href="/tags/#密码学" title="密码学">密码学</a>
+                              <a class="tag" href="/tags/#Python" title="Python">Python</a>
                             
                         </div>
-                        <h1>比特币的另类解释之表情包·上篇</h1>
+                        <h1>Python3与Python2</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
-                            Posted on 07/30/2017
+                            Posted on 02/03/2019
                         </span>
                     </div>
                 
@@ -200,64 +196,24 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>本文翻译至<a href="https://twitter.com/_tessr" target="_blank" rel="noopener">Tess Rinearson</a>的<a href="https://medium.com/@tessr/making-money-530d2bb2b8f7" target="_blank" rel="noopener">Making Money Bitcoin Explained (with Emoji), Part 1</a>，该翻译和发布已获得原作者允许。由于本人能力和时间有限，翻译如有纰漏或不妥，还请见谅。若对内容和翻译有任何建议或意见，欢迎交流。</p>
-<hr>
-<p><img src="/img/2017/yD-kFo0s2mzkURb1YGZTvA.png" alt=""><br>
-<em>比特币提供了一种颠覆存储和消费电子货币的途径，也有改变其它领域的潜力。不一定只有数学家或密码学家才能理解比特币。当你开始了解这个系统是怎么运作的，你可能会很开心。本文共有三章，下面是第一章。</em></p>
-<hr>
-<p>比如说，我在网上给你发送一部电影或一首歌曲。我将影片文件附到一封电子邮件里面，一旦我点发送，你就拥有了这部影片。你可以欣赏它也可以删除，任你处置。<br>
-但记住一点：我仍然还有这个文件的副本。<br>
-<img src="/img/2017/Ro6DQmNVLwcXMP6BQL01ng.gif" width="50%" height="50%"><br>
-这是数字信息在网络传输的典型方式。你没有真正地传送，你只是做了复制。到目前为止，这种方式非常有效，也许不合法或不公平，但拷贝歌曲或电影还不至于摧毁经济。<br>
-但我们想想复制货币。<br>
-如果我给了你一块钱，那我不再拥有这一块钱（副本）了。用电子邮件产生无穷的电子货币，刚开始似乎很有吸引力，但如果每个人都开始这么做呢？那势必通货膨胀，经济崩塌。<br>
-<img src="/img/2017/aLNV2jF6edP3iAD-Y3xqBg.png" alt=""><br>
-传统上，在银行电汇和信用卡的世界里，数字货币被集成追踪以防止复制。比如在你的银行，有一个数据库，用来校验谁持有数字货币。众所周知，这个系统依赖中心化机构，？。当然，这个中心化机构完全管理着你的货币。<br>
-但还有没有其它方法呢？我们能不能依赖一个不被某个政党控制的去中心化机构能，而不是依赖一个不可靠的中心化机构来管理每个人的资产。如果我们认可货币的价值不是因为我们相信政府的权力而是数学的力量。<br>
-我们再来看比特币。</p>
-<h3 id="比特币介绍">比特币介绍</h3>
-<p>比特币（Bitcoin）是一个不和任何政府或组织关联的数字货币系统。<br>
-澄清一下，比特币（bitcoin，小写字母）也用来称呼这种货币本身。比特币系统创立于2009年，但是比特币货币是通过一个叫挖矿的过程持续生成的。其过程就像挖金矿，只不过是在数字化的二十一世纪。<br>
-比特币网络的所有交易都被永久纪录在一个叫区块链的很长的表单上。这个表单不是一个由中心机构管控的机密文件，它被公开地广泛传播，每一个参与的计算机都有一个副本。<br>
-<img src="/img/2017/9R0l9KMTkr6Ko1tJF6vgDQ.png" alt=""><br>
-比特币区块链是一份不可改变的，公开的，分布式的账簿。<br>
-不可改变，是指一条纪录一旦被加入到区块链几个小时，那将再也不可能修改或者删除它。因为有很多基于它的交易纪录被添加到了区块链后面。<br>
-公开，是指每个人，不光是银行员工，都可以查看区块链。但也并不是说你可以准确地知道是谁支付或者接受了交易，因为纪录都是匿名的。身份信息都通过一个化名来隐藏，每个化名一般也只使用较短的时间。<br>
-分布式，即全世界的电脑都可以持有同步的区块链副本。没有所谓的原件，所有副本都是平等的。<br>
-最后，账簿，区块链是一个交易纪录表单。可以认为他就像你的支付宝账单。<br>
-这个分布式账簿之所以被称为区块链是因为单个交易组成一个大的“块”，然后这些块按序列链在一起。这要比逐个添加单笔交易要快。每十分钟创建一个新的区块来记录交易。<br>
-为了更好地解释不可修改，公开，分布式账簿的威力，我们想象一个常见但假设的关于价值5块钱的比特币场景。（比特币的价值上下波动，单个比特币价值远超5块钱了）。<br>
-我们假设，我的朋友伊丽莎白用比特币转给我5块，这条交易就会被记录在区块链里——所有的交易都会被记录在区块链里。现在所有的区块链副本都显示这5块钱属于我——之前是属于伊丽莎白的。接下来，我再把这5块钱转给你。这里涉及的三个人，我，你和伊丽莎白，都不需要向中心数据库查询归属和请求许可。授权机构是去中心化的，它在区块链的每一份副本里，无处不在。<br>
-你也许好奇，伊丽莎白从哪得到转给我的比特币的。<br>
-最简单的答案就是也许别人转给她的。这（转账）几乎是所有人获得比特币的方式。<br>
-但是这些比特币都得先生成出来。到底是怎么生成的呢？</p>
-<h3 id="比特币如何产生">比特币如何产生</h3>
-<p>美元是由美国政府印刷生产的，其它传统的货币也是由各个政府发行的。很久以前，美元的价值是由美国国库里等值的黄金保证的。在那个时候，发行美元就需要有等值的黄金，所以有淘金热。<br>
-比特币也是通过一个叫挖矿的过程产生的。这是一个通过计算机和软件来完成的数字挖矿，不再需要炸药和铲子。为了把新的交易区块加入到区块链，需要解决一个繁重的数学问题。第一个解决这个问题的矿工会得到比特币的奖励。这就是比特币的挖矿过程。<br>
-换句话说，挖矿做两件事：向区块链添加新的区块和创造新的比特币。矿工们比赛解决的数学问题就是哈希。</p>
-<h3 id="哈希101">哈希101</h3>
-<p>哈希值是数据的指纹，哈希值可以唯一地标识一份数字内容，包括图片，相簿，电影，密码，文本……哈希值根据数字内容计算生成，这个计算过程被称为哈希。哈希值的形式可以是字符串，也可以是数字，或者其他符号。<br>
-哈希是计算机科学的核心内容，使用广泛。为了安全，网络服务一般保存用户密码的哈希值而不是真实的密码，当你登陆时也是比较你输入密码的哈希值。Facebook使用哈希来验证图片是否允许上传。Facebook没有人盯着每一张图片去看它是涉及暴力或色情。相反，Facebook把标记为不合适的图片计算哈希值，创建一个违规内容的表单。每当有图片上传，Facebook用相同的算法计算哈希值，如果将计算结果和违规内容表里的数据比较，如果有匹配的，Facebook就知道这是一张违规图片。<br>
-一般的哈希计算软件，输入原始数据，如一张照片，然后输出一段毫无规律的字符串，即哈希值。<br>
-例如，我们把这张小狗的图片做SHA-256计算。<br>
-<img src="/img/2017/NZN-iuwDMRol0fxunqkIEA.jpg" alt=""><br>
-显然，这张萌萌的小狗照片没有违反Facebook的任何规范。一目了然。但是Facebook没有人来看这张图片，Facebook软件会检查这张图片的哈希值：<br>
-8EC9D4718F919C6087CA589EDA09E7DD9A7ACCDB820F42B4196E1D0D4BEDE77A<br>
-这是这张图片的十六进制表示的哈希值。完全没有看不出一点小狗的萌。<br>
-哈希函数的一个很有趣的特点就是如果稍稍改变一点输入的数据，其结果就会截然不同。比如说，我们修改这张小狗图片里面的一个像素——在小狗的眼睛上方加了一只一个像素的黑色跳蚤。<br>
-<img src="/img/2017/9pLIk8bq-GuOHsFaK7vtcw.png" alt=""><br>
-然后我们再计算这个图片的哈希值，哪怕我们只改了一个像素，但结果却完全不同。<br>
-039E1AF92F7D00775ECE35C2216FC3F7F0BBCD31F912A105D2601380D8DEABA2<br>
-我们可以在本文接下来的部分中用真实的内容和真实的哈希值，但是哈希往往不方便阅读和区分。相反，我们用表情包来代表哈希的输入和输出。在下文的例子中，用猫脸代表哈希的输入（用来计算哈希的内容），用蝴蝶结代表输入（哈希值）。<br>
-<img src="/img/2017/meFq2cQdP8I_Q74dYN7fYQ.png" alt=""><br>
-试想Facebook，Facebook计算了两幅违规图片——如🚫和❌——哈希结果是💩和💀。<br>
-<img src="/img/2017/IzjzG_s6l-vjha7OTfzfiA.png" alt=""><br>
-后来，有人上传了一张图片，我们先叫它&quot;?&quot;，因为Facebook还不知道它是啥。Facebook计算了改图片的哈希，结果是💩。<br>
-<img src="/img/2017/eh_ECwi4aQBcORo3Zk7gZA.png" alt=""><br>
-尽管没人看过这个神秘图片，Facebook知道这是副违规图片🚫——哈希值是匹配的。不需要有人直接去检查新上传的图片，因为这幅图片和某一副违规图片的哈希值是一样的。<br>
-图片识别只是哈希的一个应用。比特币挖矿，即创造新的比特币和添加新交易到区块链，则是哈希的另一个应用。</p>
-<hr>
-<p><em>到目前为止，在<a href="http://brightonzhang.com/2017/07/bitcoin-explained-with-emoji-1/">第一章</a>，我们已经知道了比特币是一种去中心化的，不由任何政府或财团发行的货币。另外我们还了解了哈希的基本概念。在<a href="http://brightonzhang.com/2017/08/bitcoin-explained-with-emoji-2/">第二章</a>，我们将讲述比特币矿工如何用哈希去赚钱，以及密码学如何保障比特币的唯一性和不可复制性却又可以转账。</em></p>
+                <p>Python 3故意与Python 2不兼容，以解决Python 2中的一些糟糕问题。本文将整理Python 3与Python 2主要不兼容的差异。</p>
+<p>According to Guido, he initiated the Python 3 project to clean up a variety of issues with Python 2 where he didn’t feel comfortable with fixing them through the normal deprecation process. This included the removal of classic classes, changing integer division to automatically promote to a floating point result (retaining the separate floor division operation) and changing the core string type to be based on Unicode by default.</p>
+<p>BTW，Python 2.7 将在 2020 年 1 月 1 日寿终正寝，之后官方不会有任何更新，包括源码的安全补丁，请参考<a href="https://mail.python.org/pipermail/python-dev/2018-March/152348.html" target="_blank" rel="noopener">Python 之父 Guido van Rossum的邮件</a>。</p>
+<h1 id="print">print</h1>
+<p>Python 3中用<a href="https://docs.python.org/3/library/functions.html#print" target="_blank" rel="noopener">print()函数</a>取代了Python 2 的<a href="https://docs.python.org/2/reference/simple_stmts.html#print" target="_blank" rel="noopener">print 声明</a>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SWAN:~ Brighton$ python2</span><br><span class="line">Python 2.7.15 (default, Dec  5 2018, 10:48:09) </span><br><span class="line">[GCC 4.2.1 Compatible Apple LLVM 10.0.0 (clang-1000.11.45.5)] on darwin</span><br><span class="line">Type "help", "copyright", "credits" or "license" for more information.</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; print "The answer is", 2*2</span><br><span class="line">The answer is 4</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; x = 5</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; print x,           # Trailing comma suppresses newline</span><br><span class="line">5</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; print              # Prints a newline</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; import sys</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; print &gt;&gt;sys.stderr, "fatal error"</span><br><span class="line">fatal error</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">SWAN:~ Brighton$ python3</span><br><span class="line">Python 3.7.0 (default, Sep  6 2018, 10:07:52) </span><br><span class="line">[Clang 9.1.0 (clang-902.0.39.2)] on darwin</span><br><span class="line">Type "help", "copyright", "credits" or "license" for more information.</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; print "The answer is", 2*2</span><br><span class="line">  File "&lt;stdin&gt;", line 1</span><br><span class="line">    print "The answer is", 2*2</span><br><span class="line">                        ^</span><br><span class="line">SyntaxError: Missing parentheses in call to 'print'. Did you mean print("The answer is", 2*2)?</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; print("The answer is", 2*2)</span><br><span class="line">The answer is 4</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; x = 5</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; print(x, end=" ")  # Appends a space instead of a newline</span><br><span class="line">5 &gt;&gt;&gt; print()            # Call the function to print a newline</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; import sys</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; print("fatal error", file=sys.stderr)</span><br><span class="line">fatal error</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="string-amp-bytes">string &amp; bytes</h1>
+<p>Pre-3.0 versions of Python lacked distinction between text and binary data. Instead, there was:</p>
+<ul>
+<li>unicode = u’…’ literals = sequence of Unicode characters = 3.x str</li>
+<li>str = ‘…’  literals = sequences of confounded bytes/characters</li>
+</ul>
+<p>Python 3.x makes a clear distinction between the types:</p>
+<ul>
+<li>str = ‘…’ literals = a sequence of Unicode characters (UTF-16 or UTF-32, depending on how Python was compiled)</li>
+<li>bytes = b’…’ literals = a sequence of octets (integers between 0 and 255)</li>
+</ul>
 
                 
 
@@ -265,13 +221,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/zh/2017/bitcoin-explained-with-emoji-2/" data-toggle="tooltip" data-placement="top" title="比特币的另类解释之表情包·中篇">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/zh/2016/ubuntu-on-windows/" data-toggle="tooltip" data-placement="top" title="Ubuntu on Windows 初体验">Next Post &rarr;</a>
+                            <a href="/zh/2019/ssh-config/" data-toggle="tooltip" data-placement="top" title="美好生活，从SSH Config开始">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -296,6 +248,17 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#print"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">print</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#string-amp-bytes"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">string &amp; bytes</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
                 
             <!-- Sidebar Container -->
             <div class="
@@ -310,11 +273,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#比特币" title="比特币">比特币</a>
-                        
-                          <a class="tag" href="/tags/#区块链" title="区块链">区块链</a>
-                        
-                          <a class="tag" href="/tags/#密码学" title="密码学">密码学</a>
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
                         
                     </div>
                 </section>
@@ -334,8 +293,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "brightonzhang-com";
-    var disqus_identifier = "https://brightonzhang.com/zh/2017/bitcoin-explained-with-emoji-1/";
-    var disqus_url = "https://brightonzhang.com/zh/2017/bitcoin-explained-with-emoji-1/";
+    var disqus_identifier = "https://brightonzhang.com/zh/2019/python3-python2/";
+    var disqus_url = "https://brightonzhang.com/zh/2019/python3-python2/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

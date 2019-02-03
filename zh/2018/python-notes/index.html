@@ -196,7 +196,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>本文为个人Python学习笔记，主要为帮助自己记录重点，也可作为其他语言（如C/C++）程序员学习Python的参考资料。</p>
+                <p>本文主要根据Google Python课程整理，主要为帮助自己记录重点，也可作为其他语言（如C/C++）程序员学习Python的参考资料。</p>
+<p>注意：本文以Python 2为主。</p>
 <h1 id="入门">入门</h1>
 <ul>
 <li>Python语句无需分号结束。</li>
@@ -230,16 +231,6 @@
 <p>The “print” operator prints out one or more python items followed by a newline (leave a trailing comma at the end of the items to inhibit the newline).</p>
 <p>“raw”字符串常量是以‘r’开头的，后续字符中的反斜杠不再特殊处理。所以<code>r'x\nx'</code>值就是4个字符的 ‘x\nx’. ’u‘前缀则表示unicode字符串常量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">raw = <span class="string">r'this\t\n and that'</span></span><br><span class="line"><span class="keyword">print</span> raw     <span class="comment">## this\t\n and that</span></span><br><span class="line">  </span><br><span class="line">multi = <span class="string">"""It was the best of times.</span></span><br><span class="line"><span class="string">It was the worst of times."""</span></span><br></pre></td></tr></table></figure>
-<p>Pre-3.0 versions of Python lacked distinction between text and binary data. Instead, there was:</p>
-<ul>
-<li><code>unicode</code> = <code>u'...'</code> literals = sequence of Unicode characters = 3.x <code>str</code></li>
-<li><code>str</code> = <code>'...'</code>  literals = sequences of confounded bytes/characters</li>
-</ul>
-<p>Python 3.x makes a clear distinction between the types:</p>
-<ul>
-<li><code>str</code> = <code>'...'</code> literals = a sequence of Unicode characters (UTF-16 or UTF-32, depending on how Python was compiled)</li>
-<li><code>bytes</code> = <code>b'...'</code> literals = a sequence of octets (integers between 0 and 255)</li>
-</ul>
 <h2 id="字符串方法">字符串方法</h2>
 <p>如下是最常用的字符串方法：</p>
 <ul>

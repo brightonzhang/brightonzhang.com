@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>https://brightonzhang.com/zh/2019/python3-python2/</loc>
+        <lastmod>2019-02-03T03:44:40.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://brightonzhang.com/zh/2018/python-notes/</loc>
+        <lastmod>2019-02-03T02:55:13.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://brightonzhang.com/zh/2019/ss-on-merlin/</loc>
         <lastmod>2019-02-01T10:10:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,14 +33,6 @@
     <url>
         <loc>https://brightonzhang.com/zh/2019/ssh-config/</loc>
         <lastmod>2019-02-01T10:10:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://brightonzhang.com/zh/2018/python-notes/</loc>
-        <lastmod>2019-01-26T02:10:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
