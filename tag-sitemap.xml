@@ -9,6 +9,13 @@
     </url>
 
     <url>
+        <loc>https://brightonzhang.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
+        <lastmod>2018-03-02T00:59:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://brightonzhang.com/tags/%E6%AF%94%E7%89%B9%E5%B8%81/</loc>
         <lastmod>2018-03-02T00:59:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,13 +24,6 @@
 
     <url>
         <loc>https://brightonzhang.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</loc>
-        <lastmod>2018-03-02T00:59:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://brightonzhang.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
         <lastmod>2018-03-02T00:59:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -66,7 +66,7 @@
 
     <url>
         <loc>https://brightonzhang.com/tags/Python/</loc>
-        <lastmod>2019-02-03T03:44:40.000Z</lastmod>
+        <lastmod>2019-02-08T04:47:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
