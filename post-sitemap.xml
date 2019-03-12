@@ -7,8 +7,8 @@
     </url>
 
     <url>
-        <loc>https://brightonzhang.com/zh/2019/python3-python2/</loc>
-        <lastmod>2019-02-28T03:12:24.000Z</lastmod>
+        <loc>https://brightonzhang.com/zh/2019/norse-mythology/</loc>
+        <lastmod>2019-03-12T08:03:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,7 +16,15 @@
 
     <url>
         <loc>https://brightonzhang.com/zh/2018/python-notes/</loc>
-        <lastmod>2019-02-28T03:11:51.000Z</lastmod>
+        <lastmod>2019-03-01T10:02:46.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://brightonzhang.com/zh/2019/python3-python2/</loc>
+        <lastmod>2019-02-28T03:12:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

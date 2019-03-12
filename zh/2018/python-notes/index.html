@@ -23,6 +23,8 @@
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
     <!-- Custom CSS --> 
     <link rel="stylesheet" href="/css/beantech.min.css">
     
@@ -255,7 +257,7 @@
 <p>运算符%左边引号里面的%*是占位符，与C类似： %d int, %s string, %f/%g floating point。而右边元组tupe里面是匹配的值。</p>
 <p>不同与其他语言，我们不能在%后换行——因为Python默认将每一行作为独立的指令。我们可以将完整的语句包含在括号中来解决这一问题——(), [], {}都可以。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># add parens to make the long-line work:</span></span><br><span class="line">text = (<span class="string">"%d little pigs come out or I'll %s and %s and %s"</span> %</span><br><span class="line">  (<span class="number">3</span>, <span class="string">'huff'</span>, <span class="string">'puff'</span>, <span class="string">'blow down'</span>))</span><br></pre></td></tr></table></figure>
-<p>在Python 2.6中新加入了<a href="https://docs.python.org/2/library/stdtypes.html#str.format" target="_blank" rel="noopener"><code>str.format(args, kwargs)</code></a>方法，提供类似%的功能。</p>
+<p>在Python 2.6中新加入了<a href="https://docs.python.org/2/library/stdtypes.html#str.format" target="_blank" rel="noopener"><code>str.format(*args, **kwargs)</code></a>方法，提供类似%的功能。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'&#123;0&#125;, &#123;1&#125;, &#123;2&#125;'</span>.format(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>)</span><br><span class="line"><span class="string">'a, b, c'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'&#123;&#125;, &#123;&#125;, &#123;&#125;'</span>.format(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>)  <span class="comment"># 2.7+ only</span></span><br><span class="line"><span class="string">'a, b, c'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'&#123;2&#125;, &#123;1&#125;, &#123;0&#125;'</span>.format(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>)</span><br><span class="line"><span class="string">'c, b, a'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Coordinates: &#123;latitude&#125;, &#123;longitude&#125;'</span>.format(latitude=<span class="string">'37.24N'</span>, longitude=<span class="string">'-115.81W'</span>)</span><br><span class="line"><span class="string">'Coordinates: 37.24N, -115.81W'</span></span><br></pre></td></tr></table></figure>
 <h2 id="i18n-strings-unicode">i18n Strings (Unicode)</h2>
 <p>普通的Python字符串不是unicode的，只是普通的字节。用‘u’前缀创建unicode字符串以支持国际化字符（internationalization, i18n）。</p>
@@ -659,6 +661,8 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="/js/bootstrap.min.js"></script>
+
+<script src="/js/jquery.fancybox.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="/js/hux-blog.min.js"></script>

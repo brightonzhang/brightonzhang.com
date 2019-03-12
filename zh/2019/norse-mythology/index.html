@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          OpenSSL CA实践 - Brighton Zhang
+          北欧诸神:斗争与毁灭 - Brighton Zhang
         
     </title>
 
-    <link rel="canonical" href="https://brightonzhang.com/zh/2018/openssl-ca/">
+    <link rel="canonical" href="https://brightonzhang.com/zh/2019/norse-mythology/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/2018/p2520923397.jpg')
+            background-image: url('/img/2019/71264852806.jpg')
             /*post*/
         
     }
@@ -88,15 +88,11 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#OpenSSL" title="OpenSSL">OpenSSL</a>
-                            
-                              <a class="tag" href="/tags/#网络安全" title="网络安全">网络安全</a>
-                            
                         </div>
-                        <h1>OpenSSL CA实践</h1>
-                        <h2 class="subheading">为华硕路由器HTTPS登陆添加自签名证书</h2>
+                        <h1>北欧诸神:斗争与毁灭</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
-                            Posted on 05/12/2018
+                            Posted on 03/11/2019
                         </span>
                     </div>
                 
@@ -200,22 +196,12 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>本文将描述如何用OpenSSL建立CA，签发证书，以及各系统下安装CA证书等。</p>
-<p>最近家里华硕路由器固件升级后，发现DDNS访问可以添加SSL证书了，这样就再也不用忍受Chrome上那个不安全的图标了。从设置页面看，系统支持Let’s Encrypt自动获取证书和用户导入证书。我先尝试了Let’s Encrypt，但一直显示”正在更新“。咨询了华硕技服后了解到Let’s Encrypt证书更新依赖80端口，我宽带的80端口估计被电信封掉了，所以一直“正在更新”。既然这样，我干脆自己建个CA给DDNS域名签发证书好了——反正就是几个OpenSSL命令的事。</p>
-<h2 id="ca">CA</h2>
-<p>CA, certificate authority, 即签发数字证书的机构。证书链的信任根由根证书提供，根证书的最大特点就是签发人和使用人都是相同的实体，这个实体就是CA。<br>
-被全球广泛认可的CA并不多，这些CA的跟证书一般都被浏览器或系统预置了，所以我们可以直接访问这些CA签发的网站而不会提示安全风险。如果网站使用了私有CA签发的证书，那就需要用户自己安装跟证书了——这就是上12306买票要装他们那个根证书的原因。我今天也要做的就是充当CA的角色，先生成根证书，然后签发路由器域名需要的服务器证书。</p>
-<h2 id="生成根证书">生成根证书</h2>
-<p>首先准备好工作目录，如$CADIR，并在该目录下创建相应的文件（夹）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir $CADIR</span><br><span class="line">cd $CADIR</span><br><span class="line">mkdir certs crl newcerts private</span><br><span class="line">chmod 700 private</span><br><span class="line">touch index.txt</span><br><span class="line">echo 1000 &gt; serial</span><br></pre></td></tr></table></figure>
-<p>index.txt和serial文件作为数据库来记录签发的证书。</p>
-<p>然后准备OpenSSL配置文件。我</p>
-<h2 id="生成服务器证书">生成服务器证书</h2>
-<h2 id="部署服务器证书">部署服务器证书</h2>
-<h2 id="安装根证书">安装根证书</h2>
-<p>参考资料：<br>
-<a href="https://jamielinux.com/docs/openssl-certificate-authority/index.html" target="_blank" rel="noopener">OpenSSL Certificate Authority</a></p>
-<p><a href="https://stackoverflow.com/questions/44952985/ios-11-installed-certificates-not-trusted-automatically-self-signed" target="_blank" rel="noopener">OS 11 installed certificates not trusted automatically (self signed)</a></p>
+                <p>北欧神话，源自古斯堪的维纳人亚(Scandinavian)或说北欧人(Norsemen)的原始信仰。而北欧神话在尚未􏰀被诗人保存下来就受到了基督教信仰的摧残，所以在整体上远不如希腊神话深宏广大。也因为早被基督教信仰调和修正了，所以北欧神话可能不能正确地反映原始的北欧人的信仰、习惯和意识形态，这或许就是北欧神话不受考古学者十分注意的原因。但北欧神话对文学、艺术、游戏等有着深远影响。近年由于雷神和洛基在漫威宇宙中的抢眼表现，也让更多的人开始了解北欧神话。</p>
+<p>我一直对神话故事有浓厚的兴趣，对北欧有着天然的好感，而日前亚马逊给我推了《北欧众神》一书，我决定来系统地看看北欧神话，阅读了一些北欧神话相关的书文，梳理了北欧神话中主要的人物以及关系，整理成此文。</p>
+<p><img src="/img/2019/72193111612.png" alt="Aesir"></p>
+<p><img src="/img/2019/72193111601.png" alt="Vanir"></p>
+<p><img src="/img/2019/72193111603.png" alt="loki's"></p>
+<img src="/img/2019/72193111619.png">
 
                 
 
@@ -223,13 +209,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/zh/2018/python-notes/" data-toggle="tooltip" data-placement="top" title="Python笔记：入门篇(Python 2)">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/zh/2018/ios11-password-manager/" data-toggle="tooltip" data-placement="top" title="由iOS11密码管理器想到的">Next Post &rarr;</a>
+                            <a href="/zh/2019/dietary-guidelines/" data-toggle="tooltip" data-placement="top" title="健康吃出来：科学合理饮食推荐">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -259,7 +241,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ca"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">CA</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#生成根证书"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">生成根证书</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#生成服务器证书"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">生成服务器证书</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#部署服务器证书"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">部署服务器证书</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装根证书"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">安装根证书</span></a></li></ol>
+          <ol class="nav">none</ol>
         
         </div>
       </aside>
@@ -279,10 +261,6 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#OpenSSL" title="OpenSSL">OpenSSL</a>
-                        
-                          <a class="tag" href="/tags/#网络安全" title="网络安全">网络安全</a>
-                        
                     </div>
                 </section>
                 
@@ -301,8 +279,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "brightonzhang-com";
-    var disqus_identifier = "https://brightonzhang.com/zh/2018/openssl-ca/";
-    var disqus_url = "https://brightonzhang.com/zh/2018/openssl-ca/";
+    var disqus_identifier = "https://brightonzhang.com/zh/2019/norse-mythology/";
+    var disqus_url = "https://brightonzhang.com/zh/2019/norse-mythology/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
