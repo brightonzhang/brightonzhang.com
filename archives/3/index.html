@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          MAC使用笔记 - Brighton Zhang
+          Brighton Zhang
         
     </title>
 
-    <link rel="canonical" href="https://brightonzhang.com/zh/2016/mac-notes/">
+    <link rel="canonical" href="https://brightonzhang.com/archives/3/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('undefined')
-            /*post*/
+            background-image: url('/img/header_img/banner.jpg') 
+            /*config*/
         
     }
     
@@ -85,15 +85,10 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="post-heading">
-                        <div class="tags">
-                            
-                        </div>
-                        <h1>MAC使用笔记</h1>
-                        <h2 class="subheading"></h2>
-                        <span class="meta">
-                            Posted on 06/10/2016
-                        </span>
+                    <div class="site-heading">
+                        <h1>Brighton Zhang</h1>
+                        <!--<hr class="small">-->
+                        <span class="subheading">We can burn brighter than the sun</span>
                     </div>
                 
 
@@ -183,167 +178,215 @@
 
 
     <!-- Main Content -->
-    <!-- Modify by Yu-Hsuan Yen -->
+    <!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Post Container -->
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                <h1 id="启动root用户">启动root用户</h1>
-<p>OS X Lion (10.7) 和更高版本</p>
-<ul>
-<li>从 Apple 菜单中选取“系统偏好设置”。</li>
-<li>从“显示”菜单中选取“用户与群组”。</li>
-<li>点按锁图标并使用管理员帐户进行鉴定。</li>
-<li>点按“登录选项”。</li>
-<li>点按右下方的“编辑”或“加入”按钮。</li>
-<li>点按“打开目录实用工具”按钮。</li>
-<li>点按“目录实用工具”窗口中的锁图标。</li>
-<li>输入管理员帐户名称和密码，然后点按“好”。</li>
-<li>从“编辑”菜单中选取“启用 Root 用户”。</li>
-<li>在“密码”和“验证”栏中输入您想要使用的 root 密码，然后点按“好”。</li>
-</ul>
-<p>详请参考：<a href="https://support.apple.com/zh-cn/HT204012" target="_blank" rel="noopener">https://support.apple.com/zh-cn/HT204012</a></p>
-<h1 id="启动项">启动项</h1>
-<p>该节主要参考至 <a href="http://www.tanhao.me/talk/1287.html/" target="_blank" rel="noopener">http://www.tanhao.me/talk/1287.html/</a><br>
-Mac OS X的开机启动项分为3种：Login Items，Launchd Daemon和Startup Items。</p>
-<h6 id="login-items">Login Items</h6>
-<p>Login Item可能时我们见到的最后的，就是在 “系统偏好设置／用户与群组／登录项”里面设置的。其配置文件时保存在 $HOME/Library/Preferences/com.apple.loginitems.plist下面。</p>
-<h6 id="lauchd-daemon">Lauchd Daemon</h6>
-<p>Launched Daemon是由launchd来负责启动的。launchd是内核加载之后启动的第一个进程。launchd用来完成系统初始化。launchd首先加载/System/Library/LaunchDaemons/和/Library/LaunchDaemons/目录下的launch-on-demand system-level daemon（这些是系统启动后立即启动的进程，是守护进程）。然后启动/System/Library/LaunchAgents, /Library/LaunchAgents 和$HOME/Library/LaunchAgents 下面的launch－on－demand user agent（这些是用户登录后启动的进程）。<br>
-我安装的tiger VPN的client的启动就是配置在/Library/LaunchAgents／com.tigeratwork.tigervpn.plist。<br>
-可以通过直接删除plist文件来移除启动项，也可以通过luanchctl命令来修改启动项。<br>
-e.g. sudo launchctl unload -w com.tigeratwork.tigervpn.plist #这样就可以移除tiger vpn client的开机自启动。<br>
-关于launchctl可以参考：<a href="http://ss64.com/osx/launchctl.html" target="_blank" rel="noopener">http://ss64.com/osx/launchctl.html</a><br>
-执行launchctl unload －w之后，相应的plist文件还在，但重启之后的确不再启动了。我还没有找到配置文件保存在哪。<br>
-更多Launchd Daemon可以参考：<a href="https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html" target="_blank" rel="noopener">https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html</a></p>
-<h6 id="startup-items">Startup Items</h6>
-<p>Startup Items是系统启动过程中运行的程序，一般在/System/Library/StartupItems和/Library/StartupItems目录下。</p>
-
-                
-
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/zh/2016/ubuntu-on-windows/" data-toggle="tooltip" data-placement="top" title="Ubuntu on Windows 初体验">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/zh/2016/html-basic/" data-toggle="tooltip" data-placement="top" title="前端开发：HTML入门">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
-
-                <!-- duoshuo Share start -->
-                
-                <!-- 多说 Share end-->
-
-                <!-- 多说评论框 start -->
-                
-                <!-- 多说评论框 end -->
-
-                <!-- disqus comment start -->
-                
-                    <div class="comment">
-                        <div id="disqus_thread" class="disqus-thread"></div>
-                    </div>
-                
-                <!-- disqus comment end -->
-            </div>
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
             
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
+                <!-- Main Content -->
 
-                
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
 
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       
-                    </div>
-                </section>
-                
+<div class="post-preview">
 
-                <!-- Friends Blog -->
+    <a href="/zh/2015/test/">
+        <h2 class="post-title">
+            Test
+        </h2>
+        <h3 class="post-subtitle">
+            Just for testing.
+        </h3>
+        <div class="post-content-preview">
+            
+The header image is from SKETCH THAT
+
+Hello
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+the quick brown fox jumps over the lazy dog
+纳凉
+携扙来追柳外凉，画桥南畔倚胡床。
+月明船笛参差起，风定池莲自在香。
+...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted on 06/28/2015
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+        <li class="previous">
+            <a href="/archives/2/">&larr; Newer Posts</a>
+        </li>
+    
+    
+</ul>
+
+
+
+                <!-- 如果开启评论功能 -->
                 
             </div>
-        </div>
+
+          <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Featured Tags -->
+
+<section>
+    <!-- no hr -->
+    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+            
+            <a href="/tags/#比特币" title="比特币" rel="2">比特币</a>
+            
+        
+            
+            <a href="/tags/#区块链" title="区块链" rel="2">区块链</a>
+            
+        
+            
+            <a href="/tags/#密码学" title="密码学" rel="3">密码学</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#Python" title="Python" rel="2">Python</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
+            
+        
+            
+        
     </div>
-</article>
+</section>
 
+        <hr>
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+    <h5><a href="/about/">ABOUT ME</a></h5>
+    <div class="short-about">
 
+        
+            <img id="avatar_pic" src="/img/UNADJUSTEDNONRAW.jpg">
+        
 
+        
+            <p>Hello, this is Brighton Zhang</p>
+        
 
-<!-- disqus embedded js code start (one page only need to embed once) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "brightonzhang-com";
-    var disqus_identifier = "https://brightonzhang.com/zh/2016/mac-notes/";
-    var disqus_url = "https://brightonzhang.com/zh/2016/mac-notes/";
+        <!-- SNS Link -->
+        <ul class="list-inline">
+            
+            
+                <li>
+                    <a target="_blank" href="https://twitter.com/brightonzhang">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+            
 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus embedded js code start end -->
+            
 
+            
 
+            
+                <li>
+                    <a target="_blank" href="https://github.com/brightonzhang">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+            
+            
+            
+        </ul>
+    </div>
+</section>
+        <hr>
+    
+        
+  <h5>RECENT POSTS
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/zh/2019/norse-mythology/">北欧诸神:斗争与毁灭</a>
+        </li>
+      
+        <li>
+          <a href="/zh/2019/dietary-guidelines/">健康吃出来：科学合理饮食推荐</a>
+        </li>
+      
+        <li>
+          <a href="/zh/2019/python3-python2/">Python3与Python2的主要不兼容差异</a>
+        </li>
+      
+        <li>
+          <a href="/zh/2019/ssh-config/">美好生活，从SSH Config开始</a>
+        </li>
+      
+        <li>
+          <a href="/zh/2019/ss-on-merlin/">Linux网络小实践：网络加速</a>
+        </li>
+      
+    </ul>
+  </div>
+</h5>
+        <hr>
+    
+</div>
 
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'hover',
-          placement: 'left',
-          icon: 'ℬ'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
-
+        
+    </div>
+</div>
 
 
     <!-- Footer -->
