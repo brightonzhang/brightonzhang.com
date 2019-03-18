@@ -202,32 +202,33 @@
 HTML 不是一种编程语言，而是一种<em>标记语言</em> (markup language)—— 标记语言是一套<em>标记标签</em> (markup tag)。<br>
 HTML 使用<em>标记标签</em>来描述网页。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Page Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>My First Heading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>My first paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>XHTML, E<strong>X</strong>tensible <strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage, 可扩展超文本标记语言，是以XML应用的方式定义的更严格更纯净的HTML版本。</p>
 <h1 id="标签-元素和属性">标签、元素和属性</h1>
 <p>HTML标记标签通常被称为HTML<strong>标签</strong>(HTML tag)。浏览器不会显示HTML标签，而是使用标签来解释页面的内容。<br>
-HTML标签是由尖括号包围的关键词，比如<code>&lt;html&gt;</code>。HTML标签通常是成对出现的，标签对中的第一个标签是开始标签（start tag），也称开放标签（opening tag）；第二个标签是结束标签（end tag）或言闭合标签（closing tag）。</p>
+HTML标签是由尖括号包围的关键词，比如<code>&lt;html&gt;</code>。HTML标签通常是成对出现的，标签对中的第一个标签是开始标签(start tag)，也称开放标签(opening tag)；第二个标签是结束标签(end tag)或言闭合标签(closing tag)。</p>
 <p>常用标签：<br>
-标题（Heading）：<code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code> 。（<code>&lt;h1&gt;</code> 定义最大的标题，<code>&lt;h6&gt;</code> 定义最小的标题）<br>
-段落（Paragraphs）标签：<br>
+标题(Headin)：<code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code> 。（<code>&lt;h1&gt;</code> 定义最大的标题，<code>&lt;h6&gt;</code> 定义最小的标题）<br>
+段落(Paragraph)：<code>&lt;p&gt;</code><br>
 链接：<code>&lt;a&gt;</code><br>
-图像： <code>&lt;img&gt;</code><br>
-表格： <code>&lt;table&gt;</code> 。每个表格均有若干行 <code>&lt;tr&gt;</code> ，每行被分割为若干单元格<code>&lt;td&gt;</code><br>
+图像：<code>&lt;img&gt;</code><br>
+表格：<code>&lt;table&gt;</code> 。每个表格均有若干行 <code>&lt;tr&gt;</code> ，每行被分割为若干单元格<code>&lt;td&gt;</code><br>
 列表：无序列表 <code>&lt;ul&gt;</code> ，有序列表始于 <code>&lt;ol&gt;</code> 。每个列表项 <code>&lt;li&gt;</code><br>
 分割线：<code>&lt;hr /&gt;</code><br>
 换行： <code>&lt;br /&gt;</code><br>
-注：对于 HTML，您无法通过在 HTML 代码中添加额外的空格或换行来改变输出的效果。当显示页面时，浏览器会移除源代码中多余的空格和空行。所有连续的空格或空行都会被算作一个空格。需要注意的是，HTML 代码中的所有连续的空行（换行）也被显示为一个空格。</p>
+注：对于 HTML，您无法通过在HTML代码中添加额外的空格或换行来改变输出的效果。当显示页面时，浏览器会移除源代码中多余的空格和空行。所有连续的空格或空行都会被算作一个空格。需要注意的是，HTML代码中的所有连续的空行（换行）也被显示为一个空格。</p>
 <p>更多HTML标签请参考：<a href="http://www.w3school.com.cn/tags/html_ref_byfunc.asp" target="_blank" rel="noopener">HTML标签列表</a></p>
 <p><u>从开始标签到结束标签的所有内容</u>是HTML<strong>元素</strong>(Elements)。没有内容的HTML元素被称为空元素。空元素是在开始标签中关闭的——在开始标签中添加斜杠，比如 <code>&lt;br /&gt;</code>，是关闭空元素的正确方法。<br>
 大多数HTML元素可以嵌套。HTML文档由嵌套的HTML元素构成。</p>
 <p>HTML元素可以拥有<strong>属性</strong>(Attributes)。属性赋予元素意义和语境。<br>
 属性总是在开始标签中规定，通常以名称/值对(<code>name=&quot;value&quot;</code>)的形式出现。</p>
-<p>如，链接由 <code>&lt;a&gt;</code> 标签定义。链接的地址在 href 属性中指定：</p>
+<p>如，链接由 <code>&lt;a&gt;</code> 标签定义。链接的地址在href属性中指定：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://brightonzhang.com/archive/"</span>&gt;</span>Brighton<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>更多属性请参考：<a href="http://www.w3school.com.cn/tags/html_ref_standardattributes.asp" target="_blank" rel="noopener">HTML 全局属性</a></p>
 <h1 id="样式">样式</h1>
-<p>HTML 的 style 属性提供了一种改变所有 HTML 元素的样式的通用方法。<br>
-样式是 HTML 4 引入的，它是一种新的首选的改变 HTML 元素样式的方式。有3种方式为HTML 元素添加样式：</p>
+<h2 id="css">CSS</h2>
+<p>样式Style是 HTML 4 引入的，它是一种新的首选的改变HTML元素样式的方式。有3种方式为HTML元素添加样式：</p>
 <ol>
-<li>内联样式：使用 style 属性直接将样式添加到 HTML 元素。</li>
+<li>内联样式：使用style属性直接将样式添加到HTML元素。</li>
 </ol>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">"color:blue;"</span>&gt;</span>This is a Blue Heading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ol start="2">
@@ -235,13 +236,17 @@ HTML标签是由尖括号包围的关键词，比如<code>&lt;html&gt;</code>。
 </ol>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">body &#123;background-color: powderblue;&#125;</span></span><br><span class="line"><span class="undefined">h1   &#123;color: blue;&#125;</span></span><br><span class="line"><span class="undefined">p    &#123;color: red;&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ol start="3">
-<li>外部样式表：使用独立的样式表CSS 文件并链接。</li>
+<li>外部样式表：使用独立的样式表CSS文件并链接。</li>
 </ol>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"theme.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>另外，HTML定义了很多格式化输出的标签，用于改变文本的外观和含义，可以分成两类：基于内容的样式（content-based style）和物理样式（physical style）。</p>
+<h2 id="格式化标签">格式化标签</h2>
+<p>另外，HTML定义了很多格式化输出的标签，用于改变文本的外观和含义，可以分成两类：基于内容的样式（content-based style）和物理样式(physical style)。</p>
 <p>基于内容的样式标签会告诉浏览器它所包含的文本具有特定的含义、上下文或者用法。然后浏览器就会把与该含义、上下文或者用法一致的格式应用在文本上。这些标签包括：<a href="http://www.w3school.com.cn/tags/tag_abbr.asp" target="_blank" rel="noopener"><code>&lt;abbr&gt;</code></a>, <a href="http://www.w3school.com.cn/tags/tag_acronym.asp" target="_blank" rel="noopener"><code>&lt;acronym&gt;</code></a>, <a href="http://www.w3school.com.cn/tags/tag_cite.asp" target="_blank" rel="noopener"><code>&lt;cite&gt;</code></a>, <a href="http://www.w3school.com.cn/tags/tag_code.asp" target="_blank" rel="noopener"><code>&lt;code&gt;</code></a>, <a href="http://www.w3school.com.cn/tags/tag_dfn.asp" target="_blank" rel="noopener"><code>&lt;dfn&gt;</code></a>, <a href="http://www.w3school.com.cn/tags/tag_em.asp" target="_blank" rel="noopener"><code>&lt;em&gt;</code></a>, <a href="http://www.w3school.com.cn/tags/tag_kbd.asp" target="_blank" rel="noopener"><code>&lt;kbd&gt;</code></a>, <a href="http://www.w3school.com.cn/tags/tag_samp.asp" target="_blank" rel="noopener"><code>&lt;samp&gt;</code></a>, <a href="http://www.w3school.com.cn/tags/tag_strong.asp" target="_blank" rel="noopener"><code>&lt;strong&gt;</code></a>, <a href="http://www.w3school.com.cn/tags/tag_var.asp" target="_blank" rel="noopener"><code>&lt;var&gt;</code></a>。</p>
-<p>物理样式则直接指定文本的显示方式。当前的 HTML/XHTML 标准一共提供了 9 种物理样式，包括粗体bold<a href="http://www.w3school.com.cn/tags/tag_b.asp" target="_blank" rel="noopener"><code>&lt;b&gt;</code></a>, 斜体italic<a href="http://www.w3school.com.cn/tags/tag_i.asp" target="_blank" rel="noopener"><code>&lt;i&gt;</code></a>, 等宽monospaced<a href="http://www.w3school.com.cn/tags/tag_tt.asp" target="_blank" rel="noopener"><code>&lt;tt&gt;</code></a>, 下划线underlined<a href="http://www.w3school.com.cn/tags/tag_u.asp" target="_blank" rel="noopener"><code>&lt;u&gt;</code></a>, 删除线strikethrough<a href="http://www.w3school.com.cn/tags/tag_s.asp" target="_blank" rel="noopener"><code>&lt;s&gt;</code></a>/<a href="http://www.w3school.com.cn/tags/tag_strike.asp" target="_blank" rel="noopener"><code>&lt;strike&gt;</code></a>, 、放大larger<a href="http://www.w3school.com.cn/tags/tag_big.asp" target="_blank" rel="noopener"><code>&lt;big&gt;</code></a>, 、缩小smaller<a href="http://www.w3school.com.cn/tags/tag_small.asp" target="_blank" rel="noopener"><code>&lt;small&gt;</code></a>, 、上标superscripted<a href="http://www.w3school.com.cn/tags/tag_sup.asp" target="_blank" rel="noopener"><code>&lt;sup&gt;</code></a>, 和下标subscripted<a href="http://www.w3school.com.cn/tags/tag_sub.asp" target="_blank" rel="noopener"><code>&lt;sub&gt;</code></a>。</p>
-<p>在使用 HTML 或 XHTML 时，除非极少情况下，都应该避免使用物理标签。应当尽可能地向浏览器提供上下文信息，并使用基于内容的样式。</p>
+<p>物理样式则直接指定文本的显示方式。当前的 HTML/XHTML 标准一共提供了9种物理样式，包括粗体bold<a href="http://www.w3school.com.cn/tags/tag_b.asp" target="_blank" rel="noopener"><code>&lt;b&gt;</code></a>, 斜体italic<a href="http://www.w3school.com.cn/tags/tag_i.asp" target="_blank" rel="noopener"><code>&lt;i&gt;</code></a>, 等宽monospaced<a href="http://www.w3school.com.cn/tags/tag_tt.asp" target="_blank" rel="noopener"><code>&lt;tt&gt;</code></a>, 下划线underlined<a href="http://www.w3school.com.cn/tags/tag_u.asp" target="_blank" rel="noopener"><code>&lt;u&gt;</code></a>, 删除线strikethrough<a href="http://www.w3school.com.cn/tags/tag_s.asp" target="_blank" rel="noopener"><code>&lt;s&gt;</code></a>/<a href="http://www.w3school.com.cn/tags/tag_strike.asp" target="_blank" rel="noopener"><code>&lt;strike&gt;</code></a>, 放大larger<a href="http://www.w3school.com.cn/tags/tag_big.asp" target="_blank" rel="noopener"><code>&lt;big&gt;</code></a>, 缩小smaller<a href="http://www.w3school.com.cn/tags/tag_small.asp" target="_blank" rel="noopener"><code>&lt;small&gt;</code></a>, 上标superscripted<a href="http://www.w3school.com.cn/tags/tag_sup.asp" target="_blank" rel="noopener"><code>&lt;sup&gt;</code></a>和下标subscripted<a href="http://www.w3school.com.cn/tags/tag_sub.asp" target="_blank" rel="noopener"><code>&lt;sub&gt;</code></a>。</p>
+<p>在使用HTML或XHTML时，除非极少情况下，都应该避免使用物理标签。应当尽可能地向浏览器提供上下文信息，并使用基于内容的样式。</p>
+<h1 id="块与类">块与类</h1>
+<h1 id="框架">框架</h1>
+<h1 id="表单">表单</h1>
 
                 
 
@@ -285,7 +290,7 @@ HTML标签是由尖括号包围的关键词，比如<code>&lt;html&gt;</code>。
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#标签-元素和属性"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">标签、元素和属性</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#样式"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">样式</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#标签-元素和属性"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">标签、元素和属性</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#样式"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">样式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#css"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">CSS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#格式化标签"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">格式化标签</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#块与类"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">块与类</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#框架"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">框架</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#表单"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">表单</span></a></li></ol>
         
         </div>
       </aside>
