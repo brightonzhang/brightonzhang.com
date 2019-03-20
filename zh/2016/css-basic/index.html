@@ -289,22 +289,55 @@ ID选择器等价于<code>[id=id_value] { style properties }</code></p>
 </ul>
 <h2 id="选择器组">选择器组</h2>
 <p>通过相互间用逗号分隔的多个选择器所形成的组，可以一次性将同一规则同时应用到多组选定元素。</p>
+<h1 id="数值与单位">数值与单位</h1>
+<p>CSS的属性值可以有很多种类：</p>
+<ul>
+<li>数值: 长度值，用于指定例如元素宽度、边框（border）宽度或字体大小；以及无单位整数。用于指定例如相对线宽或运行动画的次数。</li>
+<li>百分比: 可以用于指定尺寸或长度——例如取决于父容器的长度或高度，或默认的字体大小。</li>
+<li>颜色: 用于指定背景颜色，字体颜色等。</li>
+<li>坐标位置: 例如，以屏幕的左上角为坐标原点定位元素的位置。</li>
+<li>函数: 例如，用于指定背景图片或背景图片渐变。</li>
+</ul>
+<h2 id="长度尺寸单位">长度/尺寸单位</h2>
+<p>绝对单位（absolute units）：</p>
+<ul>
+<li><code>px</code>: 像素</li>
+<li><code>mm</code>, <code>cm</code>, <code>in</code>: 毫米（Millimeters），厘米（centimeters），英寸（inches）</li>
+<li><code>pt</code>, <code>pc</code>: 点（Points (1/72 of an inch)）， 十二点活字（ picas (12 points)）</li>
+</ul>
+<p>相对单位，相对于当前元素的字号（ font-size ）或者视口（viewport ）尺寸：</p>
+<ul>
+<li><code>em</code>: 1em与当前元素的字体大小相同（更具体地说，一个大写字母M的宽度），其计算值默认为16像素。但是注意em单位是会继承父元素的字体大小。em是Web开发中最常用的相对单位。</li>
+<li><code>ex</code>, <code>ch</code>: 分别是小写x的高度和数字0的宽度。这些并不像em那样被普遍使用或很好地被支持。</li>
+<li><code>rem</code>: REM（root em）和em以同样的方式工作，但它总是等于默认基础字体大小的尺寸；继承的字体大小将不起作用。</li>
+<li><code>vw</code>, <code>vh</code>: 分别是视口宽度的1/100和视口高度的1/100，其次，它不像rem那样被广泛支持。</li>
+</ul>
+<h2 id="颜色">颜色</h2>
+<p>CSS中指定颜色的方法有很多：</p>
+<ul>
+<li>颜色关键词：最简单、最古老的颜色类型。特定字符串代表特定颜色值。HTML 和 CSS 颜色规范中定义了 147 中颜色名（17 种标准颜色加 130 种其他颜色）——请参考<a href="http://www.w3school.com.cn/cssref/css_colornames.asp" target="_blank" rel="noopener">表格</a>。</li>
+<li>十六进制值：每个颜色包括一个哈希/磅符号（#）和其后面紧跟的六个十六进制数，每对十六进制数代表一个通道（红色、绿色或者蓝色）允许我们指定256个可用值。</li>
+<li>RGB：一个RGB值是一个函数——rgb() ——给定的三个参数，分别表示红色，绿色和蓝色通道的颜色值。</li>
+<li>HSL：hsl()函数接受三个表示色调、饱和度以及明度的参数。</li>
+<li>RGBA和HSLA：RGB和HSL添加了透明度（ transparency ）。</li>
+<li>opacity 属性：指定透明度。</li>
+</ul>
 <h1 id="层叠和继承">层叠和继承</h1>
 <p>一个元素的样式，可以通过多种方式来定义，而多种定义方式之间通过复杂的影响关系决定了元素的最终样式。这种复杂既造就了CSS的强大，也导致CSS显得如此“混乱”而且难以调试。</p>
 <h2 id="层叠">层叠</h2>
 <p>对于层叠来说，共有三种主要的样式来源：</p>
 <ul>
-<li>浏览器对HTML定义的默认样式。</li>
-<li>用户定义的样式。</li>
+<li>浏览器对HTML定义的默认样式</li>
+<li>用户定义的样式</li>
 <li>开发者定义的样式，可以有三种形式：
 <ul>
-<li>定义在外部文件（外链样式）：本教程中案例主要是通过这种形式定义样式。</li>
-<li>在页面的头部定义（内联样式）：通过这种形式定义的样式只在本页面内生效。</li>
-<li>定义在特定的元素身上（行内样式）：这种形式多用于测试，可维护性较差。</li>
+<li>定义在外部文件（外部样式表）</li>
+<li>在页面的头部定义（内部样式表）</li>
+<li>定义在特定的元素身上（内联样式）</li>
 </ul>
 </li>
 </ul>
-<p>用户定义的样式表会覆盖浏览器定义的默认样式，然后网页开发者定义的样式又会覆盖用户样式。</p>
+<p>从上到下，优先级越来越高。</p>
 <p>CSS 是 <em>Cascading Style Sheets</em> 的缩写，这暗示层叠(cascade)的概念是很重要的。在最基本的层面上，它表明CSS规则的顺序很重要，但它比那更复杂。什么选择器在层叠中胜出取决于三个因素（这些都是按重量级顺序排列的——前面的的一种会否决后一种）：</p>
 <ol>
 <li>重要性(Importance)</li>
@@ -334,6 +367,44 @@ ID选择器等价于<code>[id=id_value] { style properties }</code></p>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/initial" target="_blank" rel="noopener"><code>initial</code></a> ：该值将应用到选定元素的属性值设置为与浏览器默认样式表中该元素设置的值一样。如果浏览器默认样式表中没有设置值，并且该属性是自然继承的，那么该属性值就被设置为 <code>inherit</code>。</li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/unset" target="_blank" rel="noopener"><code>unset</code></a> ：该值将属性重置为其自然值，即如果属性是自然继承的，那么它就表现得像 <code>inherit</code>，否则就是表现得像 <code>initial</code>。</li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/revert" target="_blank" rel="noopener"><code>revert</code></a> ：如果当前的节点没有应用任何样式，则将该属性恢复到它所拥有的值。换句话说，属性值被设置成自定义样式所定义的属性（如果被设置）， 否则属性值被设置成用户代理的默认样式。</li>
+</ul>
+<h1 id="框模型">框模型</h1>
+<p>CSS框模型（译者注：也被称为“盒模型”）是网页布局的基础 ——每个元素被表示为一个矩形的方框，框的内容、内边距、边界和外边距，一层包着一层构建起来。</p>
+<h2 id="框属性">框属性</h2>
+<p>文档的每个元素被构造成文档布局内的一个矩形框，框每层的大小都可以使用一些特定的CSS属性调整。相关属性如下:<br>
+<img src="https://mdn.mozillademos.org/files/13647/box-model-standard-small.png" alt="框模型"></p>
+<ul>
+<li>width 和 height<br>
+width 和 height 设置内容框（content box）的宽度和高度。内容框是框内容显示的区域——包括框内的文本内容，以及表示嵌套子元素的其它框。</li>
+<li>padding<br>
+padding 表示一个 CSS 框的内边距 ——这一层位于内容框的外边缘与边界的内边缘之间。该层的大小可以通过简写属性padding 一次设置所有四个边，或用 padding-top、padding-right、padding-bottom 和 padding-left 属性一次设置一个边。</li>
+<li>border<br>
+CSS 框的边界（border）是一个分隔层，位于内边距的外边缘以及外边距的内边缘之间。边界的默认大小为0——从而让它不可见——不过我们可以设置边界的厚度、风格和颜色让它出现。 border 简写属性可以让我们一次设置所有四个边，例如 <code>border: 1px solid black;</code> 但这个简写可以被各种普通书写的更详细的属性所覆盖：<br>
+border-top, border-right, border-bottom, border-left: 分别设置某一边的边界厚度／风格／颜色。<br>
+border-width, border-style, border-color: 分别仅设置边界的厚度／风格／颜色，并应用到全部四边边界。<br>
+可以单独设置某一个边的三个不同属性，如 border-top-width, border-top-style, border-top-color，等。</li>
+<li>margin<br>
+外边距（margin）代表 CSS 框周围的外部区域，称为外边距，它在布局中推开其它 CSS 框。其表现与 padding 很相似；简写属性为 margin，单个属性分别为 margin-top、margin-right、margin-bottom 和 margin-left。</li>
+</ul>
+<p>很明显，框的总宽度是width, padding-right, padding-left, border-right以及 border-left 属性之和。box-sizing 属性可以被用来调整这些表现:</p>
+<ul>
+<li>content-box： 默认值。如果你设置一个元素的宽为100px，那么这个元素的内容区会有100px 宽，并且任何边框和内边距的宽度都会被增加到最后绘制出来的元素宽度中。</li>
+<li>border-box：边框和内边距的值是包含在width内的。也就是说，将一个元素的width设为100px，那么这100px会包含其它的border和padding，内容区的实际宽度会是width减去border + padding的计算值。<br>
+一些专家甚至建议所有的Web开发者们将所有的元素的box-sizing都设为border-box。</li>
+</ul>
+<h2 id="框类型">框类型</h2>
+<p>可以通过display属性来设定元素的框类型。display属性有很多的属性值，三个最常见的类型：</p>
+<ul>
+<li>
+<p>块框（ block box）：定义为堆放在其他框上的框，而且可以设置它的宽高。</p>
+</li>
+<li>
+<p>行内框（ inline box）：与块框是相反的，它随着文档的文字流动，设置宽高无效，设置padding, margin 和 border都会更新周围文字的位置，但是对于周围的的块框（ block box）不会有影响。</p>
+</li>
+<li>
+<p>行内块状框（inline-block box） ：它不会重新另起一行但会像行内框（ inline box）一样随着周围文字而流动，而且他能够设置宽高，并且像块框一样保持了其块特性的完整性，它不会在段落行中断开。</p>
+<p>注意：默认状态下display属性值，块级元素display: block ，行内元素display: inline</p>
+</li>
 </ul>
 
                 
@@ -378,7 +449,7 @@ ID选择器等价于<code>[id=id_value] { style properties }</code></p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#css语法"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">CSS语法</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#选择器"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">选择器</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#基本选择器"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">基本选择器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#伪选择器"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">伪选择器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#组合选择符"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">组合选择符</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#选择器组"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">选择器组</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#层叠和继承"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">层叠和继承</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#层叠"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">层叠</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#继承"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">继承</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#css语法"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">CSS语法</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#选择器"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">选择器</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#基本选择器"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">基本选择器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#伪选择器"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">伪选择器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#组合选择符"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">组合选择符</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#选择器组"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">选择器组</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#数值与单位"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">数值与单位</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#长度尺寸单位"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">长度/尺寸单位</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#颜色"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">颜色</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#层叠和继承"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">层叠和继承</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#层叠"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">层叠</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#继承"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">继承</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#框模型"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">框模型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#框属性"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">框属性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#框类型"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">框类型</span></a></li></ol></li></ol>
         
         </div>
       </aside>
