@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('null')
+            background-image: url('/img/2016/639852830.jpg')
             /*post*/
         
     }
@@ -88,7 +88,7 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Front-end" title="Front-end">Front-end</a>
+                              <a class="tag" href="/tags/#前端" title="前端">前端</a>
                             
                         </div>
                         <h1>前端开发：HTML入门</h1>
@@ -221,9 +221,16 @@ HTML标签是由尖括号包围的关键词，比如<code>&lt;html&gt;</code>。
 大多数HTML元素可以嵌套。HTML文档由嵌套的HTML元素构成。</p>
 <p>HTML元素可以拥有<strong>属性</strong>(Attributes)。属性赋予元素意义和语境。<br>
 属性总是在开始标签中规定，通常以名称/值对(<code>name=&quot;value&quot;</code>)的形式出现。</p>
-<p>如，链接由 <code>&lt;a&gt;</code> 标签定义。链接的地址在href属性中指定：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://brightonzhang.com/"</span>&gt;</span>Brighton<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如，链接由 <code>&lt;a&gt;</code> 标签定义。链接的地址在href属性中指定：<code>&lt;a href=&quot;https://brightonzhang.com/&quot;&gt;Brighton&lt;/a&gt;</code></p>
 <p>更多属性请参考：<a href="http://www.w3school.com.cn/tags/html_ref_standardattributes.asp" target="_blank" rel="noopener">HTML 全局属性</a></p>
+<h1 id="head">head</h1>
+<p>head元素是头部元素，它包含的内容不会在页面中显示。head元素可以包含标题信息，元信息，样式表和脚本等。<br>
+<code>&lt;meta&gt;</code>标签提供了页面相关数据信息，如<code>&lt;meta charset=&quot;utf-8&quot;&gt;</code>定义了该文档使用 utf-8 字符编码集。还可以通过<code>&lt;meta&gt;</code>标签设置页面的描述、关键词等信息，这些信息有利于SEO（Search Engine Optimization，搜索引擎优化），也就是利用搜索引擎的规则提高网站在有关搜索引擎内的自然排名。<br>
+<code>&lt;title&gt;</code>标签定义了页面的标题，浏览器标签栏上的标题便是由它定义的。<br>
+<code>&lt;link&gt;</code>标签通常用来链接一些与页面相关的外部资源，比如css文件。我们也能通过它来设置浏览器标签栏上的图标:<code>&lt;link rel=&quot;icon&quot; href=&quot;xxx.ico&quot;&gt;</code><br>
+<code>&lt;style&gt;</code>标签可直接定义样式信息——<code>&lt;link&gt;</code>标签引入外部css文件之外的方法。<br>
+<code>&lt;script&gt;</code>标签为页面引入脚本文件，我们可直接使用它的 src 属性，引入脚本文件的地址，也可以直接在页面中插入JavaScript代码。<br>
+在 HTML5 中，style标签和script标签的type值都不再是必须的，默认值分别为“text/css”和“text/javascript”。</p>
 <h1 id="样式">样式</h1>
 <h2 id="css">CSS</h2>
 <p>样式Style是HTML 4引入的，它是一种新的首选的改变HTML元素样式的方式。有3种方式为HTML元素添加样式：</p>
@@ -313,6 +320,9 @@ script元素既可包含脚本语句，也可通过src属性指向外部脚本�
 <li>childNodes - 节点（元素）的子节点</li>
 <li>attributes - 节点（元素）的属性节点</li>
 </ul>
+<h1 id="参考资料">参考资料</h1>
+<p><a href="https://www.yuque.com/fe9/basic/hw5ara" target="_blank" rel="noopener">HTML简介 前端九部-入门者手册2019</a><br>
+<a href="http://www.w3school.com.cn/html/index.asp" target="_blank" rel="noopener">HTML教程 W3school</a></p>
 
                 
 
@@ -356,7 +366,7 @@ script元素既可包含脚本语句，也可通过src属性指向外部脚本�
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#标签-元素和属性"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">标签、元素和属性</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#样式"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">样式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#css"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">CSS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#格式化标签"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">格式化标签</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#块与类"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">块与类</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#框架"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">框架</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#表单"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">表单</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#脚本"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">脚本</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#dom"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">DOM</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#标签-元素和属性"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">标签、元素和属性</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#head"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">head</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#样式"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">样式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#css"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">CSS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#格式化标签"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">格式化标签</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#块与类"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">块与类</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#框架"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">框架</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#表单"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">表单</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#脚本"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">脚本</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#dom"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">DOM</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#参考资料"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">参考资料</span></a></li></ol>
         
         </div>
       </aside>
@@ -376,7 +386,7 @@ script元素既可包含脚本语句，也可通过src属性指向外部脚本�
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Front-end" title="Front-end">Front-end</a>
+                          <a class="tag" href="/tags/#前端" title="前端">前端</a>
                         
                     </div>
                 </section>
