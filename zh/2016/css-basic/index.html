@@ -199,7 +199,12 @@
                 post-container">
 
                 <p>CSS，<strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets，指层叠样式表，用于为结构化文档（如HTML）添加样式（字体、间距和颜色等）。起初由哈肯·维姆·莱和伯特·波斯合作设计，现由W3C定义和维护。</p>
-<p>CSS最重要的目标是将文件的内容与它的显示分隔开来：HTML只表达文章的结构，CSS表达所有的显示。</p>
+<p>CSS将文件的内容与它的显示分隔开来：HTML只表达文章的结构，CSS表达所有的显示。当浏览器显示文档时，将文档的内容与其样式信息结合。它分两个阶段处理文档：</p>
+<ol>
+<li>浏览器将 HTML 和 CSS 转化成 DOM （文档对象模型）。DOM在计算机内存中表示文档。它把文档内容和其样式结合在一起。</li>
+<li>浏览器显示 DOM 的内容。<br>
+<img src="https://mdn.mozillademos.org/files/11781/rendering.svg" alt="CSS工作原理"></li>
+</ol>
 <h1 id="css语法">CSS语法</h1>
 <p>样式表的主要组成块是CSS规则(rule)，或叫规则集(ruleset)。CSS规则由选择器和声明块两部分构成。<br>
 <code>selector {declaration1; declaration2; ... declarationN }</code></p>
@@ -406,6 +411,11 @@ border-width, border-style, border-color: 分别仅设置边界的厚度／风�
 <p>注意：默认状态下display属性值，块级元素display: block ，行内元素display: inline</p>
 </li>
 </ul>
+<h1 id="参考资料">参考资料</h1>
+<ol>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS" target="_blank" rel="noopener">CSS — 设计 Web | MDN</a></li>
+<li><a href="http://www.w3school.com.cn/css/index.asp" target="_blank" rel="noopener">CSS教程 | W3school</a></li>
+</ol>
 
                 
 
@@ -414,7 +424,7 @@ border-width, border-style, border-color: 分别仅设置边界的厚度／风�
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/zh/2017/bitcoin-explained-with-emoji-1/" data-toggle="tooltip" data-placement="top" title="比特币的另类解释之表情包·上篇">&larr; Previous Post</a>
+                            <a href="/zh/2017/javascript-basic/" data-toggle="tooltip" data-placement="top" title="前端开发：JavaScript入门">&larr; Previous Post</a>
                         </li>
                     
                     
@@ -449,7 +459,7 @@ border-width, border-style, border-color: 分别仅设置边界的厚度／风�
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#css语法"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">CSS语法</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#选择器"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">选择器</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#基本选择器"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">基本选择器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#伪选择器"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">伪选择器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#组合选择符"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">组合选择符</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#选择器组"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">选择器组</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#数值与单位"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">数值与单位</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#长度尺寸单位"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">长度/尺寸单位</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#颜色"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">颜色</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#层叠和继承"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">层叠和继承</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#层叠"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">层叠</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#继承"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">继承</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#框模型"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">框模型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#框属性"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">框属性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#框类型"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">框类型</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#css语法"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">CSS语法</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#选择器"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">选择器</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#基本选择器"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">基本选择器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#伪选择器"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">伪选择器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#组合选择符"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">组合选择符</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#选择器组"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">选择器组</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#数值与单位"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">数值与单位</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#长度尺寸单位"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">长度/尺寸单位</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#颜色"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">颜色</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#层叠和继承"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">层叠和继承</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#层叠"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">层叠</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#继承"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">继承</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#框模型"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">框模型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#框属性"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">框属性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#框类型"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">框类型</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#参考资料"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">参考资料</span></a></li></ol>
         
         </div>
       </aside>
