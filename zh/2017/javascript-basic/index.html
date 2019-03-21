@@ -198,13 +198,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>JavaScript(JS)是一门完备的动态编程语言。当应用于HTML文档时，可为网站提供动态交互特性。由布兰登·艾克(Brendan Eich)发明。其标准为ECMAScript。</p>
-<p>浏览器在读取一个网页时，代码（HTML, CSS 和 JavaScript）将在一个运行环境（浏览器标签）中得到执行。在HTML和CSS集合组装成一个网页后，浏览器的JavaScript引擎将执行JavaScript代码——通常会按从上往下的顺序执行代码。</p>
-<p>如需在HTML页面中插入 JavaScript，需要<code>&lt;script&gt;</code>标签。之前会在<code>&lt;script&gt;</code>标签中使用<code>type=&quot;text/javascript&quot;</code>——现在已经不必这样做了——JavaScript 是所有现代浏览器以及HTML5中的默认脚本语言。</p>
-<p>JS代码可以直接存放在<code>&lt;script&gt;</code>标签中；也可以把JS保存到外部文件.js中，然后在<code>&lt;script&gt;</code>标签的 “src” 属性中设置该文件。</p>
-<p>脚本可位于HTML的<code>&lt;body&gt;</code>或<code>&lt;head&gt;</code>部分中，或者同时存在于两个部分中。通常的做法是把函数放入<code>&lt;head&gt;</code>部分中，或者放在页面底部。这样就可以把它们安置到同一处位置，不会干扰页面的内容。</p>
-<p>另外，脚本的位置也可能影响其调用的时机。HTML元素是按其在页面中出现的次序调用的。如果用JavaScript来管理页面上的元素（更精确的说法是使用DOM），若JavaScript 加载于欲操作的 HTML元素之前，则代码将出错。更多相关请参考<a href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/What_is_JavaScript#%E8%84%9A%E6%9C%AC%E8%B0%83%E7%94%A8%E7%AD%96%E7%95%A5" target="_blank" rel="noopener">脚本调用策略</a>。</p>
-<p>与C语言类似，JS在双斜杠<code>//</code>后添加单行注释，在<code>/*</code>和<code>*/</code>之间添加多行注释。</p>
+                <p>JavaScript(JS)是一门完备的轻量级解释型、动态编程语言。当应用于HTML文档时，可为网站提供动态交互特性。由布兰登·艾克(Brendan Eich)发明。其标准为ECMAScript。</p>
+<p>浏览器在读取一个网页时，代码（HTML, CSS和JavaScript）将在一个运行环境（浏览器标签）中得到执行。在HTML和CSS集合组装成一个网页后，浏览器的JavaScript引擎将执行JavaScript代码——通常会按从上往下的顺序执行代码。</p>
+<p>在HTML页面中插入JavaScript，需要使用<code>&lt;script&gt;</code>标签。之前会在<code>&lt;script&gt;</code>标签中使用<code>type=&quot;text/javascript&quot;</code>——现在已经不必这样做了——JavaScript 是所有现代浏览器以及HTML5中的默认脚本语言。</p>
+<p>JavaScript代码可以直接存放在<code>&lt;script&gt;</code>标签中；也可以保存到外部文件.js中，然后在<code>&lt;script&gt;</code>标签的 “src” 属性中设置该文件。<code>&lt;script&gt;</code>标签可位于HTML的<code>&lt;body&gt;</code>或<code>&lt;head&gt;</code>部分中，或者同时存在于两个部分中。通常的做法是把函数放入<code>&lt;head&gt;</code>部分中，或者放在页面底部。这样就可以把它们安置到同一处位置，不会干扰页面的内容。</p>
+<p>另外，JavaScript的位置也可能影响其调用的时机。HTML元素是按其在页面中出现的次序调用的。如果用JavaScript来管理页面上的元素（更精确的说法是使用DOM），若JavaScript 加载于欲操作的 HTML元素之前，则代码将出错。更多相关请参考<a href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/What_is_JavaScript#%E8%84%9A%E6%9C%AC%E8%B0%83%E7%94%A8%E7%AD%96%E7%95%A5" target="_blank" rel="noopener">脚本调用策略</a>。</p>
+<h1 id="语法">语法</h1>
+<p>JavaScript语句以<code>;</code>结束，语句块用<code>{...}</code>。但是，JavaScript并不强制要求在每个语句的结尾加<code>;</code>——JavaScript引擎会自动在每个语句的结尾补上——尽管这可能在某些情况下会改变程序的语义;。</p>
+<p>JavaScript在双斜杠<code>//</code>后添加单行注释，在<code>/*</code>和<code>*/</code>之间添加多行注释。</p>
 <p>通常在“内部JS”方案中，可以使用以下结构：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  . . .</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>这是一个事件监听器，它监听浏览器的 “DOMContentLoaded” 事件，即HTML文档体加载、解释完毕事件。事件触发时将调用 &quot; . . .&quot; 处的代码，从而避免了错误发生。</p>
@@ -266,7 +267,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#参考资料"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">参考资料</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#语法"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">语法</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#参考资料"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">参考资料</span></a></li></ol>
         
         </div>
       </aside>
