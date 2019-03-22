@@ -198,14 +198,102 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>JavaScript(JS)是一门完备的轻量级解释型、动态编程语言。当应用于HTML文档时，可为网站提供动态交互特性。由布兰登·艾克(Brendan Eich)发明。其标准为ECMAScript。</p>
+                <p>JavaScript(JS)是一门完备的轻量级解释型、动态编程语言。当应用于HTML文档时，可为网站提供动态交互特性。由布兰登·艾克(Brendan Eich)发明。其标准为ECMAScript，最新版ECMAScript 6标准（简称ES6）于2015年6月正式发布。</p>
 <p>浏览器在读取一个网页时，代码（HTML, CSS和JavaScript）将在一个运行环境（浏览器标签）中得到执行。在HTML和CSS集合组装成一个网页后，浏览器的JavaScript引擎将执行JavaScript代码——通常会按从上往下的顺序执行代码。</p>
 <p>在HTML页面中插入JavaScript，需要使用<code>&lt;script&gt;</code>标签。之前会在<code>&lt;script&gt;</code>标签中使用<code>type=&quot;text/javascript&quot;</code>——现在已经不必这样做了——JavaScript 是所有现代浏览器以及HTML5中的默认脚本语言。</p>
 <p>JavaScript代码可以直接存放在<code>&lt;script&gt;</code>标签中；也可以保存到外部文件.js中，然后在<code>&lt;script&gt;</code>标签的 “src” 属性中设置该文件。<code>&lt;script&gt;</code>标签可位于HTML的<code>&lt;body&gt;</code>或<code>&lt;head&gt;</code>部分中，或者同时存在于两个部分中。通常的做法是把函数放入<code>&lt;head&gt;</code>部分中，或者放在页面底部。这样就可以把它们安置到同一处位置，不会干扰页面的内容。</p>
 <p>另外，JavaScript的位置也可能影响其调用的时机。HTML元素是按其在页面中出现的次序调用的。如果用JavaScript来管理页面上的元素（更精确的说法是使用DOM），若JavaScript 加载于欲操作的 HTML元素之前，则代码将出错。更多相关请参考<a href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/What_is_JavaScript#%E8%84%9A%E6%9C%AC%E8%B0%83%E7%94%A8%E7%AD%96%E7%95%A5" target="_blank" rel="noopener">脚本调用策略</a>。</p>
-<h1 id="语法">语法</h1>
+<h1 id="开始">开始</h1>
 <p>JavaScript语句以<code>;</code>结束，语句块用<code>{...}</code>。但是，JavaScript并不强制要求在每个语句的结尾加<code>;</code>——JavaScript引擎会自动在每个语句的结尾补上——尽管这可能在某些情况下会改变程序的语义;。</p>
 <p>JavaScript也是在双斜杠<code>//</code>后添加单行注释，在<code>/*</code>和<code>*/</code>之间添加多行注释。</p>
+<h1 id="变量与类型">变量与类型</h1>
+<p>变量在JavaScript中就是用一个变量名表示，变量名是大小写英文、数字、<code>$</code>和<code>_</code>的组合，且不能用数字开头，也不要以下划线开头—— 以下划线开头的被某些JavaScript设计为特殊的含义，因此可能让人迷惑。当然，变量名也不能是<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords" target="_blank" rel="noopener">JavaScript的关键字</a>。</p>
+<p>变量可以使用<code>var</code>语句声明，使用等号<code>=</code>赋值。</p>
+<p>JavaScript是一种“动态类型语言”，变量本身类型不固定。所以声明时无需指定类型，可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型，但是要注意只能用<code>var</code>声明一次。</p>
+<p>说到类型，JavaScript中定义了以下几种数据类型：</p>
+<ul>
+<li>数字(Number)：JavaScript不区分整数和浮点数，统一用Number表示。</li>
+<li>字符串(String)：以单引号’或双引号&quot;括起来的任意文本。</li>
+<li>布尔值(Boolean)：true或false。</li>
+<li>数组(Array)：一个单个对象，其中包含很多值，方括号括起来，并用逗号分隔。</li>
+<li>对象(Object)：一组由键-值组成的无序集合，其键都是字符串类型，值可以是任意数据类型。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myNumber = <span class="string">'500'</span>; </span><br><span class="line"><span class="keyword">typeof</span> myNumber;<span class="comment">// "string"</span></span><br><span class="line">myNumber = <span class="number">500</span>; </span><br><span class="line"><span class="keyword">typeof</span> myNumber;<span class="comment">// "number"</span></span><br></pre></td></tr></table></figure>
+<p><strong>null和undefined</strong></p>
+<p>JavaScript的设计者希望用<code>null</code>表示一个空的值，而<code>undefined</code>表示值未定义。然而大多数情况下，我们都应该用<code>null</code>。<code>undefined</code>仅仅在判断函数参数是否传递的情况下有用。</p>
+<p>注意，<code>0</code>是一个数值，<code>''</code>表示长度为0的字符串。</p>
+<h2 id="字符串">字符串</h2>
+<p>JavaScript的字符串就是用<code>''</code>或<code>&quot;&quot;</code>括起来的字符表示。</p>
+<p>如果<code>'</code>本身也是一个字符，那就可以用<code>&quot;&quot;</code>括起来，反之亦然。</p>
+<p>转义字符<code>\</code>可以转义很多字符，比如<code>\n</code>表示换行，<code>\t</code>表示制表符，<code>\\</code>表示的字符就是<code>\</code>。<code>\x##</code>是十六进制表示的ASCII字符，<code>\u####</code>表示一个Unicode字符：</p>
+<p>多行字符串可以用<code>\n</code>。但最新的ES6标准新增了一种多行字符串的表示方法，用反引号“` … `” ——键盘上数字键1的左边那个。</p>
+<p><strong>连接字符串</strong></p>
+<p>在JavaScript中连接字符串使用加号(+)操作符。</p>
+<p>如果连接一个字符串和一个数字，JS会将数字转换为字符串，并将这两个字符串连接在一起。<br>
+<code>'Front ' + 242; //&quot;Front 242&quot;</code></p>
+<p>ES6新增了一种模板字符串，可以替换字符串中的变量以实现字符串连接</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'Brighton'</span>;</span><br><span class="line"><span class="keyword">var</span> message = <span class="string">`Hello, <span class="subst">$&#123;name&#125;</span>!`</span>;</span><br><span class="line">alert(message); <span class="comment">//Hello, Brighton!</span></span><br></pre></td></tr></table></figure>
+<p><strong>操作字符串</strong></p>
+<p>需要特别注意的是，字符串是不可变的。字符串方法本身不会改变原有字符串的内容，而是返回一个新字符串。</p>
+<p><code>length</code>: 获取字符串长度。<br>
+<code>[]</code>: 获取字符串某个指定位置的字符，索引号从0开始。<br>
+<code>toUpperCase()</code>：把一个字符串全部变为大写。<br>
+<code>toLowerCase()</code>：把一个字符串全部变为小写。<br>
+<code>indexOf()</code>：搜索指定字符串出现的位置。<br>
+<code>substring()</code>：返回指定索引区间的子串。<br>
+<code>slice()</code>：提取字符串的一部分。<br>
+<code>replace()</code>：将字符串中的一个子字符串替换为另一个子字符串。</p>
+<h2 id="数组">数组</h2>
+<p>数组提供了一种顺序存储一组元素的功能，并可以按索引来读写。</p>
+<p>数组由方括号构成，其中包含用逗号分隔的元素列表。可以将任何类型的元素存储在数组中 - 字符串，数字，对象，另一个变量，甚至另一个数组，也可以混合和匹配项目类型。</p>
+<p>使用括号表示法访问和修改数组中的元素；使用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/length" target="_blank" rel="noopener"><code>length</code></a> 属性可以获取数组的长度（数组中有多少项元素）。</p>
+<p>大多数其他编程语言不允许直接改变数组的大小，越界访问索引会报错。然而，JavaScript的数组却不是这样的。通过索引赋值时，若索引超过了范围，会直接引起数组的变化；直接给length赋一个新的值也会导致数组大小的变化。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.length; <span class="comment">// 3</span></span><br><span class="line">arr[<span class="number">3</span>]; <span class="comment">// undefined</span></span><br><span class="line">arr[<span class="number">3</span>] = <span class="string">'four'</span>;</span><br><span class="line">arr; <span class="comment">// [1, 2, 3, "four"]</span></span><br><span class="line">arr.length = <span class="number">6</span>;</span><br><span class="line">arr; <span class="comment">// [1, 2, 3, "four", undefined, undefined]</span></span><br><span class="line">arr.length = <span class="number">2</span>;</span><br><span class="line">arr; <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
+<p><strong>添加和删除数组项</strong><br>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank" rel="noopener"><code>push()</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/pop" target="_blank" rel="noopener"><code>pop()</code></a>在数组末尾添加或删除一个项目；<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift" target="_blank" rel="noopener"><code>unshift()</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/shift" target="_blank" rel="noopener"><code>shift()</code></a> 则可以数组的开始增删项目。</p>
+<p><strong>字符串和数组之间的转换</strong><br>
+数组<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toString" target="_blank" rel="noopener"><code>toString()</code></a> 方法可以将数组转换为字符串；<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join" target="_blank" rel="noopener"><code>join()</code></a> 方法也可以完成类似的操作。而字符串的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split" target="_blank" rel="noopener"><code>split()</code></a>方法可以将字符串转换为数组。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myData = <span class="string">'Manchester,London,Liverpool,Birmingham,Leeds,Carlisle'</span>;</span><br><span class="line"><span class="keyword">var</span> myArray = myData.split(<span class="string">','</span>);</span><br><span class="line">myArray; <span class="comment">//["Manchester", "London", "Liverpool", "Birmingham", "Leeds", "Carlisle"]</span></span><br><span class="line">myArray.length; <span class="comment">//6</span></span><br><span class="line">myArray[<span class="number">0</span>]; <span class="comment">// "Manchester"</span></span><br><span class="line">myArray[<span class="number">1</span>]; <span class="comment">// "London"</span></span><br><span class="line">myArray[myArray.length<span class="number">-1</span>]; <span class="comment">// "Carlisle"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myNewString = myArray.join(<span class="string">','</span>);</span><br><span class="line">myNewString; <span class="comment">//"Manchester,London,Liverpool,Birmingham,Leeds,Carlisle"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dogNames = [<span class="string">"Rocket"</span>,<span class="string">"Flash"</span>,<span class="string">"Bella"</span>,<span class="string">"Slugger"</span>];</span><br><span class="line">myArray.toString(); <span class="comment">//"Manchester,London,Liverpool,Birmingham,Leeds,Carlisle"</span></span><br></pre></td></tr></table></figure>
+<h2 id="运算符">运算符</h2>
+<p>算数运算符</p>
+<ul>
+<li><code>+</code></li>
+<li><code>-</code></li>
+<li><code>*</code></li>
+<li><code>/</code></li>
+<li><code>%</code>: 求余(取模)</li>
+</ul>
+<p>操作运算符/赋值运算符</p>
+<ul>
+<li><code>=</code>: 赋值</li>
+<li><code>+=</code>: 递增赋值，右边的数值加上左边的变量，然后再返回新的变量。</li>
+<li><code>-=</code>: 递减赋值，左边的变量减去右边的数值，然后再返回新的变量。</li>
+<li><code>*=</code>: 乘法赋值，左边的变量乘以右边的数值，然后再返回新的变量。</li>
+<li><code>/=</code>: 除法赋值，左边的变量除以右边的数值，然后再返回新的变量。</li>
+</ul>
+<p>逻辑运算符（返回布尔值）</p>
+<ul>
+<li><code>&amp;&amp;</code>: 与</li>
+<li><code>||</code>: 或</li>
+<li><code>!</code>: 非</li>
+</ul>
+<p>比较运算符（返回布尔值）</p>
+<ul>
+<li><code>===</code>: 严格等于，测试左右值是否相同</li>
+<li><code>!==</code>: 严格不等于，测试左右值是否相同</li>
+<li><code>&lt;</code>: 小于，测试左值是否小于右值。</li>
+<li><code>&gt;</code>: 大于，测试左值是否大于右值</li>
+<li><code>&lt;=</code>: 小于或等于，测试左值是否小于或等于右值。</li>
+<li><code>&gt;=</code>: 大于或等于，测试左值是否大于或等于正确值。</li>
+</ul>
+<p>JavaScript中还有<code>==</code>和<code>!=</code>来判断相等和不相等，但它们与<code>===</code>/<code>!==</code>不同，前者测试值是否相同，但是数据类型可能不同，而后者的严格版本测试值和数据类型是否相同。严格的版本往往导致更少的错误，建议使用这些严格的版本。</p>
+<p>JavaScript在设计之初，并不强制要求用<code>var</code>声明变量。这个设计错误带来了严重的后果：如果一个变量没有通过<code>var</code>申明就被使用，那么该变量就自动被申明为全局变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i = 10; // i现在是全局变量</span><br></pre></td></tr></table></figure>
+<p>在同一个页面的不同的JavaScript文件中，如果都不用<code>var</code>申明，恰好都使用了变量<code>i</code>，将造成变量<code>i</code>互相影响，产生难以调试的错误结果。</p>
+<p>使用<code>var</code>申明的变量则不是全局变量，它的范围被限制在该变量被申明的函数体内（函数的概念将稍后讲解），同名变量在不同的函数体内互不冲突。</p>
+<p>为了修补JavaScript这一严重设计缺陷，ECMA在后续规范中推出了strict模式，在strict模式下运行的JavaScript代码，强制通过<code>var</code>申明变量，未使用<code>var</code>申明变量就使用的，将导致运行错误。</p>
+<p>启用strict模式的方法是在JavaScript代码的第一行写上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br></pre></td></tr></table></figure>
 <p>通常在“内部JS”方案中，可以使用以下结构：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  . . .</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>这是一个事件监听器，它监听浏览器的 “DOMContentLoaded” 事件，即HTML文档体加载、解释完毕事件。事件触发时将调用 &quot; . . .&quot; 处的代码，从而避免了错误发生。</p>
@@ -266,7 +354,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#语法"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">语法</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#参考资料"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">参考资料</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#开始"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">开始</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#变量与类型"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">变量与类型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#字符串"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">字符串</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#数组"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">数组</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#运算符"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">运算符</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#参考资料"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">参考资料</span></a></li></ol>
         
         </div>
       </aside>
