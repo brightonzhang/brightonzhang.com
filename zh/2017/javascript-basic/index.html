@@ -204,7 +204,7 @@
 <p>JavaScript代码可以直接存放在<code>&lt;script&gt;</code>标签中；也可以保存到外部文件.js中，然后在<code>&lt;script&gt;</code>标签的 “src” 属性中设置该文件。<code>&lt;script&gt;</code>标签可位于HTML的<code>&lt;body&gt;</code>或<code>&lt;head&gt;</code>部分中，或者同时存在于两个部分中。通常的做法是把函数放入<code>&lt;head&gt;</code>部分中，或者放在页面底部。这样就可以把它们安置到同一处位置，不会干扰页面的内容。</p>
 <p>另外，JavaScript的位置也可能影响其调用的时机。HTML元素是按其在页面中出现的次序调用的。如果用JavaScript来管理页面上的元素（更精确的说法是使用DOM），若JavaScript 加载于欲操作的 HTML元素之前，则代码将出错。更多相关请参考<a href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/What_is_JavaScript#%E8%84%9A%E6%9C%AC%E8%B0%83%E7%94%A8%E7%AD%96%E7%95%A5" target="_blank" rel="noopener">脚本调用策略</a>。</p>
 <h1 id="开始">开始</h1>
-<p>JavaScript语句以<code>;</code>结束，语句块用<code>{...}</code>。但是，JavaScript并不强制要求在每个语句的结尾加<code>;</code>——JavaScript引擎会自动在每个语句的结尾补上——尽管这可能在某些情况下会改变程序的语义;。</p>
+<p>JavaScript语句以<code>;</code>结束。但是，JavaScript并不强制要求在每个语句的结尾加<code>;</code>——JavaScript引擎会自动在每个语句的结尾补上——尽管这可能在某些情况下会改变程序的语义。</p>
 <p>JavaScript也是在双斜杠<code>//</code>后添加单行注释，在<code>/*</code>和<code>*/</code>之间添加多行注释。</p>
 <h1 id="变量与类型">变量与类型</h1>
 <p>变量在JavaScript中就是用一个变量名表示，变量名是大小写英文、数字、<code>$</code>和<code>_</code>的组合，且不能用数字开头，也不要以下划线开头—— 以下划线开头的被某些JavaScript设计为特殊的含义，因此可能让人迷惑。当然，变量名也不能是<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords" target="_blank" rel="noopener">JavaScript的关键字</a>。</p>
@@ -216,7 +216,7 @@
 <li>字符串(String)：以单引号’或双引号&quot;括起来的任意文本。</li>
 <li>布尔值(Boolean)：true或false。</li>
 <li>数组(Array)：一个单个对象，其中包含很多值，方括号括起来，并用逗号分隔。</li>
-<li>对象(Object)：一组由键-值组成的无序集合，其键都是字符串类型，值可以是任意数据类型。</li>
+<li>对象(Object)：一组由键-值组成的无序集合。</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myNumber = <span class="string">'500'</span>; </span><br><span class="line"><span class="keyword">typeof</span> myNumber;<span class="comment">// "string"</span></span><br><span class="line">myNumber = <span class="number">500</span>; </span><br><span class="line"><span class="keyword">typeof</span> myNumber;<span class="comment">// "number"</span></span><br></pre></td></tr></table></figure>
 <p><strong>null和undefined</strong></p>
@@ -254,38 +254,25 @@
 <p><strong>字符串和数组之间的转换</strong><br>
 数组<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toString" target="_blank" rel="noopener"><code>toString()</code></a> 方法可以将数组转换为字符串；<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join" target="_blank" rel="noopener"><code>join()</code></a> 方法也可以完成类似的操作。而字符串的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split" target="_blank" rel="noopener"><code>split()</code></a>方法可以将字符串转换为数组。</p>
  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myData = <span class="string">'Manchester,London,Liverpool,Birmingham,Leeds,Carlisle'</span>;</span><br><span class="line"><span class="keyword">var</span> myArray = myData.split(<span class="string">','</span>);</span><br><span class="line">myArray; <span class="comment">//["Manchester", "London", "Liverpool", "Birmingham", "Leeds", "Carlisle"]</span></span><br><span class="line">myArray.length; <span class="comment">//6</span></span><br><span class="line">myArray[<span class="number">0</span>]; <span class="comment">// "Manchester"</span></span><br><span class="line">myArray[<span class="number">1</span>]; <span class="comment">// "London"</span></span><br><span class="line">myArray[myArray.length<span class="number">-1</span>]; <span class="comment">// "Carlisle"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myNewString = myArray.join(<span class="string">','</span>);</span><br><span class="line">myNewString; <span class="comment">//"Manchester,London,Liverpool,Birmingham,Leeds,Carlisle"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dogNames = [<span class="string">"Rocket"</span>,<span class="string">"Flash"</span>,<span class="string">"Bella"</span>,<span class="string">"Slugger"</span>];</span><br><span class="line">myArray.toString(); <span class="comment">//"Manchester,London,Liverpool,Birmingham,Leeds,Carlisle"</span></span><br></pre></td></tr></table></figure>
+<h2 id="对象">对象</h2>
+<p>JavaScript的对象是一种无序的集合数据类型，它由若干键值对组成——通常由一些变量和函数组成，称之为对象里面的属性和方法。</p>
+<p>JavaScript用一个<code>{...}</code>表示一个对象，键值对以<code>xxx: xxx</code>形式申明，用<code>,</code>隔开。注意，最后一个键值对不需要在末尾加<code>,</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name : &#123;</span><br><span class="line">    first : <span class="string">'Bob'</span>,</span><br><span class="line">    last : <span class="string">'Smith'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  age : <span class="number">32</span>,</span><br><span class="line">  gender : <span class="string">'male'</span>,</span><br><span class="line">  interests : [<span class="string">'music'</span>, <span class="string">'skiing'</span>],</span><br><span class="line">  bio : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name[<span class="number">0</span>] + <span class="string">' '</span> + <span class="keyword">this</span>.name[<span class="number">1</span>] + <span class="string">' is '</span> + <span class="keyword">this</span>.age + <span class="string">' years old. He likes '</span> + <span class="keyword">this</span>.interests[<span class="number">0</span>] + <span class="string">' and '</span> + <span class="keyword">this</span>.interests[<span class="number">1</span>] + <span class="string">'.'</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  greeting: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hi! I\'m '</span> + <span class="keyword">this</span>.name[<span class="number">0</span>] + <span class="string">'.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>访问对象的属性和方法有两种方式：</p>
+<ul>
+<li>点表示法(dot notation)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">person.age</span><br><span class="line">person.name.first</span><br></pre></td></tr></table></figure>
+<ul>
+<li>括号表示法(bracket notation)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">person[<span class="string">'age'</span>]</span><br><span class="line">person[<span class="string">'name'</span>][<span class="string">'first'</span>]</span><br></pre></td></tr></table></figure>
+<p>看括号表示法起来很像访问一个数组的元素，从根本上来说是一回事儿，你使用了关联了值的名字，而不是索引去选择元素。所以对象有时被称之为关联数组(associative array)了——对象做了字符串到值的映射，而数组做的是数字到值的映射。</p>
 <h2 id="运算符">运算符</h2>
-<p>算数运算符</p>
-<ul>
-<li><code>+</code></li>
-<li><code>-</code></li>
-<li><code>*</code></li>
-<li><code>/</code></li>
-<li><code>%</code>: 求余(取模)</li>
-</ul>
-<p>操作运算符/赋值运算符</p>
-<ul>
-<li><code>=</code>: 赋值</li>
-<li><code>+=</code>: 递增赋值，右边的数值加上左边的变量，然后再返回新的变量。</li>
-<li><code>-=</code>: 递减赋值，左边的变量减去右边的数值，然后再返回新的变量。</li>
-<li><code>*=</code>: 乘法赋值，左边的变量乘以右边的数值，然后再返回新的变量。</li>
-<li><code>/=</code>: 除法赋值，左边的变量除以右边的数值，然后再返回新的变量。</li>
-</ul>
-<p>逻辑运算符（返回布尔值）</p>
-<ul>
-<li><code>&amp;&amp;</code>: 与</li>
-<li><code>||</code>: 或</li>
-<li><code>!</code>: 非</li>
-</ul>
-<p>比较运算符（返回布尔值）</p>
-<ul>
-<li><code>===</code>: 严格等于，测试左右值是否相同</li>
-<li><code>!==</code>: 严格不等于，测试左右值是否相同</li>
-<li><code>&lt;</code>: 小于，测试左值是否小于右值。</li>
-<li><code>&gt;</code>: 大于，测试左值是否大于右值</li>
-<li><code>&lt;=</code>: 小于或等于，测试左值是否小于或等于右值。</li>
-<li><code>&gt;=</code>: 大于或等于，测试左值是否大于或等于正确值。</li>
-</ul>
+<p>算数运算符：<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>(求余/取模)</p>
+<p>操作运算符/赋值运算符：<code>=</code>（赋值）, <code>+=</code>（递增赋值）, <code>-=</code>（递减赋值）, <code>*=</code>（乘法赋值）, <code>/=</code>（除法赋值）</p>
+<p>逻辑运算符（返回布尔值）：<code>&amp;&amp;</code>（与）, <code>||</code>（或）, <code>!</code>（非）</p>
+<p>比较运算符（返回布尔值）：<code>===</code>（严格等于）, <code>!==</code>（严格不等于）, <code>&lt;</code>（小于）, <code>&gt;</code>（大于）, <code>&lt;=</code>（小于或等于）, <code>&gt;=</code>（大于或等于）</p>
 <p>JavaScript中还有<code>==</code>和<code>!=</code>来判断相等和不相等，但它们与<code>===</code>/<code>!==</code>不同，前者测试值是否相同，但是数据类型可能不同，而后者的严格版本测试值和数据类型是否相同。严格的版本往往导致更少的错误，建议使用这些严格的版本。</p>
 <p>JavaScript在设计之初，并不强制要求用<code>var</code>声明变量。这个设计错误带来了严重的后果：如果一个变量没有通过<code>var</code>申明就被使用，那么该变量就自动被申明为全局变量：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i = 10; // i现在是全局变量</span><br></pre></td></tr></table></figure>
@@ -354,7 +341,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#开始"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">开始</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#变量与类型"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">变量与类型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#字符串"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">字符串</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#数组"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">数组</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#运算符"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">运算符</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#参考资料"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">参考资料</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#开始"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">开始</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#变量与类型"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">变量与类型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#字符串"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">字符串</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#数组"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">数组</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#对象"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">对象</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#运算符"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">运算符</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#参考资料"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">参考资料</span></a></li></ol>
         
         </div>
       </aside>
