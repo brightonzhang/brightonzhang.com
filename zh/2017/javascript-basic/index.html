@@ -268,6 +268,9 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">person[<span class="string">'age'</span>]</span><br><span class="line">person[<span class="string">'name'</span>][<span class="string">'first'</span>]</span><br></pre></td></tr></table></figure>
 <p>看括号表示法起来很像访问一个数组的元素，从根本上来说是一回事儿，你使用了关联了值的名字，而不是索引去选择元素。所以对象有时被称之为关联数组(associative array)了——对象做了字符串到值的映射，而数组做的是数字到值的映射。</p>
+<p>点表示法只能接受字面量的成员的名字，不接受变量作为名字。而括号表示法则可以使用变量。因此，括号表示法不仅可以动态的去设置对象成员的值，还可以动态的去设置成员的名字。另外，若对象成员名字不是一个有效的变量名，就必须用’'括起来，且访问这个成员也必须用括号[‘xxx’]。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">person[<span class="string">'eyes'</span>] = <span class="string">'hazel'</span></span><br><span class="line">person.farewell = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; alert(<span class="string">"Bye everybody!"</span>) &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myDataName = <span class="string">'height'</span></span><br><span class="line"><span class="keyword">var</span> myDataValue = <span class="string">'1.75m'</span></span><br><span class="line">person[myDataName] = myDataValue</span><br></pre></td></tr></table></figure>
+<p>另外，JavaScript规定，访问不存在的属性不报错，而是返回undefined。可以用<code>in</code>操作符检测对象是否拥有某一属性。</p>
 <h2 id="运算符">运算符</h2>
 <p>算数运算符：<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>(求余/取模)</p>
 <p>操作运算符/赋值运算符：<code>=</code>（赋值）, <code>+=</code>（递增赋值）, <code>-=</code>（递减赋值）, <code>*=</code>（乘法赋值）, <code>/=</code>（除法赋值）</p>
