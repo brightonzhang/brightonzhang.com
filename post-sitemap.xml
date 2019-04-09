@@ -7,8 +7,16 @@
     </url>
 
     <url>
-        <loc>https://brightonzhang.com/zh/2017/javascript-basic/</loc>
-        <lastmod>2019-03-27T02:42:35.000Z</lastmod>
+        <loc>https://brightonzhang.com/zh/2019/ss-on-merlin/</loc>
+        <lastmod>2019-04-09T07:53:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://brightonzhang.com/zh/2016/javascript-basic/</loc>
+        <lastmod>2019-04-09T07:52:03.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,7 +24,15 @@
 
     <url>
         <loc>https://brightonzhang.com/zh/2016/css-basic/</loc>
-        <lastmod>2019-03-21T04:25:34.000Z</lastmod>
+        <lastmod>2019-04-09T07:50:55.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://brightonzhang.com/zh/2016/frontend-road/</loc>
+        <lastmod>2019-04-09T07:50:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -33,14 +49,6 @@
     <url>
         <loc>https://brightonzhang.com/zh/2016/ubuntu-on-windows/</loc>
         <lastmod>2019-03-19T03:46:27.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://brightonzhang.com/zh/2019/ss-on-merlin/</loc>
-        <lastmod>2019-03-19T03:45:55.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
