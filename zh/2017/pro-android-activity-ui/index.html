@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Professional Android笔记：Activity和UI - Brighton Zhang
+        
+    </title>
+
+    <link rel="canonical" href="https://brightonzhang.com/zh/2017/pro-android-activity-ui/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/2017/1iTDUQIbX397042030.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header">
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#安卓" title="安卓">安卓</a>
+                            
+                        </div>
+                        <h1>Professional Android笔记：Activity和UI</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted on 04/10/2017
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Brighton Zhang</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="/archive/">Archives</a>
+                    </li>
+
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+
+                    <!-- Brighton, 3/10/2018, hardcoded the navbar elements order -->  
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="activities">ACTIVITIES</h1>
+<p><code>Activity</code> 是一个应用组件，用户可与其提供的屏幕进行交互，以执行某些操作。 每个 Activity 都会获得一个用于绘制其用户界面的窗口。窗口通常会充满屏幕，但也可小于屏幕并浮动在其他窗口之上。</p>
+<p>一个应用通常由多个彼此松散联系的 Activity 组成。 一般会指定应用中的某个 Activity 为“主”Activity，即首次启动应用时呈现给用户的那个 Activity。 而且每个 Activity 均可启动另一个 Activity，以便执行不同的操作。 每次新 Activity 启动时，前一 Activity 便会停止，但系统会在堆栈（“返回栈”）中保留该 Activity。 当新 Activity 启动时，系统会将其推送到返回栈上，并取得用户焦点。 返回栈遵循基本的“后进先出”堆栈机制，因此，当用户完成当前 Activity 并按“返回”按钮时，系统会从堆栈中将其弹出（并销毁），然后恢复前一 Activity——可以参考文档<a href="https://developer.android.com/guide/components/tasks-and-back-stack.html" target="_blank" rel="noopener">任务和返回栈</a>。</p>
+<p>当一个 Activity 因某个新 Activity 启动而停止时，系统会通过该 Activity 的生命周期回调方法通知其这一状态变化。Activity 因状态变化——系统是创建 Activity、停止 Activity、恢复 Activity 还是销毁 Activity——而收到的回调方法可能有若干种，每一种回调都会为您提供执行与该状态变化相应的特定操作的机会。 例如，停止时，您的 Activity 应释放任何大型对象，例如网络或数据库连接。 当 Activity 恢复时，您可以重新获取所需资源，并恢复执行中断的操作。 这些状态转变都是 Activity 生命周期的一部分。</p>
+<h2 id="操作activity">操作Activity</h2>
+<p>首先必须在清单文件中声明Activity，这样系统才能访问它：将 <code>activity</code> 元素添加为 <code>application</code> 元素的子项。<code>activity</code> 元素还可指定各种 Intent 过滤器——使用 <code>intent-filter</code> 元素——以声明其他应用组件激活它的方法。</p>
+<p>要创建 Activity，必须创建 <code>Activity</code> 的子类（或使用其现有子类）。并需要在子类中实现 Activity 在其生命周期的各种状态之间转变时（例如创建 Activity、停止 Activity、恢复 Activity 或销毁 Activity 时）系统调用的回调方法。 两个最重要的回调方法是：<code>onCreate()</code>和<code>onPause()</code>。</p>
+<p>Activity 的用户界面是由层级式视图——衍生自 <code>View</code> 类的对象——提供的。每个视图都控制 Activity 窗口内的特定矩形空间，可对用户交互作出响应。可以通过 <code>setContentView()</code> 将视图设置为 Activity 的 UI。</p>
+<p>启动Activity的方法：</p>
+<ul>
+<li><code>startActivity()</code></li>
+<li><code>startActivityForResult()</code>：当后续 Activity 完成时，会使用 Intent 向onActivityResult() 回调方法返回结果。</li>
+</ul>
+<p>结束Activity的方法：</p>
+<ul>
+<li><code>finish()</code></li>
+<li><code>finishActivity()</code>： 结束之前启动的另一个Activity。</li>
+</ul>
+<p>在大多数情况下，不应使用这些方法显式结束 Activity——因为Android 系统会管理 Activity 的生命周期。</p>
+<h2 id="activity-生命周期">Activity 生命周期</h2>
+<p>Activity 存在以下状态：</p>
+<ul>
+<li>
+<p>继续 resumed/active/running</p>
+<p>此 Activity 位于屏幕前台并具有用户焦点。</p>
+</li>
+<li>
+<p>暂停 paused</p>
+<p>另一个 Activity 位于屏幕前台并具有用户焦点，但此 Activity 仍可见。也就是说，另一个 Activity 显示在此 Activity 上方，并且该 Activity 部分透明或未覆盖整个屏幕。 暂停的 Activity 处于完全活动状态（<code>Activity</code> 对象保留在内存中，它保留了所有状态和成员信息，并与窗口管理器保持连接），但在内存极度不足的情况下，可能会被系统终止。</p>
+</li>
+<li>
+<p>停止 stopped</p>
+<p>该 Activity 被另一个 Activity 完全遮盖（该 Activity 目前位于“后台”）。 已停止的 Activity 同样仍处于活动状态（<code>Activity</code> 对象保留在内存中，它保留了所有状态和成员信息，但未与窗口管理器连接）。 不过，它对用户不再可见，在他处需要内存时可能会被系统终止。</p>
+</li>
+<li>
+<p>Inactive</p>
+<p>After an Activity has been killed, as well as before it’s been launched, it’s inactive. Inactive Activities have been removed from the Activity stack and need to be restarted before they can be displayed and used.</p>
+</li>
+</ul>
+<h3 id="生命周期回调">生命周期回调</h3>
+<p>当一个 Activity 转入和转出上述不同状态时，系统会通过各种回调方法向其发出通知。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        <span class="comment">// The activity is being created.</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onStart();</span><br><span class="line">        <span class="comment">// The activity is about to become visible.</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onResume();</span><br><span class="line">        <span class="comment">// The activity has become visible (it is now "resumed").</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onPause();</span><br><span class="line">        <span class="comment">// Another activity is taking focus (this activity is about to be "paused").</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onStop();</span><br><span class="line">        <span class="comment">// The activity is no longer visible (it is now "stopped")</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        <span class="comment">// The activity is about to be destroyed.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这些方法共同定义 Activity 的整个生命周期。通过实现这些方法来监控 Activity 生命周期中的三个嵌套循环：</p>
+<ul>
+<li>Activity 的<strong>整个生命周期</strong>发生在 <code>onCreate()</code> 调用与 <code>onDestroy()</code> 调用之间。Activity 应在 <code>onCreate()</code> 中执行“全局”状态设置（例如定义布局），并在 <code>onDestroy()</code> 中释放所有资源。例如，如果 Activity 有一个在后台运行的线程，用于从网络上下载数据，它可能会在 <code>onCreate()</code> 中创建该线程，然后在 <code>onDestroy()</code> 中停止该线程。</li>
+<li>Activity 的<strong>可见生命周期</strong>发生在 <code>onStart()</code> 调用与 <code>onStop()</code> 调用之间。在这段时间，用户可以在屏幕上看到 Activity 并与其交互。 例如，当一个新 Activity 启动，并且此 Activity 不再可见时，系统会调用 <code>onStop()</code>。您可以在调用这两个方法之间保留向用户显示 Activity 所需的资源。 例如，您可以在 <code>onStart()</code> 中注册一个 <code>BroadcastReceiver</code> 以监控影响 UI 的变化，并在用户无法再看到您显示的内容时在 <code>onStop()</code> 中将其取消注册。在 Activity 的整个生命周期，当 Activity 在对用户可见和隐藏两种状态中交替变化时，系统可能会多次调用 <code>onStart()</code> 和 <code>onStop()</code>。</li>
+<li>Activity 的<strong>前台生命周期</strong>发生在 <code>onResume()</code> 调用与 <code>onPause()</code> 调用之间。在这段时间，Activity 位于屏幕上的所有其他 Activity 之前，并具有用户输入焦点。 Activity 可频繁转入和转出前台——例如，当设备转入休眠状态或出现对话框时，系统会调用 <code>onPause()</code>。 由于此状态可能经常发生转变，因此这两个方法中应采用适度轻量级的代码，以避免因转变速度慢而让用户等待。</li>
+</ul>
+<p>下图说明了这些循环以及 Activity 在状态转变期间可能经过的路径。矩形表示回调方法，当 Activity 在不同状态之间转变时，可以实现这些方法来执行操作。</p>
+<img src="https://developer.android.com/images/activity_lifecycle.png" alt="Activity 生命周期">
+<h3 id="保存-activity-状态">保存 Activity 状态</h3>
+<p>当 Activity 暂停或停止时，<code>Activity</code> 对象仍保留在内存中——有关其成员和当前状态的所有信息仍处于活动状态。 用户在 Activity 内所做的任何更改都会得到保留，这样一来，当 Activity 返回前台（当它“继续”）时，这些更改仍然存在。</p>
+<p>不过，当系统为了恢复内存而销毁某项 Activity 时，<code>Activity</code> 对象也会被销毁，因此系统在继续 Activity 时根本无法让其状态保持完好，而是必须在用户返回 Activity 时重建 <code>Activity</code> 对象。 在这种情况下，可以实现另一个回调方法对有关 Activity 状态的信息进行保存，以确保有关 Activity 状态的重要信息得到保留：<code>onSaveInstanceState()</code>。</p>
+<p>系统会先调用 <code>onSaveInstanceState()</code>，然后再使 Activity 变得易于销毁。系统会向该方法传递一个 <code>Bundle</code>，可以在其中使用 <code>putString()</code> 和 <code>putInt()</code> 等方法以“名称-值”对形式保存有关 Activity 状态的信息。然后，如果系统终止您的应用进程，并且用户返回您的 Activity，则系统会重建该 Activity，并将 <code>Bundle</code> 同时传递给 <code>onCreate()</code> 和 <code>onRestoreInstanceState()</code>。您可以使用上述任一方法从 <code>Bundle</code> 提取您保存的状态并恢复该 Activity 状态。如果没有状态信息需要恢复，则传递给您的 <code>Bundle</code> 是空值（如果是首次创建该 Activity，就会出现这种情况）。</p>
+<img src="https://developer.android.com/images/fundamentals/restore_instance.png" alt="">
+<p>有些设备配置可能会在运行时发生变化（例如屏幕方向、键盘可用性及语言）。 发生此类变化时，Android 会重建运行中的 Activity（系统调用 <code>onDestroy()</code>，然后立即调用 <code>onCreate()</code>）。处理此类重启的最佳方法是利用<code>onSaveInstanceState()</code> 和 <code>onRestoreInstanceState()</code>（或 <code>onCreate()</code>）保存并恢复 Activity 的状态。</p>
+<h3 id="协调-activity">协调 Activity</h3>
+<p>当一个 Activity 启动另一个 Activity 时，它们都会体验到生命周期转变。启动第二个 Activity 的过程与停止第一个 Activity 的过程存在重叠。Android中activity生命周期回调的顺序经过明确定义，当两个 Activity 位于同一进程，并且由一个 Activity 启动另一个 Activity 时，其定义尤其明确。 以下是当 Activity A 启动 Activity B 时一系列操作的发生顺序：</p>
+<ol>
+<li>Activity A 的 <code>onPause()</code> 方法执行。</li>
+<li>Activity B 的 <code>onCreate()</code>、<code>onStart()</code> 和 <code>onResume()</code> 方法依次执行。（Activity B 现在具有用户焦点。）</li>
+<li>然后，如果 Activity A 在屏幕上不再可见，则其 <code>onStop()</code> 方法执行。</li>
+</ol>
+<h3 id="responding-to-memory-pressure">Responding to Memory Pressure</h3>
+<p>You can help by overriding the <code>onTrimMemory</code> handler, to respond to system requests that you reduce your memory usage.</p>
+<h1 id="fragments">FRAGMENTS</h1>
+<p><code>Fragment</code> 表示 <code>Activity</code> 中的行为或用户界面部分。可以将多个Fragments组合在一个 Activity 中来构建多窗格 UI，以及在多个 Activity 中重复使用某个Fragment。可以将Fragments视为 Activity 的模块化组成部分，它具有自己的生命周期，能接收自己的输入事件，并且可以在 Activity 运行时添加或移除Fragments（有点像可以在不同 Activity 中重复使用的“子 Activity”）。</p>
+<p>Fragments enable you to divide your Activities into fully encapsulated reusable components, each with its own life cycle and state.</p>
+<p>Fragments必须始终嵌入在 Activity 中，其生命周期直接受宿主 Activity 生命周期的影响。 例如，当 Activity 暂停时，其中的所有Fragments也会暂停；当 Activity 被销毁时，所有Fragments也会被销毁。 不过，当 Activity 正在运行时，可以独立操纵每个Fragment，如添加或移除它们。当执行此类Fragment事务(transaction)时，也可以将其添加到由 Activity 管理的返回栈——Activity 中的每个返回栈条目都是一条已发生Fragment事务的记录。 返回栈让用户可以通过按返回按钮撤消Fragment事务（后退）。</p>
+<p>当Fragment作为 Activity 布局的一部分添加时，它存在于 Activity 视图层次结构的某个 <code>ViewGroup</code> 内部，并且Fragment会定义其自己的视图布局。可以通过在 Activity 的布局文件中声明Fragment，将其作为 <code>&lt;fragment&gt;</code> 元素插入您的 Activity 布局中，或者通过将其添加到某个现有 <code>ViewGroup</code>，利用应用代码进行插入。不过，Fragment并非必须成为 Activity 布局的一部分；还可以将没有自己 UI 的Fragment用作 Activity 的不可见工作线程。</p>
+<h1 id="ui">UI</h1>
+<p>Activity 的用户界面是由层级式视图——衍生自 <code>View</code> 类的对象——提供的。每个视图都控制 Activity 窗口内的特定矩形空间，可对用户交互作出响应。Android 提供了许多现成视图以便设计和组织布局。“小部件widgets”是提供按钮、文本字段、复选框或仅仅是一幅图像等屏幕视觉（交互式）元素的视图。 “布局layouts”是衍生自 <code>ViewGroup</code> 的视图，为其子视图提供唯一布局模型，例如线性布局、网格布局或相对布局。利用视图定义布局的最常见方法是借助保存在应用资源内的 XML 布局文件。这样可以将用户界面的设计与定义 Activity 行为的源代码分开维护。 可以通过 <code>setContentView()</code> 将布局设置为 Activity 的 UI，从而传递布局的资源 ID。也可以在 Activity 代码中创建新 <code>View</code>，并通过将新 <code>View</code> 插入 <code>ViewGroup</code> 来创建视图层次，然后通过将根 <code>ViewGroup</code> 传递到 <code>setContentView()</code> 来使用该布局。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StateChangeMonitoringActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Called at the start of the full lifetime.</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Initialize Activity and inflate the UI.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Called before subsequent visible lifetimes</span></span><br><span class="line">    <span class="comment">// for an Activity process. That is, before an Activity</span></span><br><span class="line">    <span class="comment">// returns to being visible having previously been hidden.</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRestart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onRestart();</span><br><span class="line">        <span class="comment">// Load changes knowing that the Activity has already</span></span><br><span class="line">        <span class="comment">// been visible within this process.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Called at the start of the visible lifetime.</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onStart();</span><br><span class="line">        <span class="comment">// Apply any required UI change now that the Activity is visible.</span></span><br><span class="line">        <span class="comment">// This is where you'd typically start any processes that</span></span><br><span class="line">        <span class="comment">// are required to ensure your UI is appropriately populated and</span></span><br><span class="line">        <span class="comment">// updated.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Called after onStart has finished, in cases where an Activity is</span></span><br><span class="line">    <span class="comment">// started after having last been destroyed by the runtime rather than</span></span><br><span class="line">    <span class="comment">// through user or programmatic action (such as the user hitting back or</span></span><br><span class="line">    <span class="comment">// your app calling finish().</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRestoreInstanceState</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onRestoreInstanceState(savedInstanceState);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Restore UI state from the savedInstanceState.</span></span><br><span class="line">        <span class="comment">// This bundle has also been passed to onCreate.</span></span><br><span class="line">        <span class="comment">// Will only be called if the Activity has been</span></span><br><span class="line">        <span class="comment">// killed by the system since it was last visible.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Called at the start of the active lifetime.</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onResume();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Resume any paused UI updates, threads, or processes required</span></span><br><span class="line">        <span class="comment">// by the Activity but suspended when it becomes inactive.</span></span><br><span class="line">        <span class="comment">// At this stage, your Activity is active and receiving input</span></span><br><span class="line">        <span class="comment">// from users actions.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Called at the end of the active lifetime.</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onPause();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Suspend UI updates, threads, or CPU intensive processes</span></span><br><span class="line">        <span class="comment">// that don't need to be updated when the Activity isn't</span></span><br><span class="line">        <span class="comment">// the active foreground Activity. Note that in multi-screen</span></span><br><span class="line">        <span class="comment">// mode, paused Activities may still be visible, and as such</span></span><br><span class="line">        <span class="comment">// should continue performing required UI updates.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Called when appropriate to save UI state changes at the</span></span><br><span class="line">    <span class="comment">// end of the active lifecycle.</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onSaveInstanceState(savedInstanceState);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Save UI state changes to the savedInstanceState.</span></span><br><span class="line">        <span class="comment">// This bundle will be passed to onCreate and</span></span><br><span class="line">        <span class="comment">// onRestoreInstanceState if the process is</span></span><br><span class="line">        <span class="comment">// killed and restarted by the run time. Note that</span></span><br><span class="line">        <span class="comment">// this handler may not be called if the runtime determines</span></span><br><span class="line">        <span class="comment">// that the Activity is being "permanently" terminated.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Called at the end of the visible lifetime.</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onStop();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Suspend remaining UI updates, threads, or processing</span></span><br><span class="line">        <span class="comment">// that aren't required when the Activity isn't visible.</span></span><br><span class="line">        <span class="comment">// Persist all edits or state changes as your Activity</span></span><br><span class="line">        <span class="comment">// may be killed at any time after onStop has</span></span><br><span class="line">        <span class="comment">// completed.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Sometimes called at the end of the full lifetime.</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Clean up any resources including ending threads,</span></span><br><span class="line">        <span class="comment">// closing database connections etc.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/zh/2017/pro-android-gradle/" data-toggle="tooltip" data-placement="top" title="Professional Android笔记：GRADLE构建">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/zh/2017/java-packages/" data-toggle="tooltip" data-placement="top" title="Java Packages 包">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#activities"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">ACTIVITIES</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#操作activity"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">操作Activity</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#activity-生命周期"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Activity 生命周期</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#生命周期回调"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">生命周期回调</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#保存-activity-状态"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">保存 Activity 状态</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#协调-activity"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">协调 Activity</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#responding-to-memory-pressure"><span class="toc-nav-number">1.2.4.</span> <span class="toc-nav-text">Responding to Memory Pressure</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#fragments"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">FRAGMENTS</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ui"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">UI</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#安卓" title="安卓">安卓</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "brightonzhang-com";
+    var disqus_identifier = "https://brightonzhang.com/zh/2017/pro-android-activity-ui/";
+    var disqus_url = "https://brightonzhang.com/zh/2017/pro-android-activity-ui/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/brightonzhang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://github.com/brightonzhang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Brighton Zhang 2019 
+                    <br>
+                    Powered by <a href="https://hexo.io/">Hexo</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Theme from <a href="https://huangxuan.me">Hux</a>, <a href="http://beantech.org">BeanTech</a> and <a href="https://brightonzhang.com">Brighton</a>  
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<script src="/js/jquery.fancybox.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://brightonzhang.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-114837917-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://brightonzhang.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
