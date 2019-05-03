@@ -215,6 +215,107 @@
 <p>广播是任何应用均可接收的消息。系统将针对系统事件（例如：系统启动或设备开始充电时）传递各种广播。通过将 <code>Intent</code> 传递给<code>sendBroadcast()</code>、<code>sendOrderedBroadcast()</code> 或 <code>sendStickyBroadcast()</code>，您可以将广播传递给其他应用。</p>
 </li>
 </ul>
+<h1 id="intent-类型">Intent 类型</h1>
+<p>Intent 分为两种类型：</p>
+<ul>
+<li><strong>显式 Intent</strong>：按名称（完全限定类名）指定要启动的组件。 通常，您会在自己的应用中使用显式 Intent 来启动组件，这是因为您知道要启动的 Activity 或服务的类名。例如，启动新 Activity 以响应用户操作，或者启动服务以在后台下载文件。</li>
+<li><strong>隐式 Intent</strong> ：不会指定特定的组件，而是声明要执行的常规操作，从而允许其他应用中的组件来处理它。 例如，如需在地图上向用户显示位置，则可以使用隐式 Intent，请求另一具有此功能的应用在地图上显示指定的位置。</li>
+</ul>
+<p>创建显式 Intent 启动 Activity 或服务时，系统将立即启动 <code>Intent</code> 对象中指定的应用组件。</p>
+<p>创建隐式 Intent 时，Android 系统通过将 Intent 的内容与在设备上其他应用的清单文件中声明的 Intent 过滤器进行比较，从而找到要启动的相应组件。 如果 Intent 与 Intent 过滤器匹配，则系统将启动该组件，并向其传递 <code>Intent</code>对象。 如果多个 Intent 过滤器兼容，则系统会显示一个对话框，支持用户选取要使用的应用。</p>
+<h1 id="构建-intent">构建 Intent</h1>
+<p><code>Intent</code> 对象携带了 Android 系统用来确定要启动哪个组件的信息（例如，准确的组件名称或应当接收该 Intent 的组件类别），以及收件人组件为了正确执行操作而使用的信息（例如，要采取的操作以及要处理的数据）。</p>
+<p><code>Intent</code> 中包含的主要信息如下：</p>
+<ul>
+<li>
+<p><strong>组件名称</strong></p>
+<p>要启动的组件名称。这是可选项，但也是构建<strong>显式</strong> Intent 的一项重要信息，这意味着 Intent 应当仅传递给由组件名称定义的应用组件。 如果没有组件名称，则 Intent 是<strong>隐式</strong>的，且系统将根据其他 Intent 信息（例如，以下所述的操作、数据和类别）决定哪个组件应当接收 Intent。 因此，如需在应用中启动特定的组件，则应指定该组件的名称。</p>
+<p>启动 <code>Service</code> 时，您应<strong>始终指定组件名称</strong>。 否则，您无法确定哪项服务会响应 Intent，且用户无法看到哪项服务已启动。</p>
+<p><code>Intent</code> 的这一字段是一个 <code>ComponentName</code> 对象，您可以使用目标组件的完全限定类名指定此对象，其中包括应用的软件包名称。 例如， <code>com.example.ExampleActivity</code>。您可以使用 <code>setComponent()</code>、<code>setClass()</code>、<code>setClassName()</code> 或 <code>Intent</code> 构造函数设置组件名称。</p>
+</li>
+<li>
+<p><strong>操作</strong></p>
+<p>指定要执行的通用操作（例如，“查看”或“选取”）的字符串。</p>
+<p>对于广播 Intent，这是指已发生且正在报告的操作。操作在很大程度上决定了其余 Intent 的构成，特别是数据和 extra 中包含的内容。</p>
+<p>您可以指定自己的操作，供 Intent 在您的应用内使用（或者供其他应用在您的应用中调用组件）。但是，您通常应该使用由 <code>Intent</code> 类或其他框架类定义的操作常量。以下是一些用于启动 Activity 的常见操作：</p>
+<p><code>ACTION_VIEW</code>：如果您拥有一些某项 Activity 可向用户显示的信息（例如，要使用图库应用查看的照片；或者要使用地图应用查看的地址），请使用 Intent 将此操作与 <code>startActivity()</code> 结合使用。</p>
+<p><code>ACTION_SEND</code>：这也称为“共享”Intent。如果您拥有一些用户可通过其他应用（例如，电子邮件应用或社交共享应用）共享的数据，则应使用 Intent 将此操作与 <code>startActivity()</code> 结合使用。</p>
+<p>有关更多定义通用操作的常量，请参阅 <code>Intent</code> 类参考文档。 其他操作在 Android 框架中的其他位置定义。例如，对于在系统的设置应用中打开特定屏幕的操作，将在 <code>Settings</code> 中定义。</p>
+<p>您可以使用 <code>setAction()</code> 或 <code>Intent</code> 构造函数为 Intent 指定操作。</p>
+<p>如果定义自己的操作，请确保将应用的软件包名称作为前缀。 例如：<code>static final String ACTION_TIMETRAVEL = &quot;com.example.action.TIMETRAVEL&quot;;</code></p>
+</li>
+<li>
+<p><strong>数据</strong></p>
+<p>引用待操作数据和/或该数据 MIME 类型的 URI（<code>Uri</code> 对象）。提供的数据类型通常由 Intent 的操作决定。例如，如果操作是 <code>ACTION_EDIT</code>，则数据应包含待编辑文档的 URI。</p>
+<p>创建 Intent 时，除了指定 URI 以外，指定数据类型（其 MIME 类型）往往也很重要。例如，能够显示图像的 Activity 可能无法播放音频文件，即便 URI 格式十分类似时也是如此。因此，指定数据的 MIME 类型有助于 Android 系统找到接收 Intent 的最佳组件。但有时，MIME 类型可以从 URI 中推断得出，特别当数据是 <code>content:</code> URI 时尤其如此。这表明数据位于设备中，且由 <code>ContentProvider</code> 控制，这使得数据 MIME 类型对系统可见。</p>
+<p>要仅设置数据 URI，请调用 <code>setData()</code>。 要仅设置 MIME 类型，请调用 <code>setType()</code>。如有必要，您可以使用 <code>setDataAndType()</code> 同时显式设置二者。**注意：**若要同时设置 URI 和 MIME 类型，<strong>请勿</strong>调用 <code>setData()</code> 和 <code>setType()</code>，因为它们会互相抵消彼此的值。请始终使用 <code>setDataAndType()</code> 同时设置 URI 和 MIME 类型。</p>
+</li>
+<li>
+<p><strong>类别</strong></p>
+<p>一个包含应处理 Intent 组件类型的附加信息的字符串。 您可以将任意数量的类别描述放入一个 Intent 中，但大多数 Intent 均不需要类别。 以下是一些常见类别：</p>
+<p><code>CATEGORY_BROWSABLE</code>：目标 Activity 允许本身通过网络浏览器启动，以显示链接引用的数据，如图像或电子邮件。</p>
+<p><code>CATEGORY_LAUNCHER</code>：该 Activity 是任务的初始 Activity，在系统的应用启动器中列出。</p>
+<p>有关类别的完整列表，请参阅 <code>Intent</code> 类描述。</p>
+<p>您可以使用 <code>addCategory()</code> 指定类别。</p>
+</li>
+</ul>
+<p>以上列出的这些属性（组件名称、操作、数据和类别）表示 Intent 的既定特征。 通过读取这些属性，Android 系统能够解析应当启动哪个应用组件。</p>
+<p>但是，Intent 也有可能会一些携带不影响其如何解析为应用组件的信息。 Intent 还可以提供：</p>
+<ul>
+<li>
+<p><strong>Extra</strong></p>
+<p>携带完成请求操作所需的附加信息的键值对。正如某些操作使用特定类型的数据 URI 一样，有些操作也使用特定的 extra。</p>
+<p>您可以使用各种 <code>putExtra()</code> 方法添加 extra 数据，每种方法均接受两个参数：键名和值。您还可以创建一个包含所有 extra 数据的 <code>Bundle</code> 对象，然后使用 <code>putExtras()</code> 将<code>Bundle</code> 插入 <code>Intent</code> 中。</p>
+<p>例如，使用 <code>ACTION_SEND</code> 创建用于发送电子邮件的 Intent 时，可以使用 <code>EXTRA_EMAIL</code> 键指定“目标”收件人，并使用 <code>EXTRA_SUBJECT</code> 键指定“主题”。</p>
+<p><code>Intent</code> 类将为标准化的数据类型指定多个 <code>EXTRA_*</code> 常量。如需声明自己的 extra 键（对于应用接收的 Intent），请确保将应用的软件包名称作为前缀。 例如：<code>static final String EXTRA_GIGAWATTS = &quot;com.example.EXTRA_GIGAWATTS&quot;;</code></p>
+</li>
+<li>
+<p><strong>标志</strong></p>
+<p>在 <code>Intent</code> 类中定义的、充当 Intent 元数据的标志。 标志可以指示 Android 系统如何启动 Activity（例如，Activity 应属于哪个任务），以及启动之后如何处理（例如，它是否属于最近的 Activity 列表）。如需了解详细信息，请参阅 <code>setFlags()</code> 方法。</p>
+</li>
+</ul>
+<h2 id="显式-intent-示例">显式 Intent 示例</h2>
+<p>显式 Intent 是指用于启动某个特定应用组件（例如，应用中的某个特定 Activity 或服务）的 Intent。 要创建显式 Intent，请为 <code>Intent</code> 对象定义组件名称 — Intent 的所有其他属性均为可选属性。</p>
+<p>E.g., explicitly indicate an Activity to start by creating a new Intent, specifying the current Activity’s Context and the class of the Activity to launch:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(MyActivity.<span class="keyword">this</span>, MyOtherActivity.class); </span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<p>After startActivity is called, the new Activity (in this example, MyOtherActivity) will be created, started, and resumed—replacing MyActivity at the top of the Activity stack.</p>
+<p>再如，如果在应用中构建了一个名为 <code>DownloadService</code>、旨在从网页下载文件的服务，则可使用以下代码启动该服务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// Executed in an Activity, so &apos;this&apos; is the Context</span><br><span class="line">// The fileUrl is a string URL, such as &quot;http://www.example.com/image.png&quot;</span><br><span class="line">Intent downloadIntent = new Intent(this, DownloadService.class);</span><br><span class="line">downloadIntent.setData(Uri.parse(fileUrl));</span><br><span class="line">startService(downloadIntent);</span><br></pre></td></tr></table></figure>
+<p><code>Intent(Context, Class)</code> 构造函数分别为应用和组件提供 <code>Context</code> 和 <code>Class</code> 对象。因此，此 Intent 将显式启动该应用中的 <code>DownloadService</code> 类。</p>
+<h2 id="隐式-intent-示例">隐式 Intent 示例</h2>
+<p>隐式 Intent 指定能够在可以执行相应操作的设备上调用任何应用的操作。 如果您的应用无法执行该操作而其他应用可以，且您希望用户选取要使用的应用，则使用隐式 Intent 非常有用。</p>
+<p>例如，如果您希望用户与他人共享您的内容，请使用 <code>ACTION_SEND</code> 操作创建 Intent，并添加指定共享内容的 extra。 使用该 Intent 调用 <code>startActivity()</code> 时，用户可以选取共享内容所使用的应用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create the text message with a string</span></span><br><span class="line">Intent sendIntent = <span class="keyword">new</span> Intent();</span><br><span class="line">sendIntent.setAction(Intent.ACTION_SEND);</span><br><span class="line">sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage);</span><br><span class="line">sendIntent.setType(<span class="string">"text/plain"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Verify that the intent will resolve to an activity</span></span><br><span class="line"><span class="keyword">if</span> (sendIntent.resolveActivity(getPackageManager()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">    startActivity(sendIntent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用 <code>startActivity()</code> 时，系统将检查已安装的所有应用，确定哪些应用能够处理这种 Intent（即：含 <code>ACTION_SEND</code>操作并携带“text/plain”数据的 Intent ）。 如果只有一个应用能够处理，则该应用将立即打开并为其提供 Intent。 如果多个 Activity 接受 Intent，则系统将显示一个对话框，使用户能够选取要使用的应用。</p>
+<p>用户可能没有任何应用处理您发送到 <code>startActivity()</code> 的隐式 Intent。如果出现这种情况，则调用将会失败，且应用会崩溃。You can use the Package Manager to query which, if any, Activity will be launched in response to a specific Intent by calling resolveActivity on your Intent object, passing in the Package Manager:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (somethingWeird &amp;&amp; itDontLookGood) &#123;</span><br><span class="line">	<span class="comment">// Create the implicit Intent to use to start a new Activity. </span></span><br><span class="line">  Intent intent =</span><br><span class="line">		<span class="keyword">new</span> Intent(Intent.ACTION_DIAL, Uri.parse(<span class="string">"tel:555-2368"</span>));</span><br><span class="line">	</span><br><span class="line">  <span class="comment">// Check if an Activity exists to perform this action.</span></span><br><span class="line">	PackageManager pm = getPackageManager(); </span><br><span class="line">  ComponentName cn = intent.resolveActivity(pm); </span><br><span class="line">  <span class="keyword">if</span> (cn == <span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="comment">// There is no Activity available to perform the action </span></span><br><span class="line">    <span class="comment">// Log an error and modify app behavior accordingly,</span></span><br><span class="line">		<span class="comment">// typically by disabling the UI element that would allow </span></span><br><span class="line">    <span class="comment">// users to attempt this action.</span></span><br><span class="line">		Log.e(TAG, <span class="string">"Intent could not resolve to an Activity."</span>); </span><br><span class="line">  &#125;</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">    startActivity(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="强制使用应用选择器">强制使用应用选择器</h2>
+<p>如果有多个应用响应隐式 Intent，则用户可以选择要使用的应用，并将其设置为该操作的默认选项。但是，如果多个应用可以响应 Intent，且用户可能希望每次使用不同的应用，则应采用显式方式显示选择器对话框。 选择器对话框每次都会要求用户选择用于操作的应用（用户无法为该操作选择默认应用）。 例如，当应用使用 <code>ACTION_SEND</code> 操作执行“共享”时，用户根据目前的状况可能需要使用另一不同的应用，因此应当始终使用选择器对话框。要显示选择器，请使用 <code>createChooser()</code> 创建 <code>Intent</code>，并将其传递给 <code>startActivity()</code>。</p>
+<h1 id="接收隐式-intent">接收隐式 Intent</h1>
+<p>要公布应用可以接收哪些隐式 Intent，请在清单文件中使用 <code>&lt;intent-filter&gt;</code> 元素为每个应用组件声明一个或多个 Intent 过滤器。每个 Intent 过滤器均根据 Intent 的操作、数据和类别指定自身接受的 Intent 类型。 仅当隐式 Intent 可以通过 Intent 过滤器之一传递时，系统才会将该 Intent 传递给应用组件。</p>
+<p>应用组件应当为自身可执行的每个独特作业声明单独的过滤器。例如，图像库应用中的一个 Activity 可能会有两个过滤器，分别用于查看图像和编辑图像。 当 Activity 启动时，它将检查 <code>Intent</code> 并根据 <code>Intent</code> 中的信息决定具体的行为（例如，是否显示编辑器控件）。</p>
+<p>每个 Intent 过滤器均由应用清单文件中的 <code>&lt;intent-filter&gt;</code> 元素定义，并嵌套在相应的应用组件（例如，<code>&lt;activity&gt;</code>元素）中。 在 <code>&lt;intent-filter&gt;</code> 内部，您可以使用以下三个元素中的一个或多个指定要接受的 Intent 类型：</p>
+<ul>
+<li><code>&lt;action&gt;</code>：在 <code>name</code> 属性中，声明接受的 Intent 操作。该值必须是操作的文本字符串值，而不是类常量。</li>
+<li><code>&lt;data&gt;</code>：使用一个或多个指定数据 URI 各个方面（<code>scheme</code>、<code>host</code>、<code>port</code>、<code>path</code> 等）和 MIME 类型的属性，声明接受的数据类型。</li>
+<li><code>&lt;category</code>：在 <code>name</code> 属性中，声明接受的 Intent 类别。该值必须是操作的文本字符串值，而不是类常量。</li>
+</ul>
+<h1 id="使用待定-intent">使用待定 Intent</h1>
+<p><code>PendingIntent</code> 对象是 <code>Intent</code> 对象的包装器。<code>PendingIntent</code> 的主要目的是授权外部应用使用包含的 <code>Intent</code>，就像是它从您应用本身的进程中执行的一样。The PendingIntent class provides a mechanism for creating Intents that can be fired on your application’s behalf by the system, or another application, at a later time.  A Pending Intent is commonly used to package Intents that will be fired in response to a future event, such as when a user touches a Notification.</p>
+<p>待定 Intent 的主要用例包括：</p>
+<ul>
+<li>声明用户使用您的通知执行操作时所要执行的 Intent（Android 系统的 <code>NotificationManager</code> 执行 <code>Intent</code>）。</li>
+<li>声明用户使用您的 应用小部件执行操作时要执行的 Intent（主屏幕应用执行 <code>Intent</code>）。</li>
+<li>声明未来某一特定时间要执行的 Intent（Android 系统的 <code>AlarmManager</code> 执行 <code>Intent</code>）。</li>
+</ul>
+<p>由于每个 <code>Intent</code> 对象均设计为由特定类型的应用组件（<code>Activity</code>、<code>Service</code> 或 <code>BroadcastReceiver</code>）进行处理，因此还必须基于相同的考虑因素创建 <code>PendingIntent</code>。使用待定 Intent 时，应用不会使用调用（如 <code>startActivity()</code>）执行该 Intent。相反，通过调用相应的创建器方法创建 <code>PendingIntent</code> 时，您必须声明所需的组件类型：</p>
+<ul>
+<li><code>PendingIntent.getActivity()</code>，适用于启动 <code>Activity</code> 的 <code>Intent</code>。</li>
+<li><code>PendingIntent.getService()</code>，适用于启动 <code>Service</code> 的 <code>Intent</code>。</li>
+<li><code>PendingIntent.getBroadcast()</code>，适用于启动 <code>BroadcastReceiver</code> 的 <code>Intent</code>。</li>
+</ul>
+<p>除非您的应用正在从其他应用中接收待定 Intent，否则上述用于创建 <code>PendingIntent</code> 的方法可能是您所需的唯一<code>PendingIntent</code> 方法。</p>
+<p>每种方法均会提取当前的应用 <code>Context</code>、您要包装的 <code>Intent</code> 以及一个或多个指定应如何使用该 Intent 的标志（例如，是否可以多次使用该 Intent）。</p>
 
                 
 
@@ -258,7 +359,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#intent-类型"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Intent 类型</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#构建-intent"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">构建 Intent</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#显式-intent-示例"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">显式 Intent 示例</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#隐式-intent-示例"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">隐式 Intent 示例</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#强制使用应用选择器"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">强制使用应用选择器</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#接收隐式-intent"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">接收隐式 Intent</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#使用待定-intent"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">使用待定 Intent</span></a></li></ol>
         
         </div>
       </aside>
