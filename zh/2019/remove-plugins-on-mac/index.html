@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          原来，烧不死的鸟并不是凤凰 - Brighton Zhang
+          MacOS彻底卸载软件和插件 - Brighton Zhang
         
     </title>
 
-    <link rel="canonical" href="https://brightonzhang.com/zh/2019/fenghuang-phoenix/">
+    <link rel="canonical" href="https://brightonzhang.com/zh/2019/remove-plugins-on-mac/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/2019/p2535245563.jpg')
+            background-image: url('/img/2019/dd6rjybqkw8ye.jpg')
             /*post*/
         
     }
@@ -89,10 +89,10 @@
                         <div class="tags">
                             
                         </div>
-                        <h1>原来，烧不死的鸟并不是凤凰</h1>
+                        <h1>MacOS彻底卸载软件和插件</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
-                            Posted on 06/10/2019
+                            Posted on 06/14/2019
                         </span>
                     </div>
                 
@@ -196,16 +196,79 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>前天去看了电影《X战警：黑凤凰》，看着<s>珊莎</s>琴浴火重生，不禁想到凤凰涅槃。在我印象中，作为我们家喻户晓流传千古的百鸟之王，凤凰每五百年，集香木自焚，复从死灰中更生，这故事从小就耳熟能详。所以我就好奇了，难道西方神话传说中也有相同的凤凰传奇么？还是我们的凤凰也飞到西方影响了世界？为啥片名会叫Dark Phoenix呢？</p>
-<p>回家Google一把，当时我就震惊了：我们的凤凰，那个常常与龙共舞的凤凰，是没有浴火重生的。</p>
-<p>凤凰最早并非一种，而是凤鸟与皇鸟——雄凤雌凰。后逐渐成为中国皇权的象征，常和龙一起使用，用于皇后嫔妃，凤凰被整体雌化。<br>
-西汉的《淮南子》中说：“羽嘉生飞龙，飞龙生凤皇，凤皇生鸾鸟，鸾鸟生庶鸟，凡羽者生于庶鸟。”，这里看到凤凰是飞龙之子。<br>
-三国时期的《广雅》中描述了凤凰的形态：“凤凰，鸡头燕颔，蛇颈鸿身，鱼尾骿翼。五色：首文曰德，翼文曰顺，背文义，腹文信，膺文仁。雄鸣曰即即，雌鸣曰足足，昏鸣曰固常，晨鸣曰发明，昼鸣曰保长，举鸣曰上翔，集鸣曰归昌。”</p>
-<p>而有些地方也提到凤凰与火有关。宋代的《太平御览》卷九一五引《春秋演孔图》：“凤，火精”。另外，楚文化中有尊凤的原始信仰。楚人的祖先祝融是火神兼雷神。汉代《白虎通》说，祝融“其精为鸟，离为鸾。”《卞鸦·绛鸟》注曰：“凤凰属也”。可见，祝融也是凤的化身。那凤也可以被认为是火神。</p>
-<p>除此之外，没有文献表明凤凰会浴火重生。而我们耳熟能详的凤凰涅槃是来自郭沫若的同名诗歌，郭沫若明显参照了西方传说中的Phoenix而创造了凤凰涅槃：<br>
-Phoenix，译不死鸟，又译菲尼克斯，源自希腊神话（希腊神话中的不死鸟可能来源于埃及神话中的贝努鸟）。每隔五百年左右，不死鸟便会采集各种有香味的树枝或草叶，并将之叠起来后引火自焚，最后留下来的灰烬中会出现重生的幼鸟。</p>
-<p>显然，不死鸟与中国神话的凤凰原是二种不同文化下产生的生物，彼此自然不同，但在翻译外来词时常寻求本地相近之物或观念以作说明，故“Phoenix”一词常通译为凤凰——龙与Dragon也是一样。</p>
-<p>嗯，又学习了新知识！</p>
+                <p>MacOS卸载程序很简单，对于非app store安装的应用，只要移除  /Applications  下对应的文件即可。但是这种卸载方式可能会留下一些缓存、配置信息和插件——这些可能较大，也可能很小几乎不占空间——但我总是希望删得干干净净彻彻底底。</p>
+<p>一款优秀的软件会在说明文档里写清楚安装卸载方法，如Wireshark：</p>
+<blockquote>
+<p><strong>Quick Setup</strong></p>
+<p>Simply double-click the Wireshark package. For details about the installation read below.</p>
+<br>
+<p><strong>What changes does the installer make?</strong></p>
+<p>The installer writes to the following locations:</p>
+<ul>
+<li>
+<p><em>/Applications/Wireshark.app</em>. The main Wireshark application.</p>
+</li>
+<li>
+<p><em>/Library/LaunchDaemons/org.wireshark.ChmodBPF.plist</em>. A launch daemon that adjusts permissions on the system’s packet capture devices (<em>/dev/bpf</em>*) when the system starts up.</p>
+</li>
+<li>
+<p><em>/Library/Application Support/Wireshark/ChmodBPF</em> A copy of the launch daemon property list, and the script that the launch daemon runs.</p>
+</li>
+<li>
+<p><em>/usr/local/bin</em>. A wrapper script and symbolic links which will let you run Wireshark and its associated utilities from the command line. You can access them directly or by adding /usr/local/bin to your PATH if it’s not already in your PATH.</p>
+</li>
+<li>
+<p><em>/etc/paths.d/Wireshark</em>. The folder name in this file is automatically added to PATH</p>
+</li>
+<li>
+<p><em>/etc/manpaths.d/Wireshark</em>. The folder name in this file is used by the man command.</p>
+</li>
+</ul>
+<p>Additionally a group named <em>access_bpf</em> is created. The user who opened the package is added to the group.</p>
+<br>
+<p><strong>How do I uninstall?</strong></p>
+<ol>
+<li>Remove <em>/Applications/Wireshark.app</em></li>
+<li>Remove <em>/Library/Application Support/Wireshark</em></li>
+<li>Remove the wrapper scripts from <em>/usr/local/bin</em></li>
+<li>Unload the <em>org.wireshark.ChmodBPF.plist</em> launchd job</li>
+<li>Remove <em>/Library/LaunchDaemons/org.wireshark.ChmodBPF.plist</em></li>
+<li>Remove the <em>access_bpf</em> group.</li>
+<li>Remove <em>/etc/paths.d/Wireshark</em></li>
+<li>Remove <em>/etc/manpaths.d/Wireshark</em></li>
+</ol>
+</blockquote>
+<p>然而有些奇葩就不会有任何说明，比如我今天遇到的海康威视萤石视频播放插件。</p>
+<p>今天本来想在电脑上看看家里摄像头的情况，在萤石官网下载了浏览器视频播放mac插件，安装完成之后，还折腾了一圈账号密码，最后告诉现在不支持网页查看了，只能使用Windows安装萤石云工作室。WTF!</p>
+<p>然后我就来卸载刚刚装的这个垃圾插件，但是我在  /Applications 没有看到任何萤石插件的影子。我想到下载的安装文件加PCPlayer.pkg，打开提示是install MACPlayer，所以尝试搜索了PCPlayer 和 MACPlayer，无果。</p>
+<p>Google得知，原来浏览器插件是在 Library/Internet Plug-Ins 目录下，终于在 /Library/Internet Plug-Ins 目录下发现了SP7WebVideoPlugin.plugin这个孽畜，果断rm掉，顿觉神清气爽。</p>
+<p>整理总结下今天搜索的结果：</p>
+<p>MacOS有三个Library（资源库）：</p>
+<ol>
+<li>/System/Library 系统资源库</li>
+<li>/Library 管理员资源库</li>
+<li>~/Library 当前用户资源库</li>
+</ol>
+<p>一些常见插件路径：</p>
+<ul>
+<li>网络插件：Library/Internet Plug-Ins</li>
+<li>系统偏好设置插件：Library/PreferencePanes</li>
+<li>Spotlight搜索插件： Library/Spotlight</li>
+<li>Finder插件：Library/Contextual Menu Items</li>
+<li>QuickLook插件：Library/QuickLook</li>
+</ul>
+<p>一般在 /Applications里删除某软件后，可以检查如下路径是否有残留：</p>
+<ul>
+<li>~/Library 目录下软件开发者名称或者软件名称</li>
+<li>~/Library/Application Support</li>
+<li>/Library/Application Support</li>
+<li>~/Library/Caches</li>
+<li>~/Library/Containers</li>
+<li>~/Library/LaunchAgents</li>
+<li>/Library/LaunchAgents</li>
+</ul>
+<p>MacOS内置有<a href="https://en.wikiversity.org/wiki/MacOS/pkgutil" target="_blank" rel="noopener">pkgutil</a>命令行工具管理packages(.pkg_files)。</p>
+<p>BTW，我就是不想用Dr. Cleaner、AppCleaner、CleanMyMac、腾讯电脑管家。。。</p>
 
                 
 
@@ -213,13 +276,9 @@ Phoenix，译不死鸟，又译菲尼克斯，源自希腊神话（希腊神话�
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/zh/2019/remove-plugins-on-mac/" data-toggle="tooltip" data-placement="top" title="MacOS彻底卸载软件和插件">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/zh/2019/got-is-finished/" data-toggle="tooltip" data-placement="top" title="权游终结：凡人皆有一死">Next Post &rarr;</a>
+                            <a href="/zh/2019/fenghuang-phoenix/" data-toggle="tooltip" data-placement="top" title="原来，烧不死的鸟并不是凤凰">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -276,8 +335,8 @@ Phoenix，译不死鸟，又译菲尼克斯，源自希腊神话（希腊神话�
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "brightonzhang-com";
-    var disqus_identifier = "https://brightonzhang.com/zh/2019/fenghuang-phoenix/";
-    var disqus_url = "https://brightonzhang.com/zh/2019/fenghuang-phoenix/";
+    var disqus_identifier = "https://brightonzhang.com/zh/2019/remove-plugins-on-mac/";
+    var disqus_url = "https://brightonzhang.com/zh/2019/remove-plugins-on-mac/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
