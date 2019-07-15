@@ -220,6 +220,8 @@ uwsgi是uWSGI服务器的独占通信协议，用于与web服务器通信。</p>
 <p>And uWSGI will start up in master mode and spawn five worker processes to serve actual requests.</p>
 <p>We’re going to be using Nginx to handle actual client connections, which will then pass requests to uWSGI. Since these components are operating on the same computer, a Unix socket is preferable because it is faster and more secure. We call the socket <code>/tmp/uwsgi.%n.sock</code> and place it in this directory. We also change the permissions on the socket. We’ll be giving the Nginx group ownership of the uWSGI process later on, so we need to make sure the group owner of the socket can read information from it and write to it. We will also clean up the socket when the process stops by adding the <code>vacuum</code> option.</p>
 <p>The <code>die-on-term</code> option can help ensure that the init system and uWSGI have the same assumptions about what each process signal means. Setting this aligns the two system components, implementing the expected behavior.</p>
+<p>手动启动测试：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uwsgi deployment/uwsgi/mayfly.ini</span><br></pre></td></tr></table></figure>
 <h1 id="systemd-unit-file">Systemd Unit File</h1>
 <p>Creating a systemd unit file will allow Ubuntu’s init system to automatically start uWSGI and serve the Flask application whenever the server boots.</p>
 <p>Create a unit file ending in <code>.service</code> within the <code>/etc/systemd/system</code> directory to begin:</p>
@@ -244,6 +246,12 @@ uwsgi是uWSGI服务器的独占通信协议，用于与web服务器通信。</p>
 <li><code>sudo journalctl -u nginx</code>: checks the Nginx process logs.</li>
 <li><code>sudo journalctl -u myproject</code>: checks your Flask app’s uWSGI logs.</li>
 </ul>
+<p>在Linux上，Nginx默认配置文件在<code>/etc/nginx/</code>下。在macOS上，若采用brew安装，Nginx默认配置文件在<code>/usr/local/etc/nginx/</code>下，目录结构也有差异。可以在<code>nginx.conf</code>第一行指定nginx进程运行用户：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">user</span> Brighton staff;</span><br></pre></td></tr></table></figure>
+<p>可以使用<code>brew</code>控制Nginx：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo brew services start nginx</span><br></pre></td></tr></table></figure>
+<p>当然也可以使用<code>nginx</code>命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx</span><br><span class="line">sudo nginx -t</span><br><span class="line">sudo nginx -s stop</span><br><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
 <h1 id="certbot">Certbot</h1>
 <p>使用Certbot为域名添加<a href="https://letsencrypt.org/" target="_blank" rel="noopener">Let’s Encrypt</a>证书以支持HTTPS。安装Certbot’s Nginx包并执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:certbot/certbot</span><br><span class="line">sudo apt install python-certbot-nginx</span><br><span class="line">sudo certbot --nginx -d mayfly.brightonzhang.com</span><br></pre></td></tr></table></figure>
