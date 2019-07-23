@@ -1,5 +1,29 @@
 title: Hello World
+catalog: true
+date: 2015-06-28 16:27:30
+updated: 2016-06-28 16:27:30
+subtitle: "Just for testing."
+cover: "quick-brown-fox.jpg"
+
+categories:
+- 技术
+- Web
+
+tags:
+- 测试
+- HEXO
 ---
+
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+the quick brown fox jumps over the lazy dog
+
+<!--more--> 
+
+# 纳凉
+携扙来追柳外凉，画桥南畔倚胡床。
+月明船笛参差起，风定池莲自在香。 
+
+# Hexo
 Welcome to [Hexo](http://hexo.io/)! This is your very first post. Check [documentation](http://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](http://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
 ## Quick Start
@@ -35,3 +59,5 @@ $ hexo deploy
 ```
 
 More info: [Deployment](http://hexo.io/docs/deployment.html)
+
+> The header image is from [SKETCH THAT](https://sketchthatout.wordpress.com/tag/art/page/4/)
