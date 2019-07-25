@@ -1,7 +1,10 @@
 title: 排序算法
 date: 2016-02-05 10:29:13
 catalog: true
-author: Zhang
+updated: 2016-02-05 15:43:09
+cover: 
+categories:
+- 技术
 tags: 算法
 ---
 

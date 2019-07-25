@@ -1,10 +1,15 @@
 title: 关于Google Play商店入华的想法
+subtitle: 
 date: 2015-10-30 22:03:19
 updated: 2015-10-30 22:03:19
-tags: 
+cover: 
+catalog: false
+categories: 杂言
+tags:
 ---
 
 在写标题的时候，我就在纠结是写Play商店入华还是返华。2010年初Google宣布退出中国市场的时候，Google Play还叫Android Market。当时的安卓版本还在2.0/2.1，国内还没有安卓手机上市，市场上只有少量的水货安卓机————那个都是预置了Android Market的，也都可以正常使用的。
+<!--more--> 
 
 看那个是时候的中国智能机市场，iPhone（3G／3GS）刚被联通刚引入不久，还没有飞入寻常百姓家；黑莓／Palm有一批死忠，但始终小众；噢，那时还是诺基亚塞班在一统天下。
 

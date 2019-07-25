@@ -1,13 +1,12 @@
 title: Hello World
-catalog: true
+subtitle: "Just for testing."
 date: 2015-06-28 16:27:30
 updated: 2016-06-28 16:27:30
-subtitle: "Just for testing."
 cover: "quick-brown-fox.jpg"
+catalog: true
 
 categories:
-- 技术
-- Web
+- 巧技
 
 tags:
 - 测试
@@ -59,5 +58,16 @@ $ hexo deploy
 ```
 
 More info: [Deployment](http://hexo.io/docs/deployment.html)
+
+# Migrate
+```shell
+for md in *.md
+do
+    if [ ! -d ${md%.md} ]
+    then
+        mkdir ${md%.md}
+    fi
+done
+```
 
 > The header image is from [SKETCH THAT](https://sketchthatout.wordpress.com/tag/art/page/4/)
