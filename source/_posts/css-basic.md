@@ -185,7 +185,7 @@ CSS为处理继承提供了四种特殊的通用属性值：
 CSS框模型（译者注：也被称为“盒模型”）是网页布局的基础 ——每个元素被表示为一个矩形的方框，框的内容、内边距、边界和外边距，一层包着一层构建起来。
 ## 框属性
 文档的每个元素被构造成文档布局内的一个矩形框，框每层的大小都可以使用一些特定的CSS属性调整。相关属性如下:
-![框模型](https://mdn.mozillademos.org/files/13647/box-model-standard-small.png)
+<img src="https://mdn.mozillademos.org/files/13647/box-model-standard-small.png" alt="框模型" style=" width: 100%;">
 - width 和 height
   width 和 height 设置内容框（content box）的宽度和高度。内容框是框内容显示的区域——包括框内的文本内容，以及表示嵌套子元素的其它框。
 - padding

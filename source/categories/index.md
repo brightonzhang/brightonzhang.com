@@ -1,3 +1,3 @@
-title: categories
+title: CATEGORIES
 type: "categories"
 ---
