@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh" >
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title -->
+    
+    <title>MAC使用笔记 - BRIGHTON ZHANG</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body  data-spy="scroll" data-target="#tocScrollspy"  >
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BRIGHTON</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    
+<header class="intro-header" style="background-image: url('')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <!-- Tags and categories -->
+                        
+                            <div class="post-tag-category">
+                                
+                                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/巧技/">巧技</a>
+  </div>
+
+                            </div>
+                        
+
+                        <h1>MAC使用笔记</h1>
+                        
+
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2016-06-10T07:05:07.000Z" itemprop="datePublished">06/10/2016</time>
+
+    
+</p>
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Main Content -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+
+                <article  >
+                    <h1 id="启动root用户"><a href="#启动root用户" class="headerlink" title="启动root用户"></a>启动root用户</h1><p>OS X Lion (10.7) 和更高版本</p>
+<ul>
+<li>从 Apple 菜单中选取“系统偏好设置”。</li>
+<li>从“显示”菜单中选取“用户与群组”。</li>
+<li>点按锁图标并使用管理员帐户进行鉴定。</li>
+<li>点按“登录选项”。</li>
+<li>点按右下方的“编辑”或“加入”按钮。</li>
+<li>点按“打开目录实用工具”按钮。</li>
+<li>点按“目录实用工具”窗口中的锁图标。</li>
+<li>输入管理员帐户名称和密码，然后点按“好”。</li>
+<li>从“编辑”菜单中选取“启用 Root 用户”。</li>
+<li>在“密码”和“验证”栏中输入您想要使用的 root 密码，然后点按“好”。</li>
+</ul>
+<p>详请参考：<a href="https://support.apple.com/zh-cn/HT204012" target="_blank" rel="noopener">https://support.apple.com/zh-cn/HT204012</a></p>
+<h1 id="启动项"><a href="#启动项" class="headerlink" title="启动项"></a>启动项</h1><p>该节主要参考至 <a href="http://www.tanhao.me/talk/1287.html/" target="_blank" rel="noopener">http://www.tanhao.me/talk/1287.html/</a><br>Mac OS X的开机启动项分为3种：Login Items，Launchd Daemon和Startup Items。</p>
+<h6 id="Login-Items"><a href="#Login-Items" class="headerlink" title="Login Items"></a>Login Items</h6><p>Login Item可能时我们见到的最后的，就是在 “系统偏好设置／用户与群组／登录项”里面设置的。其配置文件时保存在 $HOME/Library/Preferences/com.apple.loginitems.plist下面。</p>
+<h6 id="Lauchd-Daemon"><a href="#Lauchd-Daemon" class="headerlink" title="Lauchd Daemon"></a>Lauchd Daemon</h6><p>Launched Daemon是由launchd来负责启动的。launchd是内核加载之后启动的第一个进程。launchd用来完成系统初始化。launchd首先加载/System/Library/LaunchDaemons/和/Library/LaunchDaemons/目录下的launch-on-demand system-level daemon（这些是系统启动后立即启动的进程，是守护进程）。然后启动/System/Library/LaunchAgents, /Library/LaunchAgents 和$HOME/Library/LaunchAgents 下面的launch－on－demand user agent（这些是用户登录后启动的进程）。<br>我安装的tiger VPN的client的启动就是配置在/Library/LaunchAgents／com.tigeratwork.tigervpn.plist。<br>可以通过直接删除plist文件来移除启动项，也可以通过luanchctl命令来修改启动项。<br>e.g. sudo launchctl unload -w com.tigeratwork.tigervpn.plist #这样就可以移除tiger vpn client的开机自启动。<br>关于launchctl可以参考：<a href="http://ss64.com/osx/launchctl.html" target="_blank" rel="noopener">http://ss64.com/osx/launchctl.html</a><br>执行launchctl unload －w之后，相应的plist文件还在，但重启之后的确不再启动了。我还没有找到配置文件保存在哪。<br>更多Launchd Daemon可以参考：<a href="https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html" target="_blank" rel="noopener">https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html</a></p>
+<h6 id="Startup-Items"><a href="#Startup-Items" class="headerlink" title="Startup Items"></a>Startup Items</h6><p>Startup Items是系统启动过程中运行的程序，一般在/System/Library/StartupItems和/Library/StartupItems目录下。</p>
+
+                </article>
+            </div>
+
+        
+    </div>
+
+    <div class="row">
+        <!-- Comments -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+
+
+            </div>
+        
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/brightonzhang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/brightonzhang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:hello@brightonzhang.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    &copy; 2019 Brighton Zhang<br>
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> ⌘ 
+                    Theme from <a href="https://github.com/brightonzhang/hexo-theme-nutshell" target="_blank">Nutshell</a>
+                    
+                    ⌘ Deployed on <a href="https://github.com/brightonzhang/brightonzhang.com.git" target="_blank">GitHub Pages</a>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+</body>
+
+</html>

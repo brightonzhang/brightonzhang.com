@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh" >
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title -->
+    
+    <title>MacOS彻底卸载软件和插件 - BRIGHTON ZHANG</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body  data-spy="scroll" data-target="#tocScrollspy"  >
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BRIGHTON</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    
+<header class="intro-header" style="background-image: url('dd6rjybqkw8ye.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <!-- Tags and categories -->
+                        
+                            <div class="post-tag-category">
+                                
+                                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/巧技/">巧技</a>
+  </div>
+
+                            </div>
+                        
+
+                        <h1>MacOS彻底卸载软件和插件</h1>
+                        
+
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2019-06-14T07:46:24.000Z" itemprop="datePublished">06/14/2019</time>
+
+    
+</p>
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Main Content -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+
+                <article  >
+                    <p>MacOS卸载程序很简单，对于非app store安装的应用，只要移除  /Applications  下对应的文件即可。但是这种卸载方式可能会留下一些缓存、配置信息和插件——这些可能较大，也可能很小几乎不占空间——但我总是希望删得干干净净彻彻底底。<br><a id="more"></a> </p>
+<p>一款优秀的软件会在说明文档里写清楚安装卸载方法，如Wireshark：</p>
+<blockquote>
+<p><strong>Quick Setup</strong></p>
+<p>Simply double-click the Wireshark package. For details about the installation read below.</p>
+<p><br></p>
+<p><strong>What changes does the installer make?</strong></p>
+<p>The installer writes to the following locations:</p>
+<ul>
+<li><em>/Applications/Wireshark.app</em>. The main Wireshark application.</li>
+<li><em>/Library/LaunchDaemons/org.wireshark.ChmodBPF.plist</em>. A launch daemon that adjusts permissions on the system’s packet capture devices (*/dev/bpf**) when the system starts up.</li>
+<li><em>/Library/Application Support/Wireshark/ChmodBPF</em> A copy of the launch daemon property list, and the script that the launch daemon runs.</li>
+<li><p><em>/usr/local/bin</em>. A wrapper script and symbolic links which will let you run Wireshark and its associated utilities from the command line. You can access them directly or by adding /usr/local/bin to your PATH if it’s not already in your PATH.</p>
+</li>
+<li><p><em>/etc/paths.d/Wireshark</em>. The folder name in this file is automatically added to PATH</p>
+</li>
+<li><em>/etc/manpaths.d/Wireshark</em>. The folder name in this file is used by the man command.</li>
+</ul>
+<p>Additionally a group named <em>access_bpf</em> is created. The user who opened the package is added to the group.</p>
+<p><br></p>
+<p><strong>How do I uninstall?</strong></p>
+<ol>
+<li>Remove <em>/Applications/Wireshark.app</em></li>
+<li>Remove <em>/Library/Application Support/Wireshark</em></li>
+<li>Remove the wrapper scripts from <em>/usr/local/bin</em></li>
+<li>Unload the <em>org.wireshark.ChmodBPF.plist</em> launchd job</li>
+<li>Remove <em>/Library/LaunchDaemons/org.wireshark.ChmodBPF.plist</em></li>
+<li>Remove the <em>access_bpf</em> group.</li>
+<li>Remove <em>/etc/paths.d/Wireshark</em></li>
+<li>Remove <em>/etc/manpaths.d/Wireshark</em></li>
+</ol>
+</blockquote>
+<p>然而有些奇葩就不会有任何说明，比如我今天遇到的海康威视萤石视频播放插件。</p>
+<p>今天本来想在电脑上看看家里摄像头的情况，在萤石官网下载了浏览器视频播放mac插件，安装完成之后，还折腾了一圈账号密码，最后告诉现在不支持网页查看了，只能使用Windows安装萤石云工作室。WTF! </p>
+<p>然后我就来卸载刚刚装的这个垃圾插件，但是我在  /Applications 没有看到任何萤石插件的影子。我想到下载的安装文件加PCPlayer.pkg，打开提示是install MACPlayer，所以尝试搜索了PCPlayer 和 MACPlayer，无果。</p>
+<p>Google得知，原来浏览器插件是在 Library/Internet Plug-Ins 目录下，终于在 /Library/Internet Plug-Ins 目录下发现了SP7WebVideoPlugin.plugin这个孽畜，果断rm掉，顿觉神清气爽。</p>
+<p>整理总结下今天搜索的结果：</p>
+<p>MacOS有三个Library（资源库）：</p>
+<ol>
+<li>/System/Library 系统资源库</li>
+<li>/Library 管理员资源库</li>
+<li>~/Library 当前用户资源库</li>
+</ol>
+<p>一些常见插件路径：</p>
+<ul>
+<li>网络插件：Library/Internet Plug-Ins  </li>
+<li>系统偏好设置插件：Library/PreferencePanes </li>
+<li>Spotlight搜索插件： Library/Spotlight</li>
+<li>Finder插件：Library/Contextual Menu Items </li>
+<li>QuickLook插件：Library/QuickLook</li>
+</ul>
+<p>一般在 /Applications里删除某软件后，可以检查如下路径是否有残留：</p>
+<ul>
+<li>~/Library 目录下软件开发者名称或者软件名称</li>
+<li>~/Library/Application Support </li>
+<li>/Library/Application Support</li>
+<li>~/Library/Preferences</li>
+<li>/Library/Preferences</li>
+<li>~/Library/Caches </li>
+<li>~/Library/Containers</li>
+<li>~/Library/LaunchAgents</li>
+<li>/Library/LaunchAgents</li>
+</ul>
+<p>MacOS内置有<a href="https://en.wikiversity.org/wiki/MacOS/pkgutil" target="_blank" rel="noopener">pkgutil</a>命令行工具管理packages(.pkg_files)。</p>
+<p>BTW，我就是不想用Dr. Cleaner、AppCleaner、CleanMyMac、腾讯电脑管家。。。</p>
+
+                </article>
+            </div>
+
+        
+    </div>
+
+    <div class="row">
+        <!-- Comments -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+
+
+            </div>
+        
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/brightonzhang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/brightonzhang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:hello@brightonzhang.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    &copy; 2019 Brighton Zhang<br>
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> ⌘ 
+                    Theme from <a href="https://github.com/brightonzhang/hexo-theme-nutshell" target="_blank">Nutshell</a>
+                    
+                    ⌘ Deployed on <a href="https://github.com/brightonzhang/brightonzhang.com.git" target="_blank">GitHub Pages</a>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+</body>
+
+</html>

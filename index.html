@@ -1,845 +1,814 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh" >
 
 <!-- Head tag -->
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword" content="">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <title>
-        
-          Brighton Zhang
-        
-    </title>
 
-    <link rel="canonical" href="https://brightonzhang.com/">
+    <!-- Title -->
+    
+    <title>BRIGHTON ZHANG</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
-
-    <!-- Custom CSS --> 
-    <link rel="stylesheet" href="/css/beantech.min.css">
-    
-    <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
-
-    <link rel="stylesheet" href="/css/widget.css">
-
-    <link rel="stylesheet" href="/css/rocket.css">
-
-    <link rel="stylesheet" href="/css/signature.css">
-
-    <link rel="stylesheet" href="/css/toc.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
 
     <!-- Custom Fonts -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Google Analytics -->
+    
 
 
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
+    <!-- favicon -->
+    
 
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- ga & ba script hoook -->
-    <script></script>
 </head>
 
 
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="">
-	<!-- Modified by Yu-Hsuan Yen -->
-<!-- Post Header -->
-<style type="text/css">
-    header.intro-header{
-        
-            background-image: url('/img/header_img/banner.jpg') 
-            /*config*/
-        
-    }
-    
-</style>
+<body  >
 
-<header class="intro-header">
-    <!-- Signature -->
-    <div id="signature">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="site-heading">
-                        <h1>Brighton Zhang</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">We can burn brighter than the sun</span>
-                    </div>
-                
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-	
+    <!-- Menu -->
     <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Brighton Zhang</a>
+            <a class="navbar-brand" href="/">BRIGHTON</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
                     </li>
-
+                
                     <li>
-                        <a href="/archive/">Archives</a>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
                     </li>
-
+                
                     <li>
-                        <a href="/tags/">Tags</a>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
                     </li>
-
+                
                     <li>
-                        <a href="/about/">About</a>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
                     </li>
-
-                    <!-- Brighton, 3/10/2018, hardcoded the navbar elements order -->  
-                </ul>
-            </div>
+                
+            </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
-
 
     <!-- Main Content -->
-    <!-- Main Content -->
+    <!-- Page Header -->
+
+<header class="intro-header" style="background-image: url('/imgs/neptune.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="site-heading">
+                        <h1>BRIGHTON ZHANG</h1>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
 <div class="container">
     <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            
+                <article>
+    <div class="post-preview">
+        <a href="/posts/flask-uwsgi-nginx-https/">
+            <h1 class="post-title" itemprop="name">
+    Flask+uWSGI+Nginx部署HTTPS
+</h1>
+
+
+            <div class="post-content-preview">
+    近日拟做一款简易阅后即焚web app，选用Flask+uWSGI+Nginx来实现，本文记录相关配置。
+</div>
+        </a>
         
+            <div class="post-tag-category">
+                
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/巧技/">巧技</a>
+  </div>
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <!-- Main Content -->
-
-
-<div class="post-preview">
-
-    <a href="/zh/2019/flask-uwsgi-nginx-https/">
-        <h2 class="post-title">
-            Flask+uWSGI+Nginx部署HTTPS
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            近日拟做一款简易阅后即焚web app，选用Flask+uWSGI+Nginx来实现，本文记录相关配置。
-Flask是一个Python编写的Web开发微框架，基于Werkzeug WSGI和Jinja2 模板引擎。
-WSGI (Web Server Gateway Interface), Web服务器网关接口，一种描述web服务器与web应用程序通信的规范、协议，其规范在PEP3333中有具......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted on 07/14/2019
-        </p>
-        <div class="tags">
-            
-        </div>
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
     
 
+    on  <time datetime="2019-07-14T08:03:39.000Z" itemprop="datePublished">07/14/2019</time>
+
+    
+</p>
+    </div>
+</article>
+
+            
+                <article>
+    <div class="post-preview">
+        <a href="/posts/remove-plugins-on-mac/">
+            <h1 class="post-title" itemprop="name">
+    MacOS彻底卸载软件和插件
+</h1>
+
+
+            <div class="post-content-preview">
+    MacOS卸载程序很简单，对于非app store安装的应用，只要移除  /Applications  下对应的文件即可。但是这种卸载方式可能会留下一些缓存、配置信息和插件——这些可能较大，也可能很小几乎不占空间——但我总是希望删得干干净净彻彻底底。
 </div>
-<hr>
+        </a>
+        
+            <div class="post-tag-category">
+                
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/巧技/">巧技</a>
+  </div>
 
-<div class="post-preview">
-
-    <a href="/zh/2019/remove-plugins-on-mac/">
-        <h2 class="post-title">
-            MacOS彻底卸载软件和插件
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            MacOS卸载程序很简单，对于非app store安装的应用，只要移除  /Applications  下对应的文件即可。但是这种卸载方式可能会留下一些缓存、配置信息和插件——这些可能较大，也可能很小几乎不占空间——但我总是希望删得干干净净彻彻底底。
-一款优秀的软件会在说明文档里写清楚安装卸载方法，如Wireshark：
-
-Quick Setup
-Simply double-click th......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted on 06/14/2019
-        </p>
-        <div class="tags">
-            
-        </div>
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
     
 
+    on  <time datetime="2019-06-14T07:46:24.000Z" itemprop="datePublished">06/14/2019</time>
+
+    
+</p>
+    </div>
+</article>
+
+            
+                <article>
+    <div class="post-preview">
+        <a href="/posts/fenghuang-phoenix/">
+            <h1 class="post-title" itemprop="name">
+    原来，烧不死的鸟并不是凤凰
+</h1>
+
+
+            <div class="post-content-preview">
+    前天去看了电影《X战警：黑凤凰》，看着珊莎琴浴火重生，不禁想到凤凰涅槃。在我印象中，作为我们家喻户晓流传千古的百鸟之王，凤凰每五百年，集香木自焚，复从死灰中更生，这故事从小就耳熟能详。所以我就好奇了，难道西方神话传说中也有相同的凤凰传奇么？还是我们的凤凰也飞到西方影响了世界？为啥片名会叫Dark Phoenix呢？
 </div>
-<hr>
+        </a>
+        
+            <div class="post-tag-category">
+                
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/新知/">新知</a>
+  </div>
 
-<div class="post-preview">
-
-    <a href="/zh/2019/fenghuang-phoenix/">
-        <h2 class="post-title">
-            原来，烧不死的鸟并不是凤凰
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前天去看了电影《X战警：黑凤凰》，看着珊莎琴浴火重生，不禁想到凤凰涅槃。在我印象中，作为我们家喻户晓流传千古的百鸟之王，凤凰每五百年，集香木自焚，复从死灰中更生，这故事从小就耳熟能详。所以我就好奇了，难道西方神话传说中也有相同的凤凰传奇么？还是我们的凤凰也飞到西方影响了世界？为啥片名会叫Dark Phoenix呢？
-回家Google一把，当时我就震惊了：我们的凤凰，那个常常与龙共舞的凤凰，是......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted on 06/10/2019
-        </p>
-        <div class="tags">
-            
-        </div>
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
     
 
-</div>
-<hr>
+    on  <time datetime="2019-06-10T10:10:34.000Z" itemprop="datePublished">06/10/2019</time>
 
-<div class="post-preview">
+    
+</p>
+    </div>
+</article>
 
-    <a href="/zh/2019/got-is-finished/">
-        <h2 class="post-title">
-            权游终结：凡人皆有一死
-        </h2>
-        <h3 class="post-subtitle">
             
-        </h3>
-        <div class="post-content-preview">
-            权力的游戏，近年最火的电视剧，在经历八季之后宣告完结。
+                <article>
+    <div class="post-preview">
+        <a href="/posts/got-is-finished/">
+            <h1 class="post-title" itemprop="name">
+    权游终结：凡人皆有一死
+</h1>
+
+
+            <div class="post-content-preview">
+    权力的游戏，近年最火的电视剧，在经历八季之后宣告完结。
 虽然等了两年，最后一季看起来简直是草草收场，网上早已骂声一片。
 我是先看过电视剧权游的前几季，后来陆续阅读了原著冰火已经出版的五卷中译本，我承认影视剧和小说作为不同的艺术形式而产生的效果差异，所以我一直不想以原著如何如何来评论电视剧。
-但我实在忍不住吐槽电视剧最后一季——真真切切的烂尾了——虽然我基本可以接受电视剧中主要人物的最终结局。......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted on 05/21/2019
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
 </div>
-<hr>
+        </a>
+        
+            <div class="post-tag-category">
+                
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/杂言/">杂言</a>
+  </div>
 
-<div class="post-preview">
-
-    <a href="/zh/2019/norse-mythology/">
-        <h2 class="post-title">
-            北欧诸神:斗争与毁灭
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            北欧神话，源自古斯堪的维纳人亚(Scandinavian)或说北欧人(Norsemen)的原始信仰。而北欧神话在尚未被诗人保存下来就受到了基督教信仰的摧残，所以在整体上远不如希腊神话深宏广大。也因为早被基督教信仰调和修正了，所以北欧神话可能不能正确地反映原始的北欧人的信仰、习惯和意识形态，这或许就是北欧神话不受考古学者十分注意的原因。但北欧神话对文学、艺术、游戏等有着深远影响。近年由于雷神和......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted on 03/11/2019
-        </p>
-        <div class="tags">
-            
-        </div>
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
     
 
+    on  <time datetime="2019-05-21T03:53:58.000Z" itemprop="datePublished">05/21/2019</time>
+
+    
+</p>
+    </div>
+</article>
+
+            
+                <article>
+    <div class="post-preview">
+        <a href="/posts/norse-mythology/">
+            <h1 class="post-title" itemprop="name">
+    北欧诸神:斗争与毁灭
+</h1>
+
+
+            <div class="post-content-preview">
+    北欧神话，源自古斯堪的维纳人亚(Scandinavian)或说北欧人(Norsemen)的原始信仰。而北欧神话在尚未被诗人保存下来就受到了基督教信仰的摧残，所以在整体上远不如希腊神话深宏广大。也因为早被基督教信仰调和修正了，所以北欧神话可能不能正确地反映原始的北欧人的信仰、习惯和意识形态，这或许就是北欧神话不受考古学者十分注意的原因。但北欧神话对文学、艺术、游戏等有着深远影响。近年由于雷神和洛基在漫威宇宙中的抢眼表现，也让更多的人开始了解北欧神话。
 </div>
-<hr>
+        </a>
+        
+            <div class="post-tag-category">
+                
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/新知/">新知</a>
+  </div>
 
-<div class="post-preview">
-
-    <a href="/zh/2019/dietary-guidelines/">
-        <h2 class="post-title">
-            健康吃出来：科学合理饮食推荐
-        </h2>
-        <h3 class="post-subtitle">
-            源自中美居民膳食指南
-        </h3>
-        <div class="post-content-preview">
-            前几天听了一篇关于科学饮食的播客《你信还是不信，那些关于营养的迷思》，然后阅读了美国卫生公共服务部（HHS）和美国农业部（USDA）发布的《2015-2020美国居民膳食指南》、中国营养学会编著的《中国居民膳食指南2016》，借此整理了一些科学合理的饮食建议，来帮助我控制体重，也希望可以为大家提供参考。
-诚然，以我现在的状况，完全没有资格来谈健康。所以本文内容主要参考至中美两国的最新居民膳食......
-        </div>
-    </a>
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
     
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted on 02/19/2019
-        </p>
-        <div class="tags">
+
+    on  <time datetime="2019-03-11T08:37:37.000Z" itemprop="datePublished">03/11/2019</time>
+
+    
+</p>
+    </div>
+</article>
+
             
-        </div>
-    
+                <article>
+    <div class="post-preview">
+        <a href="/posts/dietary-guidelines/">
+            <h1 class="post-title" itemprop="name">
+    健康吃出来：科学合理饮食推荐
+</h1>
 
+    <h2 class="post-subtitle" itemprop="subname">
+        源自中美居民膳食指南
+    </h2>
+
+
+            <div class="post-content-preview">
+    前几天听了一篇关于科学饮食的播客《你信还是不信，那些关于营养的迷思》，然后阅读了美国卫生公共服务部（HHS）和美国农业部（USDA）发布的《2015-2020美国居民膳食指南》、中国营养学会编著的《中国居民膳食指南2016》，借此整理了一些科学合理的饮食建议，来帮助我控制体重，也希望可以为大家提供参考。
 </div>
-<hr>
+        </a>
+        
+            <div class="post-tag-category">
+                
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/生活/">生活</a>
+  </div>
 
-<div class="post-preview">
-
-    <a href="/zh/2019/python3-python2/">
-        <h2 class="post-title">
-            Python3与Python2的主要不兼容差异
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Python 3故意与Python 2不兼容，以解决Python 2中的一些糟糕问题。本文将整理Python 3与Python 2主要不兼容的差异。
-According to Guido, he initiated the Python 3 project to clean up a variety of issues with Python 2 where he didn’t feel c......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted on 02/03/2019
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Python" title="Python">Python</a>
-            
-        </div>
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
     
 
+    on  <time datetime="2019-02-19T01:58:50.000Z" itemprop="datePublished">02/19/2019</time>
+
+    
+</p>
+    </div>
+</article>
+
+            
+                <article>
+    <div class="post-preview">
+        <a href="/posts/python3-python2/">
+            <h1 class="post-title" itemprop="name">
+    Python3与Python2的主要不兼容差异
+</h1>
+
+
+            <div class="post-content-preview">
+    Python 3故意与Python 2不兼容，以解决Python 2中的一些糟糕问题。本文将整理Python 3与Python 2主要不兼容的差异。
+According to Guido, he initiated the Python 3 project to clean up a variety of issues with Python 2 where he didn’t feel comfortable with fixing them through the normal deprecation process. This included the removal of classic classes, changing integer division to automatically promote to a floating point result (retaining the separate floor division operation) and changing the core string type to be based on Unicode by default. 
+BTW，Python 2.7 将在 2020 年 1 月 1 日寿终正寝，之后官方不会有任何更新，包括源码的安全补丁，请参考Python 之父 Guido van Rossum的邮件。
 </div>
-<hr>
+        </a>
+        
+            <div class="post-tag-category">
+                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
-<div class="post-preview">
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
 
-    <a href="/zh/2019/ssh-config/">
-        <h2 class="post-title">
-            美好生活，从SSH Config开始
-        </h2>
-        <h3 class="post-subtitle">
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2019-02-03T02:57:03.000Z" itemprop="datePublished">02/03/2019</time>
+
+    
+</p>
+    </div>
+</article>
+
             
-        </h3>
-        <div class="post-content-preview">
-            每次ssh登陆主机还要输密码，好麻烦！
-多个Git服务器，公司的代码库、自己的GitHub，多个ssh key怎么搞？
+                <article>
+    <div class="post-preview">
+        <a href="/posts/ssh-config/">
+            <h1 class="post-title" itemprop="name">
+    美好生活，从SSH Config开始
+</h1>
+
+
+            <div class="post-content-preview">
+    每次ssh登陆主机还要输密码，好麻烦！多个Git服务器，公司的代码库、自己的GitHub，多个ssh key怎么搞？
 其实，这些都可以通过SSH配置来简化。
-Key-Based SSH登陆
-Key-based authentication is the most secure of several modes of authentication usable with OpenSSH, s......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted on 01/31/2019
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Linux" title="Linux">Linux</a>
-            
-        </div>
-    
-
 </div>
-<hr>
+        </a>
+        
+            <div class="post-tag-category">
+                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/SSH/">SSH</a></li></ul>
 
-<div class="post-preview">
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/巧技/">巧技</a>
+  </div>
 
-    <a href="/zh/2019/ss-on-merlin/">
-        <h2 class="post-title">
-            Linux网络小实践：网络加速
-        </h2>
-        <h3 class="post-subtitle">
-            SS (ShadowSocks) on Asuswrt-merlin
-        </h3>
-        <div class="post-content-preview">
-            本文先概述Linux网络相关的部分原理，然后基于此在路由器梅林固件上完成网络加速实践。
-准备
-网络模型
-说网络总是绕不开网络模型，所以先祭出此表。
-
-
-
-OSI七层模型
-TCP/IP模型
-相关通信协议与标准
-
-
-
-
-应用层表现层会话层
-应用层
-HTTP，FTP，SMTP，POP3，NFS，SSH
-
-
-传送层
-传送层
-TCP UDP
-
-
-网络层
-网络层
-IP，ICMP
-
-
-数据链路层物理层
-链......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted on 01/15/2019
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Linux" title="Linux">Linux</a>
-            
-              <a href="/tags/#网络" title="网络">网络</a>
-            
-        </div>
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
     
 
+    on  <time datetime="2019-01-31T10:04:07.000Z" itemprop="datePublished">01/31/2019</time>
+
+    
+</p>
+    </div>
+</article>
+
+            
+                <article>
+    <div class="post-preview">
+        <a href="/posts/ss-on-merlin/">
+            <h1 class="post-title" itemprop="name">
+    Linux网络小实践：网络加速
+</h1>
+
+    <h2 class="post-subtitle" itemprop="subname">
+        SS (ShadowSocks) on Asuswrt-merlin
+    </h2>
+
+
+            <div class="post-content-preview">
+    本文先概述Linux网络相关的部分原理，然后基于此在路由器梅林固件上完成网络加速实践。
 </div>
-<hr>
+        </a>
+        
+            <div class="post-tag-category">
+                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/网络/">网络</a></li></ul>
 
-<div class="post-preview">
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
 
-    <a href="/zh/2018/how-much-time/">
-        <h2 class="post-title">
-            我还有多长时间
-        </h2>
-        <h3 class="post-subtitle">
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2019-01-15T03:39:19.000Z" itemprop="datePublished">01/15/2019</time>
+
+    
+</p>
+    </div>
+</article>
+
             
-        </h3>
-        <div class="post-content-preview">
-            我还有多长时间
+                <article>
+    <div class="post-preview">
+        <a href="/posts/how-much-time/">
+            <h1 class="post-title" itemprop="name">
+    我还有多长时间
+</h1>
+
+
+            <div class="post-content-preview">
+    我还有多长时间
 一个一直萦绕的问题
 没人知道答案
 也没有神明给我指点
-
-二十岁八
-是我小时候可以想象的最美好的年华
-但不曾想我就可能止于此戛
-现在也不想
-
-我还没看到人工智能颠覆天下
-我还没开过特斯拉
-我的小星星还没铺满谷歌地球
-我还等着维斯特洛大陆熬过凛冬迎来初夏
-
-我一直希望能做一点点贡献
-能让世界变成更美好人间
-如今只能努力不让周围变糟
-顺便多看看世界的美好
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted on 09/17/2018
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
 </div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-        <li class="next">
-            <a href="/archives/2/">Older Posts &rarr;</a>
-        </li>
-    
-</ul>
-
-
-
-                <!-- 如果开启评论功能 -->
+        </a>
+        
+            <div class="post-tag-category">
                 
-            </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Featured Tags -->
-
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-            <a href="/tags/#密码学" title="密码学" rel="3">密码学</a>
-            
-        
-            
-        
-            
-            <a href="/tags/#安卓" title="安卓" rel="4">安卓</a>
-            
-        
-            
-            <a href="/tags/#比特币" title="比特币" rel="2">比特币</a>
-            
-        
-            
-            <a href="/tags/#区块链" title="区块链" rel="2">区块链</a>
-            
-        
-            
-            <a href="/tags/#前端" title="前端" rel="4">前端</a>
-            
-        
-            
-            <a href="/tags/#Java" title="Java" rel="2">Java</a>
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#Python" title="Python" rel="2">Python</a>
-            
-        
-            
-        
-            
-            <a href="/tags/#Linux" title="Linux" rel="3">Linux</a>
-            
-        
-            
-        
-    </div>
-</section>
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
-
-        
-            <img id="avatar_pic" src="/img/UNADJUSTEDNONRAW.jpg">
-        
-
-        
-            <p>Hello, this is Brighton Zhang</p>
-        
-
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-                <li>
-                    <a target="_blank" href="https://twitter.com/brightonzhang">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-
-            
-
-            
-
-            
-                <li>
-                    <a target="_blank" href="https://github.com/brightonzhang">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
-    </div>
-</section>
-        <hr>
-    
-        
-  <h5>RECENT POSTS
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/zh/2019/flask-uwsgi-nginx-https/">Flask+uWSGI+Nginx部署HTTPS</a>
-        </li>
-      
-        <li>
-          <a href="/zh/2019/remove-plugins-on-mac/">MacOS彻底卸载软件和插件</a>
-        </li>
-      
-        <li>
-          <a href="/zh/2019/fenghuang-phoenix/">原来，烧不死的鸟并不是凤凰</a>
-        </li>
-      
-        <li>
-          <a href="/zh/2019/got-is-finished/">权游终结：凡人皆有一死</a>
-        </li>
-      
-        <li>
-          <a href="/zh/2019/norse-mythology/">北欧诸神:斗争与毁灭</a>
-        </li>
-      
-    </ul>
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/生活/">生活</a>
   </div>
-</h5>
-        <hr>
+
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2018-09-17T03:46:45.000Z" itemprop="datePublished">09/17/2018</time>
+
+    
+</p>
+    </div>
+</article>
+
+            
+                <article>
+    <div class="post-preview">
+        <a href="/posts/python-notes/">
+            <h1 class="post-title" itemprop="name">
+    Python笔记：入门篇(Python 2)
+</h1>
+
+
+            <div class="post-content-preview">
+    本文主要根据Google Python课程整理，主要为帮助自己记录重点，也可作为其他语言（如C/C++）程序员学习Python的参考资料。
+注意：本文以Python 2为主。关于Python 2与Python 3的差异可以参考Python3与Python2主要不兼容差异。
+</div>
+        </a>
+        
+            <div class="post-tag-category">
+                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2018-07-10T02:56:44.000Z" itemprop="datePublished">07/10/2018</time>
+
+    
+</p>
+    </div>
+</article>
+
+            
+                <article>
+    <div class="post-preview">
+        <a href="/posts/openssl-ca/">
+            <h1 class="post-title" itemprop="name">
+    OpenSSL CA实践
+</h1>
+
+    <h2 class="post-subtitle" itemprop="subname">
+        为华硕路由器HTTPS登陆添加自签名证书
+    </h2>
+
+
+            <div class="post-content-preview">
+    本文将描述如何用OpenSSL建立CA，签发证书，以及各系统下安装CA证书等。
+最近家里华硕路由器固件升级后，发现DDNS访问可以添加SSL证书了，这样就再也不用忍受Chrome上那个不安全的图标了。从设置页面看，系统支持Let’s Encrypt自动获取证书和用户导入证书。我先尝试了Let’s Encrypt，但一直显示”正在更新“。咨询了华硕技服后了解到Let’s Encrypt证书更新依赖80端口，我宽带的80端口估计被电信封掉了，所以一直“正在更新”。既然这样，我干脆自己建个CA给DDNS域名签发证书好了——反正就是几个OpenSSL命令的事。
+</div>
+        </a>
+        
+            <div class="post-tag-category">
+                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/OpenSSL/">OpenSSL</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/网络安全/">网络安全</a></li></ul>
+
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2018-05-12T12:45:42.000Z" itemprop="datePublished">05/12/2018</time>
+
+    
+</p>
+    </div>
+</article>
+
+            
+                <article>
+    <div class="post-preview">
+        <a href="/posts/ios11-password-manager/">
+            <h1 class="post-title" itemprop="name">
+    由iOS11密码管理器想到的
+</h1>
+
+
+            <div class="post-content-preview">
+    iOS11引入了密码管理器，其功能类似Safari和Chrome等浏览器保存密码的功能，只不过这是系统级的功能，在应用、浏览器等任何需要输入密码的地方，键盘右上角会有一个钥匙图标，点击并完成认证后就可以调出保存的密码列表，选择对应的账号密码就可以了，不再需要手工逐个字符输入。我不知道是我的原因，还是本来就是这样——每次都需要我手动选择密码，而不能根据域名等信息自动填充密码。
+</div>
+        </a>
+        
+            <div class="post-tag-category">
+                
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/杂言/">杂言</a>
+  </div>
+
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2018-04-30T05:44:40.000Z" itemprop="datePublished">04/30/2018</time>
+
+    
+</p>
+    </div>
+</article>
+
+            
+                <article>
+    <div class="post-preview">
+        <a href="/posts/bitcoin-explained-with-emoji-2/">
+            <h1 class="post-title" itemprop="name">
+    比特币的另类解释之表情包·中篇
+</h1>
+
+
+            <div class="post-content-preview">
+    本文翻译至Tess Rinearson的Making Money Bitcoin Explained (with Emoji), Part 2，该翻译和发布已获得原作者允许。由于本人能力和时间有限，翻译如有纰漏或不妥，还请见谅。若对内容和翻译有任何建议或意见，欢迎交流。
+
+在第一章，我们了解到了比特币是一种去中心化的货币，不由任何政府和金融财团发行和管理。另外，我们讲述了哈希的基本概念。现在我们一起来看看比特币矿工是如何利用哈希来赚钱的，以及比特币如何利用密码学来保证其被信任，唯一和不被复制，还可以完全且不可逆的转账。
+
+</div>
+        </a>
+        
+            <div class="post-tag-category">
+                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/区块链/">区块链</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/密码学/">密码学</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/比特币/">比特币</a></li></ul>
+
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2017-08-20T08:07:11.000Z" itemprop="datePublished">08/20/2017</time>
+
+    
+</p>
+    </div>
+</article>
+
+            
+                <article>
+    <div class="post-preview">
+        <a href="/posts/bitcoin-explained-with-emoji-1/">
+            <h1 class="post-title" itemprop="name">
+    比特币的另类解释之表情包·上篇
+</h1>
+
+
+            <div class="post-content-preview">
+    本文翻译至Tess Rinearson的Making Money Bitcoin Explained (with Emoji), Part 1，该翻译和发布已获得原作者允许。由于本人能力和时间有限，翻译如有纰漏或不妥，还请见谅。若对内容和翻译有任何建议或意见，欢迎交流。
+
+比特币提供了一种颠覆存储和消费电子货币的途径，也有改变其它领域的潜力。不一定只有数学家或密码学家才能理解比特币。当你开始了解这个系统是怎么运作的，你可能会很开心。本文共有三章，下面是第一章。
+
+</div>
+        </a>
+        
+            <div class="post-tag-category">
+                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/区块链/">区块链</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/密码学/">密码学</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/比特币/">比特币</a></li></ul>
+
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2017-07-30T13:24:50.000Z" itemprop="datePublished">07/30/2017</time>
+
+    
+</p>
+    </div>
+</article>
+
+            
+                <article>
+    <div class="post-preview">
+        <a href="/posts/pro-android-intents-broadcasts/">
+            <h1 class="post-title" itemprop="name">
+    Professional Android笔记：Intent和Broadcast
+</h1>
+
+
+            <div class="post-content-preview">
     
 </div>
-
+        </a>
         
+            <div class="post-tag-category">
+                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/安卓/">安卓</a></li></ul>
+
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2017-04-30T07:47:44.000Z" itemprop="datePublished">04/30/2017</time>
+
+    
+</p>
+    </div>
+</article>
+
+            
+
+            
+<nav class="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/pages/2/">2</a><a class="page-number" href="/pages/3/">3</a><a class="extend next" rel="next" href="/pages/2/">NEXT &raquo;</a>
+</nav>
+
+        </div>
     </div>
 </div>
 
 
+
     <!-- Footer -->
-    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                
-                
-                    <li>
-                        <a target="_blank" href="https://twitter.com/brightonzhang">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-                
+                    
+                        <li>
+                            <a href="https://twitter.com/brightonzhang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
 
-                
+                    
 
-                
+                    
+                        <li>
+                            <a href="https://github.com/brightonzhang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
 
-                
-                    <li>
-                        <a target="_blank" href="https://github.com/brightonzhang">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
+                    
 
-                
+                    
+                        <li>
+                            <a href="mailto:hello@brightonzhang.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
 
+                    
                 </ul>
+
                 <p class="copyright text-muted">
-                    Copyright &copy; Brighton Zhang 2019 
-                    <br>
-                    Powered by <a href="https://hexo.io/">Hexo</a> 
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span> 
-                    Theme from <a href="https://huangxuan.me">Hux</a>, <a href="http://beantech.org">BeanTech</a> and <a href="https://brightonzhang.com">Brighton</a>  
+                    &copy; 2019 Brighton Zhang<br>
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> ⌘ 
+                    Theme from <a href="https://github.com/brightonzhang/hexo-theme-nutshell" target="_blank">Nutshell</a>
+                    
+                    ⌘ Deployed on <a href="https://github.com/brightonzhang/brightonzhang.com.git" target="_blank">GitHub Pages</a>
+                    
                 </p>
             </div>
         </div>
     </div>
 </footer>
 
+
+    <!-- After footer scripts -->
+    
 <!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<script src="/js/jquery.fancybox.min.js"></script>
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="/js/hux-blog.min.js"></script>
-
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-<!-- 
-     Because of the native support for backtick-style fenced code blocks 
-     right within the Markdown is landed in Github Pages, 
-     From V1.6, There is no need for Highlight.js, 
-     so Huxblog drops it officially.
-
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
--->
-<!--
-    <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
-
-
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("https://brightonzhang.com/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-<!--fastClick.js -->
-<script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-<!-- Google Analytics -->
-
-
-<script>
-    // dynamic User by Hux
-    var _gaId = 'UA-114837917-1';
-    var _gaDomain = 'auto';
-
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
-
-
-
-
-<!-- Baidu Tongji -->
+<!-- Disqus Comments -->
 
 
 
 
 
-
-	<a id="rocket" href="#top" class=""></a>
-	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
-    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
-<!-- Image to hack wechat -->
-<img src="https://brightonzhang.com/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
 

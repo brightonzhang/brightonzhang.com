@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh" >
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title -->
+    
+    <title>Professional Android笔记：Activity和UI - BRIGHTON ZHANG</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body  data-spy="scroll" data-target="#tocScrollspy"  >
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BRIGHTON</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    
+<header class="intro-header" style="background-image: url('1iTDUQIbX397042030.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <!-- Tags and categories -->
+                        
+                            <div class="post-tag-category">
+                                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/安卓/">安卓</a></li></ul>
+
+                                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+                            </div>
+                        
+
+                        <h1>Professional Android笔记：Activity和UI</h1>
+                        
+
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2017-04-10T02:17:53.000Z" itemprop="datePublished">04/10/2017</time>
+
+    
+</p>
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Main Content -->
+        
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 " >
+        
+
+                <article  >
+                    <h1 id="ACTIVITIES"><a href="#ACTIVITIES" class="headerlink" title="ACTIVITIES"></a>ACTIVITIES</h1><p><code>Activity</code> 是一个应用组件，用户可与其提供的屏幕进行交互，以执行某些操作。 每个 Activity 都会获得一个用于绘制其用户界面的窗口。窗口通常会充满屏幕，但也可小于屏幕并浮动在其他窗口之上。</p>
+<p>一个应用通常由多个彼此松散联系的 Activity 组成。 一般会指定应用中的某个 Activity 为“主”Activity，即首次启动应用时呈现给用户的那个 Activity。 而且每个 Activity 均可启动另一个 Activity，以便执行不同的操作。 每次新 Activity 启动时，前一 Activity 便会停止，但系统会在堆栈（“返回栈”）中保留该 Activity。 当新 Activity 启动时，系统会将其推送到返回栈上，并取得用户焦点。 返回栈遵循基本的“后进先出”堆栈机制，因此，当用户完成当前 Activity 并按“返回”按钮时，系统会从堆栈中将其弹出（并销毁），然后恢复前一 Activity——可以参考文档<a href="https://developer.android.com/guide/components/tasks-and-back-stack.html" target="_blank" rel="noopener">任务和返回栈</a>。</p>
+<p>当一个 Activity 因某个新 Activity 启动而停止时，系统会通过该 Activity 的生命周期回调方法通知其这一状态变化。Activity 因状态变化——系统是创建 Activity、停止 Activity、恢复 Activity 还是销毁 Activity——而收到的回调方法可能有若干种，每一种回调都会为您提供执行与该状态变化相应的特定操作的机会。 例如，停止时，您的 Activity 应释放任何大型对象，例如网络或数据库连接。 当 Activity 恢复时，您可以重新获取所需资源，并恢复执行中断的操作。 这些状态转变都是 Activity 生命周期的一部分。</p>
+<h2 id="操作Activity"><a href="#操作Activity" class="headerlink" title="操作Activity"></a>操作Activity</h2><p>首先必须在清单文件中声明Activity，这样系统才能访问它：将 <code>activity</code> 元素添加为 <code>application</code> 元素的子项。<code>activity</code> 元素还可指定各种 Intent 过滤器——使用 <code>intent-filter</code> 元素——以声明其他应用组件激活它的方法。</p>
+<p>要创建 Activity，必须创建 <code>Activity</code> 的子类（或使用其现有子类）。并需要在子类中实现 Activity 在其生命周期的各种状态之间转变时（例如创建 Activity、停止 Activity、恢复 Activity 或销毁 Activity 时）系统调用的回调方法。 两个最重要的回调方法是：<code>onCreate()</code>和<code>onPause()</code>。</p>
+<p>Activity 的用户界面是由层级式视图——衍生自 <code>View</code> 类的对象——提供的。每个视图都控制 Activity 窗口内的特定矩形空间，可对用户交互作出响应。可以通过 <code>setContentView()</code> 将视图设置为 Activity 的 UI。</p>
+<p>启动Activity的方法：</p>
+<ul>
+<li><code>startActivity()</code></li>
+<li><code>startActivityForResult()</code>：当后续 Activity 完成时，会使用 Intent 向onActivityResult() 回调方法返回结果。</li>
+</ul>
+<p>结束Activity的方法：</p>
+<ul>
+<li><code>finish()</code> </li>
+<li><code>finishActivity()</code>： 结束之前启动的另一个Activity。</li>
+</ul>
+<p>在大多数情况下，不应使用这些方法显式结束 Activity——因为Android 系统会管理 Activity 的生命周期。</p>
+<h2 id="Activity-生命周期"><a href="#Activity-生命周期" class="headerlink" title="Activity 生命周期"></a>Activity 生命周期</h2><p>Activity 存在以下状态：</p>
+<ul>
+<li><p>继续 resumed/active/running</p>
+<p>此 Activity 位于屏幕前台并具有用户焦点。</p>
+</li>
+<li><p>暂停 paused</p>
+<p>另一个 Activity 位于屏幕前台并具有用户焦点，但此 Activity 仍可见。也就是说，另一个 Activity 显示在此 Activity 上方，并且该 Activity 部分透明或未覆盖整个屏幕。 暂停的 Activity 处于完全活动状态（<code>Activity</code> 对象保留在内存中，它保留了所有状态和成员信息，并与窗口管理器保持连接），但在内存极度不足的情况下，可能会被系统终止。</p>
+</li>
+<li><p>停止 stopped</p>
+<p>该 Activity 被另一个 Activity 完全遮盖（该 Activity 目前位于“后台”）。 已停止的 Activity 同样仍处于活动状态（<code>Activity</code> 对象保留在内存中，它保留了所有状态和成员信息，但未与窗口管理器连接）。 不过，它对用户不再可见，在他处需要内存时可能会被系统终止。</p>
+</li>
+<li><p>Inactive</p>
+<p>After an Activity has been killed, as well as before it’s been launched, it’s inactive. Inactive Activities have been removed from the Activity stack and need to be restarted before they can be displayed and used.</p>
+</li>
+</ul>
+<h3 id="生命周期回调"><a href="#生命周期回调" class="headerlink" title="生命周期回调"></a>生命周期回调</h3><p>当一个 Activity 转入和转出上述不同状态时，系统会通过各种回调方法向其发出通知。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        <span class="comment">// The activity is being created.</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onStart();</span><br><span class="line">        <span class="comment">// The activity is about to become visible.</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onResume();</span><br><span class="line">        <span class="comment">// The activity has become visible (it is now "resumed").</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onPause();</span><br><span class="line">        <span class="comment">// Another activity is taking focus (this activity is about to be "paused").</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onStop();</span><br><span class="line">        <span class="comment">// The activity is no longer visible (it is now "stopped")</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        <span class="comment">// The activity is about to be destroyed.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这些方法共同定义 Activity 的整个生命周期。通过实现这些方法来监控 Activity 生命周期中的三个嵌套循环：</p>
+<ul>
+<li>Activity 的<strong>整个生命周期</strong>发生在 <code>onCreate()</code> 调用与 <code>onDestroy()</code> 调用之间。Activity 应在 <code>onCreate()</code> 中执行“全局”状态设置（例如定义布局），并在 <code>onDestroy()</code> 中释放所有资源。例如，如果 Activity 有一个在后台运行的线程，用于从网络上下载数据，它可能会在 <code>onCreate()</code> 中创建该线程，然后在 <code>onDestroy()</code> 中停止该线程。</li>
+<li>Activity 的<strong>可见生命周期</strong>发生在 <code>onStart()</code> 调用与 <code>onStop()</code> 调用之间。在这段时间，用户可以在屏幕上看到 Activity 并与其交互。 例如，当一个新 Activity 启动，并且此 Activity 不再可见时，系统会调用 <code>onStop()</code>。您可以在调用这两个方法之间保留向用户显示 Activity 所需的资源。 例如，您可以在 <code>onStart()</code> 中注册一个 <code>BroadcastReceiver</code> 以监控影响 UI 的变化，并在用户无法再看到您显示的内容时在 <code>onStop()</code> 中将其取消注册。在 Activity 的整个生命周期，当 Activity 在对用户可见和隐藏两种状态中交替变化时，系统可能会多次调用 <code>onStart()</code> 和 <code>onStop()</code>。</li>
+<li>Activity 的<strong>前台生命周期</strong>发生在 <code>onResume()</code> 调用与 <code>onPause()</code> 调用之间。在这段时间，Activity 位于屏幕上的所有其他 Activity 之前，并具有用户输入焦点。 Activity 可频繁转入和转出前台——例如，当设备转入休眠状态或出现对话框时，系统会调用 <code>onPause()</code>。 由于此状态可能经常发生转变，因此这两个方法中应采用适度轻量级的代码，以避免因转变速度慢而让用户等待。</li>
+</ul>
+<p>下图说明了这些循环以及 Activity 在状态转变期间可能经过的路径。矩形表示回调方法，当 Activity 在不同状态之间转变时，可以实现这些方法来执行操作。</p>
+<p><img src="https://developer.android.com/images/activity_lifecycle.png" alt="Activity 生命周期"></p>
+<h3 id="保存-Activity-状态"><a href="#保存-Activity-状态" class="headerlink" title="保存 Activity 状态"></a>保存 Activity 状态</h3><p>当 Activity 暂停或停止时，<code>Activity</code> 对象仍保留在内存中——有关其成员和当前状态的所有信息仍处于活动状态。 用户在 Activity 内所做的任何更改都会得到保留，这样一来，当 Activity 返回前台（当它“继续”）时，这些更改仍然存在。</p>
+<p>不过，当系统为了恢复内存而销毁某项 Activity 时，<code>Activity</code> 对象也会被销毁，因此系统在继续 Activity 时根本无法让其状态保持完好，而是必须在用户返回 Activity 时重建 <code>Activity</code> 对象。 在这种情况下，可以实现另一个回调方法对有关 Activity 状态的信息进行保存，以确保有关 Activity 状态的重要信息得到保留：<code>onSaveInstanceState()</code>。</p>
+<p>系统会先调用 <code>onSaveInstanceState()</code>，然后再使 Activity 变得易于销毁。系统会向该方法传递一个 <code>Bundle</code>，可以在其中使用 <code>putString()</code> 和 <code>putInt()</code> 等方法以“名称-值”对形式保存有关 Activity 状态的信息。然后，如果系统终止您的应用进程，并且用户返回您的 Activity，则系统会重建该 Activity，并将 <code>Bundle</code> 同时传递给 <code>onCreate()</code> 和 <code>onRestoreInstanceState()</code>。您可以使用上述任一方法从 <code>Bundle</code> 提取您保存的状态并恢复该 Activity 状态。如果没有状态信息需要恢复，则传递给您的 <code>Bundle</code> 是空值（如果是首次创建该 Activity，就会出现这种情况）。</p>
+<p><img src="https://developer.android.com/images/fundamentals/restore_instance.png" alt></p>
+<p>有些设备配置可能会在运行时发生变化（例如屏幕方向、键盘可用性及语言）。 发生此类变化时，Android 会重建运行中的 Activity（系统调用 <code>onDestroy()</code>，然后立即调用 <code>onCreate()</code>）。处理此类重启的最佳方法是利用<code>onSaveInstanceState()</code> 和 <code>onRestoreInstanceState()</code>（或 <code>onCreate()</code>）保存并恢复 Activity 的状态。</p>
+<h3 id="协调-Activity"><a href="#协调-Activity" class="headerlink" title="协调 Activity"></a>协调 Activity</h3><p>当一个 Activity 启动另一个 Activity 时，它们都会体验到生命周期转变。启动第二个 Activity 的过程与停止第一个 Activity 的过程存在重叠。Android中activity生命周期回调的顺序经过明确定义，当两个 Activity 位于同一进程，并且由一个 Activity 启动另一个 Activity 时，其定义尤其明确。 以下是当 Activity A 启动 Activity B 时一系列操作的发生顺序：</p>
+<ol>
+<li>Activity A 的 <code>onPause()</code> 方法执行。</li>
+<li>Activity B 的 <code>onCreate()</code>、<code>onStart()</code> 和 <code>onResume()</code> 方法依次执行。（Activity B 现在具有用户焦点。）</li>
+<li>然后，如果 Activity A 在屏幕上不再可见，则其 <code>onStop()</code> 方法执行。</li>
+</ol>
+<h3 id="Responding-to-Memory-Pressure"><a href="#Responding-to-Memory-Pressure" class="headerlink" title="Responding to Memory Pressure"></a>Responding to Memory Pressure</h3><p>You can help by overriding the <code>onTrimMemory</code> handler, to respond to system requests that you reduce your memory usage. </p>
+<h1 id="FRAGMENTS"><a href="#FRAGMENTS" class="headerlink" title="FRAGMENTS"></a>FRAGMENTS</h1><p><code>Fragment</code> 表示 <code>Activity</code> 中的行为或用户界面部分。可以将多个Fragments组合在一个 Activity 中来构建多窗格 UI，以及在多个 Activity 中重复使用某个Fragment。可以将Fragments视为 Activity 的模块化组成部分，它具有自己的生命周期，能接收自己的输入事件，并且可以在 Activity 运行时添加或移除Fragments（有点像可以在不同 Activity 中重复使用的“子 Activity”）。</p>
+<p>Fragments enable you to divide your Activities into fully encapsulated reusable components, each with its own life cycle and state.</p>
+<h2 id="创建Fragment"><a href="#创建Fragment" class="headerlink" title="创建Fragment"></a>创建Fragment</h2><p>要想创建Fragment，必须创建 <code>Fragment</code> 的子类（或已有其子类）。<code>Fragment</code> 类的代码与 <code>Activity</code> 非常相似。它包含与 Activity 类似的回调方法。通常，至少应实现生命周期方法：<code>onCreate()</code>, <code>onCreateView()</code>, onPause()`。</p>
+<h3 id="添加用户界面"><a href="#添加用户界面" class="headerlink" title="添加用户界面"></a>添加用户界面</h3><p>Fragment通常用作 Activity 用户界面的一部分，将其自己的布局融入 Activity。当Fragment作为 Activity 布局的一部分添加时，它存在于 Activity 视图层次结构的某个 <code>ViewGroup</code> 内部，并且Fragment会定义其自己的视图布局。</p>
+<p>要想为Fragment提供布局，必须实现 <code>onCreateView()</code> 回调方法，Android 系统会在Fragment需要绘制其布局时调用该方法。对此方法的实现返回的 <code>View</code> 必须是Fragment布局的根视图。要想从 <code>onCreateView()</code> 返回布局，可以通过 XML 中定义的布局资源来扩展布局。为帮助执行此操作，<code>onCreateView()</code> 提供了一个 <code>LayoutInflater</code> 对象。</p>
+<p>例如，以下这个 <code>Fragment</code> 子类从 <code>example_fragment.xml</code> 文件加载布局：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span></span><br><span class="line"><span class="function"><span class="params">                             Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Inflate the layout for this fragment</span></span><br><span class="line">        <span class="keyword">return</span> inflater.inflate(R.layout.example_fragment, container, <span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>传递至 <code>onCreateView()</code> 的 <code>container</code> 参数是Fragment布局将插入到的父 <code>ViewGroup</code>（来自 Activity 的布局）。<code>savedInstanceState</code> 参数是在恢复Fragment时，提供上一Fragment实例相关数据的 <code>Bundle</code>。</p>
+<p><code>inflate()</code> 方法带有三个参数：</p>
+<ul>
+<li>想要扩展的布局的资源 ID；</li>
+<li>将作为扩展布局父项的 <code>ViewGroup</code>。传递 <code>container</code> 对系统向扩展布局的根视图（由其所属的父视图指定）应用布局参数具有重要意义；</li>
+<li>指示是否应该在扩展期间将扩展布局附加至 <code>ViewGroup</code>（第二个参数）的布尔值。（在本例中，其值为 false，因为系统已经将扩展布局插入 <code>container</code> — 传递 true 值会在最终布局中创建一个多余的视图组。）</li>
+</ul>
+<h3 id="向-Activity-添加Fragment"><a href="#向-Activity-添加Fragment" class="headerlink" title="向 Activity 添加Fragment"></a>向 Activity 添加Fragment</h3><p>通常，Fragment向宿主 Activity 贡献一部分 UI，作为 Activity 总体视图层次结构的一部分嵌入到 Activity 中。可以通过两种方式向 Activity 布局添加Fragment：</p>
+<ul>
+<li><p>在 Activity 的布局文件内声明Fragment，可以将Fragment当作视图来为其指定布局属性。 例如，以下是一个具有两个Fragment的 Activity 的布局文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">fragment</span> <span class="attr">android:name</span>=<span class="string">"com.example.news.ArticleListFragment"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/list"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">fragment</span> <span class="attr">android:name</span>=<span class="string">"com.example.news.ArticleReaderFragment"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/viewer"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">"2"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;fragment&gt;</code> 中的 <code>android:name</code> 属性指定要在布局中实例化的 <code>Fragment</code> 类。</p>
+<p>当系统创建此 Activity 布局时，会实例化在布局中指定的每个Fragment，并为每个Fragment调用 <code>onCreateView()</code> 方法，以检索每个Fragment的布局。系统会直接插入Fragment返回的 <code>View</code> 来替代 <code>&lt;fragment&gt;</code> 元素。</p>
+<p><strong>注</strong>：每个Fragment都需要一个唯一的标识符，重启 Activity 时，系统可以使用该标识符来恢复Fragment（您也可以使用该标识符来捕获Fragment以执行某些事务，如将其移除）。 可以通过三种方式为Fragment提供 ID：</p>
+<ul>
+<li>为 <code>android:id</code> 属性提供唯一 ID。</li>
+<li>为 <code>android:tag</code> 属性提供唯一字符串。</li>
+<li>如果您未给以上两个属性提供值，系统会使用容器视图的 ID。</li>
+</ul>
+</li>
+<li><p>或者通过编程方式将Fragment添加到某个现有 <code>ViewGroup</code></p>
+<p>可以在 Activity 运行期间随时将Fragment添加到 Activity 布局中——只需指定要将Fragment放入哪个 <code>ViewGroup</code>——使用 <code>FragmentTransaction</code>  API。可以像下面这样从 <code>Activity</code> 获取一个 <code>FragmentTransaction</code> 实例，然后，使用 <code>add()</code> 方法添加一个Fragment，指定要添加的Fragment以及将其插入哪个视图。例如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FragmentManager fragmentManager = getFragmentManager();</span><br><span class="line">FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();</span><br><span class="line"></span><br><span class="line">ExampleFragment fragment = <span class="keyword">new</span> ExampleFragment();</span><br><span class="line">fragmentTransaction.add(R.id.fragment_container, fragment);</span><br><span class="line">fragmentTransaction.commit();</span><br></pre></td></tr></table></figure>
+<p>传递到 <code>add()</code> 的第一个参数是 <code>ViewGroup</code>，即应该放置Fragment的位置，由资源 ID 指定，第二个参数是要添加的Fragment。</p>
+</li>
+</ul>
+<h3 id="添加没有-UI-的Fragment"><a href="#添加没有-UI-的Fragment" class="headerlink" title="添加没有 UI 的Fragment"></a>添加没有 UI 的Fragment</h3><p>还可以使用Fragment为 Activity 提供后台行为，而不显示额外 UI。要想添加没有 UI 的Fragment，请使用 <code>add(Fragment, String)</code> 从 Activity 添加Fragment（为Fragment提供一个唯一的字符串“标记”，而不是视图 ID）。 这会添加Fragment，但由于它并不与 Activity 布局中的视图关联，因此不会收到对 <code>onCreateView()</code> 的调用。因此，您不需要实现该方法。</p>
+<p>并非只能为非 UI Fragment提供字符串标记——也可以为具有 UI 的Fragment提供字符串标记——但如果Fragment没有 UI，则字符串标记将是标识它的唯一方式。如果您想稍后从 Activity 中获取Fragment，则需要使用 <code>findFragmentByTag()</code>。</p>
+<h2 id="管理Fragment"><a href="#管理Fragment" class="headerlink" title="管理Fragment"></a>管理Fragment</h2><p>要想管理 Activity 中的Fragment，需要使用 <code>FragmentManager</code>——从 Activity 调用<code>getFragmentManager()</code>获取。可以使用 <code>FragmentManager</code> 执行的操作包括：</p>
+<ul>
+<li>通过 <code>findFragmentById()</code>（对于在 Activity 布局中提供 UI 的Fragment）或 <code>findFragmentByTag()</code>（对于提供或不提供 UI 的Fragment）获取 Activity 中存在的Fragment。</li>
+<li>通过 <code>popBackStack()</code>（模拟用户发出的返回命令）将Fragment从返回栈中弹出。</li>
+<li>通过 <code>addOnBackStackChangedListener()</code> 注册一个侦听返回栈变化的侦听器。</li>
+</ul>
+<p>也可以使用 <code>FragmentManager</code> 打开一个 <code>FragmentTransaction</code>，通过它来执行某些事务，如添加和移除Fragment。</p>
+<h2 id="执行Fragment事务"><a href="#执行Fragment事务" class="headerlink" title="执行Fragment事务"></a>执行Fragment事务</h2><p>在 Activity 中使用Fragment的一大优点是，可以根据用户行为通过它们执行添加、移除、替换以及其他操作。 提交给 Activity 的每组更改都称为事务(transaction)，可以使用 <code>FragmentTransaction</code> 中的 API 来执行一项事务。也可以将每个事务保存到由 Activity 管理的返回栈内，从而让用户能够回退Fragment更改（类似于回退 Activity）。</p>
+<p>每个事务都是想要同时执行的一组更改。可以使用 <code>add()</code>、<code>remove()</code> 和 <code>replace()</code> 等方法为给定事务设置想要执行的所有更改。然后，要想将事务应用到 Activity，您必须调用 <code>commit()</code>。When you are ready to execute the change, call <code>commit</code> to add the transaction to the UI queue asynchronously, or <code>commitNow</code> to block until the transaction is fully complete:</p>
+<p>不过，在调用 <code>commit()</code> 之前，还可能想调用 <code>addToBackStack()</code>，以将事务添加到Fragment事务返回栈。 该返回栈由 Activity 管理，允许用户通过按返回按钮返回上一Fragment状态。</p>
+<p>例如，以下示例说明了如何将一个Fragment替换成另一个Fragment，以及如何在返回栈中保留先前状态：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create new fragment and transaction</span></span><br><span class="line">Fragment newFragment = <span class="keyword">new</span> ExampleFragment();</span><br><span class="line">FragmentTransaction transaction = getFragmentManager().beginTransaction();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Replace whatever is in the fragment_container view with this fragment,</span></span><br><span class="line"><span class="comment">// and add the transaction to the back stack</span></span><br><span class="line">transaction.replace(R.id.fragment_container, newFragment);</span><br><span class="line">transaction.addToBackStack(<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Commit the transaction</span></span><br><span class="line">transaction.commit();</span><br></pre></td></tr></table></figure>
+<p>在上例中，<code>newFragment</code> 会替换目前在 <code>R.id.fragment_container</code> ID 所标识的布局容器中的任何Fragment（如有）。通过调用 <code>addToBackStack()</code> 可将替换事务保存到返回栈，以便用户能够通过按返回按钮撤消事务并回退到上一Fragment。</p>
+<p>如果向事务添加了多个更改（如又一个 <code>add()</code> 或 <code>remove()</code>），并且调用了 <code>addToBackStack()</code>，则在调用<code>commit()</code> 前应用的所有更改都将作为单一事务添加到返回栈，并且返回按钮会将它们一并撤消。</p>
+<p>向 <code>FragmentTransaction</code> 添加更改的顺序无关紧要，不过：</p>
+<ul>
+<li>必须最后调用 <code>commit()</code></li>
+<li>如果要向同一容器添加多个Fragment，则添加Fragment的顺序将决定它们在视图层次结构中的出现顺序</li>
+</ul>
+<p>如果没有在执行移除Fragment的事务时调用 <code>addToBackStack()</code>，则事务提交时该Fragment会被销毁，用户将无法回退到该Fragment。 不过，如果在删除Fragment时调用了 <code>addToBackStack()</code>，则系统会停止该Fragment，并在用户回退时将其恢复。</p>
+<p>对于每个Fragment事务，都可以通过在提交前调用 <code>setTransition()</code> 来应用过渡动画。</p>
+<p>调用 <code>commit()</code> 不会立即执行事务，而是在 Activity 的 UI 线程（“主”线程）可以执行该操作时再安排其在线程上运行。不过，如有必要，您也可以从 UI 线程调用 <code>executePendingTransactions()</code> 以立即执行 <code>commit()</code> 提交的事务。通常不必这样做，除非其他线程中的作业依赖该事务。</p>
+<p>只能在 Activity 保存其状态（用户离开 Activity）之前使用 <code>commit()</code> 提交事务。如果您试图在该时间点后提交，则会引发异常。 这是因为如需恢复 Activity，则提交后的状态可能会丢失。 对于丢失提交无关紧要的情况，请使用 <code>commitAllowingStateLoss()</code>。</p>
+<h2 id="与-Activity-通信"><a href="#与-Activity-通信" class="headerlink" title="与 Activity 通信"></a>与 Activity 通信</h2><p>尽管 <code>Fragment</code> 是作为独立于 <code>Activity</code> 的对象实现，并且可在多个 Activity 内使用，但Fragment的给定实例会直接绑定到包含它的 Activity。具体地说，Fragment可以通过 <code>getActivity()</code> 访问 <code>Activity</code> 实例，并轻松地执行在 Activity 布局中查找视图等任务。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">View listView = getActivity().findViewById(R.id.list);</span><br></pre></td></tr></table></figure>
+<p>同样地， Activity 也可以使用 <code>findFragmentById()</code> 或 <code>findFragmentByTag()</code>，通过从 <code>FragmentManager</code> 获取对 <code>Fragment</code> 的引用来调用Fragment中的方法。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExampleFragment fragment = (ExampleFragment) getFragmentManager().findFragmentById(R.id.example_fragment);</span><br></pre></td></tr></table></figure>
+<h3 id="创建对-Activity-的事件回调"><a href="#创建对-Activity-的事件回调" class="headerlink" title="创建对 Activity 的事件回调"></a>创建对 Activity 的事件回调</h3><p>在某些情况下，可能需要通过Fragment与 Activity 共享事件。执行此操作的一个好方法是，在Fragment内定义一个回调接口，并要求宿主 Activity 实现它。 当 Activity 通过该接口收到回调时，可以根据需要与布局中的其他Fragment共享这些信息。</p>
+<p>例如，如果一个新闻应用的 Activity 有两个Fragment —— 一个用于显示文章列表（Fragment A），另一个用于显示文章（Fragment B）——那么Fragment A 必须在列表项被选定后告知 Activity，以便它告知Fragment B 显示该文章。 在本例中，<code>OnArticleSelectedListener</code> 接口在Fragment A 内声明：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">FragmentA</span> <span class="keyword">extends</span> <span class="title">ListFragment</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// Container Activity must implement this interface</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnArticleSelectedListener</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onArticleSelected</span><span class="params">(Uri articleUri)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，该Fragment的宿主 Activity 会实现 <code>OnArticleSelectedListener</code> 接口并替代 <code>onArticleSelected()</code>，将来自Fragment A 的事件通知Fragment B。为确保宿主 Activity 实现此接口，Fragment A 的 <code>onAttach()</code> 回调方法（系统在向 Activity 添加Fragment时调用的方法）会通过转换传递到 <code>onAttach()</code> 中的 <code>Activity</code> 来实例化 <code>OnArticleSelectedListener</code> 的实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">FragmentA</span> <span class="keyword">extends</span> <span class="title">ListFragment</span> </span>&#123;</span><br><span class="line">    OnArticleSelectedListener mListener;</span><br><span class="line">    ...</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAttach</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onAttach(activity);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            mListener = (OnArticleSelectedListener) activity;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassCastException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ClassCastException(activity.toString() + <span class="string">" must implement OnArticleSelectedListener"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果 Activity 未实现接口，则Fragment会引发 <code>ClassCastException</code>。实现时，<code>mListener</code> 成员会保留对 Activity 的 <code>OnArticleSelectedListener</code> 实现的引用，以便Fragment A 可以通过调用 <code>OnArticleSelectedListener</code> 接口定义的方法与 Activity 共享事件。例如，如果Fragment A 是 <code>ListFragment</code> 的一个扩展，则用户每次点击列表项时，系统都会调用Fragment中的 <code>onListItemClick()</code>，然后该方法会调用 <code>onArticleSelected()</code> 以与 Activity 共享事件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">FragmentA</span> <span class="keyword">extends</span> <span class="title">ListFragment</span> </span>&#123;</span><br><span class="line">    OnArticleSelectedListener mListener;</span><br><span class="line">    ...</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onListItemClick</span><span class="params">(ListView l, View v, <span class="keyword">int</span> position, <span class="keyword">long</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Append the clicked item's row ID with the content provider Uri</span></span><br><span class="line">        Uri noteUri = ContentUris.withAppendedId(ArticleColumns.CONTENT_URI, id);</span><br><span class="line">        <span class="comment">// Send the event and Uri to the host activity</span></span><br><span class="line">        mListener.onArticleSelected(noteUri);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>传递到 <code>onListItemClick()</code> 的 <code>id</code> 参数是被点击项的行 ID，即 Activity（或其他Fragment）用来从应用的 <code>ContentProvider</code> 获取文章的 ID。</p>
+<h2 id="Fragment生命周期"><a href="#Fragment生命周期" class="headerlink" title="Fragment生命周期"></a>Fragment生命周期</h2><p><img src="https://developer.android.com/images/fragment_lifecycle.png" alt="Fragment生命周期"></p>
+<p>The full lifetime of your Fragment begins when it’s bound to its parent’s Context and ends when it’s been detached. These events are represented by the calls to <code>onAttach</code> and <code>onDetach</code>, respectively.</p>
+<p>The created lifetime of your Fragment occurs between the first call to <code>onCreate</code> and the final call to <code>onDestroy</code>. </p>
+<p>A Fragment’s UI is initialized (and destroyed) within a new set of event handlers: <code>onCreateView</code> and <code>onDestroyView</code>, respectively.  Use the <code>onCreateView</code> method to initialize your Fragment: inflate the UI and get references (and bind data to) the Views it contains. If your Fragment needs to interact with the UI of a parent Activity, wait until the <code>onActivityCreated</code> event has been triggered. </p>
+<p>和 Activity 一样，Fragment也以三种状态存在：</p>
+<ul>
+<li>继续：Fragment在运行中的 Activity 中可见。</li>
+<li>暂停：另一个 Activity 位于前台并具有焦点，但此Fragment所在的 Activity 仍然可见（前台 Activity 部分透明，或未覆盖整个屏幕）。</li>
+<li>停止：Fragment不可见。宿主 Activity 已停止，或Fragment已从 Activity 中移除，但已添加到返回栈。 停止Fragment仍然处于活动状态（系统会保留所有状态和成员信息）。 不过，它对用户不再可见，如果 Activity 被终止，它也会被终止。</li>
+</ul>
+<p>同样与 Activity 一样，假使 Activity 的进程被终止，而需要在重建 Activity 时恢复Fragment状态，也可以使用 <code>Bundle</code> 保留Fragment的状态。可以在Fragment的 <code>onSaveInstanceState()</code> 回调期间保存状态，并可在 <code>onCreate()</code>、<code>onCreateView()</code> 或 <code>onActivityCreated()</code> 期间恢复状态。</p>
+<p>In order to maintain a consistent UI state between configuration changes, all the Fragments added to your UI will automatically be restored when an Activity is re-created following an orientation change or unexpected termination. This is particularly important if you are populating your Activity layout with Fragments within the onCreate handler—in which case you must check if the Fragments have already been added to avoid creating multiple copies. You can do this either by checking for Fragments before adding them, or if this is an Activity restart by checking if the savedInstanceState is null:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123; </span><br><span class="line">  <span class="keyword">super</span>.onCreate(savedInstanceState); </span><br><span class="line">  setContentView(R.layout.activity_main); </span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (savedInstanceState == <span class="keyword">null</span>) &#123; </span><br><span class="line">    <span class="comment">// Create and add your Fragments. </span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    <span class="comment">// Get references to Fragments that have already been restored. </span></span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Activity 生命周期与Fragment生命周期之间的最显著差异在于它们在其各自返回栈中的存储方式。 默认情况下，Activity 停止时会被放入由系统管理的 Activity 返回栈（以便用户通过返回按钮回退到 Activity）。不过，仅当在移除Fragment的事务执行期间通过调用 <code>addToBackStack()</code> 显式请求保存实例时，系统才会将Fragment放入由宿主 Activity 管理的返回栈。</p>
+<h3 id="与-Activity-生命周期协调一致"><a href="#与-Activity-生命周期协调一致" class="headerlink" title="与 Activity 生命周期协调一致"></a>与 Activity 生命周期协调一致</h3><p>Fragment所在的 Activity 的生命周期会直接影响Fragment的生命周期，其表现为，Activity 的每次生命周期回调都会引发每个Fragment的类似回调。 例如，当 Activity 收到 <code>onPause()</code> 时，Activity 中的每个Fragment也会收到 <code>onPause()</code>。</p>
+<p>不过，Fragment还有几个额外的生命周期回调，用于处理与 Activity 的唯一交互，以执行构建和销毁Fragment UI 等操作：</p>
+<ul>
+<li><p><code>onAttach()</code>：在Fragment已与 Activity 关联时调用（<code>Activity</code> 传递到此方法内）。</p>
+</li>
+<li><p><code>onCreateView()</code>：调用它可创建与Fragment关联的视图层次结构。</p>
+</li>
+<li><p><code>onActivityCreated()</code>：在 Activity 的 <code>onCreate()</code> 方法已返回时调用。</p>
+</li>
+<li><p><code>onDestroyView()</code>：在移除与Fragment关联的视图层次结构时调用。</p>
+</li>
+<li><p><code>onDetach()</code>；在取消Fragment与 Activity 的关联时调用。</p>
+</li>
+</ul>
+<p>只有当 Activity 处于恢复状态时，Fragment的生命周期才能独立变化。</p>
+<h1 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h1><p>Android 应用中的所有用户界面元素都是使用 <code>View</code> 和 <code>ViewGroup</code> 对象构建而成。<code>View</code> 对象用于在屏幕上绘制可供用户交互的内容。You’ll often see Views referred to as <em>controls</em> or <em>widgets</em> . <code>ViewGroup</code> 对象用于储存其他 <code>View</code>（和 <code>ViewGroup</code>）对象，以便定义界面的布局。View Groups that focus primarily on laying out child Views are referred to<br>as <em>layouts</em>.</p>
+<h2 id="布局-LAYOUTS"><a href="#布局-LAYOUTS" class="headerlink" title="布局 LAYOUTS"></a>布局 LAYOUTS</h2><p>In most cases, building your UI will include many Views contained within one or more nested layouts—extensions of the ViewGroup class.  </p>
+<p>布局定义用户界面的视觉结构(A layout defines the structure for a user interface in your app, such as in an activity)，可以通过两种方式声明布局：</p>
+<ul>
+<li><strong>在 XML 中声明 UI 元素</strong>。Android 提供了对应于 View 类及其子类的简明 XML 词汇，如用于小部件和布局的词汇；</li>
+<li><strong>运行时实例化布局元素</strong>。可以通过编程创建 View 对象和 ViewGroup 对象（并操纵其属性）。</li>
+</ul>
+<h3 id="XML-布局文件"><a href="#XML-布局文件" class="headerlink" title="XML 布局文件"></a>XML 布局文件</h3><p>XML布局文件在 Android 项目 <code>res/layout/</code> 目录中以 <code>.xml</code> 扩展名保存。当编译应用时，每个 XML 布局文件都会编译到一个 <code>View</code> 资源中。 应该在 <code>Activity.onCreate()</code> 回调实现中从应用代码加载布局资源。请通过调用 <code>setContentView()</code>，以 <code>R.layout.*layout_file_name*</code> 形式向其传递对布局资源的引用来执行此操作。</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>每个视图对象和 ViewGroup 对象都支持各自的各类 XML 属性。</p>
+<h4 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h4><p>任何视图对象都可能具有关联的整型 ID，此 ID 用于在结构树中对 View 对象进行唯一标识。编译应用后，此 ID 将作为整型数引用，但在布局 XML 文件中，通常会在 <code>id</code> 属性中为该 ID 赋予字符串值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:id=&quot;@+id/my_button&quot;</span><br></pre></td></tr></table></figure>
+<p>字符串开头处的 @ 符号指示 XML 解析程序应该解析并展开 ID 字符串的其余部分，并将其标识为 ID 资源。加号 (+) 表示这是一个新的资源名称，必须创建该名称并将其添加到我们的资源（在 <code>R.java</code> 文件中）内。</p>
+<p>Android 框架还提供了许多其他 ID 资源。 引用 Android 资源 ID 时，不需要加号，但必须添加 <code>android</code> 软件包命名空间，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:id=&quot;@android:id/empty&quot;</span><br></pre></td></tr></table></figure>
+<p>添加 <code>android</code> 软件包命名空间之后，我们将从 <code>android.R</code> 资源类而非本地资源类引用 ID。</p>
+<p>在应用中引用view 对象实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Button myButton = (Button) findViewById(R.id.my_button);</span><br></pre></td></tr></table></figure>
+<h4 id="布局参数"><a href="#布局参数" class="headerlink" title="布局参数"></a>布局参数</h4><p>名为 <code>layout_*something*</code> 的 XML 布局属性可为视图定义与其所在的 ViewGroup 相适的布局参数。每个 ViewGroup 类都会实现一个扩展 <code>ViewGroup.LayoutParams</code> 的嵌套类。此子类包含的属性类型会根据需要为视图组的每个子视图定义尺寸和位置。 父视图组为每个子视图（包括子视图组）定义布局参数。</p>
+<p>请注意，每个 LayoutParams 子类都有自己的值设置语法。 每个子元素都必须定义适合其父元素的 LayoutParams，但父元素也可为其子元素定义不同的 LayoutParams。所有视图组都包括宽度和高度（<code>layout_width</code> 和 <code>layout_height</code>），并且每个视图都必须定义它们。许多 LayoutParams 还包括可选的外边距和边框。</p>
+<p>可以指定具有确切尺寸的宽度和高度，但在更多的情况下，会使用以下常量之一来设置宽度或高度：</p>
+<ul>
+<li>wrap_content 指示您的视图将其大小调整为内容所需的尺寸。</li>
+<li>match_parent 指示您的视图尽可能采用其父视图组所允许的最大尺寸。</li>
+</ul>
+<p>一般而言，建议不要使用绝对单位（如像素）来指定布局宽度和高度， 而是使用相对测量单位，如密度无关像素单位 (dp)、wrap_content 或 match_parent。</p>
+<h3 id="常见布局"><a href="#常见布局" class="headerlink" title="常见布局"></a>常见布局</h3><p><code>ViewGroup</code> 类的每个子类都提供了一种独特的方式来显示其中嵌套的视图。 Android 平台中内置的一些较为常见的布局类型：</p>
+<ul>
+<li><a href="https://developer.android.com/guide/topics/ui/layout/linear.html" target="_blank" rel="noopener">线性布局 Linear Layout</a>；一种使用单个水平行或垂直行来组织子项的布局。它会在窗口长度超出屏幕长度时创建一个滚动条。</li>
+<li><a href="https://developer.android.com/guide/topics/ui/layout/relative.html" target="_blank" rel="noopener">相对布局 Relative Layout</a>：能够指定子对象彼此之间的相对位置（子对象 A 在子对象 B 左侧）或子对象与父对象的相对位置（与父对象顶部对齐）。</li>
+<li><a href="https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout.html" target="_blank" rel="noopener">Constraint Layout</a> </li>
+</ul>
+<h4 id="Constraint-Layout"><a href="#Constraint-Layout" class="headerlink" title="Constraint Layout"></a>Constraint Layout</h4><p>The Constraint Layout provides the most flexibility of any of the Layout Managers, offering the advantage of both a visual layout editor, and a flat view hierarchy without the nesting. </p>
+<p>It’s available as part of the Android Support Library, and must be included as a dependency to your project’s module-level build.gradle file: </p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation <span class="string">'com.android.support.constraint:constraint-layout:1.1.2'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>As the name suggests, the Constraint Layout positions its child Views through the specification of constraints that define the relationship between a View and elements such as boundaries, other views, and custom guidelines. </p>
+<p>While it’s possible to define a Constraint Layout in XML manually, all the power of <code>ConstraintLayout</code> is available directly from the Layout Editor’s visual tools, because the layout API and the Layout Editor were specially built for each other. So you can build your layout with <code>ConstraintLayout</code> entirely by drag-and-dropping instead of editing the XML.</p>
+<p>To define a view’s position in <code>ConstraintLayout</code>, you must add at least one horizontal and one vertical constraint for the view. Each constraint represents a connection or alignment to another view, the parent layout, or an invisible guideline. Each constraint defines the view’s position along either the vertical or horizontal axis; so each view must have a minimum of one constraint for each axis, but often more are necessary.</p>
+<p>When you drop a view into the Layout Editor, it stays where you leave it even if it has no constraints. However, this is only to make editing easier; if a view has no constraints when you run your layout on a device, it is drawn at position [0,0] (the top-left corner).</p>
+<p>更多请参考：<a href="https://developer.android.com/training/constraint-layout" target="_blank" rel="noopener">Build a Responsive UI with ConstraintLayout</a></p>
+<h3 id="适配器Adapter"><a href="#适配器Adapter" class="headerlink" title="适配器Adapter"></a>适配器Adapter</h3><p>如果布局的内容是属于动态或未预先确定的内容，可以使用这样一种布局：在运行时通过子类 <code>AdapterView</code> 用视图填充布局。 <code>AdapterView</code> 类的子类使用 <code>Adapter</code> 将数据与其布局绑定。<code>Adapter</code> 充当数据源与 <code>AdapterView</code> 布局之间的中间人—<code>Adapter</code>（从数组或数据库查询等来源）检索数据，并将每个条目转换为可以添加到 <code>AdapterView</code> 布局中的视图。</p>
+<p>适配器支持的常见布局包括：</p>
+<ul>
+<li><p><a href="https://developer.android.com/guide/topics/ui/layout/listview.html" target="_blank" rel="noopener">列表视图 List View</a>：显示滚动的单列列表。</p>
+</li>
+<li><p><a href="https://developer.android.com/guide/topics/ui/layout/gridview.html" target="_blank" rel="noopener">网格视图 Grid View</a>：显示滚动的行列网格。</p>
+</li>
+</ul>
+<p>可以通过将 <code>AdapterView</code> 实例与 <code>Adapter</code> 绑定来填充 <code>AdapterView</code>（如 <code>ListView</code> 或 <code>GridView</code>），此操作会从外部来源检索数据，并创建表示每个数据条目的 <code>View</code>。</p>
+<p>Android 提供了几个 <code>Adapter</code> 子类，用于检索不同种类的数据和构建 <code>AdapterView</code> 的视图。 两种最常见的适配器是：</p>
+<ul>
+<li><p><code>ArrayAdapter</code></p>
+<p>请在数据源为数组时使用此适配器。默认情况下，<code>ArrayAdapter</code> 会通过在每个项目上调用 <code>toString()</code> 并将内容放入 <code>TextView</code> 来为每个数组项创建视图。</p>
+<p>例如，如果您具有想要在 <code>ListView</code> 中显示的字符串数组，请使用构造函数初始化一个新的 <code>ArrayAdapter</code>，为每个字符串和字符串数组指定布局：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ArrayAdapter&lt;String&gt; adapter = <span class="keyword">new</span> ArrayAdapter&lt;String&gt;(<span class="keyword">this</span>,</span><br><span class="line">             android.R.layout.simple_list_item_1, myStringArray);</span><br></pre></td></tr></table></figure>
+<p>此构造函数的参数是：</p>
+<ul>
+<li>应用 <code>Context</code></li>
+<li>包含数组中每个字符串的 <code>TextView</code> 的布局</li>
+<li>字符串数组</li>
+</ul>
+<p>然后，只需在 <code>ListView</code> 上调用 <code>setAdapter()</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ListView listView = (ListView) findViewById(R.id.listview);</span><br><span class="line">listView.setAdapter(adapter);</span><br></pre></td></tr></table></figure>
+<p>要想自定义每个项的外观，您可以重写数组中各个对象的 <code>toString()</code> 方法。或者，要想为 <code>TextView</code> 之外的每个项创建视图（例如，如果您想为每个数组项创建一个 <code>ImageView</code>），请扩展 <code>ArrayAdapter</code> 类并重写 <code>getView()</code>以返回您想要为每个项获取的视图类型。</p>
+</li>
+<li><p><code>SimpleCursorAdapter</code></p>
+<p>请在数据来自 <code>Cursor</code> 时使用此适配器。使用 <code>SimpleCursorAdapter</code> 时，必须指定要为 <code>Cursor</code> 中的每个行使用的布局，以及应该在哪些布局视图中插入 <code>Cursor</code> 中的哪些列。 例如，如果想创建人员姓名和电话号码列表，则可以执行一个返回 <code>Cursor</code>（包含对应每个人的行，以及对应姓名和号码的列）的查询。 然后，可以创建一个字符串数组，指定想要在每个结果的布局中包含 <code>Cursor</code> 中的哪些列，并创建一个整型数组，指定应该将每个列放入的对应视图：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] fromColumns = &#123;ContactsContract.Data.DISPLAY_NAME, </span><br><span class="line">                        ContactsContract.CommonDataKinds.Phone.NUMBER&#125;;</span><br><span class="line"><span class="keyword">int</span>[] toViews = &#123;R.id.display_name, R.id.phone_number&#125;;</span><br></pre></td></tr></table></figure>
+<p>当您实例化 <code>SimpleCursorAdapter</code> 时，请传递要用于每个结果的布局、包含结果的 <code>Cursor</code> 以及以下两个数组：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SimpleCursorAdapter adapter = <span class="keyword">new</span> SimpleCursorAdapter(<span class="keyword">this</span>,</span><br><span class="line">               R.layout.person_name_and_number, cursor, fromColumns, toViews, <span class="number">0</span>);</span><br><span class="line">ListView listView = getListView();</span><br><span class="line">listView.setAdapter(adapter);</span><br></pre></td></tr></table></figure>
+<p>然后，<code>SimpleCursorAdapter</code> 会使用提供的布局，将每个 <code>fromColumns</code> 项插入对应的 <code>toViews</code> 视图，为 <code>Cursor</code> 中的每个行创建一个视图。</p>
+</li>
+</ul>
+<p>如果在应用的生命周期中更改了适配器读取的底层数据，则应调用 <code>notifyDataSetChanged()</code>。此操作会通知附加的视图，数据发生了变化，它应该自行刷新。</p>
+<p>另外，可以通过实现 <code>AdapterView.OnItemClickListener</code> 界面来响应 <code>AdapterView</code> 中每一项上的点击事件。 例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a message handling object as an anonymous class.</span></span><br><span class="line"><span class="keyword">private</span> OnItemClickListener mMessageClickedHandler = <span class="keyword">new</span> OnItemClickListener() &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView parent, View v, <span class="keyword">int</span> position, <span class="keyword">long</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Do something in response to the click</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">listView.setOnItemClickListener(mMessageClickedHandler);</span><br></pre></td></tr></table></figure>
+<h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><p>If your app needs to display a scrolling list of elements based on large data sets (or data that frequently changes), you should use <code>RecyclerView</code>.</p>
+<p>To access the <code>RecyclerView</code> widget, you need to add the <a href="https://developer.android.com/tools/support-library/features.html#v7" target="_blank" rel="noopener">v7 Support Libraries</a> in <code>build.gradle</code>: </p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation <span class="string">'com.android.support:recyclerview-v7:28.0.0'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Add RecyclerView to layout:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- A RecyclerView with some commonly used attributes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/my_recycler_view"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:scrollbars</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>In the <code>RecyclerView</code> model, several different components work together to display your data. The overall container for your user interface is a <code>RecyclerView</code> object that you add to your layout. The <code>RecyclerView</code> fills itself with views provided by a <em>layout manager</em> that you provide. </p>
+<h3 id="Layout-Managers"><a href="#Layout-Managers" class="headerlink" title="Layout Managers"></a>Layout Managers</h3><p>The RecyclerView itself doesn’t control how each item is displayed; that responsibility belongs to the associated RecyclerView.LayoutManager. </p>
+<p>The <code>RecyclerView</code> uses a layout manager to position the individual items on the screen and determine when to reuse item views that are no longer visible to the user. To reuse (or <em>recycle</em>) a view, a layout manager may ask the adapter to replace the contents of the view with a different element from the dataset. Recycling views in this manner improves performance by avoiding the creation of unnecessary views or performing expensive <code>findViewById()</code> lookups. The Android Support Library includes three standard layout managers, each of which offers many customization options:</p>
+<ul>
+<li><code>LinearLayoutManager</code> arranges the items in a one-dimensional list. Using a <code>RecyclerView</code> with <code>LinearLayoutManager</code> provides functionality like the older <code>ListView</code> layout.</li>
+<li><code>GridLayoutManager</code> arranges the items in a two-dimensional grid, like the squares on a checkerboard. Using a <code>RecyclerView</code> with <code>GridLayoutManager</code> provides functionality like the older <code>GridView</code> layout.</li>
+<li><code>StaggeredGridLayoutManager</code> arranges the items in a two-dimensional grid, with each column slightly offset from the one before, like the stars in an American flag.</li>
+</ul>
+<p>If none of these layout managers suits your needs, you can create your own by extending the <code>RecyclerView.LayoutManager</code> abstract class.</p>
+<p>The Layout Manager for a Recycler View can be set either in XML or programmatically.</p>
+<p>Obtain a handle to the object, connect it to a layout manager, and attach an adapter for the data to be displayed:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> RecyclerView recyclerView;</span><br><span class="line">    <span class="keyword">private</span> RecyclerView.Adapter mAdapter;</span><br><span class="line">    <span class="keyword">private</span> RecyclerView.LayoutManager layoutManager;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.my_activity);</span><br><span class="line">        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// use this setting to improve performance if you know that changes</span></span><br><span class="line">        <span class="comment">// in content do not change the layout size of the RecyclerView</span></span><br><span class="line">        recyclerView.setHasFixedSize(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// use a linear layout manager</span></span><br><span class="line">        layoutManager = <span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>);</span><br><span class="line">        recyclerView.setLayoutManager(layoutManager);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// specify an adapter (see also next example)</span></span><br><span class="line">        mAdapter = <span class="keyword">new</span> MyAdapter(myDataset);</span><br><span class="line">        recyclerView.setAdapter(mAdapter);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="View-Holders"><a href="#View-Holders" class="headerlink" title="View Holders"></a>View Holders</h3><p>The views in the list are represented by <em>view holder</em> objects. These objects are instances of a class you define by extending <code>RecyclerView.ViewHolder</code>. Each view holder is in charge of displaying a single item with a view. </p>
+<p>For example, if your list shows music collection, each view holder might represent a single album. </p>
+<p>The <code>RecyclerView</code>creates only as many view holders as are needed to display the on-screen portion of the dynamic content, plus a few extra. As the user scrolls through the list, the <code>RecyclerView</code> takes the off-screen views and rebinds them to the data which is scrolling onto the screen.</p>
+<h3 id="Adapters"><a href="#Adapters" class="headerlink" title="Adapters"></a>Adapters</h3><p>The view holder objects are managed by an <em>adapter</em>, which you create by extending <code>RecyclerView.Adapter</code>. The adapter creates view holders as needed. The adapter also binds the view holders to their data. It does this by assigning the view holder to a position, and calling the adapter’s <code>onBindViewHolder()</code> method. That method uses the view holder’s position to determine what the contents should be, based on its list position.</p>
+<p>To feed all your data to the list, you must extend the <code>RecyclerView.Adapter</code> class. This object creates views for items, and replaces the content of some of the views with new data items when the original item is no longer visible:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">MyAdapter</span>.<span class="title">MyViewHolder</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String[] mDataset;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Provide a reference to the views for each data item</span></span><br><span class="line">    <span class="comment">// Complex data items may need more than one view per item, and</span></span><br><span class="line">    <span class="comment">// you provide access to all the views for a data item in a view holder</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">        <span class="comment">// each data item is just a string in this case</span></span><br><span class="line">        <span class="keyword">public</span> TextView textView;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyViewHolder</span><span class="params">(TextView v)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(v);</span><br><span class="line">            textView = v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Provide a suitable constructor (depends on the kind of dataset)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyAdapter</span><span class="params">(String[] myDataset)</span> </span>&#123;</span><br><span class="line">        mDataset = myDataset;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create new views (invoked by the layout manager)</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> MyAdapter.<span class="function">MyViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent,</span></span></span><br><span class="line"><span class="function"><span class="params">                                                   <span class="keyword">int</span> viewType)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// create a new view</span></span><br><span class="line">        TextView v = (TextView) LayoutInflater.from(parent.getContext())</span><br><span class="line">                .inflate(R.layout.my_text_view, parent, <span class="keyword">false</span>);</span><br><span class="line">        ...</span><br><span class="line">        MyViewHolder vh = <span class="keyword">new</span> MyViewHolder(v);</span><br><span class="line">        <span class="keyword">return</span> vh;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Replace the contents of a view (invoked by the layout manager)</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(MyViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// - get element from your dataset at this position</span></span><br><span class="line">        <span class="comment">// - replace the contents of the view with that element</span></span><br><span class="line">        holder.textView.setText(mDataset[position]);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Return the size of your dataset (invoked by the layout manager)</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mDataset.length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The layout manager calls the adapter’s <code>onCreateViewHolder()</code> method. That method needs to construct a <code>RecyclerView.ViewHolder</code> and set the view it uses to display its contents. The type of the ViewHolder must match the type declared in the Adapter class signature. Typically, it would set the view by inflating an XML layout file. Because the view holder is not yet assigned to any particular data, the method does not actually set the view’s contents.</p>
+<p>The layout manager then binds the view holder to its data. It does this by calling the adapter’s <code>onBindViewHolder()</code>method, and passing the view holder’s position in the <code>RecyclerView</code>. The <code>onBindViewHolder()</code> method needs to fetch the appropriate data, and use it to fill in the view holder’s layout. For example, if the <code>RecyclerView</code> is displaying a list of names, the method might find the appropriate name in the list, and fill in the view holder’s <code>TextView</code> widget.</p>
+<p>Every time an item needs to be displayed, the Layout Manager will call the Adapter’s onBindViewHolder method, providing you a previously created ViewHolder and the position in the dataset requested. This binding phase runs very frequently when scrolling through a list (once for every element that scrolls into view) so it should be as lightweight as possible.</p>
+<p>If the list needs an update, call a notification method on the <code>RecyclerView.Adapter</code> object, such as<code>notifyItemChanged()</code>. The layout manager then rebinds any affected view holders, allowing their data to be updated.</p>
+<h2 id="Optimizing-Layouts"><a href="#Optimizing-Layouts" class="headerlink" title="Optimizing Layouts"></a>Optimizing Layouts</h2><p>To keep your applications smooth and responsive, it’s important to keep your layouts as simple as possible, and to avoid inflating entirely new layouts for relatively small UI changes.</p>
+<h3 id="include-and-merge-tag"><a href="#include-and-merge-tag" class="headerlink" title="include and merge tag"></a>include and merge tag</h3><p>To efficiently re-use complete layouts, you can use the <code>&lt;include/&gt;</code> and <code>&lt;merge/&gt;</code> tags to embed another layout inside the current layout.</p>
+<p>If you already know the layout that you want to re-use, create a new XML file and define the layout. For example, here’s a layout that defines a title bar to be included in each activity (<code>titlebar.xml</code>):</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">FrameLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"@color/titlebar_bg"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:showIn</span>=<span class="string">"@layout/activity_main"</span> &gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ImageView</span> <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">android:src</span>=<span class="string">"@drawable/gafricalogo"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>The root <code>View</code> should be exactly how you’d like it to appear in each layout to which you add this layout.</p>
+<p>Inside the layout to which you want to add the re-usable component, add the <code>&lt;include/&gt;</code> tag. For example, here’s a layout that includes the title bar from above:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"@color/app_bg"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:gravity</span>=<span class="string">"center_horizontal"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/titlebar"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">android:text</span>=<span class="string">"@string/hello"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">android:padding</span>=<span class="string">"10dp"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>You can also override all the layout parameters (any <code>android:layout_*</code> attributes) of the included layout’s root view by specifying them in the <code>&lt;include/&gt;</code> tag. For example:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">include</span> <span class="attr">android:id</span>=<span class="string">"@+id/news_title"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">layout</span>=<span class="string">"@layout/title"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>However, if you want to override layout attributes using the <code>&lt;include&gt;</code> tag, you must override both<code>android:layout_height</code> and <code>android:layout_width</code> in order for other layout attributes to take effect.</p>
+<p>The <code>&lt;merge /&gt;</code> tag helps eliminate redundant view groups in your view hierarchy when including one layout within another. For example, if your main layout is a vertical <code>LinearLayout</code> in which two consecutive views can be re-used in multiple layouts, then the re-usable layout in which you place the two views requires its own root view. However, using another <code>LinearLayout</code> as the root for the re-usable layout would result in a vertical <code>LinearLayout</code> inside a vertical<code>LinearLayout</code>. The nested <code>LinearLayout</code> serves no real purpose other than to slow down your UI performance.</p>
+<p>To avoid including such a redundant view group, you can instead use the <code>&lt;merge&gt;</code> element as the root view for the re-usable layout. For example:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">merge</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"@string/add"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"@string/delete"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">merge</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Now, when you include this layout in another layout (using the <code>&lt;include/&gt;</code> tag), the system ignores the <code>&lt;merge&gt;</code>element and places the two buttons directly in the layout, in place of the <code>&lt;include/&gt;</code> tag.</p>
+<h3 id="ViewStub"><a href="#ViewStub" class="headerlink" title="ViewStub"></a>ViewStub</h3><p>To minimize the number of Views inflated within a complex layout, you can use a ViewStub. <code>ViewStub</code> is a lightweight view with no dimension that doesn’t draw anything or participate in the layout. </p>
+<p>Each <code>ViewStub</code> simply needs to include the <code>android:layout</code>attribute to specify the layout to inflate. The following <code>ViewStub</code> is for a translucent progress bar overlay. It should be visible only when new items are being imported into the app.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ViewStub</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/stub_import"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:inflatedId</span>=<span class="string">"@+id/panel_import"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout</span>=<span class="string">"@layout/progress_overlay"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_gravity</span>=<span class="string">"bottom"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>When you want to load the layout specified by the <code>ViewStub</code>, either set it visible by calling <code>setVisibility(View.VISIBLE)</code> or call <code>inflate()</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">findViewById(R.id.stub_import).setVisibility(View.VISIBLE);</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">View importPanel = ((ViewStub) findViewById(R.id.stub_import)).inflate();</span><br></pre></td></tr></table></figure>
+<p>Once visible/inflated, the <code>ViewStub</code> element is no longer part of the view hierarchy. It is replaced by the inflated layout and the ID for the root view of that layout is the one specified by the <code>android:inflatedId</code> attribute of the ViewStub. (The ID <code>android:id</code> specified for the <code>ViewStub</code> is valid only until the <code>ViewStub</code> layout is visible/inflated.)</p>
+<p>For additional information on this topic, see <a href="http://android-developers.blogspot.com/2009/03/android-layout-tricks-3-optimize-with.html" target="_blank" rel="noopener">Optimize with stubs (blog post)</a>.</p>
+<h1 id="DATA-BINDING"><a href="#DATA-BINDING" class="headerlink" title="DATA BINDING"></a>DATA BINDING</h1><p>The Data Binding library makes it possible to write declarative layouts that minimize the glue code needed to bind View elements to underlying data sources by generating that code for you at compile time.</p>
+<p>Data Binding is an optional library, so before you can take advantage of it you must enable it in your application module’s build.gradle file:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    dataBinding &#123;</span><br><span class="line">        enabled = true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Data binding layout files are slightly different and start with a root tag of <code>layout</code> followed by a <code>data</code> element and a <code>view</code> root element:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">layout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">type</span>=<span class="string">"com.example.User"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:text</span>=<span class="string">"@&#123;user.firstName&#125;"</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">TextView</span> <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">android:text</span>=<span class="string">"@&#123;user.lastName&#125;"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>The <code>user</code> variable within <code>data</code> describes a property that may be used within this layout. Expressions within the layout are written in the attribute properties using the “<code>@{}</code>“ syntax. </p>
+<p>A plain-old object to describe the <code>User</code> entity:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String firstName;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String lastName;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String firstName, String lastName)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">      <span class="keyword">this</span>.lastName = lastName;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getFirstName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getLastName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.lastName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>A binding class is generated for each layout file. By default, the name of the class is based on the name of the layout file, converting it to Pascal case and adding the <em>Binding</em> suffix to it. The above layout filename is <code>activity_main.xml</code> so the corresponding generated class is <code>ActivityMainBinding</code>. </p>
+<p>This class holds all the bindings from the layout properties (for example, the <code>user</code> variable) to the layout’s views and knows how to assign values for the binding expressions. By declaring a variable named <code>user</code>, of the class <code>User</code>, our Binding class will generate a <code>setUser</code> method. Calling this method will set all of the properties referencing that class using the <code>@{}</code> syntax. Data Binding will look for public variables, getter methods of the style get<variable> or is<variable> (for example, getEmail or isValid), or the exact method name when resolving expressions.</variable></variable></p>
+<p>The recommended method to create the bindings is to do it while inflating the layout, as shown in the following example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">   ActivityMainBinding binding = DataBindingUtil.setContentView(<span class="keyword">this</span>,</span><br><span class="line">                            R.layout.activity_main);</span><br><span class="line">   User user = <span class="keyword">new</span> User(<span class="string">"Test"</span>, <span class="string">"User"</span>);</span><br><span class="line">   binding.setUser(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>At runtime, the app displays the <strong>Test</strong> user in the UI. Alternatively, you can get the view using a <code>LayoutInflater</code>, as shown in the following example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());</span><br></pre></td></tr></table></figure>
+<p>If you are using data binding items inside a <code>Fragment</code>, <code>ListView</code>, or <code>RecyclerView</code> adapter, you may prefer to use the<a href="https://developer.android.com/reference/androidx/databinding/DataBindingUtil.html#inflate(android.view.LayoutInflater,%20int,%20android.view.ViewGroup,%20boolean,%20android.databinding.DataBindingComponent" target="_blank" rel="noopener"><code>inflate()</code></a>) methods of the bindings classes or the <a href="https://developer.android.com/reference/androidx/databinding/DataBindingUtil" target="_blank" rel="noopener"><code>DataBindingUtil</code></a> class, as shown in the following code example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ListItemBinding binding = ListItemBinding.inflate(layoutInflater, viewGroup, <span class="keyword">false</span>);</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">ListItemBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.list_item, viewGroup, <span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h1><p><a href="https://github.com/brightonzhang/AndroidAppComponentSkeleton/blob/master/StateChangeMonitoringActivity.java" target="_blank" rel="noopener">StateChangeMonitoringActivity.java</a></p>
+<p><a href="https://github.com/brightonzhang/AndroidAppComponentSkeleton/blob/master/MySkeletonFragment.java" target="_blank" rel="noopener">MySkeletonFragment.java</a></p>
+<p><a href="https://github.com/brightonzhang/AndroidAppComponentSkeleton/blob/master/SimpleAdapter.java" target="_blank" rel="noopener">SimpleAdapter.java</a></p>
+
+                </article>
+            </div>
+
+        
+            <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
+                 <aside class="toc-wrap nav" data-spy="affix" data-offset-top="565" >
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ACTIVITIES"><span class="toc-number">1.</span> <span class="toc-text">ACTIVITIES</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#操作Activity"><span class="toc-number">1.1.</span> <span class="toc-text">操作Activity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity-生命周期"><span class="toc-number">1.2.</span> <span class="toc-text">Activity 生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#生命周期回调"><span class="toc-number">1.2.1.</span> <span class="toc-text">生命周期回调</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保存-Activity-状态"><span class="toc-number">1.2.2.</span> <span class="toc-text">保存 Activity 状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协调-Activity"><span class="toc-number">1.2.3.</span> <span class="toc-text">协调 Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Responding-to-Memory-Pressure"><span class="toc-number">1.2.4.</span> <span class="toc-text">Responding to Memory Pressure</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FRAGMENTS"><span class="toc-number">2.</span> <span class="toc-text">FRAGMENTS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建Fragment"><span class="toc-number">2.1.</span> <span class="toc-text">创建Fragment</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加用户界面"><span class="toc-number">2.1.1.</span> <span class="toc-text">添加用户界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向-Activity-添加Fragment"><span class="toc-number">2.1.2.</span> <span class="toc-text">向 Activity 添加Fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加没有-UI-的Fragment"><span class="toc-number">2.1.3.</span> <span class="toc-text">添加没有 UI 的Fragment</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#管理Fragment"><span class="toc-number">2.2.</span> <span class="toc-text">管理Fragment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行Fragment事务"><span class="toc-number">2.3.</span> <span class="toc-text">执行Fragment事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与-Activity-通信"><span class="toc-number">2.4.</span> <span class="toc-text">与 Activity 通信</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建对-Activity-的事件回调"><span class="toc-number">2.4.1.</span> <span class="toc-text">创建对 Activity 的事件回调</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fragment生命周期"><span class="toc-number">2.5.</span> <span class="toc-text">Fragment生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#与-Activity-生命周期协调一致"><span class="toc-number">2.5.1.</span> <span class="toc-text">与 Activity 生命周期协调一致</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UI"><span class="toc-number">3.</span> <span class="toc-text">UI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#布局-LAYOUTS"><span class="toc-number">3.1.</span> <span class="toc-text">布局 LAYOUTS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XML-布局文件"><span class="toc-number">3.1.1.</span> <span class="toc-text">XML 布局文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性"><span class="toc-number">3.1.2.</span> <span class="toc-text">属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ID"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">ID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布局参数"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">布局参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见布局"><span class="toc-number">3.1.3.</span> <span class="toc-text">常见布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Constraint-Layout"><span class="toc-number">3.1.3.1.</span> <span class="toc-text">Constraint Layout</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器Adapter"><span class="toc-number">3.1.4.</span> <span class="toc-text">适配器Adapter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RecyclerView"><span class="toc-number">3.2.</span> <span class="toc-text">RecyclerView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Layout-Managers"><span class="toc-number">3.2.1.</span> <span class="toc-text">Layout Managers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#View-Holders"><span class="toc-number">3.2.2.</span> <span class="toc-text">View Holders</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adapters"><span class="toc-number">3.2.3.</span> <span class="toc-text">Adapters</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Optimizing-Layouts"><span class="toc-number">3.3.</span> <span class="toc-text">Optimizing Layouts</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#include-and-merge-tag"><span class="toc-number">3.3.1.</span> <span class="toc-text">include and merge tag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewStub"><span class="toc-number">3.3.2.</span> <span class="toc-text">ViewStub</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DATA-BINDING"><span class="toc-number">4.</span> <span class="toc-text">DATA BINDING</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考代码"><span class="toc-number">5.</span> <span class="toc-text">参考代码</span></a></li></ol>
+</aside>
+            </div>
+        
+    </div>
+
+    <div class="row">
+        <!-- Comments -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+
+
+            </div>
+        
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/brightonzhang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/brightonzhang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:hello@brightonzhang.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    &copy; 2019 Brighton Zhang<br>
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> ⌘ 
+                    Theme from <a href="https://github.com/brightonzhang/hexo-theme-nutshell" target="_blank">Nutshell</a>
+                    
+                    ⌘ Deployed on <a href="https://github.com/brightonzhang/brightonzhang.com.git" target="_blank">GitHub Pages</a>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+
+
+
+</body>
+
+</html>
