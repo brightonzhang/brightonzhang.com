@@ -179,6 +179,11 @@
     </div>
 </div>
 
+    
+    <div id="totop" title="Let me fly">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
 
     <!-- Footer -->
     <hr />
@@ -254,34 +259,12 @@
 
 
 
-    
-<!--[if lt IE 9]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
-<script src="/js/jquery.tagcanvas.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        console.log( $('#tagCloudContainer').width())
-        $("#tagCanvas").attr("width", $('#tagCloudContainer').width());
-        $("#tagCanvas").attr("height", $('#tagCloudContainer').width());
-
-        if(!$('#tagCanvas').tagcanvas({
-            textFont: 'Georgia,Optima',
-            textColour: null,
-            outlineColour: 'black',
-            weight: true,
-            reverse: true,
-            depth: 0.8,
-            maxSpeed: 0.05,
-            bgRadius: 1,
-            freezeDecel: true,
-            zoom: $('#tagCloudContainer').width() > 512 ? 1 : $('#tagCloudContainer').width()/512
-        },'tags')) {
-            // something went wrong, hide the canvas container
-            $('#tagCanvasContainer').hide();
-        }
-    });
-</script>
+    <script src="/js/jquery.tagcanvas.min.js"></script>
 
 
+
+
+<script src="/js/script.js"></script>
 
 
 </body>

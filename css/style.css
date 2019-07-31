@@ -49,7 +49,8 @@ h6,
 .intro-header .post-heading .post-tag-category,
 .intro-header .post-heading .subheading,
 .post-archive > a > .post-title.archive,
-.post-preview > a > .post-title.archive {
+.post-preview > a > .post-title.archive,
+#totop-percent {
   font-family: -apple-system, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
 }
 body {
@@ -855,4 +856,42 @@ footer .copyright {
 }
 #page-nav .space {
   color: #ddd;
+}
+#totop {
+  background-color: #eee;
+  border-radius: 100%;
+  height: 48px;
+  width: 48px;
+  position: fixed;
+  right: 3%;
+  bottom: -48px;
+  z-index: 99;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  transition: 0.5s;
+}
+#totop.display {
+  bottom: 5%;
+}
+#totop-percent {
+  font-size: 24px;
+  height: 48px;
+  line-height: 48px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 48px;
+  color: #555;
+  cursor: pointer;
+}
+#totop-percent:before {
+  content: attr(data-percent);
+}
+#totop-percent:hover:before {
+  display: inline-block;
+  font-family: "FontAwesome";
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\f062";
 }
