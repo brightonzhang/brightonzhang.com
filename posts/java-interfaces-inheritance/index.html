@@ -15,6 +15,10 @@
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css">
 
@@ -143,7 +147,7 @@
             <div class="col-lg-8 col-lg-offset-1 col-md-10 " >
         
 
-                <article  >
+                <article class="post-article" >
                     <h1 id="接口-Interfaces"><a href="#接口-Interfaces" class="headerlink" title="接口 Interfaces"></a>接口 Interfaces</h1><p>In the Java programming language, an <em>interface</em> is a reference type, similar to a class, that can contain <em>only</em> constants, method signatures, default methods, static methods, and nested types. Method bodies exist only for default methods and static methods. Interfaces cannot be instantiated—they can only be <em>implemented</em> by classes or <em>extended</em> by other interfaces. </p>
 <p>To use an interface, you write a class that <em>implements</em> the interface. When an instantiable class implements an interface, it provides a method body for each of the methods declared in the interface. </p>
 <h2 id="Defining-an-Interface"><a href="#Defining-an-Interface" class="headerlink" title="Defining an Interface"></a>Defining an Interface</h2><p>An interface declaration consists of modifiers, the keyword <code>interface</code>, the interface name, a comma-separated list of parent interfaces (if any), and the interface body. For example:</p>
@@ -388,15 +392,20 @@
 
 <!-- Bootstrap -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
 <!-- Disqus Comments -->
 
 
 
 
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script type="text/javascript">
+(function($){
+    if ($.fancybox){
+        $('.fancybox').fancybox();
+    }
+})(jQuery);
+</script>
 
 
 </body>

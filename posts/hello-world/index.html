@@ -15,6 +15,10 @@
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css">
 
@@ -149,7 +153,7 @@
             <div class="col-lg-8 col-lg-offset-1 col-md-10 " >
         
 
-                <article  >
+                <article class="post-article" >
                     <p>THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG<br>the quick brown fox jumps over the lazy dog</p>
 <a id="more"></a> 
 <h1 id="纳凉"><a href="#纳凉" class="headerlink" title="纳凉"></a>纳凉</h1><p>携扙来追柳外凉，画桥南畔倚胡床。<br>月明船笛参差起，风定池莲自在香。 </p>
@@ -162,7 +166,8 @@
 <p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<h1 id="Migrate"><a href="#Migrate" class="headerlink" title="Migrate"></a>Migrate</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git clone --single-branch https://github.com/brightonzhang/brightonzhang.com.git bzcom/</span><br><span class="line">cd bzcom</span><br><span class="line">npm install </span><br><span class="line"></span><br><span class="line">for md in *.md</span><br><span class="line">do</span><br><span class="line">    if [ ! -d $&#123;md%.md&#125; ]</span><br><span class="line">    then</span><br><span class="line">        mkdir $&#123;md%.md&#125;</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h1 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h1><h2 id="Initialise"><a href="#Initialise" class="headerlink" title="Initialise"></a>Initialise</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone --single-branch https://github.com/brightonzhang/brightonzhang.com.git bzcom/</span><br><span class="line">cd bzcom</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h2 id="Migrate"><a href="#Migrate" class="headerlink" title="Migrate"></a>Migrate</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for md in *.md</span><br><span class="line">do</span><br><span class="line">    if [ ! -d $&#123;md%.md&#125; ]</span><br><span class="line">    then</span><br><span class="line">        mkdir $&#123;md%.md&#125;</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>The header image is from <a href="https://sketchthatout.wordpress.com/tag/art/page/4/" target="_blank" rel="noopener">SKETCH THAT</a></p>
 </blockquote>
@@ -174,7 +179,7 @@
             <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
                  <aside class="toc-wrap nav" data-spy="affix" data-offset-top="565" >
     <strong class="toc-title">Contents</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#纳凉"><span class="toc-number">1.</span> <span class="toc-text">纳凉</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo"><span class="toc-number">2.</span> <span class="toc-text">Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">2.1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">2.1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">2.1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">2.1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">2.1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Migrate"><span class="toc-number">3.</span> <span class="toc-text">Migrate</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#纳凉"><span class="toc-number">1.</span> <span class="toc-text">纳凉</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo"><span class="toc-number">2.</span> <span class="toc-text">Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">2.1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">2.1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">2.1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">2.1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">2.1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Setup"><span class="toc-number">3.</span> <span class="toc-text">Setup</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Initialise"><span class="toc-number">3.1.</span> <span class="toc-text">Initialise</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Migrate"><span class="toc-number">3.2.</span> <span class="toc-text">Migrate</span></a></li></ol></li></ol>
 </aside>
             </div>
         
@@ -263,15 +268,20 @@
 
 <!-- Bootstrap -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
 <!-- Disqus Comments -->
 
 
 
 
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script type="text/javascript">
+(function($){
+    if ($.fancybox){
+        $('.fancybox').fancybox();
+    }
+})(jQuery);
+</script>
 
 
 </body>

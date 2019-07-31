@@ -15,6 +15,10 @@
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css">
 
@@ -141,7 +145,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
 
-                <article  >
+                <article class="post-article" >
                     <p>今年夏天，公司建了个图书角，某日过去发现一本《周鸿祎自述——我的互联网方法论》，封面上写是周鸿祎迄今为止唯一著作，加上“互联网”“方法论”的字眼，让我毫无犹豫的把这本书借了回来。借回来之后，刚开始几天还看的挺勤的，每天晚上下班回来都翻几页，基本是作为睡前读物在看。后来因为脖子的关系，然后十一放假，接着又狂加班，这本书就被落下了。最近有人提醒说书要还了，我才想起来，还有一点没有看完。今天终于休息，有点时间把前面剩下的看完了，然后趁热写点感想。一来记下自己现在的想法，二来，让新买的电脑用起来。<br><a id="more"></a> </p>
 <p>说起周鸿祎，我们这一代人肯定先想到就是360.09年，终于攒了一台属于我自己的电脑之后，第一个（至少是第一批）安装的应用就是360安全卫士。但后来觉得360安全卫士越来越臃肿，也听信了网络上一些关于360不好的传闻，等到10年3Q大战的时候，我电脑上已经没有360的产品了。因为360的关系，对周鸿祎这个印象也不是很好——虽然我对这个人基本一无所知。</p>
 <p>后来12年的时候，读到林锐博士的《我的大学十年》，中间写道当年林锐博士拿着自己认为写的很不错的代码去找周鸿祎，结果被周鸿祎指出漏洞百出，顿时觉得周鸿祎这个似乎技术很厉害。</p>
@@ -241,15 +245,20 @@
 
 <!-- Bootstrap -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
 <!-- Disqus Comments -->
 
 
 
 
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script type="text/javascript">
+(function($){
+    if ($.fancybox){
+        $('.fancybox').fancybox();
+    }
+})(jQuery);
+</script>
 
 
 </body>

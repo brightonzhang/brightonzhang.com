@@ -15,6 +15,10 @@
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css">
 
@@ -147,7 +151,7 @@
             <div class="col-lg-8 col-lg-offset-1 col-md-10 " >
         
 
-                <article  >
+                <article class="post-article" >
                     <p>本文先概述Linux网络相关的部分原理，然后基于此在路由器梅林固件上完成网络加速实践。<br><a id="more"></a> </p>
 <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="网络模型"><a href="#网络模型" class="headerlink" title="网络模型"></a>网络模型</h2><p>说网络总是绕不开网络模型，所以先祭出此表。</p>
 <table>
@@ -465,15 +469,20 @@
 
 <!-- Bootstrap -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
 <!-- Disqus Comments -->
 
 
 
 
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script type="text/javascript">
+(function($){
+    if ($.fancybox){
+        $('.fancybox').fancybox();
+    }
+})(jQuery);
+</script>
 
 
 </body>

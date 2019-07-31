@@ -15,6 +15,10 @@
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css">
 
@@ -143,7 +147,7 @@
             <div class="col-lg-8 col-lg-offset-1 col-md-10 " >
         
 
-                <article  >
+                <article class="post-article" >
                     <p>JavaScript(JS)是一门完备的轻量级解释型、动态编程语言。当应用于HTML文档时，可为网站提供动态交互特性。由布兰登·艾克(Brendan Eich)发明。其标准为ECMAScript，最新版ECMAScript 6标准（简称ES6）于2015年6月正式发布。</p>
 <p>浏览器在读取一个网页时，代码（HTML, CSS和JavaScript）将在一个运行环境（浏览器标签）中得到执行。在HTML和CSS集合组装成一个网页后，浏览器的JavaScript引擎将执行JavaScript代码——通常会按从上往下的顺序执行代码。<br><a id="more"></a> </p>
 <p>在HTML页面中插入JavaScript，需要使用<code>&lt;script&gt;</code>标签。之前会在<code>&lt;script&gt;</code>标签中使用<code>type=&quot;text/javascript&quot;</code>——现在已经不必这样做了——JavaScript 是所有现代浏览器以及HTML5中的默认脚本语言。</p>
@@ -444,15 +448,20 @@
 
 <!-- Bootstrap -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
 <!-- Disqus Comments -->
 
 
 
 
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script type="text/javascript">
+(function($){
+    if ($.fancybox){
+        $('.fancybox').fancybox();
+    }
+})(jQuery);
+</script>
 
 
 </body>
