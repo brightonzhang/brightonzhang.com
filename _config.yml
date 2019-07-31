@@ -71,3 +71,12 @@ deploy:
   type: git
   repository: https://github.com/brightonzhang/brightonzhang.com.git
   branch: gh-pages
+
+# https://github.com/hexojs/hexo-generator-archive
+archive_generator:
+  enabled: true
+  per_page: 16
+  yearly: true
+  monthly: false
+  daily: false
+  order_by: -date
