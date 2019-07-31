@@ -552,21 +552,21 @@ body {
   color: #fff;
   background: #08c;
 }
-article .container .row img {
+.post-article img {
   max-width: 100% !important;
   height: auto;
   display: inline-block;
 }
-article .container .row .video-container {
+.post-article .video-container {
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 30px;
   height: 0;
   overflow: hidden;
 }
-article .container .row .video-container iframe,
-article .container .row .video-container object,
-article .container .row .video-container embed {
+.post-article .video-container iframe,
+.post-article .video-container object,
+.post-article .video-container embed {
   position: absolute;
   top: 0;
   left: 0;
@@ -574,25 +574,25 @@ article .container .row .video-container embed {
   height: 100%;
   margin-top: 0;
 }
-article .container .row blockquote {
+.post-article blockquote {
   font-style: italic;
   font-family: "Georgia", serif;
   font-size: 0.8em;
   padding: 0 30px 15px;
 }
-article .container .row blockquote footer {
+.post-article blockquote footer {
   border-top: none;
   font-size: 0.8em;
   line-height: 1;
   margin: 20px 0 0;
   padding-top: 0;
 }
-article .container .row blockquote footer cite:before {
+.post-article blockquote footer cite:before {
   content: '—';
   color: #ccc;
   padding: 0 0.5em;
 }
-article .container .row .pullquote {
+.post-article .pullquote {
   float: right;
   border: none;
   padding: 0;
@@ -601,8 +601,11 @@ article .container .row .pullquote {
   width: 45%;
   font-size: 1.5em;
 }
-article .container .row .pullquote.left {
+.post-article .pullquote.left {
   float: left;
+}
+.post-article code {
+  word-wrap: break-word;
 }
 figure.highlight {
   background: #eee;
@@ -720,24 +723,6 @@ pre .clojure .title {
 }
 pre .deletion {
   color: #dc322f;
-}
-.article-comment-link {
-  float: right;
-}
-.article-comment-link:before {
-  content: "\f075";
-  font-family: font-icon;
-  padding-right: 8px;
-}
-.article-share-link {
-  cursor: pointer;
-  float: right;
-  margin-left: 20px;
-}
-.article-share-link:before {
-  content: "\f064";
-  font-family: font-icon;
-  padding-right: 6px;
 }
 .page-nav {
   padding: 0.5em 0;
