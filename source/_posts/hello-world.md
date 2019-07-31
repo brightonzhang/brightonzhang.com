@@ -59,7 +59,15 @@ $ hexo deploy
 
 More info: [Deployment](http://hexo.io/docs/deployment.html)
 
-# Migrate
+# Setup
+## Initialise
+```shell
+git clone --single-branch https://github.com/brightonzhang/brightonzhang.com.git bzcom/
+cd bzcom
+npm install 
+```
+
+## Migrate
 ```shell
 for md in *.md
 do
