@@ -13,16 +13,18 @@ $(function(){
         var docHeight = $(document).height() - $(window).height(),
             scrollTop = $(window).scrollTop(),
             percent = parseInt(scrollTop / docHeight * 100);
+
         if (scrollTop >= 200) {
             $("#totop").addClass("display");
+
             (function(color, percent){
-                canvas = $("#totop-canvas"),
-                width = canvas.width(),
-                height = canvas.height(),
-                center = width / 2,
-                radius = parseInt((width - 3) / 2),
-        
-                ctx = canvas[0].getContext("2d");
+                var canvas = $("#totop-canvas"),
+                    width = canvas.width(),
+                    height = canvas.height(),
+                    center = width / 2,
+                    radius = parseInt((width - 3) / 2),
+                    ctx = canvas[0].getContext("2d");
+
                 ctx.clearRect(0, 0, width, height);
                 ctx.beginPath();
                 ctx.arc(center, center, radius, - Math.PI / 2, Math.PI * 2 * percent - Math.PI / 2, false);
