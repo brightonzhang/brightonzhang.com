@@ -7,7 +7,10 @@ updated: 2017-04-12 23:17:53
 cover: /posts/pro-android-activity-ui/1iTDUQIbX397042030.jpg
 categories:
 - 技术
-tags: 安卓
+tags: 
+- 安卓
+- Android
+- Gradle
 ---
 
 Android 构建系统编译应用资源和源代码，然后将它们打包成可供测试、部署、签署和分发的 APK。 Android Studio 使用 [Gradle](http://www.gradle.org/) 这一高级构建工具包来自动执行和管理构建流程，同时也允许您定义灵活的自定义构建配置。 每个构建配置均可自行定义一组代码和资源，同时对所有应用版本共有的部分加以重复利用。 Android Plugin for Gradle 与这个构建工具包协作，共同提供专用于构建和测试 Android 应用的流程和可配置设置。

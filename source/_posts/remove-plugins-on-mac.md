@@ -7,7 +7,7 @@ cover: "dd6rjybqkw8ye.jpg"
 updated: 2019-06-14 15:46:24
 categories:
 - 巧技
-tags:
+tags: Mac
 ---
 
 MacOS卸载程序很简单，对于非app store安装的应用，只要移除  /Applications  下对应的文件即可。但是这种卸载方式可能会留下一些缓存、配置信息和插件——这些可能较大，也可能很小几乎不占空间——但我总是希望删得干干净净彻彻底底。

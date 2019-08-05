@@ -10,6 +10,8 @@ categories:
 tags:
 - Linux 
 - 网络 
+- ShadowSocks
+- Asuswrt-merlin
 ---
 
 

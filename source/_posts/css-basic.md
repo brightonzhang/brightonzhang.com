@@ -9,6 +9,9 @@ categories:
 - 技术
 tags:
 - 前端
+- Web
+- CSS
+
 ---
 
 CSS，**C**ascading **S**tyle **S**heets，指层叠样式表，用于为结构化文档（如HTML）添加样式（字体、间距和颜色等）。起初由哈肯·维姆·莱和伯特·波斯合作设计，现由W3C定义和维护。

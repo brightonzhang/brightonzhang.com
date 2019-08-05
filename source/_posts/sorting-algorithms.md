@@ -5,7 +5,9 @@ updated: 2016-02-05 15:43:09
 cover: 
 categories:
 - 技术
-tags: 算法
+tags: 
+- 算法 
+- 排序
 ---
 
 # 冒泡排序 Bubble Sort

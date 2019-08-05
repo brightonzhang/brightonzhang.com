@@ -7,7 +7,10 @@ updated: 2017-04-10 10:17:53
 cover: 1iTDUQIbX397042030.jpg
 categories:
 - 技术
-tags: 安卓
+tags: 
+- 安卓
+- Android
+- Activity
 ---
 
 # ACTIVITIES

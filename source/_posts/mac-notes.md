@@ -3,7 +3,7 @@ date: 2016-06-10 15:05:07
 updated: 2016-06-10 15:05:07
 categories:
 - 巧技
-tags: 
+tags: Mac
 ---
 
 # 启动root用户

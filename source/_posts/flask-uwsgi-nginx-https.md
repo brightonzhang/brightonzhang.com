@@ -8,6 +8,10 @@ updated: 2019-07-14 16:03:39
 categories:
 - 巧技
 tags:
+- Flask
+- uWSGI
+- Nginx
+
 ---
 
 近日拟做一款简易阅后即焚web app，选用Flask+uWSGI+Nginx来实现，本文记录相关配置。

@@ -6,7 +6,7 @@ subtitle:
 cover: "21951911526.png"
 updated: 2019-05-21 11:53:58
 categories: 杂言
-tags:
+tags: 影视
 ---
 
 权力的游戏，近年最火的电视剧，在经历八季之后宣告完结。

@@ -65,6 +65,9 @@ More info: [Deployment](http://hexo.io/docs/deployment.html)
 git clone --single-branch https://github.com/brightonzhang/brightonzhang.com.git bzcom/
 cd bzcom
 npm install 
+
+git config filter.tokenignore.clean "sed '/^ *[a-zA-Z_]*token:/'d"
+git config filter.tokenignore.smudge cat
 ```
 
 ## Migrate

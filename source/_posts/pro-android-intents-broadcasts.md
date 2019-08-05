@@ -7,7 +7,11 @@ updated: 2017-04-30 23:17:53
 cover: /posts/pro-android-activity-ui/1iTDUQIbX397042030.jpg
 categories:
 - 技术
-tags: 安卓
+tags: 
+- 安卓
+- Android
+- Intent
+- Broadcast
 ---
 
 # Intent

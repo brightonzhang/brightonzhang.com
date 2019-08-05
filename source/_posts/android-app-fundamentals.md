@@ -2,13 +2,16 @@
 title: 安卓应用基础
 catalog: true
 date: 2015-09-10 17:08:40
+updated: 2015-09-10 17:08:40
 subtitle:
 header-img: "tskhndbjrojhid.jpg"
-updated: 
 cover: 
 categories:
 - 技术
-tags: 安卓
+tags: 
+- 安卓
+- Android
+- APK
 ---
 
 

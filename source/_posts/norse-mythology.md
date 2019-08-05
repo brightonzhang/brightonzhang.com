@@ -8,6 +8,8 @@ cover: "71264852806.jpg"
 categories:
 - 新知
 tags:
+- 北欧
+- 神话
 ---
 
 

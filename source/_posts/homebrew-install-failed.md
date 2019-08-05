@@ -4,6 +4,7 @@ updated: 2015-12-13
 categories:
 - 巧技
 tags: 
+- Mac
 ---
 
 按照 http://brew.sh/index.html 安装Homebrew 执行如下命令：

@@ -9,6 +9,8 @@ categories:
 - 技术
 tags:
 - 前端
+- Web
+- HTML
 ---
 
 HTML ，**H**yper **T**ext **M**arkup **L**anguage，超文本标记语言。
