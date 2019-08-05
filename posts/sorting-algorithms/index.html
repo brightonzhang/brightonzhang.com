@@ -397,7 +397,7 @@
 
         
             <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
-                 <aside class="toc-wrap nav" data-spy="affix" data-offset-top="565" >
+                 <aside class="toc-wrap nav" data-spy="affix">
     <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#冒泡排序-Bubble-Sort"><span class="toc-number">1.</span> <span class="toc-text">冒泡排序 Bubble Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂度分析"><span class="toc-number">1.1.</span> <span class="toc-text">复杂度分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入排序-Insertion-Sort"><span class="toc-number">2.</span> <span class="toc-text">插入排序 Insertion Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂度分析-1"><span class="toc-number">2.1.</span> <span class="toc-text">复杂度分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#选择排序-Selection-Sort"><span class="toc-number">3.</span> <span class="toc-text">选择排序 Selection Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂度分析-2"><span class="toc-number">3.1.</span> <span class="toc-text">复杂度分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#鸡尾酒排序-Cocktail-Shaker-Sort"><span class="toc-number">4.</span> <span class="toc-text">鸡尾酒排序 Cocktail Shaker Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂度分析-3"><span class="toc-number">4.1.</span> <span class="toc-text">复杂度分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速排序-Quicksort"><span class="toc-number">5.</span> <span class="toc-text">快速排序 Quicksort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂度分析-4"><span class="toc-number">5.1.</span> <span class="toc-text">复杂度分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#希尔排序-Shellsort"><span class="toc-number">6.</span> <span class="toc-text">希尔排序 Shellsort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂度分析-5"><span class="toc-number">6.1.</span> <span class="toc-text">复杂度分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步长"><span class="toc-number">6.2.</span> <span class="toc-text">步长</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#堆排序-Heapsort"><span class="toc-number">7.</span> <span class="toc-text">堆排序 Heapsort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#堆节点的访问"><span class="toc-number">7.1.</span> <span class="toc-text">堆节点的访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆的操作"><span class="toc-number">7.2.</span> <span class="toc-text">堆的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂度分析-6"><span class="toc-number">7.3.</span> <span class="toc-text">复杂度分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#归并排序"><span class="toc-number">8.</span> <span class="toc-text">归并排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂度分析-7"><span class="toc-number">8.1.</span> <span class="toc-text">复杂度分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简单比较"><span class="toc-number">9.</span> <span class="toc-text">简单比较</span></a></li></ol>
 </aside>
@@ -408,8 +408,23 @@
     <div class="row">
         <!-- Comments -->
         
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'            ,
+            placeholder: '欢迎留言交流'                                                                                    ,
+            pageSize: '8'                                    ,
+            visitor: 'true'                                                
+        });
+    </script>
+
 
 
             </div>
@@ -424,10 +439,9 @@
 </div>
 
     <!-- Footer -->
+    <footer>
     <hr />
 
-<!-- Footer -->
-<footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -496,9 +510,6 @@
 
 
 <script src="/js/script.min.js"></script>
-
-<!-- Disqus Comments -->
-
 
 
 

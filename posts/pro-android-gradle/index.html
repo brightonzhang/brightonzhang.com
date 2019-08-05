@@ -301,7 +301,7 @@
 
         
             <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
-                 <aside class="toc-wrap nav" data-spy="affix" data-offset-top="565" >
+                 <aside class="toc-wrap nav" data-spy="affix">
     <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#构建流程-The-build-process"><span class="toc-number">1.</span> <span class="toc-text">构建流程 The build process</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#自定义构建配置"><span class="toc-number">2.</span> <span class="toc-text">自定义构建配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构建配置文件"><span class="toc-number">3.</span> <span class="toc-text">构建配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Gradle设置文件-Settings-File"><span class="toc-number">3.1.</span> <span class="toc-text">Gradle设置文件 Settings File</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#顶级构建文件-Project-Gradle-Build-File"><span class="toc-number">3.2.</span> <span class="toc-text">顶级构建文件 Project Gradle Build File</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置项目范围的属性"><span class="toc-number">3.2.1.</span> <span class="toc-text">配置项目范围的属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块级构建文件-Module-Gradle-Build-Files"><span class="toc-number">3.3.</span> <span class="toc-text">模块级构建文件 Module Gradle Build Files</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Default-Configuration"><span class="toc-number">3.3.1.</span> <span class="toc-text">Default Configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建类型-Build-Types"><span class="toc-number">3.3.2.</span> <span class="toc-text">构建类型 Build Types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置产品风格-Product-Flavors-and-Flavor-Dimensions"><span class="toc-number">3.3.3.</span> <span class="toc-text">配置产品风格 Product Flavors and Flavor Dimensions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Splits"><span class="toc-number">3.3.4.</span> <span class="toc-text">Splits</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#声明依赖项-Dependencies"><span class="toc-number">3.3.5.</span> <span class="toc-text">声明依赖项 Dependencies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gradle-属性文件"><span class="toc-number">3.4.</span> <span class="toc-text">Gradle 属性文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源集-Source-sets"><span class="toc-number">3.5.</span> <span class="toc-text">源集 Source sets</span></a></li></ol></li></ol>
 </aside>
@@ -312,8 +312,23 @@
     <div class="row">
         <!-- Comments -->
         
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'            ,
+            placeholder: '欢迎留言交流'                                                                                    ,
+            pageSize: '8'                                    ,
+            visitor: 'true'                                                
+        });
+    </script>
+
 
 
             </div>
@@ -328,10 +343,9 @@
 </div>
 
     <!-- Footer -->
+    <footer>
     <hr />
 
-<!-- Footer -->
-<footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -400,9 +414,6 @@
 
 
 <script src="/js/script.min.js"></script>
-
-<!-- Disqus Comments -->
-
 
 
 

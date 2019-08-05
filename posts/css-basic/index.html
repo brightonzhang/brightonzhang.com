@@ -343,7 +343,7 @@
 
         
             <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
-                 <aside class="toc-wrap nav" data-spy="affix" data-offset-top="565" >
+                 <aside class="toc-wrap nav" data-spy="affix">
     <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS语法"><span class="toc-number">1.</span> <span class="toc-text">CSS语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#选择器"><span class="toc-number">2.</span> <span class="toc-text">选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本选择器"><span class="toc-number">2.1.</span> <span class="toc-text">基本选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伪选择器"><span class="toc-number">2.2.</span> <span class="toc-text">伪选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组合选择符"><span class="toc-number">2.3.</span> <span class="toc-text">组合选择符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器组"><span class="toc-number">2.4.</span> <span class="toc-text">选择器组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数值与单位"><span class="toc-number">3.</span> <span class="toc-text">数值与单位</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#长度-尺寸单位"><span class="toc-number">3.1.</span> <span class="toc-text">长度/尺寸单位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色"><span class="toc-number">3.2.</span> <span class="toc-text">颜色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#层叠和继承"><span class="toc-number">4.</span> <span class="toc-text">层叠和继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#层叠"><span class="toc-number">4.1.</span> <span class="toc-text">层叠</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">4.2.</span> <span class="toc-text">继承</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#框模型"><span class="toc-number">5.</span> <span class="toc-text">框模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#框属性"><span class="toc-number">5.1.</span> <span class="toc-text">框属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#框类型"><span class="toc-number">5.2.</span> <span class="toc-text">框类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
 </aside>
@@ -354,8 +354,23 @@
     <div class="row">
         <!-- Comments -->
         
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'            ,
+            placeholder: '欢迎留言交流'                                                                                    ,
+            pageSize: '8'                                    ,
+            visitor: 'true'                                                
+        });
+    </script>
+
 
 
             </div>
@@ -370,10 +385,9 @@
 </div>
 
     <!-- Footer -->
+    <footer>
     <hr />
 
-<!-- Footer -->
-<footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -442,9 +456,6 @@
 
 
 <script src="/js/script.min.js"></script>
-
-<!-- Disqus Comments -->
-
 
 
 

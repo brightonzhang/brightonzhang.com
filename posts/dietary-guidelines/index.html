@@ -273,7 +273,7 @@
 
         
             <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
-                 <aside class="toc-wrap nav" data-spy="affix" data-offset-top="565" >
+                 <aside class="toc-wrap nav" data-spy="affix">
     <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#膳食餐盘"><span class="toc-number">1.1.</span> <span class="toc-text">膳食餐盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#食物量"><span class="toc-number">1.2.</span> <span class="toc-text">食物量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#食物组"><span class="toc-number">2.</span> <span class="toc-text">食物组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#蔬菜"><span class="toc-number">2.1.</span> <span class="toc-text">蔬菜</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#水果"><span class="toc-number">2.2.</span> <span class="toc-text">水果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谷物"><span class="toc-number">2.3.</span> <span class="toc-text">谷物</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#奶制品"><span class="toc-number">2.4.</span> <span class="toc-text">奶制品</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#蛋白质食物"><span class="toc-number">2.5.</span> <span class="toc-text">蛋白质食物</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#油"><span class="toc-number">2.6.</span> <span class="toc-text">油</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他饮食成分"><span class="toc-number">3.</span> <span class="toc-text">其他饮食成分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加糖"><span class="toc-number">3.1.</span> <span class="toc-text">添加糖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#饱和脂肪酸"><span class="toc-number">3.2.</span> <span class="toc-text">饱和脂肪酸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反式脂肪酸"><span class="toc-number">3.3.</span> <span class="toc-text">反式脂肪酸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#膳食胆固醇"><span class="toc-number">3.4.</span> <span class="toc-text">膳食胆固醇</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#咖啡因"><span class="toc-number">3.5.</span> <span class="toc-text">咖啡因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#钠盐"><span class="toc-number">3.6.</span> <span class="toc-text">钠盐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#酒精"><span class="toc-number">3.7.</span> <span class="toc-text">酒精</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#吐槽"><span class="toc-number">4.</span> <span class="toc-text">吐槽</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
 </aside>
@@ -284,8 +284,23 @@
     <div class="row">
         <!-- Comments -->
         
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'            ,
+            placeholder: '欢迎留言交流'                                                                                    ,
+            pageSize: '8'                                    ,
+            visitor: 'true'                                                
+        });
+    </script>
+
 
 
             </div>
@@ -300,10 +315,9 @@
 </div>
 
     <!-- Footer -->
+    <footer>
     <hr />
 
-<!-- Footer -->
-<footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -372,9 +386,6 @@
 
 
 <script src="/js/script.min.js"></script>
-
-<!-- Disqus Comments -->
-
 
 
 

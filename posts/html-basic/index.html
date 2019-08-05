@@ -279,7 +279,7 @@
 
         
             <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
-                 <aside class="toc-wrap nav" data-spy="affix" data-offset-top="565" >
+                 <aside class="toc-wrap nav" data-spy="affix">
     <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#标签、元素和属性"><span class="toc-number">1.</span> <span class="toc-text">标签、元素和属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#head"><span class="toc-number">2.</span> <span class="toc-text">head</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#样式"><span class="toc-number">3.</span> <span class="toc-text">样式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS"><span class="toc-number">3.1.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#格式化标签"><span class="toc-number">3.2.</span> <span class="toc-text">格式化标签</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#块与类"><span class="toc-number">4.</span> <span class="toc-text">块与类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#框架"><span class="toc-number">5.</span> <span class="toc-text">框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#表单"><span class="toc-number">6.</span> <span class="toc-text">表单</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#脚本"><span class="toc-number">7.</span> <span class="toc-text">脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DOM"><span class="toc-number">8.</span> <span class="toc-text">DOM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">9.</span> <span class="toc-text">参考资料</span></a></li></ol>
 </aside>
@@ -290,8 +290,23 @@
     <div class="row">
         <!-- Comments -->
         
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'            ,
+            placeholder: '欢迎留言交流'                                                                                    ,
+            pageSize: '8'                                    ,
+            visitor: 'true'                                                
+        });
+    </script>
+
 
 
             </div>
@@ -306,10 +321,9 @@
 </div>
 
     <!-- Footer -->
+    <footer>
     <hr />
 
-<!-- Footer -->
-<footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -378,9 +392,6 @@
 
 
 <script src="/js/script.min.js"></script>
-
-<!-- Disqus Comments -->
-
 
 
 

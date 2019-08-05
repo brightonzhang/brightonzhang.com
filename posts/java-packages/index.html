@@ -296,7 +296,7 @@
 
         
             <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
-                 <aside class="toc-wrap nav" data-spy="affix" data-offset-top="565" >
+                 <aside class="toc-wrap nav" data-spy="affix">
     <strong class="toc-title">Contents</strong>
     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating-a-Package"><span class="toc-number">1.</span> <span class="toc-text">Creating a Package</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Naming-a-Package"><span class="toc-number">2.</span> <span class="toc-text">Naming a Package</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Using-Package-Members"><span class="toc-number">3.</span> <span class="toc-text">Using Package Members</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Referring-to-a-Package-Member-by-Its-Qualified-Name"><span class="toc-number">3.1.</span> <span class="toc-text">Referring to a Package Member by Its Qualified Name</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Importing-a-Package-Member"><span class="toc-number">3.2.</span> <span class="toc-text">Importing a Package Member</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Importing-an-Entire-Package"><span class="toc-number">3.3.</span> <span class="toc-text">Importing an Entire Package</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apparent-Hierarchies-of-Packages"><span class="toc-number">3.4.</span> <span class="toc-text">Apparent Hierarchies of Packages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Name-Ambiguities"><span class="toc-number">3.5.</span> <span class="toc-text">Name Ambiguities</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Static-Import-Statement"><span class="toc-number">3.6.</span> <span class="toc-text">The Static Import Statement</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Managing-Source-and-Class-Files"><span class="toc-number">4.</span> <span class="toc-text">Managing Source and Class Files</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Setting-the-CLASSPATH-System-Variable"><span class="toc-number">4.1.</span> <span class="toc-text">Setting the CLASSPATH System Variable</span></a></li></ol></li></ol>
 </aside>
@@ -307,8 +307,23 @@
     <div class="row">
         <!-- Comments -->
         
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'            ,
+            placeholder: '欢迎留言交流'                                                                                    ,
+            pageSize: '8'                                    ,
+            visitor: 'true'                                                
+        });
+    </script>
+
 
 
             </div>
@@ -323,10 +338,9 @@
 </div>
 
     <!-- Footer -->
+    <footer>
     <hr />
 
-<!-- Footer -->
-<footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -395,9 +409,6 @@
 
 
 <script src="/js/script.min.js"></script>
-
-<!-- Disqus Comments -->
-
 
 
 
