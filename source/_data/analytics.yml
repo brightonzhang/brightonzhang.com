@@ -1,2 +1,5 @@
 google:
   tracking_id: UA-114837917-1
+
+baidu:
+  hm_src: "https://hm.baidu.com/hm.js?ca817bd39bbbac0ebd13f866fbc29749"

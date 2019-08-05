@@ -68,9 +68,10 @@ theme: nutshell
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   repository: https://github.com/brightonzhang/brightonzhang.com.git
   branch: gh-pages
+- type: baidu_url_submitter 
 
 # https://github.com/hexojs/hexo-generator-archive
 archive_generator:
@@ -80,3 +81,24 @@ archive_generator:
   monthly: false
   daily: false
   order_by: -date
+
+# https://github.com/hexojs/hexo-renderer-stylus
+stylus:
+  compress: true
+  sourcemaps:
+    comment: true
+    inline: true
+    sourceRoot: ''
+    basePath: .
+
+
+# https://github.com/huiwang/hexo-baidu-url-submit
+baidu_url_submit:
+  count: 64 ## 提交最新的一个链接
+  host: brightonzhang.com
+  token: * ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
+  xz_appid: 'xxxxxx' ## 你的熊掌号 appid
+  xz_token: 'xxxxxx' ## 你的熊掌号 token
+  xz_count: 10 ## 从所有的提交的数据当中选取最新的10条,该数量跟你的熊掌号而定
+

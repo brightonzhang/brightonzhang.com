@@ -1,0 +1,13 @@
+valine: 
+  appId: rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI
+  appKey: cp5GJeuotYOQqqyOrf4MNnoA
+  placeholder: 欢迎留言交流
+  pageSize: 8
+  visitor: true
+
+# disqus:
+#   shortname: brightonzhang-com
+
+# livere:
+#   id: city
+#   uid: MTAyMC80NTc1Ni8yMjI2Nw==
