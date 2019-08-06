@@ -1,1 +1,3 @@
+# git config filter.tokenignore.clean "sed '/^ *[a-zA-Z_]*token:/'d"
+# git config filter.tokenignore.smudge cat
 *.yml filter=tokenignore

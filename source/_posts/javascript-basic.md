@@ -10,7 +10,7 @@ categories:
 tags: 
 - 前端
 - Web
-- HTML
+- JavaScript
 ---
 
 JavaScript(JS)是一门完备的轻量级解释型、动态编程语言。当应用于HTML文档时，可为网站提供动态交互特性。由布兰登·艾克(Brendan Eich)发明。其标准为ECMAScript，最新版ECMAScript 6标准（简称ES6）于2015年6月正式发布。
