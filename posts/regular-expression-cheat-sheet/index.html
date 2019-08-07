@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh" >
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Title -->
+    
+    <title>正则表达式速查手册 - BRIGHTON ZHANG</title>
+
+    <!-- open graph -->
+    
+    <meta name="description" content="本文包括正则表达式流派介绍，常用元字符、元转义序列、特殊构造等语法元素整理，以及匹配模式、方括号表达式以及字符组运算等，可以作为正则表达式日常使用查阅手册。">
+<meta name="keywords" content="正则表达式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式速查手册">
+<meta property="og:url" content="https://brightonzhang.com/posts/regular-expression-cheat-sheet/index.html">
+<meta property="og:site_name" content="BRIGHTON ZHANG">
+<meta property="og:description" content="本文包括正则表达式流派介绍，常用元字符、元转义序列、特殊构造等语法元素整理，以及匹配模式、方括号表达式以及字符组运算等，可以作为正则表达式日常使用查阅手册。">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://brightonzhang.com/posts/regular-expression-cheat-sheet/XlxL1lJxA2LmUxQ.jpg">
+<meta property="og:updated_time" content="2019-08-06T09:51:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式速查手册">
+<meta name="twitter:description" content="本文包括正则表达式流派介绍，常用元字符、元转义序列、特殊构造等语法元素整理，以及匹配模式、方括号表达式以及字符组运算等，可以作为正则表达式日常使用查阅手册。">
+<meta name="twitter:image" content="https://brightonzhang.com/posts/regular-expression-cheat-sheet/XlxL1lJxA2LmUxQ.jpg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114837917-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114837917-1');
+    </script>
+
+
+
+    <!-- Baidu Tongji -->
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?ca817bd39bbbac0ebd13f866fbc29749";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+</head>
+
+
+<body  data-spy="scroll" data-target="#tocScrollspy"  >
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BRIGHTON</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    
+<header class="intro-header" style="background-image: url('XlxL1lJxA2LmUxQ.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <!-- Tags and categories -->
+                        
+                            <div class="post-tag-category">
+                                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
+
+                                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/巧计/">巧计</a>
+  </div>
+
+                            </div>
+                        
+
+                        <h1>正则表达式速查手册</h1>
+                        
+
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2019-08-06T09:51:26.000Z" itemprop="datePublished">08/06/2019</time>
+
+    
+</p>
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Main Content -->
+        
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 " >
+        
+
+                <article class="post-article" >
+                    <p>本文包括正则表达式流派介绍，常用元字符、元转义序列、特殊构造等语法元素整理，以及匹配模式、方括号表达式以及字符组运算等，可以作为正则表达式日常使用查阅手册。<br><a id="more"></a> </p>
+<h1 id="流派"><a href="#流派" class="headerlink" title="流派"></a>流派</h1><p>目前正则表达式主要有两大流派：POSIX 流派与 PCRE 流派。</p>
+<ul>
+<li>POSIX(Portable Operating System Interface for uniX) 流派：POSIX 规范定义了正则表达式的 BRE（Basic Regular Expression）和 ERE（Extended Regular Express）两种标准，两者主要的差异是在元字符的转义上。vi/vim、grep 和 sed 遵循 BRE 标准，egrep、awk 则遵循 ERE 标准。</li>
+<li>PCRE(Perl Compatible Regular Expression) 流派：源于 Perl，是目前大部分编程语言中的正则表达式语法——各个语言实现也有些许差异。\d、\w、\s 之类的字符组简记法，是这个流派的显著特征。</li>
+</ul>
+<p>更多流派差异，请参考<a href="http://www.greenend.org.uk/rjk/tech/regexp.html" target="_blank" rel="noopener">Regexp Syntax Summary</a>。</p>
+<h1 id="常用元字符metacharacter"><a href="#常用元字符metacharacter" class="headerlink" title="常用元字符metacharacter"></a>常用元字符metacharacter</h1><h2 id="通用元字符"><a href="#通用元字符" class="headerlink" title="通用元字符"></a>通用元字符</h2><div class="table-responsive"> <table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.</code></td>
+<td>匹配除换行符以外的任意字符</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>匹配字符串的开始</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>匹配字符串的结束</td>
+</tr>
+</tbody>
+</table></div>
+
+<h2 id="PCRE特有元字符"><a href="#PCRE特有元字符" class="headerlink" title="PCRE特有元字符"></a>PCRE特有元字符</h2><div class="table-responsive"> <table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\b</code></td>
+<td>匹配一个单词边界，也就是指单词和空格间的位置。</td>
+</tr>
+<tr>
+<td><code>\B</code></td>
+<td>匹配非单词边界。</td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>匹配一个数字字符。等价于<code>[0-9]</code>。</td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td>匹配一个非数字字符。等价于<code>[^0-9]</code>。</td>
+</tr>
+<tr>
+<td><code>\f</code></td>
+<td>匹配一个换页符。</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>匹配一个换行符。</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>匹配一个回车符。</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>匹配一个制表符。</td>
+</tr>
+<tr>
+<td><code>\v</code></td>
+<td>匹配一个垂直制表符。</td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于<code>[ \f\n\r\t\v]</code>。</td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>匹配任何非空白字符。等价于[^ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td>匹配包括下划线的任何单词字符。等价于<code>[A-Za-z0-9_]</code>。注意Unicode正则表达式会匹配中文字符。</td>
+</tr>
+<tr>
+<td><code>\W</code></td>
+<td>匹配任何非单词字符。等价于<code>[^A-Za-z0-9_]</code>。</td>
+</tr>
+</tbody>
+</table></div>
+
+<h2 id="POSIX字符组"><a href="#POSIX字符组" class="headerlink" title="POSIX字符组"></a>POSIX字符组</h2><div class="table-responsive"> <table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[:alnum:]</code></td>
+<td>字母字符和数字字符</td>
+</tr>
+<tr>
+<td><code>[:alpha:]</code></td>
+<td>字母</td>
+</tr>
+<tr>
+<td><code>[:ascii:]</code></td>
+<td>ASCII字符</td>
+</tr>
+<tr>
+<td><code>[:blank:]</code></td>
+<td>空格字符和制表符</td>
+</tr>
+<tr>
+<td><code>[:cntrl:]</code></td>
+<td>控制字符</td>
+</tr>
+<tr>
+<td><code>[:digit:]</code></td>
+<td>数字字符</td>
+</tr>
+<tr>
+<td><code>[:graph:]</code></td>
+<td>空白字符之外的字符</td>
+</tr>
+<tr>
+<td><code>[:lower:]</code></td>
+<td>小写字母字符</td>
+</tr>
+<tr>
+<td><code>[:print:]</code></td>
+<td>类似<code>[:graph:]</code>，但包括空白字符</td>
+</tr>
+<tr>
+<td><code>[:punct:]</code></td>
+<td>标点符号</td>
+</tr>
+<tr>
+<td><code>[:space:]</code></td>
+<td>空白字符</td>
+</tr>
+<tr>
+<td><code>[:upper:]</code></td>
+<td>大写字母字符</td>
+</tr>
+<tr>
+<td><code>[:word:]</code></td>
+<td>字母字符</td>
+</tr>
+<tr>
+<td><code>[:xdigit:]</code></td>
+<td>十六进制字符</td>
+</tr>
+</tbody>
+</table></div>
+
+<h1 id="重复"><a href="#重复" class="headerlink" title="重复"></a>重复</h1><div class="table-responsive"> <table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>PCRE/POSIX ERE代码</th>
+<th>POSIX ERE代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td><code>*</code></td>
+<td>匹配前面的子表达式零次或多次。</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td><code>\+</code></td>
+<td>匹配前面的子表达式一次或多次。</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td><code>\?</code></td>
+<td>匹配前面的子表达式零次或一次。</td>
+</tr>
+<tr>
+<td><code>{n}</code></td>
+<td><code>\{n\}</code></td>
+<td>n是一个非负整数。匹配确定的n次。</td>
+</tr>
+<tr>
+<td><code>{n,}</code></td>
+<td><code>\{n,\}</code></td>
+<td>n是一个非负整数。至少匹配n次。</td>
+</tr>
+<tr>
+<td><code>{n,m}</code></td>
+<td><code>\{n,m\}</code></td>
+<td>m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。</td>
+</tr>
+</tbody>
+</table></div>
+
+<h2 id="贪婪与懒惰"><a href="#贪婪与懒惰" class="headerlink" title="贪婪与懒惰"></a>贪婪与懒惰</h2><div class="table-responsive"> <table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th style="text-align:center">PCRE代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>?</code></td>
+<td>非贪心量化（Non-greedy quantifiers）：<br>当该字符紧跟在任何一个其他重复修饰符（*,+,?，{n}，{n,}，{n,m}）后面时，<br>匹配模式是非贪婪的，或说懒惰的。<br>非贪婪模式尽可能少的匹配所搜索的字符串，<br>而默认的贪婪模式则尽可能多的匹配所搜索的字符串。<br>例如，对于字符串“oooo”，“o+?”将匹配单个“o”，而“o+”将匹配所有“o”。</td>
+</tr>
+</tbody>
+</table></div>
+
+<h1 id="字符集合"><a href="#字符集合" class="headerlink" title="字符集合[ ]"></a>字符集合<code>[ ]</code></h1><div class="table-responsive"> <table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[xyz]</code></td>
+<td>字符集合（character class）。匹配所包含的任意一个字符。<br>例如，“<code>[abc]</code>”可以匹配“plain”中的“a”。<br>特殊字符仅有反斜线\保持特殊含义，用于转义字符。<br>其它特殊字符如星号、加号、各种括号等均作为普通字符。<br>脱字符^如果出现在首位则表示负值字符集合；如果出现在字符串中间就仅作为普通字符。<br>连字符 - 如果出现在字符串中间表示字符范围描述；如果如果出现在首位（或末尾）则仅作为普通字符。<br>右方括号应转义出现，也可以作为首位字符出现。</td>
+</tr>
+<tr>
+<td><code>[^xyz]</code></td>
+<td>排除型字符集合（negated character classes）。匹配未列出的任意字符。<br>例如，“<code>[^abc]</code>”可以匹配“plain”中的“plin”。</td>
+</tr>
+<tr>
+<td><code>[a-z]</code></td>
+<td>字符范围。匹配指定范围内的任意字符。<br>例如，“<code>[a-z]</code>”可以匹配“a”到“z”范围内的任意小写字母字符。</td>
+</tr>
+<tr>
+<td><code>[^a-z]</code></td>
+<td>排除型的字符范围。匹配任何不在指定范围内的任意字符。<br>例如，“<code>[^a-z]</code>”可以匹配任何不在“a”到“z”范围内的任意字符。</td>
+</tr>
+</tbody>
+</table></div>
+
+<h1 id="分组-与后向引用"><a href="#分组-与后向引用" class="headerlink" title="分组( )与后向引用"></a>分组<code>( )</code>与后向引用</h1><div class="table-responsive"> <table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>PCRE代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(pattern)</code></td>
+<td>匹配pattern并获取这一匹配的子字符串。该子字符串用于向后引用。</td>
+</tr>
+<tr>
+<td><code>(?&lt;name&gt;pattern)</code></td>
+<td>匹配pattern并获取这一匹配的子字符串名称为name的组里，也可以写成<code>(?&#39;name&#39;pattern)</code>。</td>
+</tr>
+<tr>
+<td><code>(?:pattern)</code></td>
+<td>匹配pattern但不获取匹配的子字符串（shy groups），即非获取匹配，不存储匹配的子字符串用于向后引用。</td>
+</tr>
+<tr>
+<td><code>(?=pattern)</code></td>
+<td>正向肯定预查（look ahead positive assert），在任何匹配pattern的字符串开始处匹配查找字符串，非获取匹配。<br>如<code>\b\w+(?=ing\b)</code>，匹配以ing结尾的单词的前面部分(除了ing以外的部分)，如查找<em>I&#39;m singing while you&#39;re dancing.</em>时，它会匹配sing和danc。</td>
+</tr>
+<tr>
+<td><code>(?!pattern)</code></td>
+<td>正向否定预查（negative assert），在任何不匹配pattern的字符串开始处匹配查找字符串，非获取匹配。<br>如<code>\d{3}(?!\d)</code>匹配三位数字，而且这三位数字的后面不能是数字。</td>
+</tr>
+<tr>
+<td><code>(?&lt;=pattern)</code></td>
+<td>反向（look behind）肯定预查，与正向肯定预查类似，只是方向相反。<br>如<code>(?&lt;=\bre)\w+\b</code>会匹配以re开头的单词的后半部分(除了re以外的部分)，例如在查找<em>reading a book</em>时，它匹配ading。</td>
+</tr>
+<tr>
+<td><code>(?&lt;!pattern)</code></td>
+<td>反向否定预查，与正向否定预查类似，只是方向相反。<br>如<code>(?&lt;![a-z])\d{7}</code>匹配前面不是小写字母的七位数字。</td>
+</tr>
+<tr>
+<td><code>(?#comment)</code></td>
+<td>注释，不对正则表达式的处理产生任何影响。</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>使用小括号指定一个子表达式后，匹配这个子表达式的文本(也就是此分组捕获的内容)可以在表达式或其它程序中作进一步的处理。默认情况下，每个分组会自动拥有一个组号，规则是：从左向右，以分组的左括号为标志，第一个出现的分组的组号为1，第二个为2，以此类推——分组0对应整个正则表达式。</p>
+<p>后向引用用于重复搜索前面某个分组匹配的文本。例如，\1代表分组1匹配的文本。示例如<code>\b(\w+)\b\s+\1\b</code>可以用来匹配重复的单词，像<em>go go</em>, 或者<em>kitty kitty</em>。这个表达式首先是一个单词，也就是单词开始处和结束处之间的多于一个的字母或数字<code>(\b(\w+)\b)</code>，这个单词会被捕获到编号为1的分组中，然后是1个或几个空白符<code>(\s+)</code>，最后是分组1中捕获的内容（也就是前面匹配的那个单词）(<code>\1</code>)。</p>
+<p>还也可以自己指定子表达式的组名。要指定一个子表达式的组名，请使用这样的语法：<code>(?&lt;Word&gt;\w+)</code>(或<code>(?&#39;Word&#39;\w+)</code>),这样就把<code>\w+</code>的组名指定为Word了。要反向引用这个分组捕获的内容，你可以使用<code>\k&lt;Word&gt;</code>,所以上一个例子也可以写成这样：<code>\b(?&lt;Word&gt;\w+)\b\s+\k&lt;Word&gt;\b</code>。</p>
+<p>实际上组号分配过程是要从左向右扫描两遍的：第一遍只给未命名组分配，第二遍只给命名组分配－－因此所有命名组的组号都大于未命名的组号。</p>
+<!--
+
+# 分支条件
+
+<div class="table-responsive"> <table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>PCRE代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x\</td>
+<td>y</td>
+<td>没有包围在()里，其范围是整个正则表达式。如`z\</td>
+<td>food<code>能匹配“z”或“food”。</code>(?:z\</td>
+<td>f)ood`则匹配“zood”或“food”。<br/>使用分支条件时，要注意各个条件的顺序。因为匹配分支条件时，将会从左到右地测试每个条件，如果满足了某个分的话，就不会去再管其它的条件了。</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>–&gt; </p>
+-->
+                </article>
+            </div>
+
+        
+            <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
+                 <aside class="toc-wrap nav" data-spy="affix">
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#流派"><span class="toc-number">1.</span> <span class="toc-text">流派</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用元字符metacharacter"><span class="toc-number">2.</span> <span class="toc-text">常用元字符metacharacter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#通用元字符"><span class="toc-number">2.1.</span> <span class="toc-text">通用元字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCRE特有元字符"><span class="toc-number">2.2.</span> <span class="toc-text">PCRE特有元字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POSIX字符组"><span class="toc-number">2.3.</span> <span class="toc-text">POSIX字符组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重复"><span class="toc-number">3.</span> <span class="toc-text">重复</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#贪婪与懒惰"><span class="toc-number">3.1.</span> <span class="toc-text">贪婪与懒惰</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符集合"><span class="toc-number">4.</span> <span class="toc-text">字符集合[ ]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分组-与后向引用"><span class="toc-number">5.</span> <span class="toc-text">分组( )与后向引用</span></a></li></ol>
+</aside>
+            </div>
+        
+    </div>
+
+    <div class="row">
+        <!-- Comments -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'            ,
+            placeholder: '欢迎留言交流'                                                                                    ,
+            pageSize: '8'                                    ,
+            visitor: 'true'                                                
+        });
+    </script>
+
+
+
+            </div>
+        
+    </div>
+</div>
+
+    
+    <div id="totop" title="Let me fly">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+    <hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/brightonzhang" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/brightonzhang" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:hello@brightonzhang.com" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    &copy; 2019 Brighton Zhang<br>
+                    Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow">Hexo</a> ⌘ 
+                    Theme from <a href="https://github.com/brightonzhang/hexo-theme-nutshell" target="_blank" rel="external nofollow">Nutshell</a>
+
+                    
+                        
+                            
+                                ⌘ Deployed on <a href="https://github.com/brightonzhang/brightonzhang.com.git" target="_blank" rel="external nofollow">GitHub Pages</a>
+                                
+                    
+                    <br/>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<script src="//cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.min.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>
