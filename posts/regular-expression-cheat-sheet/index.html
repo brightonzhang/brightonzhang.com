@@ -474,30 +474,13 @@
 <p>后向引用用于重复搜索前面某个分组匹配的文本。例如，\1代表分组1匹配的文本。示例如<code>\b(\w+)\b\s+\1\b</code>可以用来匹配重复的单词，像<em>go go</em>, 或者<em>kitty kitty</em>。这个表达式首先是一个单词，也就是单词开始处和结束处之间的多于一个的字母或数字<code>(\b(\w+)\b)</code>，这个单词会被捕获到编号为1的分组中，然后是1个或几个空白符<code>(\s+)</code>，最后是分组1中捕获的内容（也就是前面匹配的那个单词）(<code>\1</code>)。</p>
 <p>还也可以自己指定子表达式的组名。要指定一个子表达式的组名，请使用这样的语法：<code>(?&lt;Word&gt;\w+)</code>(或<code>(?&#39;Word&#39;\w+)</code>),这样就把<code>\w+</code>的组名指定为Word了。要反向引用这个分组捕获的内容，你可以使用<code>\k&lt;Word&gt;</code>,所以上一个例子也可以写成这样：<code>\b(?&lt;Word&gt;\w+)\b\s+\k&lt;Word&gt;\b</code>。</p>
 <p>实际上组号分配过程是要从左向右扫描两遍的：第一遍只给未命名组分配，第二遍只给命名组分配－－因此所有命名组的组号都大于未命名的组号。</p>
-<!--
+<h1 id="分支条件"><a href="#分支条件" class="headerlink" title="分支条件"></a>分支条件</h1><p><div class="table-responsive"><table class="table table-bordered table-striped"><thead><tr><th>PCRE代码</th><th>说明</th></tr></thead><tbody><tr><td><code>x|y</code></td><td>如果满足x或y任意一种规则则匹配。<br>没有包围在()里，其范围是整个正则表达式。如<code>z|food</code>能匹配“z”或“food”。而<code>(?:z|f)ood</code>则匹配“zood”或“food”。<br>使用分支条件时，要注意各个条件的顺序。因为匹配分支条件时，将会从左到右地测试每个条件，如果满足了某个分的话，就不会去再管其它的条件了。</td></tr></tbody></table></div></p>
+<h1 id="更多功能"><a href="#更多功能" class="headerlink" title="更多功能"></a>更多功能</h1><p>平衡组/递归匹配…</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">正则表达式30分钟入门教程</a></p>
+<p><a href="https://www.infoq.cn/article/regular-expressions-introduction-part01" target="_blank" rel="noopener">刨根究底正则表达式之一：正则表达式概述</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Regular_expression</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/46294360" target="_blank" rel="noopener">一个由正则表达式引发的血案</a></p>
 
-# 分支条件
-
-<div class="table-responsive"> <table class="table table-bordered table-striped">
-<thead>
-<tr>
-<th>PCRE代码</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x\</td>
-<td>y</td>
-<td>没有包围在()里，其范围是整个正则表达式。如`z\</td>
-<td>food<code>能匹配“z”或“food”。</code>(?:z\</td>
-<td>f)ood`则匹配“zood”或“food”。<br/>使用分支条件时，要注意各个条件的顺序。因为匹配分支条件时，将会从左到右地测试每个条件，如果满足了某个分的话，就不会去再管其它的条件了。</td>
-</tr>
-</tbody>
-</table></div>
-
-<p>–&gt; </p>
--->
                 </article>
             </div>
 
@@ -505,7 +488,7 @@
             <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
                  <aside class="toc-wrap nav" data-spy="affix">
     <strong class="toc-title">Contents</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#流派"><span class="toc-number">1.</span> <span class="toc-text">流派</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用元字符metacharacter"><span class="toc-number">2.</span> <span class="toc-text">常用元字符metacharacter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#通用元字符"><span class="toc-number">2.1.</span> <span class="toc-text">通用元字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCRE特有元字符"><span class="toc-number">2.2.</span> <span class="toc-text">PCRE特有元字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POSIX字符组"><span class="toc-number">2.3.</span> <span class="toc-text">POSIX字符组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重复"><span class="toc-number">3.</span> <span class="toc-text">重复</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#贪婪与懒惰"><span class="toc-number">3.1.</span> <span class="toc-text">贪婪与懒惰</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符集合"><span class="toc-number">4.</span> <span class="toc-text">字符集合[ ]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分组-与后向引用"><span class="toc-number">5.</span> <span class="toc-text">分组( )与后向引用</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#流派"><span class="toc-number">1.</span> <span class="toc-text">流派</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用元字符metacharacter"><span class="toc-number">2.</span> <span class="toc-text">常用元字符metacharacter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#通用元字符"><span class="toc-number">2.1.</span> <span class="toc-text">通用元字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCRE特有元字符"><span class="toc-number">2.2.</span> <span class="toc-text">PCRE特有元字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POSIX字符组"><span class="toc-number">2.3.</span> <span class="toc-text">POSIX字符组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重复"><span class="toc-number">3.</span> <span class="toc-text">重复</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#贪婪与懒惰"><span class="toc-number">3.1.</span> <span class="toc-text">贪婪与懒惰</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符集合"><span class="toc-number">4.</span> <span class="toc-text">字符集合[ ]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分组-与后向引用"><span class="toc-number">5.</span> <span class="toc-text">分组( )与后向引用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分支条件"><span class="toc-number">6.</span> <span class="toc-text">分支条件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更多功能"><span class="toc-number">7.</span> <span class="toc-text">更多功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">8.</span> <span class="toc-text">参考资料</span></a></li></ol>
 </aside>
             </div>
         
