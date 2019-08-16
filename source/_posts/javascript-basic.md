@@ -4,7 +4,7 @@ catalog: true
 date: 2016-10-21 12:06:56
 subtitle:
 updated: 2016-10-21 15:43:09
-cover: fa9189f8764dd5ad.png
+cover: fa9189f8764dd5ad.jpg
 categories:
 - 技术
 tags: 

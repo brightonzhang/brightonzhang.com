@@ -1,3 +1,4 @@
+---
 title: {{ title }}
 subtitle: 
 date: {{ date }}
