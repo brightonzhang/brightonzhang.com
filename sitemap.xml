@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://brightonzhang.com/posts/javascript-function/</loc>
+    
+    <lastmod>2019-08-12T08:38:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://brightonzhang.com/posts/regular-expression-cheat-sheet/</loc>
     
     <lastmod>2019-08-06T09:51:26.000Z</lastmod>

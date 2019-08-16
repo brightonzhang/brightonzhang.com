@@ -12,6 +12,7 @@ https://brightonzhang.com/posts/how-much-time/
 https://brightonzhang.com/posts/python-notes/
 https://brightonzhang.com/posts/openssl-ca/
 https://brightonzhang.com/posts/ios11-password-manager/
+https://brightonzhang.com/posts/javascript-function/
 https://brightonzhang.com/posts/bitcoin-explained-with-emoji-2/
 https://brightonzhang.com/posts/bitcoin-explained-with-emoji-1/
 https://brightonzhang.com/posts/pro-android-intents-broadcasts/
