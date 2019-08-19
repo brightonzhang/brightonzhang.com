@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh" >
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Title -->
+    
+    <title>股票交易常用技术指标 - BRIGHTON ZHANG</title>
+
+    <!-- open graph -->
+    
+    <meta name="description" content="本文介绍股票交易的常用技术指标，如MACD、BOLL、KDJ、RSI等。可以作为量化交易的技术基础，也作为日常投资交易入门参考。">
+<meta name="keywords" content="股票,量化交易">
+<meta property="og:type" content="article">
+<meta property="og:title" content="股票交易常用技术指标">
+<meta property="og:url" content="https://brightonzhang.com/posts/technical-indicators-for-stock-trading/index.html">
+<meta property="og:site_name" content="BRIGHTON ZHANG">
+<meta property="og:description" content="本文介绍股票交易的常用技术指标，如MACD、BOLL、KDJ、RSI等。可以作为量化交易的技术基础，也作为日常投资交易入门参考。">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://brightonzhang.com/posts/technical-indicators-for-stock-trading/gbyjewsuvu.jpeg">
+<meta property="og:updated_time" content="2019-08-19T03:01:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="股票交易常用技术指标">
+<meta name="twitter:description" content="本文介绍股票交易的常用技术指标，如MACD、BOLL、KDJ、RSI等。可以作为量化交易的技术基础，也作为日常投资交易入门参考。">
+<meta name="twitter:image" content="https://brightonzhang.com/posts/technical-indicators-for-stock-trading/gbyjewsuvu.jpeg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114837917-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114837917-1');
+    </script>
+
+
+
+    <!-- Baidu Tongji -->
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?ca817bd39bbbac0ebd13f866fbc29749";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+</head>
+
+
+<body  data-spy="scroll" data-target="#tocScrollspy"  >
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BRIGHTON</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    
+<header class="intro-header" style="background-image: url('gbyjewsuvu.jpeg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <!-- Tags and categories -->
+                        
+                            <div class="post-tag-category">
+                                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/股票/">股票</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/量化交易/">量化交易</a></li></ul>
+
+                                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/投资/">投资</a>
+  </div>
+
+                            </div>
+                        
+
+                        <h1>股票交易常用技术指标</h1>
+                        
+
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2019-08-19T03:01:19.000Z" itemprop="datePublished">08/19/2019</time>
+
+    
+</p>
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Main Content -->
+        
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 " >
+        
+
+                <article class="post-article" >
+                    <p>本文介绍股票交易的常用技术指标，如MACD、BOLL、KDJ、RSI等。可以作为量化交易的技术基础，也作为日常投资交易入门参考。</p>
+<a id="more"></a> 
+<h1 id="趋势"><a href="#趋势" class="headerlink" title="趋势"></a>趋势</h1><h2 id="移动平均-MA"><a href="#移动平均-MA" class="headerlink" title="移动平均 MA"></a>移动平均 MA</h2><p>移动平均（moving average，MA），又称“移动平均线”简称均线，一种分析时间序列数据的工具。移动平均可抚平短期波动，反映出长期趋势或周期。数学上，移动平均可视为一种卷积。</p>
+<h3 id="简单移动平均"><a href="#简单移动平均" class="headerlink" title="简单移动平均"></a>简单移动平均</h3><p>简单移动平均（simple moving average，SMA）是某变数之前n个数值的未作加权算术平均。投资者冀从移动平均线的图表中分辨出支持位或阻力位。</p>
+<h3 id="加权移动平均"><a href="#加权移动平均" class="headerlink" title="加权移动平均"></a>加权移动平均</h3><p>加权移动平均（weighted moving average，WMA）指计算平均值时将个别数据乘以不同数值，在技术分析中，n日WMA的最近期一个数值乘以n、次近的乘以n-1，如此类推，一直到0。</p>
+<h3 id="指数移动平均"><a href="#指数移动平均" class="headerlink" title="指数移动平均"></a>指数移动平均</h3><p>指数移动平均（exponential moving average，EMA/EXMA）是以指数式递减加权的移动平均。各数值的加权影响力随时间而指数式递减，越近期的数据加权影响力越重，但较旧的数据也给予一定的加权值。加权的程度以常数α决定，α数值介乎0至1。</p>
+<p>设时间t的实际数值为Y<sub>t</sub>，而时间t的EMA则为S<sub>t</sub>；时间t-1的EMA则为S<sub>t-1</sub>，计算时间t≥2是方程式为：<br>S<sub>t</sub> = α <em> Y<sub>t</sub> + (1-α) </em>  S<sub>t-1</sub></p>
+<p>我们经常看到T期指数移动平均的说法。这里的 T 是用来计算 α 的参数：α=2/(T+1)，它并不表示指数衰减在 T 期后结束。</p>
+<p>当 α=1/T 时，得到的指数移动平均又称为修正移动平均（Modified Moving Average，MMA）或平滑移动平均（SMoothed Moving Average，SMMA）。</p>
+<h2 id="指数平滑移动平均线-MACD"><a href="#指数平滑移动平均线-MACD" class="headerlink" title="指数平滑移动平均线 MACD"></a>指数平滑移动平均线 MACD</h2><p>指数平滑移动平均线（Moving Average Convergence / Divergence, MACD），由一组曲线与图形组成，通过收盘时股价或指数的快变及慢变的指数移动平均值（EMA）之间的差计算出来。“快”指更短时段的EMA，而“慢”则指较长时段的EMA，最常用的是12及26日EMA。</p>
+<p>MACD图形的计算方法为：</p>
+<ol>
+<li><p>差离值（DIF值）：先利用收盘价的指数移动平均值（12日／26日）计算出差离值。<br> DIF = EMA<sub>(close,12)</sub> - EMA<sub>(close, 26)</sub></p>
+</li>
+<li><p>信号线（DEM值）：通常是DIF的9日指数移动平均值。<br> DEM = EMA<sub>(DIF, 9)</sub></p>
+</li>
+<li><p>柱形图或棒形图（histogram / bar graph）：将DIF与DEM的差画成“柱形图”（MACD bar / OSC）。<br> OSC = DIF - DEM</p>
+</li>
+</ol>
+<p>MACD其实就是两条指数移动平均线——EMA(12)和EMA(26)——的背离和交叉，EMA(26)可视为MACD的零轴，但是MACD呈现的消息噪声较均线少。</p>
+<p>MACD是一种趋势分析指针，以下为三种交易信号：</p>
+<ul>
+<li>差离值DIF与信号线DEM相交；</li>
+<li>差离值DIF与零轴相交；</li>
+<li>股价与差离值DIF的背离。</li>
+</ul>
+<p>差离值（DIF）形成“快线”，信号线（DEM）形成“慢线”。当快线（DIF）由下向上突破慢线（DEM），形成黄金交叉，为买入信号；当快线（DIF）由上向下突破慢线（DEM），形成死亡交叉，为卖出信号。 零轴下方的金叉信号更强烈，零轴上方的死叉信号更强烈。<br>棒形图的作用是显示出DIF与DEM的差，同时将两条线的走势具体化，以利判断差离值和信号线交叉形成的买卖信号，棒形图会根据正负值分布在零轴的上下。棒形图在零轴上方时表示走势较强，反之则是走势较弱。</p>
+<p>差离值DIF由下而上穿过零轴代表市场气氛利好股价，相反由上而下则代表利淡股价。差离值与信号线均在零轴上方时，被称为多头市场，反之，则被称为空头市场。</p>
+<p>当股价创新低，但MACD并没有相应创新低（牛市背离），视为利好（利多）消息，股价跌势或将完结。相反，若股价创新高，但MACD并没有相应创新高（熊市背离），视为利淡（利空）消息。同样地，若股价与棒形图不配合，也可作类似结论。</p>
+<p>MACD是一种中长线的研判指标。</p>
+<h1 id="动量"><a href="#动量" class="headerlink" title="动量"></a>动量</h1><h2 id="威廉指标-W-R"><a href="#威廉指标-W-R" class="headerlink" title="威廉指标 W%R"></a>威廉指标 W%R</h2><p>威廉指标（Williams %R，W%R），依股价的摆动点来度量股票／指数是否处于超买或超卖的现象。它衡量多空双方创出的峰值（最高价）距每天收市价的距离与一定时间内（如7天、14天、28天等）的股价波动范围的比例，以提供出股市趋势反转的讯号。</p>
+<p>计算如下：<br>W%R =（H<sub>n</sub>－C<sub>n</sub>）/（H<sub>n</sub>－L<sub>n</sub>）× 100%<br>公式中，C<sub>n</sub>为第n日收盘价；L<sub>n</sub>为n日内的最低价；H<sub>n</sub>为n日内的最高价。<br>n是交易者设定的交易期间（常用为14天）。</p>
+<p>当威廉指数的值越小，市场越处买方主导，相反越接近零，市场由卖方主导。一般来说，在W%R线达低于-80%时，市场处于超卖状况（在相对的时间窗口），股价随时可能出现见底。因此-80%的水平横线称为之买进线，投资者在此可以在此伺机买入，相反，当W%R线达到-20%时，市场处于超买状况，走势可能即将见顶，-20%的横线被称为卖出线。<br>当W%R由下方的超卖区向上爬而穿过中轴-50%时，表示开始转势，由弱变强，相反由超买区向下跌落，跌破-50%中轴线后，可确认强市转弱，是卖出的讯号。</p>
+<h2 id="随机指标-KDJ"><a href="#随机指标-KDJ" class="headerlink" title="随机指标 KDJ"></a>随机指标 KDJ</h2><p>KDJ指标又叫随机指标(Stochastic Oscillator)，通过一个特定的周期（常为9日、9周等）内出现过的最高价、最低价及最后一个计算周期的收盘价及这三者之间的比例关系，来计算最后一个计算周期的未成熟随机值RSV，然后根据平滑移动平均线的方法来计算K值、D值与J值，并绘成曲线图来研判股票价格走势。</p>
+<p>KDJ的计算如下：</p>
+<ol>
+<li>计算周期“未成熟随机值”（Raw Stochastic Value，RSV）：<br> RSV =（C<sub>n</sub>－L<sub>n</sub>）/（H<sub>n</sub>－L<sub>n</sub>）×100<br> 公式中，C<sub>n</sub>为第n日收盘价；L<sub>n</sub>为n日内的最低价；H<sub>n</sub>为n日内的最高价。</li>
+<li>计算K值与D值（即计算RSV值的3日指数移动平均）：<br> K<sub>n</sub> = α <em> RSV<sub>n</sub> + (1-α) </em> K<sub>n-1</sub><br> D<sub>n</sub> = α <em> K<sub>n</sub>  + (1-α) </em> D <sub>n-1</sub><br> 一般设定 α = 1/3。若无前一日K 值与D值，则n可分别用50来代替。</li>
+<li>计算J值<br> J<sub>n</sub> = 1/α <em> K<sub>n</sub>  - (1-1/α) </em> D <sub>n</sub> </li>
+</ol>
+<p>KDJ常用的默认参数是9，一般常用的KDJ参数有5，9，19，36，45，73等。</p>
+<p>K线是快速确认线——数值在90以上为超买，数值在10以下为超卖；<br>D线是慢速主干线——数值在80以上为超买，数值在20以下为超卖；<br>J线为方向敏感线，当J值大于90，特别是连续5天以上，股价至少会形成短期头部，反之J值小于10时，特别是连续数天以上，股价至少会形成短期底部。</p>
+<p>当K值由较小逐渐大于D值，即在图形上K线向上突破D线时，俗称金叉，即为买进的讯号。当K，D线在20以下交叉向上，此时的短期买入的信号较为准确；如果K值在50以下，由下往上接连两次上穿D值，形成右底比左底高的“W底”形态时，后市股价可能会有相当的涨幅。</p>
+<p>当K值由较大逐渐小于D值，即在图形上K线向下突破D线时，俗称死叉，即为卖出的讯号。当K，D线在80以上交叉向下，此时的短期卖出的信号较为准确；如果K值在50以上，由上往下接连两次下穿D值，形成右头比左头低的“M头”形态时，后市股价可能会有相当的跌幅。</p>
+<p>通过KDJ与股价背离的走势可以判断股价顶底：<br>股价创新高，而KD值没有创新高，为顶背离，应卖出；<br>股价创新低，而KD值没有创新低，为底背离，应买入。</p>
+<h2 id="相对强弱指数-RSI"><a href="#相对强弱指数-RSI" class="headerlink" title="相对强弱指数 RSI"></a>相对强弱指数 RSI</h2><p>相对强弱指数（Relative Strength Index，RSI），根据一定时期内上涨点数和涨跌点数之和的比率制作出的一种技术曲线。</p>
+<p>计算如下：</p>
+<ol>
+<li>设每天向上变动为U，向下变动为D。<br> 在价格上升的日子：U ＝ 当日收市价 － 昨日收市价；D ＝ 0<br> 在价格下跌的日子：U ＝ 0；D ＝ 昨日收市价 － 当日收市价<br> 任何情况下，U及D皆不可能为负数；若两天价格相同，则U及D皆等于零。</li>
+<li>利用U及D的指数平均值计算：<br> 相对强度（Relative Strength）： RS = EMA(U,n) / EMA(D,n)<br> 相对强弱指数（Relative Strength Index）：RSI = (1 - 1/(1+RS)) * 100%</li>
+</ol>
+<p>强弱指标理论认为，任何市价的大涨或大跌，均在0-100之间变动，根据常态分配，认为RSI值多在30-70之间变动，通常80甚至90时被认为市场已到达超买状态，至此市场价格自然会回落调整。当价格低跌至30以下即被认为是超卖状态，市价将出现反弹回升。</p>
+<p>当RSI指标在高位盘整或低位横盘时所出现的各种形态也是判断行情，决定买卖行动的一种分析方法。</p>
+<ol>
+<li>当RSI曲线在高位(50以上）形成M头或三重顶等高位反转形态时，意味着股价的上升动能已经衰竭，股价有可能出现长期反转行情，投资者应及时地卖出股票。如果股价走势曲线也先后出现同样形态则更可确认，股价下跌的幅度和过程可参照M头或三重顶等顶部反转形态的研判。</li>
+<li>当RSI曲线在低位(50以下）形成W底或三重底等低位反转形态时，意味着股价的下跌动能已经减弱，股价有可能构筑中长期底部，投资者可逢低分批建仓。如果股价走势曲线也先后出现同样形态则更可确认，股价的上涨幅度及过程可参照W底或三重底等底部反转形态的研判。</li>
+</ol>
+<p>RSI曲线顶部反转形态对行情判断的准确性要高于底部形态</p>
+<p>RSI指标的背离是指RSI指标的曲线的走势正好和股价K线图的走势方向正好相反。</p>
+<ol>
+<li>顶背离：当RSI处于高位，但在创出RSI近期新高后，反而形成一峰比一峰低的走势，而此时K线图上的股价却再次创出新高，形成一峰比一峰高的走势，这就是顶背离。顶背离现象一般是股价在高位即将反转的信号，表明股价短期内即将下跌，是卖出信号。</li>
+<li>底背离：RSI的底背离一般是出现在20以下的低位区。当K线图上的股价一路下跌，形成一波比一波低的走势，而RSI线在低位却率先止跌企稳，并形成一底比一底高的走势，这就是底背离。底背离现象一般预示着股价短期内可能将反弹，是短期买入的信号。</li>
+</ol>
+<h2 id="顺势指标-CCI"><a href="#顺势指标-CCI" class="headerlink" title="顺势指标  CCI"></a>顺势指标  CCI</h2><p>顺势指标（Commodity Channel Index，CCI），属于超买超卖类指标中较特殊的一种。波动于正无穷大和负无穷大之间，且不需要以0为中轴线。</p>
+<p>计算如下：<br>CCI = 1/0.015 * (pt-SMA(pt)) / MD(pt)<br>其中， pt 为Typical Price = (p<sub>high</sub>+p<sub>low</sub>+p<sub>close</sub>)/3。<br>SMA为周期内收盘价的简单移动平均值,  MD为周期内收盘价的平均绝对离差。</p>
+<p>CCI指标的运行区间分为三类： 100以上为超买区，—100以下为超卖区， 100到—100之间为震荡区。</p>
+<p>当CCI曲线向上突破 100线而进入非常态区间时，表明股价开始进入强势状态，投资者应及时买入股票。然后只要CCI曲线一直朝上运行，就表明股价强势依旧，投资者可以一路持股待涨。如果CCI曲线在远离 100线的地方开始掉头向下时，表明股价的强势状态将难以维持，是股价比较强的转势信号。如果前期的短期涨幅过高时更可确认。此时投资者应及时逢高卖出股票。如果在远离 100线的地方处于一路下跌时，表明股价的强势状态已经结束，投资者还应以逢高卖出股票为主。</p>
+<p>当CCI曲线向下突破-100线而进入另一个非常态区间时，表明股价的弱势状态已经形成，投资者应以持币观望为主；然后只要CCI曲线一路朝下运行，就表明股价弱势依旧，投资者可以一路观望；如果CCI曲线在超卖区运行了相当长的一段时间后开始掉头向上，表明股价的阶段性底部初步探明，投资者可以适量建仓。CCI曲线在超卖区运行的时间越长，越可以确认阶段性的底部。</p>
+<h2 id="乖离率-BIAS"><a href="#乖离率-BIAS" class="headerlink" title="乖离率 BIAS"></a>乖离率 BIAS</h2><p>乖离率（Bias Ratio, BIAS），代表当日股票收盘价和移动平均线的差距，以分析股价偏离的程度。</p>
+<p>计算如下：<br>nBIAS =  (Close - MA<sub>n</sub>) / MA<sub>n</sub> <em> 100<br>BIAS<sub>(MA)</sub> = (MA<sub>short</sub> - MA<sub>long</sub>) / MA<sub>long</sub> </em> 100<br>其中：<br>nBIAS为n日乖离率；<br>BIAS<sub>(MA)</sub>为均线乖离率；<br>Close为当日收盘价；<br>MA为移动平均价、MA<sub>n</sub>为n日移动平均价，n依需求自订日数，一般设定3日和6日。</p>
+<p>当股价和移动平均线的差距愈远时，乖离率愈大，代表股价即将有修正偏离的可能。当乖离率呈现过高或过低情况时，股价均会产生反转的修正走势。</p>
+<p>“正乖离”越大表示“超买”（Overbought），将有下跌的压力；“负乖离”越小表示“超卖”（Oversold），将有上升的动能。</p>
+<h2 id="心理线-PSY"><a href="#心理线-PSY" class="headerlink" title="心理线 PSY"></a>心理线 PSY</h2><p>心理线指标（Psychologica Line，PSY），根据研究一段时间内股票上涨以及下跌天数的比率，来看出投资者的趋向，即投资者趋于空方或是多方，以此辅助股票买卖的操作。PSY还具有表现出超买超卖的功能。</p>
+<p>计算如下：<br>PSY(n)=A÷n×100<br>其中，A为在n周期内股价上涨的周期数。n为PSY的采样参数，可以分为钟、日、周、月。</p>
+<p>PSY指标50为多空双方的分界线。PSY值大于50为PSY指标的多方区域，说明N日内上涨的天数大于下跌的天数，多方占主导地位，投资者可持股待涨。PSY值小于50为PSY指标的空方区域，说明N日内上涨的天数小于下跌的天数，空方占主导地位，投资者宜持币观望。</p>
+<h1 id="波动性"><a href="#波动性" class="headerlink" title="波动性"></a>波动性</h1><h2 id="布林带-BB"><a href="#布林带-BB" class="headerlink" title="布林带 (BB)"></a>布林带 (BB)</h2><p>布林带（Bollinger Bands，BBands），结合了移动平均和标准差的概念，其基本的型态是由三条轨道线组成的带状通道（中轨和上、下轨各一条）。中轨为股价的平均成本，上轨和下轨可分别视为股价的压力线和支撑线。具体定义为：</p>
+<ul>
+<li>中轨 = N时间段的简单移动平均线</li>
+<li>上轨 = 中轨 + K × N时间段的标准差</li>
+<li>下轨 = 中轨 − K × N时间段的标准差</li>
+</ul>
+<p>一般情况下，设定N=20和K=2，这两个数值也是在布林带当中使用最多的。在日线图里，N=20其实就是“月均线”（MA20）。依照正态分布规则，约有95%的数值会分布在距离平均值有正负2个标准差的范围内。</p>
+<p>由布林带衍生出两项颇为实用的指标——“%b指标”和“带宽指标”，以辅助布林带的判读和运用。</p>
+<ul>
+<li><p>%b指标（Percent b，PB） =  (收盘价−布林带下轨值) ÷ (布林带上轨值−布林带下轨值)</p>
+<p>以数字形式呈现收盘价在布林带中的位置，做为交易决策时的关键指标。例如：当%b值为0.5（或以百分比表示50%），代表收盘价处于布林带的中间位置。</p>
+<p>由于收盘价会在上、下轨道震荡游走，幅度甚至大于轨道范围（0~1），因此%b值没有上下限。当走势向上突破，收盘价落于上轨上方时，%b值&gt; 1；而走趋向下突破，收盘价落在下轨下方时，%b值&lt; 0。</p>
+</li>
+<li><p>带宽指标（Bandwidth，BW）=  (布林带上轨值−布林带下轨值) ÷布林带中轨值</p>
+<p>由布林带中轨及上、下轨衍生出的指标，利用股价波动范围以判断趋势的强度与转折。<br>布林带中轨为股价的移动平均值（平均成本），所以带宽指标值可视为通道上、下轨幅度与股价平均成本的比率（例如：当带宽指标值为0.3，代表通道上、下轨幅度为股价平均成本的30%）。“带宽指标”值越高，代表幅度相对平均成本比率越大；值越低，代表幅度相对平均成本比率越小。</p>
+</li>
+</ul>
+
+                </article>
+            </div>
+
+        
+            <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
+                 <aside class="toc-wrap nav" data-spy="affix">
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#趋势"><span class="toc-number">1.</span> <span class="toc-text">趋势</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#移动平均-MA"><span class="toc-number">1.1.</span> <span class="toc-text">移动平均 MA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单移动平均"><span class="toc-number">1.1.1.</span> <span class="toc-text">简单移动平均</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加权移动平均"><span class="toc-number">1.1.2.</span> <span class="toc-text">加权移动平均</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指数移动平均"><span class="toc-number">1.1.3.</span> <span class="toc-text">指数移动平均</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指数平滑移动平均线-MACD"><span class="toc-number">1.2.</span> <span class="toc-text">指数平滑移动平均线 MACD</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动量"><span class="toc-number">2.</span> <span class="toc-text">动量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#威廉指标-W-R"><span class="toc-number">2.1.</span> <span class="toc-text">威廉指标 W%R</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机指标-KDJ"><span class="toc-number">2.2.</span> <span class="toc-text">随机指标 KDJ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相对强弱指数-RSI"><span class="toc-number">2.3.</span> <span class="toc-text">相对强弱指数 RSI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#顺势指标-CCI"><span class="toc-number">2.4.</span> <span class="toc-text">顺势指标  CCI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#乖离率-BIAS"><span class="toc-number">2.5.</span> <span class="toc-text">乖离率 BIAS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#心理线-PSY"><span class="toc-number">2.6.</span> <span class="toc-text">心理线 PSY</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#波动性"><span class="toc-number">3.</span> <span class="toc-text">波动性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#布林带-BB"><span class="toc-number">3.1.</span> <span class="toc-text">布林带 (BB)</span></a></li></ol></li></ol>
+</aside>
+            </div>
+        
+    </div>
+
+    <div class="row">
+        <!-- Comments -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'            ,
+            placeholder: '欢迎留言交流'                                                                                    ,
+            pageSize: '8'                                    ,
+            visitor: 'true'                                                
+        });
+    </script>
+
+
+
+            </div>
+        
+    </div>
+</div>
+
+    
+    <div id="totop" title="Let me fly">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+    <hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/brightonzhang" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/brightonzhang" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:hello@brightonzhang.com" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    &copy; 2019 Brighton Zhang<br>
+                    Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow">Hexo</a> ⌘ 
+                    Theme from <a href="https://github.com/brightonzhang/hexo-theme-nutshell" target="_blank" rel="external nofollow">Nutshell</a>
+
+                    
+                        
+                            
+                                ⌘ Deployed on <a href="https://github.com/brightonzhang/brightonzhang.com.git" target="_blank" rel="external nofollow">GitHub Pages</a>
+                                
+                    
+                    <br/>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<script src="//cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.min.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>
