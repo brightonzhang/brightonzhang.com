@@ -166,10 +166,7 @@
     Posted 
     
 
-    on  <time datetime="2015-06-28T08:27:30.000Z" itemprop="datePublished">06/28/2015</time>
-
-    
-        , last updated on <time datetime="2016-06-28T08:27:30.000Z" itemprop="dateUpdated">06/28/2016</time>
+    on  <time datetime="2015-06-28T08:27:30.000Z" itemprop="datePublished">06/28/2015</time>, last updated on <time datetime="2016-06-28T08:27:30.000Z" itemprop="dateUpdated">06/28/2016</time>
     
 </p>
                         </span>
@@ -191,18 +188,25 @@
                 <article class="post-article" >
                     <p>THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG<br>the quick brown fox jumps over the lazy dog</p>
 <a id="more"></a> 
+
 <h1 id="纳凉"><a href="#纳凉" class="headerlink" title="纳凉"></a>纳凉</h1><p>携扙来追柳外凉，画桥南畔倚胡床。<br>月明船笛参差起，风定池莲自在香。 </p>
 <h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
 <p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
 <p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
 <p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
 <p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 <h1 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h1><h2 id="Initialise"><a href="#Initialise" class="headerlink" title="Initialise"></a>Initialise</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone --single-branch https://github.com/brightonzhang/brightonzhang.com.git bzcom/</span><br><span class="line">cd bzcom</span><br><span class="line">npm install </span><br><span class="line"></span><br><span class="line">git config filter.tokenignore.clean "sed '/^ *[a-zA-Z_]*token:/'d"</span><br><span class="line">git config filter.tokenignore.smudge cat</span><br></pre></td></tr></table></figure>
+
 <h2 id="Migrate"><a href="#Migrate" class="headerlink" title="Migrate"></a>Migrate</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for md in *.md</span><br><span class="line">do</span><br><span class="line">    if [ ! -d $&#123;md%.md&#125; ]</span><br><span class="line">    then</span><br><span class="line">        mkdir $&#123;md%.md&#125;</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>The header image is from <a href="https://sketchthatout.wordpress.com/tag/art/page/4/" target="_blank" rel="noopener">SKETCH THAT</a></p>
 </blockquote>
@@ -233,14 +237,10 @@
         new Valine({
             el: '#vcomments',
             appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
-            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'
-            ,
-            placeholder: '欢迎留言交流'
-                                                                                    ,
-            pageSize: '8'
-                                    ,
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA',
+            placeholder: '欢迎留言交流',
+            pageSize: '8',
             visitor: 'true'
-                                                
         });
     </script>
 

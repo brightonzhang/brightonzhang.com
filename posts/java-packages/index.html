@@ -163,8 +163,6 @@
     
 
     on  <time datetime="2017-01-12T06:16:28.000Z" itemprop="datePublished">01/12/2017</time>
-
-    
 </p>
                         </span>
                     </div>
@@ -183,7 +181,9 @@
         
 
                 <article class="post-article" >
-                    <p>A <em>package</em> is a grouping of related types providing access protection and name space management. Note that <em>types</em> refers to classes, interfaces, enumerations, and annotation types. Enumerations and annotation types are special kinds of classes and interfaces, respectively, so <em>types</em> are often referred to simply as <em>classes and interfaces</em>.<br><a id="more"></a> </p>
+                    <p>A <em>package</em> is a grouping of related types providing access protection and name space management. Note that <em>types</em> refers to classes, interfaces, enumerations, and annotation types. Enumerations and annotation types are special kinds of classes and interfaces, respectively, so <em>types</em> are often referred to simply as <em>classes and interfaces</em>.</p>
+<a id="more"></a> 
+
 <p>You should bundle these classes and the interface in a package for several reasons, including the following:</p>
 <ul>
 <li>You and other programmers can easily determine that these types are related.</li>
@@ -207,8 +207,7 @@
 <th>Package Name Prefix</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>hyphenated-name.example.org</code></td>
 <td><code>org.example.hyphenated_name</code></td>
 </tr>
@@ -220,8 +219,7 @@
 <td><code>123name.example.com</code></td>
 <td><code>com.example._123name</code></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="Using-Package-Members"><a href="#Using-Package-Members" class="headerlink" title="Using Package Members"></a>Using Package Members</h1><p>The types that comprise a package are known as the <em>package members</em>.</p>
 <p>To use a <code>public</code> package member from outside its package, you must do one of the following:</p>
 <ul>
@@ -232,44 +230,61 @@
 <h2 id="Referring-to-a-Package-Member-by-Its-Qualified-Name"><a href="#Referring-to-a-Package-Member-by-Its-Qualified-Name" class="headerlink" title="Referring to a Package Member by Its Qualified Name"></a>Referring to a Package Member by Its Qualified Name</h2><p>You can use a package member’s simple name if the code you are writing is in the same package as that member or if that member has been imported.</p>
 <p>However, if you are trying to use a member from a different package and that package has not been imported, you must use the member’s fully qualified name, which includes the package name. For example:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graphics.Rectangle myRect = <span class="keyword">new</span> graphics.Rectangle();</span><br></pre></td></tr></table></figure>
+
 <p>Qualified names are all right for infrequent use. When a name is used repetitively, however, typing the name repeatedly becomes tedious and the code becomes difficult to read. As an alternative, you can <em>import</em> the member or its package and then use its simple name.</p>
-<h2 id="Importing-a-Package-Member"><a href="#Importing-a-Package-Member" class="headerlink" title="Importing a Package Member"></a>Importing a Package Member</h2><p>To import a specific member into the current file, put an <code>import</code> statement at the beginning of the file before any type definitions but after the <code>package</code> statement, if there is one. Here’s how you would import the <code>Rectangle</code> class from the <code>graphics</code> package and refer to the <code>Rectangle</code> class by its simple name.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> graphics.Rectangle;</span><br><span class="line"></span><br><span class="line">Rectangle myRectangle = <span class="keyword">new</span> Rectangle();</span><br></pre></td></tr></table></figure></p>
+<h2 id="Importing-a-Package-Member"><a href="#Importing-a-Package-Member" class="headerlink" title="Importing a Package Member"></a>Importing a Package Member</h2><p>To import a specific member into the current file, put an <code>import</code> statement at the beginning of the file before any type definitions but after the <code>package</code> statement, if there is one. Here’s how you would import the <code>Rectangle</code> class from the <code>graphics</code> package and refer to the <code>Rectangle</code> class by its simple name.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> graphics.Rectangle;</span><br><span class="line"></span><br><span class="line">Rectangle myRectangle = <span class="keyword">new</span> Rectangle();</span><br></pre></td></tr></table></figure>
+
 <p>This approach works well if you use just a few members from the <code>graphics</code> package. But if you use many types from a package, you should import the entire package.</p>
 <h2 id="Importing-an-Entire-Package"><a href="#Importing-an-Entire-Package" class="headerlink" title="Importing an Entire Package"></a>Importing an Entire Package</h2><p>To import all the types contained in a particular package, use the <code>import</code> statement with the asterisk <code>(*)</code> wildcard character.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import graphics.*;</span><br></pre></td></tr></table></figure>
+
 <p>Now you can refer to any class or interface in the <code>graphics</code> package by its simple name.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Circle myCircle = new Circle();</span><br><span class="line">Rectangle myRectangle = new Rectangle();</span><br></pre></td></tr></table></figure>
+
 <p>The asterisk in the <code>import</code> statement can be used only to specify all the classes within a package, as shown here. It cannot be used to match a subset of the classes in a package. For example, the following does not match all the classes in the <code>graphics</code> package that begin with <code>A</code>.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// does not work</span></span><br><span class="line"><span class="keyword">import</span> graphics.A*;</span><br></pre></td></tr></table></figure>
+
 <p>Instead, it generates a compiler error. With the <code>import</code> statement, you generally import only a single package member or an entire package.</p>
 <p>Another, less common form of <code>import</code> allows you to import the public nested classes of an enclosing class. For example, if the <code>graphics.Rectangle</code> class contained useful nested classes, such as <code>Rectangle.DoubleWide</code> and <code>Rectangle.Square</code>, you could import <code>Rectangle</code> and its nested classes by using the following <em>two</em> statements.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> graphics.Rectangle;</span><br><span class="line"><span class="keyword">import</span> graphics.Rectangle.*;</span><br></pre></td></tr></table></figure>
+
 <p>Be aware that the second import statement will <em>not</em> import <code>Rectangle</code>.</p>
 <p>For convenience, the Java compiler automatically imports two entire packages for each source file:<br>(1) the <code>java.lang</code> package and<br>(2) the current package (the package for the current file).</p>
 <h2 id="Apparent-Hierarchies-of-Packages"><a href="#Apparent-Hierarchies-of-Packages" class="headerlink" title="Apparent Hierarchies of Packages"></a>Apparent Hierarchies of Packages</h2><p>At first, packages appear to be hierarchical, but they are not. For example, the Java API includes a <code>java.awt</code> package, a <code>java.awt.color</code> package, a <code>java.awt.font</code> package, and many others that begin with <code>java.awt</code>. However, the <code>java.awt.color</code> package, the <code>java.awt.font</code>package, and other <code>java.awt.xxxx</code> packages are <em>not included</em> in the <code>java.awt</code> package. The prefix <code>java.awt</code> (the Java Abstract Window Toolkit) is used for a number of related packages to make the relationship evident, but not to show inclusion.</p>
 <p>Importing <code>java.awt.*</code> imports all of the types in the <code>java.awt</code> package, but it <em>does not import</em> <code>java.awt.color</code>, <code>java.awt.font</code>, or any other <code>java.awt.xxxx</code> packages. If you plan to use the classes and other types in <code>java.awt.color</code> as well as those in <code>java.awt</code>, you must import both packages with all their files:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.color.*;</span><br></pre></td></tr></table></figure>
+
 <h2 id="Name-Ambiguities"><a href="#Name-Ambiguities" class="headerlink" title="Name Ambiguities"></a>Name Ambiguities</h2><p>If a member in one package shares its name with a member in another package and both packages are imported, you must refer to each member by its qualified name. For example, the <code>graphics</code> package defined a class named <code>Rectangle</code>. The <code>java.awt</code> package also contains a <code>Rectangle</code> class. If both <code>graphics</code> and <code>java.awt</code> have been imported, the following is ambiguous.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rectangle rect;</span><br></pre></td></tr></table></figure>
+
 <p>In such a situation, you have to use the member’s fully qualified name to indicate exactly which <code>Rectangle</code> class you want. For example,</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graphics.Rectangle rect;</span><br></pre></td></tr></table></figure>
+
 <h2 id="The-Static-Import-Statement"><a href="#The-Static-Import-Statement" class="headerlink" title="The Static Import Statement"></a>The Static Import Statement</h2><p>There are situations where you need frequent access to static final fields (constants) and static methods from one or two classes. Prefixing the name of these classes over and over can result in cluttered code. The <em>static import</em> statement gives you a way to import the constants and static methods that you want to use so that you do not need to prefix the name of their class.</p>
 <p>The <code>java.lang.Math</code> class defines the <code>PI</code> constant and many static methods, including methods for calculating sines, cosines, tangents, square roots, maxima, minima, exponents, and many more. For example,</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> PI </span><br><span class="line">    = <span class="number">3.141592653589793</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">cos</span><span class="params">(<span class="keyword">double</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>Ordinarily, to use these objects from another class, you prefix the class name, as follows.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> r = Math.cos(Math.PI * theta);</span><br></pre></td></tr></table></figure>
+
 <p>You can use the static import statement to import the static members of java.lang.Math so that you don’t need to prefix the class name, <code>Math</code>. The static members of <code>Math</code> can be imported either individually:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.PI;</span><br></pre></td></tr></table></figure>
+
 <p>or as a group:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.*;</span><br></pre></td></tr></table></figure>
+
 <p>Once they have been imported, the static members can be used without qualification. For example, the previous code snippet would become:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> r = cos(PI * theta);</span><br></pre></td></tr></table></figure>
+
 <p>Obviously, you can write your own classes that contain constants and static methods that you use frequently, and then use the static import statement. For example,</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> mypackage.MyConstants.*;</span><br></pre></td></tr></table></figure>
+
 <p>Use static import very sparingly. Overusing static import can result in code that is difficult to read and maintain, because readers of the code won’t know which class defines a particular static object. Used properly, static import makes code more readable by removing class name repetition.</p>
 <h1 id="Managing-Source-and-Class-Files"><a href="#Managing-Source-and-Class-Files" class="headerlink" title="Managing Source and Class Files"></a>Managing Source and Class Files</h1><p>Many implementations of the Java platform rely on hierarchical file systems to manage source and class files, although <em>The Java Language Specification</em> does not require this. The strategy is as follows.</p>
 <p>Put the source code for a class, interface, enumeration, or annotation type in a text file whose name is the simple name of the type and whose extension is <code>.java</code>. For example:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//in the Rectangle.java file </span></span><br><span class="line"><span class="keyword">package</span> graphics;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</span><br><span class="line">   ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>Then, put the source file in a directory whose name reflects the name of the package to which the type belongs: <code>.....\graphics\Rectangle.java</code></p>
 <p>The qualified name of the package member and the path name to the file are parallel, assuming the Microsoft Windows file name separator backslash (for UNIX, use the forward slash).</p>
 <ul>
@@ -279,6 +294,7 @@
 <p>As you should recall, by convention a company uses its reversed Internet domain name for its package names. The Example company, whose Internet domain name is <code>example.com</code>, would precede all its package names with <code>com.example</code>. Each component of the package name corresponds to a subdirectory. So, if the Example company had a <code>com.example.graphics</code> package that contained a <code>Rectangle.java</code> source file, it would be contained in a series of subdirectories like this: <code>....\com\example\graphics\Rectangle.java</code></p>
 <p>When you compile a source file, the compiler creates a different output file for each type defined in it. The base name of the output file is the name of the type, and its extension is <code>.class</code>. For example, if the source file is like this</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//in the Rectangle.java file</span></span><br><span class="line"><span class="keyword">package</span> com.example.graphics;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</span><br><span class="line">      . . . </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Helper</span></span>&#123;</span><br><span class="line">      . . . </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>then the compiled files will be located at:<br><code>&lt;path_to_the_parent_directory_of_the_output_files&gt;\com\example\graphics\Rectangle.class</code><br><code>&lt;path_to_the_parent_directory_of_the_output_files&gt;\com\example\graphics\Helper.class</code></p>
 <p>Like the <code>.java</code> source files, the compiled <code>.class</code> files should be in a series of directories that reflect the package name. However, the path to the <code>.class</code> files does not have to be the same as the path to the <code>.java</code> source files. You can arrange your source and class directories separately, as:<br><code>&lt;path_one&gt;\sources\com\example\graphics\Rectangle.java</code><br><code>&lt;path_two&gt;\classes\com\example\graphics\Rectangle.class</code></p>
 <p>By doing this, you can give the <code>classes</code> directory to other programmers without revealing your sources. You also need to manage source and class files in this manner so that the compiler and the Java Virtual Machine (JVM) can find all the types your program uses.</p>
@@ -286,10 +302,13 @@
 <p>A class path may include several paths, separated by a semicolon (Windows) or colon (UNIX). By default, the compiler and the JVM search the current directory and the JAR file containing the Java platform classes so that these directories are automatically in your class path.</p>
 <h2 id="Setting-the-CLASSPATH-System-Variable"><a href="#Setting-the-CLASSPATH-System-Variable" class="headerlink" title="Setting the CLASSPATH System Variable"></a>Setting the CLASSPATH System Variable</h2><p>To display the current <code>CLASSPATH</code> variable, use these commands in Windows and UNIX (Bourne shell):</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In Windows:   C:\&gt; set CLASSPATH</span><br><span class="line">In UNIX:      % echo $CLASSPATH</span><br></pre></td></tr></table></figure>
+
 <p>To delete the current contents of the <code>CLASSPATH</code> variable, use these commands:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In Windows:   C:\&gt; set CLASSPATH=</span><br><span class="line">In UNIX:      % unset CLASSPATH; export CLASSPATH</span><br></pre></td></tr></table></figure>
+
 <p>To set the <code>CLASSPATH</code> variable, use these commands (for example):</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In Windows:   C:\&gt; set CLASSPATH=C:\users\brighton\java\classes</span><br><span class="line">In UNIX:      % CLASSPATH=/home/brighton/java/classes; export CLASSPATH</span><br></pre></td></tr></table></figure>
+
 
                 </article>
             </div>
@@ -317,14 +336,10 @@
         new Valine({
             el: '#vcomments',
             appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
-            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'
-            ,
-            placeholder: '欢迎留言交流'
-                                                                                    ,
-            pageSize: '8'
-                                    ,
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA',
+            placeholder: '欢迎留言交流',
+            pageSize: '8',
             visitor: 'true'
-                                                
         });
     </script>
 

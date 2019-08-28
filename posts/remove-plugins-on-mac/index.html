@@ -163,8 +163,6 @@
     
 
     on  <time datetime="2019-06-14T07:46:24.000Z" itemprop="datePublished">06/14/2019</time>
-
-    
 </p>
                         </span>
                     </div>
@@ -183,26 +181,34 @@
         
 
                 <article class="post-article" >
-                    <p>MacOS卸载程序很简单，对于非app store安装的应用，只要移除  /Applications  下对应的文件即可。但是这种卸载方式可能会留下一些缓存、配置信息和插件——这些可能较大，也可能很小几乎不占空间——但我总是希望删得干干净净彻彻底底。<br><a id="more"></a> </p>
+                    <p>MacOS卸载程序很简单，对于非app store安装的应用，只要移除  /Applications  下对应的文件即可。但是这种卸载方式可能会留下一些缓存、配置信息和插件——这些可能较大，也可能很小几乎不占空间——但我总是希望删得干干净净彻彻底底。</p>
+<a id="more"></a> 
+
 <p>一款优秀的软件会在说明文档里写清楚安装卸载方法，如Wireshark：</p>
 <blockquote>
 <p><strong>Quick Setup</strong></p>
 <p>Simply double-click the Wireshark package. For details about the installation read below.</p>
-<p><br></p>
+<br>
+
 <p><strong>What changes does the installer make?</strong></p>
 <p>The installer writes to the following locations:</p>
 <ul>
-<li><em>/Applications/Wireshark.app</em>. The main Wireshark application.</li>
-<li><em>/Library/LaunchDaemons/org.wireshark.ChmodBPF.plist</em>. A launch daemon that adjusts permissions on the system’s packet capture devices (*/dev/bpf**) when the system starts up.</li>
-<li><em>/Library/Application Support/Wireshark/ChmodBPF</em> A copy of the launch daemon property list, and the script that the launch daemon runs.</li>
+<li><p><em>/Applications/Wireshark.app</em>. The main Wireshark application.</p>
+</li>
+<li><p><em>/Library/LaunchDaemons/org.wireshark.ChmodBPF.plist</em>. A launch daemon that adjusts permissions on the system’s packet capture devices (<em>/dev/bpf*</em>) when the system starts up.</p>
+</li>
+<li><p><em>/Library/Application Support/Wireshark/ChmodBPF</em> A copy of the launch daemon property list, and the script that the launch daemon runs.</p>
+</li>
 <li><p><em>/usr/local/bin</em>. A wrapper script and symbolic links which will let you run Wireshark and its associated utilities from the command line. You can access them directly or by adding /usr/local/bin to your PATH if it’s not already in your PATH.</p>
 </li>
 <li><p><em>/etc/paths.d/Wireshark</em>. The folder name in this file is automatically added to PATH</p>
 </li>
-<li><em>/etc/manpaths.d/Wireshark</em>. The folder name in this file is used by the man command.</li>
+<li><p><em>/etc/manpaths.d/Wireshark</em>. The folder name in this file is used by the man command.</p>
+</li>
 </ul>
 <p>Additionally a group named <em>access_bpf</em> is created. The user who opened the package is added to the group.</p>
-<p><br></p>
+<br>
+
 <p><strong>How do I uninstall?</strong></p>
 <ol>
 <li>Remove <em>/Applications/Wireshark.app</em></li>
@@ -246,7 +252,7 @@
 <li>~/Library/LaunchAgents</li>
 <li>/Library/LaunchAgents</li>
 </ul>
-<p>MacOS内置有<a href="https://en.wikiversity.org/wiki/MacOS/pkgutil" target="_blank" rel="noopener">pkgutil</a>命令行工具管理packages(.pkg_files)。</p>
+<p>MacOS内置有<a href="https://en.wikiversity.org/wiki/MacOS/pkgutil" target="_blank" rel="noopener">pkgutil</a>)命令行工具管理packages(.pkg_files)。</p>
 <p>BTW，我就是不想用Dr. Cleaner、AppCleaner、CleanMyMac、腾讯电脑管家。。。</p>
 
                 </article>
@@ -268,14 +274,10 @@
         new Valine({
             el: '#vcomments',
             appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
-            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'
-            ,
-            placeholder: '欢迎留言交流'
-                                                                                    ,
-            pageSize: '8'
-                                    ,
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA',
+            placeholder: '欢迎留言交流',
+            pageSize: '8',
             visitor: 'true'
-                                                
         });
     </script>
 

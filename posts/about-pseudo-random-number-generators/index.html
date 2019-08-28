@@ -163,8 +163,6 @@
     
 
     on  <time datetime="2015-08-22T13:06:42.000Z" itemprop="datePublished">08/22/2015</time>
-
-    
 </p>
                         </span>
                     </div>
@@ -184,7 +182,9 @@
 
                 <article class="post-article" >
                     <p>本文描述现代密码学体系中最重要的组件之一，通常也被认为是最难描述的组件：随机数生成器</p>
-<p>什么样的是随机数？<br>我见过的最通俗地对随机数的描述是这样的：<br>一串数字，如果没有比它更短的可以描述它的形式的程序，那么它就是随机的。<br><a id="more"></a> </p>
+<p>什么样的是随机数？<br>我见过的最通俗地对随机数的描述是这样的：<br>一串数字，如果没有比它更短的可以描述它的形式的程序，那么它就是随机的。</p>
+<a id="more"></a> 
+
 <p>随机数从哪来？如何生成？<br>我们认为，一个完美的抛硬币是一个真随机的过程——假设硬币是中心对称，且在空中是平稳飞行。还有比如半导体噪声，元素的放射性衰变，这样都认为是真随机的过程。如果把物理过程的输出记录下来作为随机数，那这有了个真随机数生成器。</p>
 <p>真随机数生成器发生的随机数可以认为是完全不可预测，这正是密码学需要的最佳选择。但是真随机数生成器一般效率都比较低，不能满足使用需求。所以就有了伪随机数生成器（Pseudo Random Number Generator, PRNG），或者叫做确定性随机位生成器（Deterministic Random Bit Generator, NIST, DRBG）。这类随机数发生器一般是一个确定性算法，即按照一种准确的规则集作为软件或硬件的算法，比如从一个初始种子值开始通过各种计算得到序列。一个广泛使用的例子就是ANSI C中的rand()函数，它的实现模型为：<br>S0 = 12345<br>S(n+1) = 1103515245S(n) + 12345 mod 2xp31, n=0,1…</p>
 <p>对PRNG的一个一般要求就是必须拥有良好的统计属性，意味着它的输出近乎与真随机序列相同。有很多数学测试，如卡方校验，可以验证PRNG的统计行为。一般工程学上使用的PRNG满足此要求即可。</p>
@@ -217,14 +217,10 @@
         new Valine({
             el: '#vcomments',
             appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
-            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'
-            ,
-            placeholder: '欢迎留言交流'
-                                                                                    ,
-            pageSize: '8'
-                                    ,
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA',
+            placeholder: '欢迎留言交流',
+            pageSize: '8',
             visitor: 'true'
-                                                
         });
     </script>
 

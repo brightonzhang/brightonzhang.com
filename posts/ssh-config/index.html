@@ -163,8 +163,6 @@
     
 
     on  <time datetime="2019-01-31T10:04:07.000Z" itemprop="datePublished">01/31/2019</time>
-
-    
 </p>
                         </span>
                     </div>
@@ -184,17 +182,22 @@
 
                 <article class="post-article" >
                     <p>每次ssh登陆主机还要输密码，好麻烦！<br>多个Git服务器，公司的代码库、自己的GitHub，多个ssh key怎么搞？</p>
-<p>其实，这些都可以通过SSH配置来简化。<br><a id="more"></a> </p>
+<p>其实，这些都可以通过SSH配置来简化。</p>
+<a id="more"></a> 
+
 <h1 id="Key-Based-SSH登陆"><a href="#Key-Based-SSH登陆" class="headerlink" title="Key-Based SSH登陆"></a>Key-Based SSH登陆</h1><p>Key-based authentication is the most secure of several modes of authentication usable with OpenSSH, such as plain password and Kerberos tickets. SSH can use either “RSA” (Rivest-Shamir-Adleman) or “DSA” (“Digital Signature Algorithm”) keys. Both of these were considered state-of-the-art algorithms when SSH was invented, but DSA has come to be seen as less secure in recent years.<br>下面介绍基于rsa密钥的ssh登陆，免去密码输入之痛。</p>
 <p>首先在客户端生成密钥对：执行如下命令，并根据提示输入密码等信息。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C "brighton@winterfell" -f ~/.ssh/winterfell</span><br></pre></td></tr></table></figure>
+
 <p>其中：<br><code>-t</code>，指定算法；<br><code>-b</code>，指定密钥长度，bit位数；<br><code>-C</code>，指定密钥标签，会标注在公钥末尾;<br><code>-f</code>，指定输出文件名，如果不设置，后续也会有提示输入。</p>
 <p>如此，会生成一对RSA密钥，其中winterfell为私钥，winterfell.pub为公钥。</p>
 <p>然后将公钥配置到需要登陆的主机上。先使用密码登陆主机，将上一步生成的winterfell.pub内容保存到authorized_keys中。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat winterfell.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
 <p>主机SSH服务端的配置在<code>/etc/ssh/sshd_config</code>，可以查看相关设置。</p>
 <p>至此，我们可以通过ssh登陆主机并使用<code>-i</code>参数指定密钥：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i ~/.ssh/winterfell brighton@winterfell</span><br></pre></td></tr></table></figure>
+
 <p>更多Key-based ssh登陆可以参考<a href="https://help.ubuntu.com/community/SSH/OpenSSH/Keys" target="_blank" rel="noopener">Ubuntu Help SSH/OpenSSH/Keys</a>。</p>
 <h1 id="ssh-config文件"><a href="#ssh-config文件" class="headerlink" title="ssh config文件"></a>ssh config文件</h1><p>当有多台主机时，每次都要指定密钥，用户名等也是非常麻烦，我们使用ssh config文件来配置，简化命令输入。</p>
 <p>一般，ssh config文件有两个:</p>
@@ -212,6 +215,7 @@
 <p>常用配置参数<br><code>Host</code>: Restricts the following declarations to be only for those hosts that match one of the patterns given after the keyword. The pattern is matched against the host name given on the command line.<br><code>HostName</code>: Specifies the real host name to log into. This can be used to specify nicknames or abbreviations for hosts. The default is the name given on the command line. Numeric IP addresses are also permitted (both on the command line and in HostName specifications).<br><code>IdentityFile</code>: Specifies a file from which the user’s identity key is read when using public key authentication. The default for protocol version 1 is ~/.ssh/identity; and ~/.ssh/id_rsa or ~/.ssh/id_dsa for protocol version 2.<br><code>Port</code>: Specifies the port number to connect on the remote host. The default is 22.<br><code>User</code>: Specifies the user to log in as. This can be useful when a different user name is used on different machines. This saves the trouble of having to remember to give the user name on the command line.<br>更多参数请参考<a href="http://man.openbsd.org/OpenBSD-current/man5/ssh_config.5" target="_blank" rel="noopener">SSH man page</a>.</p>
 <p>如此，我的<code>~/.ssh/config</code>示例:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Host winterfell</span><br><span class="line">    HostName winterfell</span><br><span class="line">    User brighton</span><br><span class="line">    IdentityFile ~/.ssh/winterfell</span><br><span class="line"></span><br><span class="line">Host vultrsv</span><br><span class="line">    HostName 2001:*:9ee2</span><br><span class="line">    User brighton</span><br><span class="line">    IdentityFile ~/.ssh/vultr</span><br><span class="line"></span><br><span class="line">Host bwhlacn2</span><br><span class="line">    HostName 95.*.115</span><br><span class="line">    Port 29726</span><br><span class="line">    User brighton</span><br><span class="line">    IdentityFile ~/.ssh/bwhlacn2</span><br><span class="line"></span><br><span class="line"># GitLab.com server</span><br><span class="line">Host gitlab.com</span><br><span class="line">    # RSAAuthentication yes</span><br><span class="line">    IdentityFile ~/.ssh/gitlabaaa</span><br></pre></td></tr></table></figure>
+
 <p>这样以来，<code>ssh winterfell</code>即可登陆winterfell路由器，<code>ssh vultrsv</code>即可登陆IP为2001:*:9ee2的主机。</p>
 <p>Done!</p>
 
@@ -241,14 +245,10 @@
         new Valine({
             el: '#vcomments',
             appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
-            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'
-            ,
-            placeholder: '欢迎留言交流'
-                                                                                    ,
-            pageSize: '8'
-                                    ,
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA',
+            placeholder: '欢迎留言交流',
+            pageSize: '8',
             visitor: 'true'
-                                                
         });
     </script>
 

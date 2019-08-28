@@ -162,10 +162,7 @@
     Posted 
     
 
-    on  <time datetime="2015-11-29T16:37:21.000Z" itemprop="datePublished">11/30/2015</time>
-
-    
-        , last updated on <time datetime="2015-12-12T16:00:00.000Z" itemprop="dateUpdated">12/13/2015</time>
+    on  <time datetime="2015-11-29T16:37:21.000Z" itemprop="datePublished">11/30/2015</time>, last updated on <time datetime="2015-12-12T16:00:00.000Z" itemprop="dateUpdated">12/13/2015</time>
     
 </p>
                         </span>
@@ -185,7 +182,9 @@
         
 
                 <article class="post-article" >
-                    <p>按照 <a href="http://brew.sh/index.html" target="_blank" rel="noopener">http://brew.sh/index.html</a> 安装Homebrew 执行如下命令：<br>ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a><br><a id="more"></a> </p>
+                    <p>按照 <a href="http://brew.sh/index.html" target="_blank" rel="noopener">http://brew.sh/index.html</a> 安装Homebrew 执行如下命令：<br>ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a></p>
+<a id="more"></a> 
+
 <p>然后失败：<br>fatal: unable to access ‘<a href="https://github.com/Homebrew/homebrew/&#39;" target="_blank" rel="noopener">https://github.com/Homebrew/homebrew/&#39;</a>: SSLRead() return error -9806<br>Failed during: git fetch origin master:refs/remotes/origin/master -n –depth=1</p>
 <p>google一圈，这个问题似乎和我的一致<br><a href="http://stackoverflow.com/questions/26461966/osx-10-10-curl-post-to-https-url-gives-sslread-error" target="_blank" rel="noopener">http://stackoverflow.com/questions/26461966/osx-10-10-curl-post-to-https-url-gives-sslread-error</a><br>需要安装使用openssl的curl</p>
 <p>遂先安装openssl<br>获取openssl代码，<a href="https://wiki.openssl.org/index.php/Use_of_Git" target="_blank" rel="noopener">https://wiki.openssl.org/index.php/Use_of_Git</a><br>git clone <a href="https://github.com/openssl/openssl.git" target="_blank" rel="noopener">https://github.com/openssl/openssl.git</a></p>
@@ -222,14 +221,10 @@
         new Valine({
             el: '#vcomments',
             appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
-            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA'
-            ,
-            placeholder: '欢迎留言交流'
-                                                                                    ,
-            pageSize: '8'
-                                    ,
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA',
+            placeholder: '欢迎留言交流',
+            pageSize: '8',
             visitor: 'true'
-                                                
         });
     </script>
 
