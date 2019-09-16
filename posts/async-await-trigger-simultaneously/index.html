@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh" >
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Title -->
+    
+    <title>async-await函数同时触发多个异步操作 - BRIGHTON ZHANG</title>
+
+    <!-- open graph -->
+    
+    <meta name="description" content="JS中使用 async-await 等待异步操作完成的过程中，如果前后两个异步操作不存在依赖关系，那同时触发这些操作则是更好的方案。">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="async-await函数同时触发多个异步操作">
+<meta property="og:url" content="https://brightonzhang.com/posts/async-await-trigger-simultaneously/index.html">
+<meta property="og:site_name" content="BRIGHTON ZHANG">
+<meta property="og:description" content="JS中使用 async-await 等待异步操作完成的过程中，如果前后两个异步操作不存在依赖关系，那同时触发这些操作则是更好的方案。">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://brightonzhang.com/posts/javascript-basic/fa9189f8764dd5ad.jpg">
+<meta property="og:updated_time" content="2019-09-16T04:56:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="async-await函数同时触发多个异步操作">
+<meta name="twitter:description" content="JS中使用 async-await 等待异步操作完成的过程中，如果前后两个异步操作不存在依赖关系，那同时触发这些操作则是更好的方案。">
+<meta name="twitter:image" content="https://brightonzhang.com/posts/javascript-basic/fa9189f8764dd5ad.jpg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114837917-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114837917-1');
+    </script>
+
+
+
+    <!-- Baidu Tongji -->
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?ca817bd39bbbac0ebd13f866fbc29749";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+</head>
+
+
+<body  data-spy="scroll" data-target="#tocScrollspy"  >
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BRIGHTON</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    
+<header class="intro-header" style="background-image: url('/posts/javascript-basic/fa9189f8764dd5ad.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <!-- Tags and categories -->
+                        
+                            <div class="post-tag-category">
+                                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+                                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+                            </div>
+                        
+
+                        <h1>async-await函数同时触发多个异步操作</h1>
+                        
+
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2019-09-16T04:56:43.000Z" itemprop="datePublished">09/16/2019</time>
+</p>
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Main Content -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+
+                <article class="post-article" >
+                    <p>JS中使用 <code>async-await</code> 等待异步操作完成的过程中，如果前后两个异步操作不存在依赖关系，那同时触发这些操作则是更好的方案。</p>
+<a id="more"></a> 
+
+<p>阮一峰的<a href="http://es6.ruanyifeng.com/#docs/async#使用注意点" target="_blank" rel="noopener">《ECMAScript 6 入门》中关于async函数的使用注意点</a>中有这样一段： </p>
+<hr>
+
+<p>多个<code>await</code>命令后面的异步操作，如果不存在继发关系，最好让它们同时触发。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> getFoo();</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> getBar();</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>getFoo</code>和<code>getBar</code>是两个独立的异步操作（即互不依赖），被写成继发关系。这样比较耗时，因为只有<code>getFoo</code>完成以后，才会执行<code>getBar</code>，完全可以让它们同时触发。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写法一</span></span><br><span class="line"><span class="keyword">let</span> [foo, bar] = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([getFoo(), getBar()]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line"><span class="keyword">let</span> fooPromise = getFoo();</span><br><span class="line"><span class="keyword">let</span> barPromise = getBar();</span><br><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> fooPromise;</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> barPromise;</span><br></pre></td></tr></table></figure>
+
+<p>上面两种写法，<code>getFoo</code>和<code>getBar</code>都是同时触发，这样就会缩短程序的执行时间。</p>
+<hr>
+
+<p>第一次阅读时，对于文中的方法一觉得好理解，方法二却有点犯迷糊了。写了<a href="https://raw.githubusercontent.com/brightonzhang/cavy/master/js/test-async-await.html" target="_blank" rel="noopener">测试代码</a>验证结果确实如此。又倒回去阅读了前文，终于明白了，简要整理如下。</p>
+<p>首先，<code>async</code>函数返回一个 Promise 对象。当函数执行的时候，一旦遇到<code>await</code>就会先返回。</p>
+<p>然后，<code>async</code>函数返回的 Promise 对象，必须等到内部所有<code>await</code>命令后面的 Promise 对象执行完，才会发生状态改变，除非遇到<code>return</code>语句或者抛出错误。</p>
+<p>还有，<code>await</code>命令后面是一个 Promise 对象（或者<code>thenable</code>对象），返回该对象的结果——根据状态由<code>pending</code>变为<code>fulfilled</code>或<code>rejected</code>。</p>
+<p>看下面的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">ms</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(resolve, ms);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getFoo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'getFoo start'</span>);</span><br><span class="line">    <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'getFoo done'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">triggerSimultaneously</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'triggerSimultaneously: '</span>);</span><br><span class="line">    <span class="keyword">const</span> startTime = <span class="built_in">Date</span>.now();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> fooPromise = getFoo();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'triggerSimultaneously: got promises'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> foo = <span class="keyword">await</span> fooPromise;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'triggerSimultaneously cost: '</span> + (<span class="built_in">Date</span>.now() - startTime));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">triggerSimultaneously();</span><br></pre></td></tr></table></figure>
+
+<p>执行结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">triggerSimultaneously: </span><br><span class="line">getFoo start</span><br><span class="line">triggerSimultaneously: got promises</span><br><span class="line">//Promise &#123;&lt;pending&gt;&#125;</span><br><span class="line">getFoo done</span><br><span class="line">triggerSimultaneously cost: 1005</span><br></pre></td></tr></table></figure>
+
+<p>代码第18行<code>const fooPromise = getFoo();</code>即触发了<code>getFoo</code>中的异步操作，并且返回一个promise对象，其状态为pending。</p>
+<p>代码第21行<code>const foo = await fooPromise;</code>，使用<code>await</code>命令等待fooPromise状态改变后返回。</p>
+<p>这样就很好理解书中的方法二的写法了：先调用所有需要的函数触发异步操作并立即返回promise对象，然后使用await命令等待所有异步操作完成。</p>
+
+                </article>
+            </div>
+
+        
+    </div>
+
+    <div class="row">
+        <!-- Comments -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA',
+            placeholder: '欢迎留言交流',
+            pageSize: '8',
+            visitor: 'true'
+        });
+    </script>
+
+
+
+            </div>
+        
+    </div>
+</div>
+
+    
+    <div id="totop" title="Let me fly">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+    <hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/brightonzhang" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/brightonzhang" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:hello@brightonzhang.com" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    &copy; 2019 Brighton Zhang<br>
+                    Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow">Hexo</a> ⌘ 
+                    Theme from <a href="https://github.com/brightonzhang/hexo-theme-nutshell" target="_blank" rel="external nofollow">Nutshell</a>
+
+                    
+                        
+                            
+                                ⌘ Deployed on <a href="https://github.com/brightonzhang/brightonzhang.com.git" target="_blank" rel="external nofollow">GitHub Pages</a>
+                                
+                    
+                    <br/>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<script src="//cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.min.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>
