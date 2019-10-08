@@ -1,4 +1,5 @@
 https://brightonzhang.com/posts/mommychoose-project/
+https://brightonzhang.com/posts/index-stock-chart/
 https://brightonzhang.com/posts/focus-stocks/
 https://brightonzhang.com/posts/async-await-trigger-simultaneously/
 https://brightonzhang.com/posts/technical-indicators-for-stock-trading/
