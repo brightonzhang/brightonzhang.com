@@ -1,3 +1,4 @@
+https://brightonzhang.com/posts/reactjs-notes/
 https://brightonzhang.com/posts/upper-shadow/
 https://brightonzhang.com/posts/time-stock-choosing/
 https://brightonzhang.com/posts/using-live-stock-charts/

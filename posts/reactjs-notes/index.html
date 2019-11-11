@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh" >
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Title -->
+    
+    <title>React.js笔记 - BRIGHTON ZHANG</title>
+
+    <!-- open graph -->
+    
+    <meta name="description" content="本文主要记录React学习笔记。 学习资料： React官网 《React.js 小书》 Redux 中文文档 http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.htmlhttps://jin-yang.github.io/post/react-redux-introduce.html">
+<meta name="keywords" content="JavaScript,React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React.js笔记">
+<meta property="og:url" content="https://brightonzhang.com/posts/reactjs-notes/index.html">
+<meta property="og:site_name" content="BRIGHTON ZHANG">
+<meta property="og:description" content="本文主要记录React学习笔记。 学习资料： React官网 《React.js 小书》 Redux 中文文档 http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.htmlhttps://jin-yang.github.io/post/react-redux-introduce.html">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://brightonzhang.com/imgs/neptune.png">
+<meta property="og:updated_time" content="2019-11-10T09:50:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React.js笔记">
+<meta name="twitter:description" content="本文主要记录React学习笔记。 学习资料： React官网 《React.js 小书》 Redux 中文文档 http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.htmlhttps://jin-yang.github.io/post/react-redux-introduce.html">
+<meta name="twitter:image" content="https://brightonzhang.com/imgs/neptune.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114837917-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114837917-1');
+    </script>
+
+
+
+    <!-- Baidu Tongji -->
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?ca817bd39bbbac0ebd13f866fbc29749";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+</head>
+
+
+<body  data-spy="scroll" data-target="#tocScrollspy"  >
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BRIGHTON</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    
+<header class="intro-header" style="background-image: url('')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <!-- Tags and categories -->
+                        
+                            <div class="post-tag-category">
+                                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+                                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+                            </div>
+                        
+
+                        <h1>React.js笔记</h1>
+                        
+
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2019-11-10T09:50:48.000Z" itemprop="datePublished">11/10/2019</time>
+</p>
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Main Content -->
+        
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 " >
+        
+
+                <article class="post-article" >
+                    <p>本文主要记录React学习笔记。</p>
+<p>学习资料：</p>
+<p><a href="https://zh-hans.reactjs.org/" target="_blank" rel="noopener">React官网</a></p>
+<p><a href="http://huziketang.mangojuice.top/books/react/" target="_blank" rel="noopener">《React.js 小书》</a></p>
+<p><a href="http://github.com/camsong/redux-in-chinese" target="_blank" rel="noopener">Redux 中文文档</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html</a><br><a href="https://jin-yang.github.io/post/react-redux-introduce.html" target="_blank" rel="noopener">https://jin-yang.github.io/post/react-redux-introduce.html</a></p>
+<a id="more"></a> 
+
+
+
+<h1 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h1><p>JSX 是 JavaScript 语言的一种语法扩展，长得像 HTML，但并不是 HTML。React.js 可以用 JSX 来描述你的组件长什么样的。JSX 在编译的时候会变成相应的 JavaScript 对象描述。react-dom 负责把这个用来描述 UI 信息的 JavaScript 对象变成 DOM 元素，并且渲染到页面上。</p>
+<p>在 JSX 当中可以插入 JavaScript 的表达式，表达式返回的结果会相应地渲染到页面上。表达式用 {} 包裹。{} 内可以放任何 JavaScript 的代码，包括变量、表达式计算、函数执行等等。 render 会把这些代码返回的内容如实地渲染到页面上，非常的灵活。</p>
+<p>表达式插入不仅仅可以用在标签内部，也可以用在标签的属性上。</p>
+<p>注意，直接使用 class 在 React.js 的元素上添加类名如 <div class="“xxx”"> 这种方式是不合法的。因为 class 是 JavaScript 的关键字，所以 React.js 中定义了一种新的方式：className 来帮助我们给元素添加类名。</div></p>
+<p>还有一个特例就是 for 属性，例如 <label for="male">Male</label>，因为 for 也是 JavaScript 的关键字，所以在 JSX 用 htmlFor 替代，即 <label htmlfor="male">Male</label>。而其他的 HTML 属性例如 style 、data-* 等就可以像普通的 HTML 属性那样直接添加上去。</p>
+<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><p>React.js 中一切皆组件，用 React.js 写的其实就是 React.js 组件。我们在编写 React.js 组件的时候，一般都需要继承 React.js 的 Component（还有别的编写组件的方式）。</p>
+<p>一个组件类必须要实现一个 render 方法，这个 render 方法必须要返回一个 JSX 元素——必须要用一个外层的 JSX 元素把所有内容包裹起来。</p>
+<p><strong>自定义的组件都必须要用大写字母开头，普通的 HTML 标签都用小写字母开头</strong>。</p>
+<h2 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h2><p>在 React.js 不需要手动调用浏览器原生的 addEventListener 进行事件监听。React.js 帮我们封装好了一系列的 on* 的属性，当你需要为某个元素监听某个事件的时候，只需要简单地给它加上 on* 就可以了。React.js 会给每个事件监听传入一个 event 对象，这个对象提供的功能和浏览器提供的功能一致，而且它是兼容所有浏览器的。</p>
+<p>React.js 封装了不同类型的事件，这里就不一一列举，可以参考官网文档： <a href="https://facebook.github.io/react/docs/events.html#supported-events" target="_blank" rel="noopener">SyntheticEvent - React</a>。另外要注意的是，这些事件属性名都必须要用驼峰命名法。</p>
+<p>没有经过特殊处理的话，<strong>这些 on* 的事件监听只能用在普通的 HTML 的标签上，而不能用在组件标签上</strong>。</p>
+<p>React.js 调用你所传给它的方法的时候，并不是通过对象方法的方式调用（this.handleClickOnTitle），而是直接通过函数调用 （handleClickOnTitle），所以事件监听函数内并不能通过 this 获取到实例。如果你想在事件函数当中使用当前的实例，你需要手动地将实例方法 bind 到当前实例上再传入给 React.js。</p>
+<h2 id="state"><a href="#state" class="headerlink" title="state"></a>state</h2><p>setState 方法由父类 Component 所提供。<strong>当我们调用这个函数的时候，React.js 会更新组件的状态 state ，并且重新调用 render 方法，然后再把 render 方法所渲染的最新的内容显示到页面上</strong>。</p>
+<p>注意，当我们要改变组件的状态的时候，不能直接用 this.state = xxx 这种方式来修改，如果这样做 React.js 就没办法知道你修改了组件的状态，它也就没有办法更新页面。所以，一定要使用 React.js 提供的 setState 方法，<strong>它接受一个对象或者函数作为参数</strong>。</p>
+<p>当你调用 setState 的时候，<strong>React.js 并不会马上修改 state</strong>。而是把这个对象放到一个更新队列里面，稍后才会从队列当中把新的状态提取出来合并到 state 当中，然后再触发组件更新。</p>
+<p>这里就自然地引出了 setState 的第二种使用方式，可以接受一个函数作为参数。React.js 会把上一个 setState 的结果传入这个函数，你就可以使用该结果进行运算、操作，然后返回一个对象作为更新 state 的对象：</p>
+<p>在 React.js 内部会把 JavaScript 事件循环中的消息队列的同一个消息中的 setState 都进行合并以后再重新渲染组件。</p>
+<h2 id="props"><a href="#props" class="headerlink" title="props"></a>props</h2><p><strong>在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值</strong>。</p>
+<p>组件可以在内部通过 this.props 获取到配置参数，组件可以根据 props 的不同来确定自己的显示形态，达到可配置的效果。可以通过给组件添加类属性 defaultProps 来配置默认参数。props 一旦传入，你就不可以在组件内部对它进行修改。但是你可以通过父组件主动重新渲染的方式来传入新的 props，从而达到更新的效果。</p>
+<h2 id="state-vs-props"><a href="#state-vs-props" class="headerlink" title="state vs props"></a>state vs props</h2><p>state 的主要作用是用于组件保存、控制、修改自己的可变状态。state 在组件内部初始化，可以被组件自身修改，而外部不能访问也不能修改。你可以认为 state 是一个局部的、只能被组件自身控制的数据源。state 中状态可以通过 this.setState 方法进行更新，setState 会导致组件的重新渲染。</p>
+<p>props 的主要作用是让使用该组件的父组件可以传入参数来配置该组件。它是外部传进来的配置参数，组件内部无法控制也无法修改。除非外部组件主动传入新的 props，否则组件的 props 永远保持不变。</p>
+<p>state 和 props 有着千丝万缕的关系。它们都可以决定组件的行为和显示形态。一个组件的 state 中的数据可以通过 props 传给子组件，一个组件可以使用外部传入的 props 来初始化自己的 state。但是它们的职责其实非常明晰分明：state 是让组件控制自己的状态，props 是让外部对组件自己进行配置。</p>
+<p>如果你觉得还是搞不清 state 和 props 的使用场景，那么请记住一个简单的规则：尽量少地用 state，尽量多地用 props。</p>
+<p>没有 state 的组件叫无状态组件（stateless component），设置了 state 的叫做有状态组件（stateful component）。因为状态会带来管理的复杂性，我们尽量多地写无状态组件，尽量少地写有状态的组件。这样会降低代码维护的难度，也会在一定程度上增强组件的可复用性。前端应用状态管理是一个复杂的问题，我们后续会继续讨论。</p>
+<p>React.js 非常鼓励无状态组件，在 0.14 版本引入了函数式组件——一种定义不能使用 state 组件。</p>
+<h1 id="渲染列表数据"><a href="#渲染列表数据" class="headerlink" title="渲染列表数据"></a>渲染列表数据</h1><p><strong>如果你往 {} 放一个数组，React.js 会帮你把数组里面一个个元素罗列并且渲染出来</strong>。</p>
+<p><strong>使用 map 渲染列表数据</strong></p>
+<p><strong>对于用表达式套数组罗列到页面上的元素，都要为每个元素加上 key 属性，这个 key 必须是每个元素唯一的标识</strong>。一般来说，key 的值可以直接后台数据返回的 id</p>
+<h1 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a><strong>组件生命周期</strong></h1><p>React.js 将组件渲染，并且构造 DOM 元素然后塞入页面的过程称为组件的挂载。</p>
+<p>React.js 控制组件在页面上挂载和删除过程里面几个方法：</p>
+<ul>
+<li>componentWillMount：组件挂载开始之前，也就是在组件调用 render 方法之前调用。</li>
+<li>componentDidMount：组件挂载完成以后，也就是 DOM 元素已经插入页面后调用。</li>
+<li>componentWillUnmount：组件对应的 DOM 元素从页面中删除之前调用。</li>
+</ul>
+<p>除了挂载阶段，还有一种“更新阶段”。说白了就是 <code>setState</code> 导致 React.js 重新渲染组件并且把组件的变化应用到 DOM 元素上的过程，<em>这是一个组件的变化过程</em>。</p>
+<ol>
+<li><code>shouldComponentUpdate(nextProps, nextState)</code>：你可以通过这个方法控制组件是否重新渲染。如果返回 <code>false</code> 组件就不会重新渲染。这个生命周期在 React.js 性能优化上非常有用。</li>
+<li><code>componentWillReceiveProps(nextProps)</code>：组件从父组件接收到新的 <code>props</code> 之前调用。</li>
+<li><code>componentWillUpdate()</code>：组件开始重新渲染之前调用。</li>
+<li><code>componentDidUpdate()</code>：组件重新渲染并且把更改变更到真实的 DOM 以后调用。</li>
+</ol>
+<h1 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h1><p>React.js 当中提供了 <code>ref</code> 属性来获取已经挂载的元素的 DOM 节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutoFocusInput</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  componentDidMount () &#123;</span><br><span class="line">    <span class="keyword">this</span>.input.focus()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;input ref=&#123;(input) =&gt; <span class="keyword">this</span>.input = input&#125; /&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;AutoFocusInput /&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>可以看到我们给 <code>input</code> 元素加了一个 <code>ref</code> 属性，这个属性值是一个函数。当 <code>input</code> 元素在页面上挂载完成以后，React.js 就会调用这个函数，并且把这个挂载以后的 DOM 节点传给这个函数。在函数中我们把这个 DOM 元素设置为组件实例的一个属性，这样以后我们就可以通过 <code>this.input</code> 获取到这个 DOM 元素。</p>
+<p>记住一个原则：<em>能不用 <code>ref</code> 就不用</em>。</p>
+<h1 id="props-children"><a href="#props-children" class="headerlink" title="props.children"></a>props.children</h1><p>使用自定义组件的时候，可以在其中嵌套 JSX 结构。嵌套的结构在组件内部都可以通过 props.children 获取到，这种组件编写方式在编写容器类型的组件当中非常有用。</p>
+<h1 id="PropTypes"><a href="#PropTypes" class="headerlink" title="PropTypes"></a><strong>PropTypes</strong></h1><p>通过 PropTypes 给组件的参数做类型限制。</p>
+<p>先安装一个 React 提供的第三方库 <code>prop-types</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save prop-types</span><br></pre></td></tr></table></figure>
+
+<p>它可以帮助我们验证 <code>props</code> 的参数类型，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Comment</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    comment: PropTypes.object</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; comment &#125; = <span class="keyword">this</span>.props</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">'comment'</span>&gt;</span><br><span class="line">        &lt;div className=<span class="string">'comment-user'</span>&gt;</span><br><span class="line">          &lt;span&gt;&#123;comment.username&#125; &lt;<span class="regexp">/span&gt;：</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">        &lt;p&gt;&#123;comment.content&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同样地可以在 CommentInput 中使用 wrapWithLoadData，这里就不贴代码了。有兴趣的同学可以查看<a href="https://github.com/huzidaha/react-naive-book-examples/commit/0d67eab713c042301fa4992c719069e92a7243f5" target="_blank" rel="noopener">高阶组件重构的 CommentApp 版本</a>。</p>
+<h1 id="高阶组件（Higher-Order-Components）"><a href="#高阶组件（Higher-Order-Components）" class="headerlink" title="高阶组件（Higher-Order Components）"></a>高阶组件（Higher-Order Components）</h1><p>高阶组件就是一个函数，传给它一个组件，它返回一个新的组件。新的组件使用传入的组件作为子组件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (WrappedComponent, name) =&gt; &#123;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">NewComponent</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span> () &#123;</span><br><span class="line">      <span class="keyword">super</span>()</span><br><span class="line">      <span class="keyword">this</span>.state = &#123; <span class="attr">data</span>: <span class="literal">null</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentWillMount () &#123;</span><br><span class="line">      <span class="keyword">let</span> data = localStorage.getItem(name)</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123; data &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render () &#123;</span><br><span class="line">      <span class="keyword">return</span> &lt;WrappedComponent data=&#123;this.state.data&#125; /&gt;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return NewComponent</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>NewComponent</code> 会根据第二个参数 <code>name</code> 在挂载阶段从 LocalStorage 加载数据，并且 <code>setState</code> 到自己的 <code>state.data</code> 中，而渲染的时候将 <code>state.data</code> 通过 <code>props.data</code> 传给 <code>WrappedComponent</code>。</p>
+<p>这个高阶组件有什么用呢？假设上面的代码是在 <code>src/wrapWithLoadData.js</code> 文件中的，我们可以在别的地方这么用它：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> wrapWithLoadData <span class="keyword">from</span> <span class="string">'./wrapWithLoadData'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InputWithUserName</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;input value=&#123;this.props.data&#125; /&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">InputWithUserName = wrapWithLoadData(InputWithUserName, 'username')</span><br><span class="line">export default InputWithUserName</span><br></pre></td></tr></table></figure>
+
+<p>假如 <code>InputWithUserName</code> 的功能需求是挂载的时候从 LocalStorage 里面加载 <code>username</code> 字段作为 <code>&lt;input /&gt;</code> 的 <code>value</code> 值，现在有了 <code>wrapWithLoadData</code>，我们可以很容易地做到这件事情。</p>
+<p>高阶组件的作用是用于代码复用，可以把组件之间可复用的代码、逻辑抽离到高阶组件当中。新的组件和传入的组件通过 props 传递信息。</p>
+<h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><p>Redux 是一种架构模式（Flux 架构的一种变种），它不关注你到底用什么库，你可以把它应用到 React 和 Vue，甚至跟 jQuery 结合都没有问题。而 React-redux 就是把 Redux 这种架构模式和 React.js 结合起来的一个库，就是 Redux 架构在 React.js 中的体现。</p>
+<h1 id="Smart-组件-vs-Dumb-组件"><a href="#Smart-组件-vs-Dumb-组件" class="headerlink" title="Smart 组件 vs Dumb 组件"></a>Smart 组件 vs Dumb 组件</h1><p>根据是否需要高度的复用性，把组件划分为 Dumb 和 Smart 组件，约定俗成地把它们分别放到 components 和 containers 目录下。</p>
+<p>Dumb 基本只做一件事情 —— 根据 props 进行渲染。而 Smart 则是负责应用的逻辑、数据，把所有相关的 Dumb（Smart）组件组合起来，通过 props 控制它们。</p>
+<p>Smart 组件可以使用 Smart、Dumb 组件；而 Dumb 组件最好只使用 Dumb 组件，否则它的复用性就会丧失。</p>
+<p>要根据应用场景不同划分组件，如果一个组件并不需要太强的复用性，直接让它成为 Smart 即可；否则就让它成为 Dumb 组件。</p>
+<p>还有一点要注意，Smart 组件并不意味着完全不能复用，Smart 组件的复用性是依赖场景的，在特定的应用场景下是当然是可以复用 Smart 的。而 Dumb 则是可以跨应用场景复用，Smart 和 Dumb 都可以复用，只是程度、场景不一样。</p>
+
+                </article>
+            </div>
+
+        
+            <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
+                 <aside class="toc-wrap nav" data-spy="affix">
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JSX"><span class="toc-number">1.</span> <span class="toc-text">JSX</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件"><span class="toc-number">2.</span> <span class="toc-text">组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件监听"><span class="toc-number">2.1.</span> <span class="toc-text">事件监听</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#state"><span class="toc-number">2.2.</span> <span class="toc-text">state</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#props"><span class="toc-number">2.3.</span> <span class="toc-text">props</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#state-vs-props"><span class="toc-number">2.4.</span> <span class="toc-text">state vs props</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#渲染列表数据"><span class="toc-number">3.</span> <span class="toc-text">渲染列表数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件生命周期"><span class="toc-number">4.</span> <span class="toc-text">组件生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ref"><span class="toc-number">5.</span> <span class="toc-text">ref</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#props-children"><span class="toc-number">6.</span> <span class="toc-text">props.children</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PropTypes"><span class="toc-number">7.</span> <span class="toc-text">PropTypes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高阶组件（Higher-Order-Components）"><span class="toc-number">8.</span> <span class="toc-text">高阶组件（Higher-Order Components）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redux"><span class="toc-number">9.</span> <span class="toc-text">Redux</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Smart-组件-vs-Dumb-组件"><span class="toc-number">10.</span> <span class="toc-text">Smart 组件 vs Dumb 组件</span></a></li></ol>
+</aside>
+            </div>
+        
+    </div>
+
+    <div class="row">
+        <!-- Comments -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA',
+            placeholder: '欢迎留言交流',
+            pageSize: '8',
+            visitor: 'true'
+        });
+    </script>
+
+
+
+            </div>
+        
+    </div>
+</div>
+
+    
+    <div id="totop" title="Let me fly">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+    <hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/brightonzhang" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/brightonzhang" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:hello@brightonzhang.com" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    &copy; 2019 Brighton Zhang<br>
+                    Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow">Hexo</a> ⌘ 
+                    Theme from <a href="https://github.com/brightonzhang/hexo-theme-nutshell" target="_blank" rel="external nofollow">Nutshell</a>
+
+                    
+                        
+                            
+                                ⌘ Deployed on <a href="https://github.com/brightonzhang/brightonzhang.com.git" target="_blank" rel="external nofollow">GitHub Pages</a>
+                                
+                    
+                    <br/>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<script src="//cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.min.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>
