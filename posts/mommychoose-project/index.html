@@ -24,7 +24,7 @@
 <meta property="og:description" content="技术栈： vuejs + node.js">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="https://brightonzhang.com/imgs/neptune.png">
-<meta property="og:updated_time" content="2019-09-26T03:52:30.000Z">
+<meta property="og:updated_time" content="2019-11-26T03:52:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="妈咪臻选小程序商城全栈开发">
 <meta name="twitter:description" content="技术栈： vuejs + node.js">
@@ -162,7 +162,8 @@
     Posted 
     
 
-    on  <time datetime="2019-09-26T03:52:30.000Z" itemprop="datePublished">09/26/2019</time>
+    on  <time datetime="2019-09-26T03:52:30.000Z" itemprop="datePublished">09/26/2019</time>, last updated on <time datetime="2019-11-26T03:52:30.000Z" itemprop="dateUpdated">11/26/2019</time>
+    
 </p>
                         </span>
                     </div>
@@ -183,33 +184,34 @@
                 <article class="post-article" >
                     <p>技术栈：</p>
 <p>vuejs + node.js</p>
-<a id="more"></a> 
+<a id="more"></a>
 
-
-
-<h1 id="框架选择"><a href="#框架选择" class="headerlink" title="框架选择"></a>框架选择</h1><p>要考虑后续扩展，以及后台管理系统复用，选择使用mpvue。</p>
-<h1 id="平台选择"><a href="#平台选择" class="headerlink" title="平台选择"></a>平台选择</h1><h2 id="小程序云开发"><a href="#小程序云开发" class="headerlink" title="小程序云开发"></a>小程序云开发</h2><p>云开发提供了云函数、数据库以及存储功能，这样似乎就可以不搭建后台后端服务器。但后来发现，云开发只提供了小程序的API。服务端API还是需要后台服务器去调用。论坛看到有说要提供JS API，但是没有时间点。所以如果仅此用于开发而不达后端服务器，没办法完成整个商城的功能。既然反正需要后端服务器，那就不在折腾云开发了。</p>
-<h2 id="leancloud"><a href="#leancloud" class="headerlink" title="leancloud"></a>leancloud</h2><p>leancloud提供了比较宽松的免费开发版本，觉得基本可以满足当前商城的使用情况。另外觉得他们家的文档写的比较好。<br>但是LeanCloud 中国版 10 月份会开始停止为不绑定自有域名的应用服务。绑定的域名当然还得备案。而现在LeanCloud停止了对开发版应用进行备案或者接入的支持，他们建议的方式包括到 IaaS 服务商处自行完成备案和接入（华北节点是和 UCloud 合作，华东节点是和腾讯云合作）。<br>之前了解过腾讯云的备案要求，要求购买到云服务器三个月以上。看了一下，UCloud没有购买时长的要求，觉得应该会便宜一些。所以选择了UCloud注册域名并备案。</p>
-<p>除了数据库，还有大量的商品图片需要保存。LeanCloud 云端也支持「文件」类数据的存储。但是HTTPS 文件流量无免费的使用额度，而微信小程序强制要求使用https访问。所以需要考虑把图片存在其他的地方。而UCloud提供了对象存储的功能，可以满足该需求。</p>
+<h1 id="框架选择"><a href="#框架选择" class="headerlink" title="框架选择"></a>框架选择</h1><p>要考虑后续扩展，以及后台管理系统复用，选择使用 mpvue。</p>
+<h1 id="平台选择"><a href="#平台选择" class="headerlink" title="平台选择"></a>平台选择</h1><h2 id="小程序云开发"><a href="#小程序云开发" class="headerlink" title="小程序云开发"></a>小程序云开发</h2><p>云开发提供了云函数、数据库以及存储功能，这样似乎就可以不搭建后台后端服务器。但后来发现，云开发只提供了小程序的 API。服务端 API 还是需要后台服务器去调用。论坛看到有说要提供 JS API，但是没有时间点。所以如果仅此用于开发而不达后端服务器，没办法完成整个商城的功能。既然反正需要后端服务器，那就不在折腾云开发了。</p>
+<h2 id="leancloud"><a href="#leancloud" class="headerlink" title="leancloud"></a>leancloud</h2><p>leancloud 提供了比较宽松的免费开发版本，觉得基本可以满足当前商城的使用情况。另外觉得他们家的文档写的比较好。<br>但是 LeanCloud 中国版 10 月份会开始停止为不绑定自有域名的应用服务。绑定的域名当然还得备案。而现在 LeanCloud 停止了对开发版应用进行备案或者接入的支持，他们建议的方式包括到 IaaS 服务商处自行完成备案和接入（华北节点是和 UCloud 合作，华东节点是和腾讯云合作）。<br>之前了解过腾讯云的备案要求，要求购买到云服务器三个月以上。看了一下，UCloud 没有购买时长的要求，觉得应该会便宜一些。所以选择了 UCloud 注册域名并备案。</p>
+<p>除了数据库，还有大量的商品图片需要保存。LeanCloud 云端也支持「文件」类数据的存储。但是 HTTPS 文件流量无免费的使用额度，而微信小程序强制要求使用 https 访问。所以需要考虑把图片存在其他的地方。而 UCloud 提供了对象存储的功能，可以满足该需求。</p>
 <h1 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h1><p>参考 <a href="https://leancloud.cn/docs/relation-guide.html" target="_blank" rel="noopener">数据模型设计指南</a></p>
-<p>需要这样几张表，即class。</p>
-<ul>
-<li>用户</li>
-<li>商品</li>
-<li>分类</li>
-<li>品牌。</li>
-</ul>
-<p>其中品牌/分类和商品是一对多的关系。</p>
-<p>每个商品需要包含如下的属性:</p>
-<ul>
-<li>名称</li>
-<li>价格</li>
-<li>销量</li>
-<li>收藏数</li>
-<li>参数</li>
-<li>详情</li>
-<li>评论</li>
-</ul>
+<h1 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h1><h2 id="后台"><a href="#后台" class="headerlink" title="后台"></a>后台</h2><h3 id="表格拖拽排序"><a href="#表格拖拽排序" class="headerlink" title="表格拖拽排序"></a>表格拖拽排序</h3><p><a href="https://segmentfault.com/a/1190000020210917" target="_blank" rel="noopener">Element ui 表格组件+sortablejs 实现行拖拽排序</a></p>
+<h3 id="图片拖拽"><a href="#图片拖拽" class="headerlink" title="图片拖拽"></a>图片拖拽</h3><p>图片拖动排序，删除实现： <a href="https://github.com/SortableJS/Vue.Draggable" target="_blank" rel="noopener">https://github.com/SortableJS/Vue.Draggable</a></p>
+<h3 id="页面刷新跳转提示"><a href="#页面刷新跳转提示" class="headerlink" title="页面刷新跳转提示"></a>页面刷新跳转提示</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/onbeforeunload" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/onbeforeunload</a></p>
+<h3 id="快递查询"><a href="#快递查询" class="headerlink" title="快递查询"></a>快递查询</h3><p>快递 100：免费 100 单试用。同一个快递公司同一个运单号在同一个自然月内多次查询只计一次费用，实时扣费，费用为 0.1 元/单。</p>
+<p>快递鸟：免费的即时查询接口: 限 500 次/天（即时查询 仅支持 3 家申通、圆通、中通）</p>
+<p>快递鸟 NodeJS 非官方模块 <a href="https://github.com/mengkeys/kdniao" target="_blank" rel="noopener">https://github.com/mengkeys/kdniao</a></p>
+<h3 id="Node-js-发送邮件"><a href="#Node-js-发送邮件" class="headerlink" title="Node.js 发送邮件"></a>Node.js 发送邮件</h3><p>Nodemailer 是一个简单易用的 Node.js 邮件发送组件</p>
+<p>官网地址：<a href="https://nodemailer.com/" target="_blank" rel="noopener">https://nodemailer.com</a></p>
+<p>GitHub 地址：<a href="https://github.com/nodemailer/nodemailer" target="_blank" rel="noopener">https://github.com/nodemailer/nodemailer</a></p>
+<h2 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h2><h3 id="横向滚动"><a href="#横向滚动" class="headerlink" title="横向滚动"></a>横向滚动</h3><p><a href="https://segmentfault.com/a/1190000018500042" target="_blank" rel="noopener">微信小程序 scroll-view 横向滚动的实践踩坑及隐藏其滚动条的实现</a></p>
+<h3 id="mpvue-中属性表达式使用数组异常"><a href="#mpvue-中属性表达式使用数组异常" class="headerlink" title="mpvue 中属性表达式使用数组异常"></a>mpvue 中属性表达式使用数组异常</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 不正常</span><br><span class="line"> &lt;van-tag</span><br><span class="line">    v-for=&quot;(item, index) in sku.level1.tags&quot;</span><br><span class="line">    :key=&quot;index&quot;</span><br><span class="line">    :color=&quot;selectedSku[0] ==index?&apos;#ff0000&apos;:&apos;#000000&apos;&quot;</span><br><span class="line">    size=&quot;large&quot;</span><br><span class="line">    plain</span><br><span class="line">    @click=&quot;onSkuL1Click(index)&quot;&gt; &#123;&#123;item.name&#125;&#125; &lt;/van-tag&gt;</span><br><span class="line"></span><br><span class="line">    // 正常</span><br><span class="line"> &lt;van-tag</span><br><span class="line">    v-for=&quot;(item, index) in sku.level1.tags&quot;</span><br><span class="line">    :key=&quot;index&quot;</span><br><span class="line">    :color=&quot;selectedSkuL1 ==index?&apos;#ff0000&apos;:&apos;#000000&apos;&quot;</span><br><span class="line">    size=&quot;large&quot;</span><br><span class="line">    plain</span><br><span class="line">    @click=&quot;onSkuL1Click(index)&quot;&gt; &#123;&#123;item.name&#125;&#125; &lt;/van-tag&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="background-image"><a href="#background-image" class="headerlink" title="background-image"></a>background-image</h3><p>微信小程序通过 background-image 设置背景：只支持线上图片和 base64 图片，不支持本地图片；base64 图片设置步骤如下：</p>
+<p>1.在网站<a href="http://imgbase64.duoshitong.com/上将图片转成base64格式的文本" target="_blank" rel="noopener">http://imgbase64.duoshitong.com/上将图片转成base64格式的文本</a></p>
+<p>2.在 WXSS 中使用以上文本：background-image: url(“data:image/png;base64,iVBORw0KGgo=…”);</p>
+<p>3.为了使背景图片自适应宽高，可以做如下设置：</p>
+<p>background-repeat:no-repeat;</p>
+<p>background-size:100% 100%;</p>
+<p>-moz-background-size:100% 100%;</p>
+<h3 id="物流状态时间轴"><a href="#物流状态时间轴" class="headerlink" title="物流状态时间轴"></a>物流状态时间轴</h3><p><a href="https://juejin.im/post/5bd17b0be51d457ab36d00b3" target="_blank" rel="noopener">微信小程序之物流状态时间轴</a> <a href="https://github.com/super456/weapp_expressTime" target="_blank" rel="noopener">https://github.com/super456/weapp_expressTime</a></p>
+<p>#</p>
 
                 </article>
             </div>
@@ -218,7 +220,7 @@
             <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
                  <aside class="toc-wrap nav" data-spy="affix">
     <strong class="toc-title">Contents</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#框架选择"><span class="toc-number">1.</span> <span class="toc-text">框架选择</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#平台选择"><span class="toc-number">2.</span> <span class="toc-text">平台选择</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#小程序云开发"><span class="toc-number">2.1.</span> <span class="toc-text">小程序云开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leancloud"><span class="toc-number">2.2.</span> <span class="toc-text">leancloud</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库设计"><span class="toc-number">3.</span> <span class="toc-text">数据库设计</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#框架选择"><span class="toc-number">1.</span> <span class="toc-text">框架选择</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#平台选择"><span class="toc-number">2.</span> <span class="toc-text">平台选择</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#小程序云开发"><span class="toc-number">2.1.</span> <span class="toc-text">小程序云开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leancloud"><span class="toc-number">2.2.</span> <span class="toc-text">leancloud</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库设计"><span class="toc-number">3.</span> <span class="toc-text">数据库设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#踩坑记录"><span class="toc-number">4.</span> <span class="toc-text">踩坑记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#后台"><span class="toc-number">4.1.</span> <span class="toc-text">后台</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#表格拖拽排序"><span class="toc-number">4.1.1.</span> <span class="toc-text">表格拖拽排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片拖拽"><span class="toc-number">4.1.2.</span> <span class="toc-text">图片拖拽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#页面刷新跳转提示"><span class="toc-number">4.1.3.</span> <span class="toc-text">页面刷新跳转提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快递查询"><span class="toc-number">4.1.4.</span> <span class="toc-text">快递查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js-发送邮件"><span class="toc-number">4.1.5.</span> <span class="toc-text">Node.js 发送邮件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小程序"><span class="toc-number">4.2.</span> <span class="toc-text">小程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#横向滚动"><span class="toc-number">4.2.1.</span> <span class="toc-text">横向滚动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mpvue-中属性表达式使用数组异常"><span class="toc-number">4.2.2.</span> <span class="toc-text">mpvue 中属性表达式使用数组异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-image"><span class="toc-number">4.2.3.</span> <span class="toc-text">background-image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#物流状态时间轴"><span class="toc-number">4.2.4.</span> <span class="toc-text">物流状态时间轴</span></a></li></ol></li></ol></li></ol>
 </aside>
             </div>
         

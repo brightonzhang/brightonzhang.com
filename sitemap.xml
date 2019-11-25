@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://brightonzhang.com/posts/mommychoose-project/</loc>
+    
+    <lastmod>2019-11-26T03:52:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://brightonzhang.com/posts/reactjs-notes/</loc>
     
     <lastmod>2019-11-10T09:50:48.000Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://brightonzhang.com/posts/index-stock-chart/</loc>
     
     <lastmod>2019-10-08T07:22:17.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://brightonzhang.com/posts/mommychoose-project/</loc>
-    
-    <lastmod>2019-09-26T03:52:30.000Z</lastmod>
     
   </url>
   
@@ -86,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://brightonzhang.com/tags/index.html</loc>
+    <loc>https://brightonzhang.com/categories/index.html</loc>
     
     <lastmod>2019-07-29T09:21:09.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://brightonzhang.com/categories/index.html</loc>
+    <loc>https://brightonzhang.com/tags/index.html</loc>
     
     <lastmod>2019-07-29T09:21:09.000Z</lastmod>
     
