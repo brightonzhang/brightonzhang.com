@@ -15,19 +15,19 @@
 
     <!-- open graph -->
     
-    <meta name="description" content="下面的内容主要参考了 Airbnb 公司的 JavaScript 风格规范。">
+    <meta name="description" content="在 Airbnb 公司的 JavaScript 风格规范中挑了一些需要特别注意的点。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 编程风格推荐">
 <meta property="og:url" content="https://brightonzhang.com/posts/js-style/index.html">
 <meta property="og:site_name" content="BRIGHTON ZHANG">
-<meta property="og:description" content="下面的内容主要参考了 Airbnb 公司的 JavaScript 风格规范。">
+<meta property="og:description" content="在 Airbnb 公司的 JavaScript 风格规范中挑了一些需要特别注意的点。">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="https://brightonzhang.com/posts/javascript-basic/fa9189f8764dd5ad.jpg">
 <meta property="og:updated_time" content="2020-01-09T13:20:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 编程风格推荐">
-<meta name="twitter:description" content="下面的内容主要参考了 Airbnb 公司的 JavaScript 风格规范。">
+<meta name="twitter:description" content="在 Airbnb 公司的 JavaScript 风格规范中挑了一些需要特别注意的点。">
 <meta name="twitter:image" content="https://brightonzhang.com/posts/javascript-basic/fa9189f8764dd5ad.jpg">
 
     <!-- CSS -->
@@ -182,16 +182,49 @@
         
 
                 <article class="post-article" >
-                    <p>下面的内容主要参考了 <a href="https://github.com/airbnb/javascript" target="_blank" rel="noopener">Airbnb</a> 公司的 JavaScript 风格规范。</p>
+                    <p>在 <a href="https://github.com/airbnb/javascript" target="_blank" rel="noopener">Airbnb</a> 公司的 JavaScript 风格规范中挑了一些需要特别注意的点。</p>
 <a id="more"></a> 
+
+<p>#对象Objects</p>
+<p>对象浅拷贝时，更推荐使用扩展运算符[就是<code>...</code>运算符]，而不是<code>Object.assign</code>。获取对象指定的几个属性时，用对象的rest解构运算符[也是<code>...</code>运算符]更好。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// very bad</span></span><br><span class="line"><span class="keyword">const</span> original = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> copy = <span class="built_in">Object</span>.assign(original, &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;); <span class="comment">// this mutates `original` ಠ_ಠ</span></span><br><span class="line"><span class="keyword">delete</span> copy.a; <span class="comment">// so does this</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> original = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> copy = <span class="built_in">Object</span>.assign(&#123;&#125;, original, &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;); <span class="comment">// copy =&gt; &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// good es6扩展运算符 ...</span></span><br><span class="line"><span class="keyword">const</span> original = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="comment">// 浅拷贝</span></span><br><span class="line"><span class="keyword">const</span> copy = &#123; ...original, <span class="attr">c</span>: <span class="number">3</span> &#125;; <span class="comment">// copy =&gt; &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// rest 赋值运算符</span></span><br><span class="line"><span class="keyword">const</span> &#123; a, ...noA &#125; = copy; <span class="comment">// noA =&gt; &#123; b: 2, c: 3 &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="数组Arrays"><a href="#数组Arrays" class="headerlink" title="数组Arrays"></a>数组Arrays</h1><p>用扩展运算符做数组浅拷贝，类似上面的对象浅拷贝。</p>
+<p>用 <code>...</code> 运算符而不是<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener"><code>Array.from</code></a>来将一个可迭代的对象转换成数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.foo'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> nodes = <span class="built_in">Array</span>.from(foo);</span><br><span class="line"></span><br><span class="line"><span class="comment">// best</span></span><br><span class="line"><span class="keyword">const</span> nodes = [...foo];</span><br></pre></td></tr></table></figure>
+
+<p>用 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener"><code>Array.from</code></a> 去将一个类数组对象转成一个数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arrLike = &#123; <span class="number">0</span>: <span class="string">'foo'</span>, <span class="number">1</span>: <span class="string">'bar'</span>, <span class="number">2</span>: <span class="string">'baz'</span>, <span class="attr">length</span>: <span class="number">3</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> arr = <span class="built_in">Array</span>.prototype.slice.call(arrLike);</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> arr = <span class="built_in">Array</span>.from(arrLike);</span><br></pre></td></tr></table></figure>
+
+<p>用 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener"><code>Array.from</code></a> 而不是 <code>...</code> 运算符去做map遍历。 因为这样可以避免创建一个临时数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> baz = [...foo].map(bar);</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> baz = <span class="built_in">Array</span>.from(foo, bar);</span><br></pre></td></tr></table></figure>
 
 <h1 id="函数Functions"><a href="#函数Functions" class="headerlink" title="函数Functions"></a>函数Functions</h1><p><strong>用命名函数表达式而不是函数声明。</strong>eslint: <a href="http://eslint.org/docs/rules/func-style" target="_blank" rel="noopener">func-style</a></p>
 <p><strong>函数表达式：</strong> const func = function () {}<br> <strong>函数声明：</strong> function func() {}</p>
-<p> Why? <strong>函数声明时作用域被提前了，这意味着在一个文件里函数很容易（太容易了）在其定义之前被引用。这样伤害了代码可读性和可维护性。如果你发现一个函数有大又复杂，这个函数妨碍这个文件其他部分的理解性，这可能就是时候把这个函数单独抽成一个模块了。别忘了给表达式显示的命名，不用管这个名字是不是由一个确定的变量推断出来的，这消除了由匿名函数在错误调用栈产生的所有假设，这在现代浏览器和类似</strong>babel<strong>编译器中很常见</strong> (<a href="https://github.com/airbnb/javascript/issues/794" target="_blank" rel="noopener">Discussion</a>) Why? <strong>这一段还不理解这种错误发生的场景，所以只能直译过来了，</strong> <strong>另附</strong><a href="https://github.com/airbnb/javascript#functions--declarations" target="_blank" rel="noopener"><strong>原文</strong></a> Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error’s call stack. (<a href="https://github.com/airbnb/javascript/issues/794" target="_blank" rel="noopener">Discussion</a>)</p>
+<p> Why? <strong>函数声明时作用域被提前了，这意味着在一个文件里函数很容易（太容易了）在其定义之前被引用。这样伤害了代码可读性和可维护性。如果你发现一个函数有大又复杂，这个函数妨碍这个文件其他部分的理解性，这可能就是时候把这个函数单独抽成一个模块了。别忘了给表达式显示的命名，不用管这个名字是不是由一个确定的变量推断出来的，这消除了由匿名函数在错误调用栈产生的所有假设，这在现代浏览器和类似</strong>babel<strong>编译器中很常见</strong> (<a href="https://github.com/airbnb/javascript/issues/794" target="_blank" rel="noopener">Discussion</a>)<br><strong>另附</strong><a href="https://github.com/airbnb/javascript#functions--declarations" target="_blank" rel="noopener"><strong>原文</strong></a> ：<br>Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error’s call stack. (<a href="https://github.com/airbnb/javascript/issues/794" target="_blank" rel="noopener">Discussion</a>)</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="comment">// lexical name distinguished from the variable-referenced invocation(s)</span></span><br><span class="line"><span class="comment">// 函数表达式名和声明的函数名是不一样的</span></span><br><span class="line"><span class="keyword">const</span> short = <span class="function"><span class="keyword">function</span> <span class="title">longUniqueMoreDescriptiveLexicalFoo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p> <strong>把立即执行函数包裹在圆括号里。</strong> eslint: <a href="http://eslint.org/docs/rules/wrap-iife.html" target="_blank" rel="noopener">wrap-iife</a><br>   Why? immediately invoked function expression = IIFE Why? <strong>一个立即调用的函数表达式是一个单元</strong> - <strong>把它和他的调用者（圆括号）包裹起来，在括号中可以清晰的地表达这些。</strong> Why? <strong>注意：在模块化世界里，你几乎用不着</strong> IIFE</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// immediately-invoked function expression (IIFE)</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Welcome to the Internet. Please follow me.'</span>);</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+
+<h1 id="比较运算Comparison-Operators-amp-Equality"><a href="#比较运算Comparison-Operators-amp-Equality" class="headerlink" title="比较运算Comparison Operators &amp; Equality"></a>比较运算Comparison Operators &amp; Equality</h1><p>条件语句如’if’语句使用强制`ToBoolean’抽象方法来评估它们的表达式，并且始终遵循以下简单规则：</p>
+<ul>
+<li><strong>Objects</strong> 计算成 <strong>true</strong></li>
+<li><strong>Undefined</strong> 计算成 <strong>false</strong></li>
+<li><strong>Null</strong> 计算成 <strong>false</strong></li>
+<li><strong>Booleans</strong> 计算成 <strong>the value of the boolean</strong></li>
+<li>Numbers<ul>
+<li><strong>+0, -0, or NaN</strong> 计算成 <strong>false</strong></li>
+<li>其他 <strong>true</strong></li>
+</ul>
+</li>
+<li>Strings<ul>
+<li><code>&#39;&#39;</code> 计算成 <strong>false</strong></li>
+<li>其他 <strong>true</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ([<span class="number">0</span>] &amp;&amp; []) &#123;</span><br><span class="line">  <span class="comment">// true</span></span><br><span class="line">  <span class="comment">// 数组（即使是空数组）是对象，对象会计算成true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
                 </article>
             </div>
 
@@ -199,7 +232,7 @@
             <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
                  <aside class="toc-wrap nav" data-spy="affix">
     <strong class="toc-title">Contents</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数Functions"><span class="toc-number">1.</span> <span class="toc-text">函数Functions</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数组Arrays"><span class="toc-number">1.</span> <span class="toc-text">数组Arrays</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数Functions"><span class="toc-number">2.</span> <span class="toc-text">函数Functions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#比较运算Comparison-Operators-amp-Equality"><span class="toc-number">3.</span> <span class="toc-text">比较运算Comparison Operators &amp; Equality</span></a></li></ol>
 </aside>
             </div>
         
