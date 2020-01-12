@@ -11,23 +11,30 @@
 
     <!-- Title -->
     
-    <title>JavaScript - BRIGHTON ZHANG</title>
+    <title>使用Promise.reject而不是throw？ - BRIGHTON ZHANG</title>
 
     <!-- open graph -->
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="BRIGHTON ZHANG">
-<meta property="og:url" content="https://brightonzhang.com/tags/JavaScript/index.html">
+    <meta name="description" content="Promise的构造函数，以及被 then 调用执行的函数基本上都可以认为是在 try...catch 代码块中执行的，所以在这些代码中即使使用 throw ，程序本身也不会因为异常而终止。如果在Promise中使用 throw 语句的话，会被 try...catch 住，最终promise对象也变为Rejected状态。 那如果想将promise对象的状态设置为Rejected，是选择使用 re">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Promise.reject而不是throw？">
+<meta property="og:url" content="https://brightonzhang.com/posts/promise-reject-throw/index.html">
 <meta property="og:site_name" content="BRIGHTON ZHANG">
+<meta property="og:description" content="Promise的构造函数，以及被 then 调用执行的函数基本上都可以认为是在 try...catch 代码块中执行的，所以在这些代码中即使使用 throw ，程序本身也不会因为异常而终止。如果在Promise中使用 throw 语句的话，会被 try...catch 住，最终promise对象也变为Rejected状态。 那如果想将promise对象的状态设置为Rejected，是选择使用 re">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="https://brightonzhang.com/imgs/neptune.png">
+<meta property="og:image" content="https://brightonzhang.com/posts/javascript-basic/fa9189f8764dd5ad.jpg">
+<meta property="og:updated_time" content="2020-01-10T04:02:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BRIGHTON ZHANG">
-<meta name="twitter:image" content="https://brightonzhang.com/imgs/neptune.png">
+<meta name="twitter:title" content="使用Promise.reject而不是throw？">
+<meta name="twitter:description" content="Promise的构造函数，以及被 then 调用执行的函数基本上都可以认为是在 try...catch 代码块中执行的，所以在这些代码中即使使用 throw ，程序本身也不会因为异常而终止。如果在Promise中使用 throw 语句的话，会被 try...catch 住，最终promise对象也变为Rejected状态。 那如果想将promise对象的状态设置为Rejected，是选择使用 re">
+<meta name="twitter:image" content="https://brightonzhang.com/posts/javascript-basic/fa9189f8764dd5ad.jpg">
 
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
     
 
     <link rel="stylesheet" href="/css/style.css">
@@ -63,7 +70,7 @@
 </head>
 
 
-<body  >
+<body  data-spy="scroll" data-target="#tocScrollspy"  >
 
     <!-- Menu -->
     <!-- Navigation -->
@@ -125,14 +132,39 @@
 
     <!-- Main Content -->
     
-
-<header class="intro-header" style="background-image: url('/imgs/jelsacroatia.jpg')">
+<header class="intro-header" style="background-image: url('/posts/javascript-basic/fa9189f8764dd5ad.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>#JavaScript</h1>
+                    <div class="post-heading">
+                        <!-- Tags and categories -->
+                        
+                            <div class="post-tag-category">
+                                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+                                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+                            </div>
+                        
+
+                        <h1>使用Promise.reject而不是throw？</h1>
+                        
+
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2020-01-10T04:02:44.000Z" itemprop="datePublished">01/10/2020</time>
+</p>
+                        </span>
                     </div>
                 
             </div>
@@ -140,114 +172,58 @@
     </div>
 </header>
 
-<!-- Main Content -->
+<!-- Post Content -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <section class="tag-posts">
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/promise-reject-throw/">
-            <span class="post-title archive">
-                使用Promise.reject而不是throw？
-            </span>
-        </a>
-        <span class="post-meta archive">
-            01/10/2020
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/reactjs-notes/">
-            <span class="post-title archive">
-                React.js笔记
-            </span>
-        </a>
-        <span class="post-meta archive">
-            11/10/2019
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/js-style/">
-            <span class="post-title archive">
-                JavaScript 编程风格推荐
-            </span>
-        </a>
-        <span class="post-meta archive">
-            11/09/2019
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/mommychoose-project/">
-            <span class="post-title archive">
-                妈咪臻选小程序商城全栈开发
-            </span>
-        </a>
-        <span class="post-meta archive">
-            09/26/2019
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/async-await-trigger-simultaneously/">
-            <span class="post-title archive">
-                async-await函数同时触发多个异步操作
-            </span>
-        </a>
-        <span class="post-meta archive">
-            09/16/2019
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/javascript-function/">
-            <span class="post-title archive">
-                JavaScript函数详解精炼
-            </span>
-        </a>
-        <span class="post-meta archive">
-            10/16/2017
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/javascript-basic/">
-            <span class="post-title archive">
-                前端开发：JavaScript入门
-            </span>
-        </a>
-        <span class="post-meta archive">
-            10/21/2016
-        </span>
-    </div>
-</article>
-    
-                
-            </section>
+        <!-- Post Main Content -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
 
-            
-        </div>
+                <article class="post-article" >
+                    <p>Promise的构造函数，以及被 <code>then</code> 调用执行的函数基本上都可以认为是在 <code>try...catch</code> 代码块中执行的，所以在这些代码中即使使用 <code>throw</code> ，程序本身也不会因为异常而终止。如果在Promise中使用 <code>throw</code> 语句的话，会被 <code>try...catch</code> 住，最终promise对象也变为Rejected状态。</p>
+<p>那如果想将promise对象的状态设置为Rejected，是选择使用 <code>reject</code> 还是 <code>throw</code> 呢？</p>
+<p>《JavaScript Promise迷你书》给出的答案是：使用 <code>reject</code> 而不是 <code>throw</code> 。</p>
+<a id="more"></a> 
+
+<p>因为我们很难区分 <code>throw</code> 是我们主动抛出来的，还是因为真正的其它 <strong>异常</strong> 导致的。使用 <code>reject</code> 会比使用 <code>throw</code> 安全。</p>
+<p><a href="https://www.kancloud.cn/kancloud/promises-book/44236" target="_blank" rel="noopener">https://www.kancloud.cn/kancloud/promises-book/44236</a></p>
+<p>SO也有个回答：</p>
+<p>There is no advantage of using one vs the other, but, there is a specific case where <code>throw</code> won’t work. However, those cases can be fixed.</p>
+<p>Any time you are inside of a promise callback, you can use <code>throw</code>. However, if you’re in any other asynchronous callback, you must use <code>reject</code>.</p>
+<p>Another important fact is that <code>reject()</code> <strong>DOES NOT</strong> terminate control flow like a <code>return</code> statement does. In contrast <code>throw</code> does terminate control flow.</p>
+<p><a href="https://stackoverflow.com/questions/33445415/javascript-promises-reject-vs-throw" target="_blank" rel="noopener">https://stackoverflow.com/questions/33445415/javascript-promises-reject-vs-throw</a></p>
+
+                </article>
+            </div>
+
+        
+    </div>
+
+    <div class="row">
+        <!-- Comments -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA',
+            placeholder: '欢迎留言交流',
+            pageSize: '8',
+            visitor: 'true'
+        });
+    </script>
+
+
+
+            </div>
+        
     </div>
 </div>
 
@@ -330,9 +306,9 @@
 <script src="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
 
 
+    <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 
-    <script src="/js/jquery.tagcanvas.min.js"></script>
 
 
 <script src="/js/script.min.js"></script>

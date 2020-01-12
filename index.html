@@ -147,6 +147,43 @@
             
                 <article>
     <div class="post-preview">
+        <a href="/posts/promise-reject-throw/">
+            <h1 class="post-title" itemprop="name">
+    使用Promise.reject而不是throw？
+</h1>
+
+
+            <div class="post-content-preview">
+    Promise的构造函数，以及被 then 调用执行的函数基本上都可以认为是在 try...catch 代码块中执行的，所以在这些代码中即使使用 throw ，程序本身也不会因为异常而终止。如果在Promise中使用 throw 语句的话，会被 try...catch 住，最终promise对象也变为Rejected状态。
+那如果想将promise对象的状态设置为Rejected，是选择使用 reject 还是 throw 呢？
+《JavaScript Promise迷你书》给出的答案是：使用 reject 而不是 throw 。
+</div>
+        </a>
+        
+            <div class="post-tag-category">
+                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+            </div>
+        
+        <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2020-01-10T04:02:44.000Z" itemprop="datePublished">01/10/2020</time>
+</p>
+    </div>
+</article>
+
+            
+                <article>
+    <div class="post-preview">
         <a href="/posts/bye-2019/">
             <h1 class="post-title" itemprop="name">
     再见，2019
@@ -680,43 +717,6 @@ vuejs + node.js
     
 
     on  <time datetime="2019-06-10T10:10:34.000Z" itemprop="datePublished">06/10/2019</time>
-</p>
-    </div>
-</article>
-
-            
-                <article>
-    <div class="post-preview">
-        <a href="/posts/got-is-finished/">
-            <h1 class="post-title" itemprop="name">
-    权游终结：凡人皆有一死
-</h1>
-
-
-            <div class="post-content-preview">
-    权力的游戏，近年最火的电视剧，在经历八季之后宣告完结。
-虽然等了两年，最后一季看起来简直是草草收场，网上早已骂声一片。
-我是先看过电视剧权游的前几季，后来陆续阅读了原著冰火已经出版的五卷中译本，我承认影视剧和小说作为不同的艺术形式而产生的效果差异，所以我一直不想以原著如何如何来评论电视剧。
-</div>
-        </a>
-        
-            <div class="post-tag-category">
-                
-  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/影视/">影视</a></li></ul>
-
-                
-  <div class="post-category">
-    <a class="post-category-link" href="/categories/杂言/">杂言</a>
-  </div>
-
-            </div>
-        
-        <p class="post-meta">
-    <!-- Date and Author -->
-    Posted 
-    
-
-    on  <time datetime="2019-05-21T03:53:58.000Z" itemprop="datePublished">05/21/2019</time>
 </p>
     </div>
 </article>
