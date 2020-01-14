@@ -11,23 +11,30 @@
 
     <!-- Title -->
     
-    <title>技术 - BRIGHTON ZHANG</title>
+    <title>TypeScript笔记 - BRIGHTON ZHANG</title>
 
     <!-- open graph -->
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="BRIGHTON ZHANG">
-<meta property="og:url" content="https://brightonzhang.com/categories/技术/index.html">
+    <meta name="description" content="TypeScript 是一种由微软开发的自由和开源的编程语言。它是 JavaScript 的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。  TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. Any browser. Any host. Any OS. Open">
+<meta name="keywords" content="JavaScript,TypeScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript笔记">
+<meta property="og:url" content="https://brightonzhang.com/posts/typescript-notes/index.html">
 <meta property="og:site_name" content="BRIGHTON ZHANG">
+<meta property="og:description" content="TypeScript 是一种由微软开发的自由和开源的编程语言。它是 JavaScript 的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。  TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. Any browser. Any host. Any OS. Open">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="https://brightonzhang.com/imgs/neptune.png">
+<meta property="og:image" content="https://www.typescriptlang.org/assets/images/bg_blueprint_2.svg">
+<meta property="og:updated_time" content="2020-01-14T05:01:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BRIGHTON ZHANG">
-<meta name="twitter:image" content="https://brightonzhang.com/imgs/neptune.png">
+<meta name="twitter:title" content="TypeScript笔记">
+<meta name="twitter:description" content="TypeScript 是一种由微软开发的自由和开源的编程语言。它是 JavaScript 的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。  TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. Any browser. Any host. Any OS. Open">
+<meta name="twitter:image" content="https://www.typescriptlang.org/assets/images/bg_blueprint_2.svg">
 
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
     
 
     <link rel="stylesheet" href="/css/style.css">
@@ -63,7 +70,7 @@
 </head>
 
 
-<body  >
+<body  data-spy="scroll" data-target="#tocScrollspy"  >
 
     <!-- Menu -->
     <!-- Navigation -->
@@ -125,14 +132,39 @@
 
     <!-- Main Content -->
     
-
-<header class="intro-header" style="background-image: url('/imgs/hangzhou.jpg')">
+<header class="intro-header" style="background-image: url('https://www.typescriptlang.org/assets/images/bg_blueprint_2.svg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>&gt;技术</h1>
+                    <div class="post-heading">
+                        <!-- Tags and categories -->
+                        
+                            <div class="post-tag-category">
+                                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li></ul>
+
+                                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+                            </div>
+                        
+
+                        <h1>TypeScript笔记</h1>
+                        
+
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2020-01-14T05:01:41.000Z" itemprop="datePublished">01/14/2020</time>
+</p>
+                        </span>
                     </div>
                 
             </div>
@@ -140,244 +172,69 @@
     </div>
 </header>
 
-<!-- Main Content -->
+<!-- Post Content -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <section class="category-posts">
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/typescript-notes/">
-            <span class="post-title archive">
-                TypeScript笔记
-            </span>
-        </a>
-        <span class="post-meta archive">
-            01/14/2020
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/promise-reject-throw/">
-            <span class="post-title archive">
-                使用Promise.reject而不是throw？
-            </span>
-        </a>
-        <span class="post-meta archive">
-            01/10/2020
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/reactjs-notes/">
-            <span class="post-title archive">
-                React.js笔记
-            </span>
-        </a>
-        <span class="post-meta archive">
-            11/10/2019
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/js-style/">
-            <span class="post-title archive">
-                JavaScript 编程风格推荐
-            </span>
-        </a>
-        <span class="post-meta archive">
-            11/09/2019
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/mommychoose-project/">
-            <span class="post-title archive">
-                妈咪臻选小程序商城全栈开发
-            </span>
-        </a>
-        <span class="post-meta archive">
-            09/26/2019
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/async-await-trigger-simultaneously/">
-            <span class="post-title archive">
-                async-await函数同时触发多个异步操作
-            </span>
-        </a>
-        <span class="post-meta archive">
-            09/16/2019
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/python3-python2/">
-            <span class="post-title archive">
-                Python3与Python2的主要不兼容差异
-            </span>
-        </a>
-        <span class="post-meta archive">
-            02/03/2019
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/ss-on-merlin/">
-            <span class="post-title archive">
-                Linux网络小实践：网络加速
-            </span>
-        </a>
-        <span class="post-meta archive">
-            01/15/2019
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/python-notes/">
-            <span class="post-title archive">
-                Python笔记：入门篇(Python 2)
-            </span>
-        </a>
-        <span class="post-meta archive">
-            07/10/2018
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/openssl-ca/">
-            <span class="post-title archive">
-                OpenSSL CA实践
-            </span>
-        </a>
-        <span class="post-meta archive">
-            05/12/2018
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/javascript-function/">
-            <span class="post-title archive">
-                JavaScript函数详解精炼
-            </span>
-        </a>
-        <span class="post-meta archive">
-            10/16/2017
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/bitcoin-explained-with-emoji-2/">
-            <span class="post-title archive">
-                比特币的另类解释之表情包·中篇
-            </span>
-        </a>
-        <span class="post-meta archive">
-            08/20/2017
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/bitcoin-explained-with-emoji-1/">
-            <span class="post-title archive">
-                比特币的另类解释之表情包·上篇
-            </span>
-        </a>
-        <span class="post-meta archive">
-            07/30/2017
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/pro-android-intents-broadcasts/">
-            <span class="post-title archive">
-                Professional Android笔记：Intent和Broadcast
-            </span>
-        </a>
-        <span class="post-meta archive">
-            04/30/2017
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/pro-android-gradle/">
-            <span class="post-title archive">
-                Professional Android笔记：GRADLE构建
-            </span>
-        </a>
-        <span class="post-meta archive">
-            04/12/2017
-        </span>
-    </div>
-</article>
-    
-                
-                    <article>
-    <div class="post-archive">
-        <a href="/posts/pro-android-activity-ui/">
-            <span class="post-title archive">
-                Professional Android笔记：Activity和UI
-            </span>
-        </a>
-        <span class="post-meta archive">
-            04/10/2017
-        </span>
-    </div>
-</article>
-    
-                
-            </section>
+        <!-- Post Main Content -->
+        
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 " >
+        
 
-            
-<nav class="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/categories/技术/pages/2/">2</a><a class="extend next" rel="next" href="/categories/技术/pages/2/">NEXT &raquo;</a>
-</nav>
+                <article class="post-article" >
+                    <p><a href="https://www.typescriptlang.org/" target="_blank" rel="noopener"><br>TypeScript</a> 是一种由微软开发的自由和开源的编程语言。它是 JavaScript 的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。</p>
+<blockquote>
+<p>TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. Any browser. Any host. Any OS. Open source.</p>
+</blockquote>
+<a id="more"></a> 
 
-        </div>
+<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>TypeScript 中的接口是一个非常灵活的概念，有两个作用：</p>
+<ul>
+<li><p>用于对「对象的形状（Shape）」进行描述——对象的类型描述</p>
+</li>
+<li><p>用于对类的一部分行为进行抽象——把不同类之间共有的特性提取成接口（interfaces），用 <code>implements</code> 关键字来实现。</p>
+</li>
+</ul>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>在构造函数的参数上使用<code>public</code>等同于创建了同名的成员变量。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://ts.xcatliu.com/" target="_blank" rel="noopener">TypeScript 入门教程</a></p>
+<p><a href="https://www.tslang.cn/docs/handbook/basic-types.html" target="_blank" rel="noopener">手册指南 TypeScript中文网</a></p>
+
+                </article>
+            </div>
+
+        
+            <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
+                 <aside class="toc-wrap nav" data-spy="affix">
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#接口"><span class="toc-number">1.</span> <span class="toc-text">接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类"><span class="toc-number">2.</span> <span class="toc-text">类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
+</aside>
+            </div>
+        
+    </div>
+
+    <div class="row">
+        <!-- Comments -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA',
+            placeholder: '欢迎留言交流',
+            pageSize: '8',
+            visitor: 'true'
+        });
+    </script>
+
+
+
+            </div>
+        
     </div>
 </div>
 
@@ -459,6 +316,8 @@
 <script src="//cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
 
+
+    <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 
 

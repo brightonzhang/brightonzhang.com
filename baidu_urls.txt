@@ -1,3 +1,4 @@
+https://brightonzhang.com/posts/typescript-notes/
 https://brightonzhang.com/posts/2020-on-the-way/
 https://brightonzhang.com/posts/promise-reject-throw/
 https://brightonzhang.com/posts/bye-2019/

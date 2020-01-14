@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://brightonzhang.com/posts/typescript-notes/</loc>
+    
+    <lastmod>2020-01-14T05:01:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://brightonzhang.com/posts/2020-on-the-way/</loc>
     
     <lastmod>2020-01-13T02:16:29.000Z</lastmod>
