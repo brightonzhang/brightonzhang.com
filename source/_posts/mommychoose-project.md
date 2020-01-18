@@ -23,6 +23,51 @@ vuejs + node.js
 
 要考虑后续扩展，以及后台管理系统复用，选择使用 mpvue。
 
+### Vant Weapp
+
+
+```shell
+npm i @vant/weapp -S --production 
+```
+
+
+打开项目里的build/webpack.base.conf.js文件，在baseWebpackConfig.plugins数组里增加多一个CopyWebpackPlugin。主要是为了mpvue在编译成微信小程序开发语言的时候，也顺带把vant组件复制到目录里，这样的话才能被项目找到。
+
+```javascript
+new CopyWebpackPlugin([
+  {
+    from: path.resolve(__dirname, '../node_modules/@vant/weapp/dist'),
+    to: path.resolve(config.build.assetsRoot, './@vant/weapp/dist'),
+    ignore: ['.*']
+  }
+]),
+```
+
+### 引入组件
+
+以 Button 组件为例，只需要在`app.json`或`main.json`中配置 Button 对应的路径即可。
+
+```json
+// app.json
+"usingComponents": {
+  "van-button": "/@vant/weapp/dist/button/index"
+}
+```
+
+### 使用组件
+
+引入组件后，可以在 wxml 中直接使用组件
+
+```xml
+<van-button type="primary">按钮</van-button>
+```
+
+然后可能就在微信开发者工具控制台看到报错：
+
+`thirdScriptError sdk uncaught third Error Unexpected token export SyntaxError: Unexpected token export`
+
+打开项目ES6转ES5即可。
+
 # 平台选择
 
 ## 小程序云开发
@@ -40,6 +85,47 @@ leancloud 提供了比较宽松的免费开发版本，觉得基本可以满足�
 # 数据库设计
 
 参考 [数据模型设计指南](https://leancloud.cn/docs/relation-guide.html)
+
+# 一些状态常量
+
+## 云函数错误码
+
+| 错误码 | 描述                 |
+| ------ | -------------------- |
+| 3001   | 用户错误             |
+| 3002   | 参数错误             |
+| 3003   | 会员审批失败         |
+| 3100   | 商品规格错误         |
+| 3101   | 商品库存不足         |
+| 3102   | 商品价格错误         |
+| 3110   | 订单运单信息错误     |
+| 3111   | 订单状态无法直接退款 |
+| 3200   | 微信支付错误         |
+
+
+
+## 订单状态
+
+```js
+
+const statusMap = [
+  ['INIT', '下单'],
+  ['PAYING', '待付款'],
+  ['DELIVERING', '待发货'],
+  ['RECEIVING', '待收货'],
+  ['DONE', '已完成'],
+  ['REFUND_RETURN_REQUESTING', '退货审核中'],
+  ['REFUND_RETURNING', '退货中'],
+  ['REFUND_REQUESTING', '退款审核中'],
+  ['REFUNDING', '退款中'],
+  ['REFUNDED', '已退款'],
+  ['CANCLE', '已取消'],
+  ['TIMEOUT', '超时未付款'],
+];
+
+```
+
+
 
 # 踩坑记录
 
@@ -72,6 +158,39 @@ Nodemailer 是一个简单易用的 Node.js 邮件发送组件
 官网地址：[https://nodemailer.com](https://nodemailer.com/)
 
 GitHub 地址：https://github.com/nodemailer/nodemailer
+
+### Converting circular structure to JSON
+
+https://stackoverflow.com/questions/11616630/how-can-i-print-a-circular-structure-in-a-json-like-format
+
+```js
+// Demo: Circular reference
+var circ = {};
+circ.circ = circ;
+
+// Note: cache should not be re-used by repeated calls to JSON.stringify.
+var cache = [];
+JSON.stringify(circ, function(key, value) {
+    if (typeof value === 'object' && value !== null) {
+        if (cache.indexOf(value) !== -1) {
+            // Duplicate reference found, discard key
+            return;
+        }
+        // Store value in our collection
+        cache.push(value);
+    }
+    return value;
+});
+cache = null; // Enable garbage collection
+```
+
+### LeanCloud云引擎休眠
+
+体验实例会执行 [休眠策略](https://leancloud.cn/docs/leanengine_plan.html#hash633315134)，没有请求时会休眠，有请求时启动（首次启动可能需要几秒的时间），每天最多运行 18 个小时。
+
+
+
+
 
 ## 小程序
 
@@ -119,12 +238,26 @@ background-size:100% 100%;
 
 ### 物流状态时间轴
 
-[微信小程序之物流状态时间轴](https://juejin.im/post/5bd17b0be51d457ab36d00b3) https://github.com/super456/weapp_expressTime
+https://youzan.github.io/vant-weapp/#/steps竖向步骤条
+
+可以通过设置`direction`属性来改变步骤条的显示方式
+
+```html
+<van-steps
+  steps="{{ steps }}"
+  active="{{ active }}"
+  direction="vertical"
+  active-color="#ee0a24"
+/>
+```
+
+信小程序之物流状态时间轴](https://juejin.im/post/5bd17b0be51d457ab36d00b3) https://github.com/super456/weapp_expressTime
 
 ### 微信退款
 
 https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_4
 https://www.npmjs.com/package/weixin-pay
+
 ```js
 var params = {
     // appid: 'xxxxxxxx',
@@ -140,5 +273,47 @@ wxpay.refund(params, function(err, result){
     console.log('refund', arguments);
 });
 ```
+微信支付接口中，涉及资金回滚的接口会使用到API证书，包括退款、撤销接口。商家在申请微信支付成功后，收到的相应邮件后，可以按照指引下载API证书，也可以按照以下路径下载：微信商户平台(pay.weixin.qq.com)-->账户中心-->账户设置-->API安全 。
 
-#
+### 文字跑马灯
+
+实现一个微信小程序组件：文字跑马灯效果 https://www.jianshu.com/p/0ff03e5e942e
+
+改为使用van-notice-bar：  https://youzan.github.io/vant-weapp/#/notice-bar
+
+#### 组件生命周期
+
+组件的生命周期，指的是组件自身的一些函数，这些函数在特殊的时间点或遇到一些特殊的框架事件时被自动触发。
+
+其中，最重要的生命周期是 `created` `attached` `detached` ，包含一个组件实例生命流程的最主要时间点。
+
+- 组件实例刚刚被创建好时， `created` 生命周期被触发。此时，组件数据 `this.data` 就是在 `Component` 构造器中定义的数据 `data` 。 **此时还不能调用 `setData` 。** 通常情况下，这个生命周期只应该用于给组件 `this` 添加一些自定义属性字段。
+- 在组件完全初始化完毕、进入页面节点树后， `attached` 生命周期被触发。此时， `this.data` 已被初始化为组件的当前值。这个生命周期很有用，绝大多数初始化工作可以在这个时机进行。
+- 在组件离开页面节点树后， `detached` 生命周期被触发。退出一个页面时，如果组件还在页面节点树中，则 `detached` 会被触发。
+
+### env(safe-area-inset-bottom)
+
+```css
+  .login-button {
+    position: fixed;
+    bottom: 0;
+    bottom: env(safe-area-inset-bottom);
+    left: 0;
+    right: 0;
+    width: 750rpx;
+    height: 50PX;
+    z-index: 300;
+    border-color: transparent;
+    // background: yellow;
+  }
+```
+
+
+
+https://www.cnblogs.com/hjj2ldq/p/11579260.html
+
+
+
+
+
+## #
