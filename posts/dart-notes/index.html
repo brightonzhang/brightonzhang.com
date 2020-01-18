@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh" >
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Title -->
+    
+    <title>Dart笔记 - BRIGHTON ZHANG</title>
+
+    <!-- open graph -->
+    
+    <meta name="description" content="Dart 是谷歌开发的一种通用编程语言，后被 Ecma 认定为标准（ECMA-408）。它被用于构建 Web、服务器、桌面和移动应用程序。 Dart is a client-optimized programming language for apps on multiple platforms. It is developed by Google and is used to build mob">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dart笔记">
+<meta property="og:url" content="https://brightonzhang.com/posts/dart-notes/index.html">
+<meta property="og:site_name" content="BRIGHTON ZHANG">
+<meta property="og:description" content="Dart 是谷歌开发的一种通用编程语言，后被 Ecma 认定为标准（ECMA-408）。它被用于构建 Web、服务器、桌面和移动应用程序。 Dart is a client-optimized programming language for apps on multiple platforms. It is developed by Google and is used to build mob">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://brightonzhang.com/imgs/neptune.png">
+<meta property="og:updated_time" content="2020-01-17T12:22:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dart笔记">
+<meta name="twitter:description" content="Dart 是谷歌开发的一种通用编程语言，后被 Ecma 认定为标准（ECMA-408）。它被用于构建 Web、服务器、桌面和移动应用程序。 Dart is a client-optimized programming language for apps on multiple platforms. It is developed by Google and is used to build mob">
+<meta name="twitter:image" content="https://brightonzhang.com/imgs/neptune.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114837917-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114837917-1');
+    </script>
+
+
+
+    <!-- Baidu Tongji -->
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?ca817bd39bbbac0ebd13f866fbc29749";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+</head>
+
+
+<body  data-spy="scroll" data-target="#tocScrollspy"  >
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BRIGHTON</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    
+<header class="intro-header" style="background-image: url('')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <!-- Tags and categories -->
+                        
+                            <div class="post-tag-category">
+                                
+                                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+                            </div>
+                        
+
+                        <h1>Dart笔记</h1>
+                        
+
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2018-07-31T12:22:23.000Z" itemprop="datePublished">07/31/2018</time>, last updated on <time datetime="2020-01-17T12:22:23.000Z" itemprop="dateUpdated">01/17/2020</time>
+    
+</p>
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Main Content -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+
+                <article class="post-article" >
+                    <p>Dart 是谷歌开发的一种通用编程语言，后被 Ecma 认定为标准（ECMA-408）。它被用于构建 Web、服务器、桌面和移动应用程序。</p>
+<p>Dart is a client-optimized programming language for apps on multiple platforms. It is developed by Google and is used to build mobile, desktop, backend and web applications. Dart is an object-oriented, class defined, garbage-collected language using a C-style syntax that transcompiles optionally into JavaScript.</p>
+<a id="more"></a> 
+
+<p><a href="https://dart.dev/" target="_blank" rel="noopener">https://dart.dev/</a></p>
+<p><a href="https://www.dartcn.com/" target="_blank" rel="noopener">https://www.dartcn.com/</a></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个函数</span></span><br><span class="line">printInteger(<span class="built_in">int</span> aNumber) &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">'The number is <span class="subst">$aNumber</span>.'</span>); <span class="comment">// 打印到控制台。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 应用从这里开始执行。</span></span><br><span class="line">main() &#123;</span><br><span class="line">  <span class="keyword">var</span> number = <span class="number">42</span>; <span class="comment">// 声明并初始化一个变量。</span></span><br><span class="line">  printInteger(number); <span class="comment">// 调用函数。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在学习 Dart 语言时, 应该基于以下事实和概念：</p>
+<ul>
+<li><p>任何保存在变量中的都是一个 <em>对象</em> ， 并且所有的对象都是对应一个 <em>类</em> 的实例。 无论是数字，函数和 <code>null</code> 都是对象。所有对象继承自 <a href="https://api.dartlang.org/stable/dart-core/Object-class.html" target="_blank" rel="noopener">Object</a> 类。</p>
+</li>
+<li><p>尽管 Dart 是强类型的，但是 Dart 可以推断类型，所以类型注释是可选的。如果要明确说明不需要任何类型， <a href="https://www.dartcn.com/guides/language/effective-dart/design#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed" target="_blank" rel="noopener">需要使用特殊类型 <code>dynamic</code></a> 。</p>
+</li>
+<li><p>Dart 支持泛型，如 <code>List</code> （整数列表）或 <code>List</code> （任何类型的对象列表）。</p>
+</li>
+<li><p>Dart 支持顶级函数（例如 <code>main（）</code> ）， 同样函数绑定在类或对象上（分别是 <em>静态函数</em> 和 <em>实例函数</em> ）。 以及支持函数内创建函数 （ <em>嵌套</em> 或 <em>局部函数</em> ） 。</p>
+</li>
+<li><p>类似地， Dart 支持顶级 <em>变量</em> ， 同样变量绑定在类或对象上（静态变量和实例变量）。 实例变量有时称为字段或属性。</p>
+</li>
+<li><p>与 Java 不同，Dart 没有关键字 “public” ， “protected” 和 “private” 。 如果标识符以下划线（_）开头，则它相对于库是私有的。 有关更多信息，参考 <a href="https://www.dartcn.com/guides/language/language-tour#库和可见性" target="_blank" rel="noopener">库和可见性</a>。</p>
+</li>
+<li><p><em>标识符</em> 以字母或下划线（_）开头，后跟任意字母和数字组合。</p>
+</li>
+<li><p>Dart 语法中包含 <em>表达式（ expressions ）</em>（有运行时值）和 <em>语句（ statements ）</em>（没有运行时值）。 例如，<a href="https://www.dartcn.com/guides/language/language-tour#conditional-expressions" target="_blank" rel="noopener">条件表达式</a> <code>condition ? expr1 : expr2</code> 的值可能是 <code>expr1</code> 或 <code>expr2</code> 。 将其与 <a href="https://www.dartcn.com/guides/language/language-tour#if-和-else" target="_blank" rel="noopener">if-else 语句</a> 相比较，if-else 语句没有值。 一条语句通常包含一个或多个表达式，相反表达式不能直接包含语句。</p>
+</li>
+<li><p>Dart 工具提示两种类型问题：<em>警告<em>和</em>错误</em>。 警告只是表明代码可能无法正常工作，但不会阻止程序的执行。 错误可能是编译时错误或者运行时错误。 编译时错误会阻止代码的执行; 运行时错误会导致代码在执行过程中引发 [异常]（#exception）。</p>
+</li>
+</ul>
+
+                </article>
+            </div>
+
+        
+    </div>
+
+    <div class="row">
+        <!-- Comments -->
+        
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA',
+            placeholder: '欢迎留言交流',
+            pageSize: '8',
+            visitor: 'true'
+        });
+    </script>
+
+
+
+            </div>
+        
+    </div>
+</div>
+
+    
+    <div id="totop" title="Let me fly">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+    <hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/brightonzhang" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/brightonzhang" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:hello@brightonzhang.com" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    &copy; 2020 Brighton Zhang<br>
+                    Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow">Hexo</a> ⌘ 
+                    Theme from <a href="https://github.com/brightonzhang/hexo-theme-nutshell" target="_blank" rel="external nofollow">Nutshell</a>
+
+                    
+                        
+                            
+                                ⌘ Deployed on <a href="https://github.com/brightonzhang/brightonzhang.com.git" target="_blank" rel="external nofollow">GitHub Pages</a>
+                                
+                    
+                    <br/>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<script src="//cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.min.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>
