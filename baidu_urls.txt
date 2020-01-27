@@ -1,3 +1,4 @@
+https://brightonzhang.com/posts/redux-notes/
 https://brightonzhang.com/posts/who-ncov-homecare/
 https://brightonzhang.com/posts/typescript-notes/
 https://brightonzhang.com/posts/2020-on-the-way/

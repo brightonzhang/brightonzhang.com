@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://brightonzhang.com/posts/redux-notes/</loc>
+    
+    <lastmod>2020-01-26T10:34:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://brightonzhang.com/posts/who-ncov-homecare/</loc>
     
     <lastmod>2020-01-24T06:23:27.000Z</lastmod>
@@ -135,14 +142,14 @@
   </url>
   
   <url>
-    <loc>https://brightonzhang.com/tags/index.html</loc>
+    <loc>https://brightonzhang.com/categories/index.html</loc>
     
     <lastmod>2019-07-29T09:21:09.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://brightonzhang.com/categories/index.html</loc>
+    <loc>https://brightonzhang.com/tags/index.html</loc>
     
     <lastmod>2019-07-29T09:21:09.000Z</lastmod>
     

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh" >
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Title -->
+    
+    <title>Redux笔记 - BRIGHTON ZHANG</title>
+
+    <!-- open graph -->
+    
+    <meta name="description" content="Redux 是 JavaScript 状态容器，提供可预测化的状态管理。 Redux 除了和 React 一起用外，还支持其它界面库。  本文用于记录redux学习笔记。">
+<meta name="keywords" content="JavaScript,React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redux笔记">
+<meta property="og:url" content="https://brightonzhang.com/posts/redux-notes/index.html">
+<meta property="og:site_name" content="BRIGHTON ZHANG">
+<meta property="og:description" content="Redux 是 JavaScript 状态容器，提供可预测化的状态管理。 Redux 除了和 React 一起用外，还支持其它界面库。  本文用于记录redux学习笔记。">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://brightonzhang.com/imgs/neptune.png">
+<meta property="og:updated_time" content="2020-01-26T10:34:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redux笔记">
+<meta name="twitter:description" content="Redux 是 JavaScript 状态容器，提供可预测化的状态管理。 Redux 除了和 React 一起用外，还支持其它界面库。  本文用于记录redux学习笔记。">
+<meta name="twitter:image" content="https://brightonzhang.com/imgs/neptune.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114837917-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114837917-1');
+    </script>
+
+
+
+    <!-- Baidu Tongji -->
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?ca817bd39bbbac0ebd13f866fbc29749";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+</head>
+
+
+<body  data-spy="scroll" data-target="#tocScrollspy"  >
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BRIGHTON</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    
+<header class="intro-header" style="background-image: url('')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <!-- Tags and categories -->
+                        
+                            <div class="post-tag-category">
+                                
+  <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+                                
+  <div class="post-category">
+    <a class="post-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+                            </div>
+                        
+
+                        <h1>Redux笔记</h1>
+                        
+
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            <p class="post-meta">
+    <!-- Date and Author -->
+    Posted 
+    
+
+    on  <time datetime="2020-01-26T10:34:25.000Z" itemprop="datePublished">01/26/2020</time>
+</p>
+                        </span>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Main Content -->
+        
+            <div class="col-lg-8 col-lg-offset-1 col-md-10 " >
+        
+
+                <article class="post-article" >
+                    <p>Redux 是 JavaScript 状态容器，提供可预测化的状态管理。</p>
+<p>Redux 除了和 <a href="https://facebook.github.io/react/" target="_blank" rel="noopener">React</a> 一起用外，还支持其它界面库。 </p>
+<p>本文用于记录redux学习笔记。</p>
+<a id="more"></a> 
+
+<h1 id="学习资料："><a href="#学习资料：" class="headerlink" title="学习资料："></a>学习资料：</h1><p><a href="http://github.com/camsong/redux-in-chinese" target="_blank" rel="noopener">Redux 中文文档</a><br><a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html" target="_blank" rel="noopener">Redux 入门教程 阮一峰的网络日志</a><br><a href="https://jin-yang.github.io/post/react-redux-introduce.html" target="_blank" rel="noopener">React + Redux 简介 JinYang’s Blog</a></p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Redux 的设计思想很简单：</p>
+<ul>
+<li>Web 应用是一个状态机，视图与状态是一一对应。</li>
+<li>所有的状态，保存在一个对象里面。</li>
+</ul>
+<p>Redux 可以用这三个基本原则来描述：</p>
+<ul>
+<li>单一数据源：整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store  中。</li>
+<li>State 是只读的：唯一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。</li>
+<li>使用纯函数来执行修改：为了描述 action 如何改变 state tree ，你需要编写 reducers。Reducer 只是一些纯函数，它接收先前的 state 和 action，并返回新的 state。</li>
+</ul>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><p>Store 就是保存数据的地方，可以把它看成一个容器，整个应用只能有一个 Store。</p>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>Store 对象包含所有数据，如果想得到某个时点的数据，就要对 Store 生成快照，这种时点的数据集合，就叫做 State 。</p>
+<p>当前时刻的 State 可以通过 <code>store.getState()</code> 拿到。</p>
+<p>Redux 规定，state 和 view 一一对应，一个 State 对应一个 View，只要 State 相同，View 就相同；反之亦然。</p>
+<h2 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h2><p><strong>Action</strong> 是把数据从应用传到 store 的有效载荷。它是 store 数据的<strong>唯一</strong>来源。一般来说你会通过 <a href="https://cn.redux.js.org/docs/api/Store.html#dispatch" target="_blank" rel="noopener"><code>store.dispatch()</code></a> 将 action 传到 store。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  type: ADD_TODO,</span><br><span class="line">  text: <span class="string">'Build my first Redux app'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Action 本质上是 JavaScript 普通对象。我们约定，action 内必须使用一个字符串类型的 <code>type</code> 字段来表示将要执行的动作。除了 <code>type</code> 字段外，action 对象的结构完全由你自己决定。</p>
+<p><strong>我们应该尽量减少在 action 中传递的数据</strong>。</p>
+<h3 id="Action-创建函数"><a href="#Action-创建函数" class="headerlink" title="Action 创建函数"></a>Action 创建函数</h3><p><strong>Action 创建函数</strong> 就是生成 action 的方法。在 Redux 中的 action 创建函数只是简单的返回一个 action:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: ADD_TODO,</span><br><span class="line">    text</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Redux 中只需把 action 创建函数的结果传给 <code>dispatch()</code> 方法即可发起一次 dispatch 过程。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch(addTodo(text))</span><br></pre></td></tr></table></figure>
+
+<p>或者创建一个 <strong>被绑定的 action 创建函数</strong> 来自动 dispatch：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> boundAddTodo = <span class="function"><span class="params">text</span> =&gt;</span> dispatch(addTodo(text))</span><br></pre></td></tr></table></figure>
+
+<p>然后直接调用它们：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boundAddTodo(text);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h2><p>Reducers 指定了应用状态的变化如何响应 actions 并发送到 store 的，记住 actions 只是描述了有事情发生了这一事实，并没有描述应用如何更新 state。</p>
+<p>reducer 就是一个纯函数，接收旧的 state 和 action，返回新的 state。保持 reducer 纯净非常重要。只要传入参数相同，返回计算得到的下一个 state 就一定相同。没有特殊情况、没有副作用，没有 API 请求、没有变量修改，单纯执行计算。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">todoApp</span>(<span class="params">state = initialState, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> SET_VISIBILITY_FILTER:</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;, state, &#123;</span><br><span class="line">        visibilityFilter: action.filter</span><br><span class="line">      &#125;)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意:</p>
+<ol>
+<li>不要修改 <code>state</code>。</li>
+<li><strong>在 <code>default</code> 情况下返回旧的 <code>state</code>。</strong>遇到未知的 action 时，一定要返回旧的 <code>state</code>。</li>
+</ol>
+<h3 id="combineReducers"><a href="#combineReducers" class="headerlink" title="combineReducers()"></a>combineReducers()</h3><p>可以根据需求，构造很多功能独立的reducer——每个 reducer 只负责管理全局 state 中它负责的一部分。每个 reducer 的 <code>state</code> 参数都不同，分别对应它管理的那部分 state 数据。我们还可以将拆分后的 reducer 放到不同的文件中, 以保持其独立性并用于专门处理不同的数据域。Redux 提供了 <a href="https://cn.redux.js.org/docs/api/combineReducers.html" target="_blank" rel="noopener"><code>combineReducers()</code></a> 工具类合并reducers。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  ADD_TODO,</span><br><span class="line">  TOGGLE_TODO,</span><br><span class="line">  SET_VISIBILITY_FILTER,</span><br><span class="line">  VisibilityFilters</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'./actions'</span></span><br><span class="line"><span class="keyword">const</span> &#123; SHOW_ALL &#125; = VisibilityFilters</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">visibilityFilter</span>(<span class="params">state = SHOW_ALL, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> SET_VISIBILITY_FILTER:</span><br><span class="line">      <span class="keyword">return</span> action.filter</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">todos</span>(<span class="params">state = [], action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> ADD_TODO:</span><br><span class="line">      <span class="keyword">return</span> [</span><br><span class="line">        ...state,</span><br><span class="line">        &#123;</span><br><span class="line">          text: action.text,</span><br><span class="line">          completed: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    <span class="keyword">case</span> TOGGLE_TODO:</span><br><span class="line">      <span class="keyword">return</span> state.map(<span class="function">(<span class="params">todo, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (index === action.index) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;, todo, &#123;</span><br><span class="line">            completed: !todo.completed</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> todo</span><br><span class="line">      &#125;)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> todoApp = combineReducers(&#123;</span><br><span class="line">  visibilityFilter,</span><br><span class="line">  todos</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">上面的写法和下面完全等价：</span></span><br><span class="line"><span class="comment">const todoApp = function todoApp(state = &#123;&#125;, action) &#123;</span></span><br><span class="line"><span class="comment">  return &#123;</span></span><br><span class="line"><span class="comment">    visibilityFilter: visibilityFilter(state.visibilityFilter, action),</span></span><br><span class="line"><span class="comment">    todos: todos(state.todos, action)</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> todoApp</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h2><p>总结一下： action用来描述“发生了什么”， reducers用来根据 action 更新 state ，Store 就是把它们联系到一起的对象。Store 有以下职责：</p>
+<ul>
+<li>维持应用的 state；</li>
+<li>提供 <a href="https://cn.redux.js.org/docs/api/Store.html#getState" target="_blank" rel="noopener"><code>getState()</code></a> 方法获取 state；</li>
+<li>提供 <a href="https://cn.redux.js.org/docs/api/Store.html#dispatch" target="_blank" rel="noopener"><code>dispatch(action)</code></a> 方法更新 state；</li>
+<li>通过 <a href="https://cn.redux.js.org/docs/api/Store.html#subscribe" target="_blank" rel="noopener"><code>subscribe(listener)</code></a> 注册监听器;</li>
+<li>通过 <a href="https://cn.redux.js.org/docs/api/Store.html#subscribe" target="_blank" rel="noopener"><code>subscribe(listener)</code></a> 返回的函数注销监听器。</li>
+</ul>
+<p>将 reducer 作为 <code>createStore()</code>参数创建store。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="keyword">import</span> todoApp <span class="keyword">from</span> <span class="string">'./reducers'</span></span><br><span class="line"><span class="keyword">let</span> store = createStore(todoApp)</span><br></pre></td></tr></table></figure>
+
+<p><code>createStore()</code>的第二个参数是可选的, 用于设置 state 初始状态。</p>
+<p><strong>严格的单向数据流</strong>是 Redux 架构的设计核心。</p>
+<p>Redux 应用中数据的生命周期遵循下面 4 个步骤：</p>
+<ol>
+<li>调用<code>store.dispatch(action)</code></li>
+<li>Redux store 调用传入的 reducer 函数。Store 会把两个参数传入 reducer： 当前的 state 树和 action。</li>
+<li>根 reducer 应该把多个子 reducer 输出合并成一个单一的 state 树。</li>
+<li>Redux store 保存了根 reducer 返回的完整 state 树。这个新的树就是应用的下一个 state！所有订阅 store.subscribe(listener) 的监听器都将被调用；监听器里可以调用 store.getState() 获得当前 state。</li>
+</ol>
+<p><img src="react-redux-model1.png" alt="Redux工作流程"></p>
+<h1 id="react-redux"><a href="#react-redux" class="headerlink" title="react-redux"></a>react-redux</h1><p>Redux 和 React 之间没有关系。Redux 支持 React、Angular、Ember、jQuery 甚至纯 JavaScript。尽管如此，Redux 还是和 <a href="http://facebook.github.io/react/" target="_blank" rel="noopener">React</a> 和 <a href="https://github.com/dekujs/deku" target="_blank" rel="noopener">Deku</a> 这类库搭配起来用最好，因为这类库允许你以 state 函数的形式来描述界面，Redux 通过 action 的形式来发起 state 变化。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-redux</span><br></pre></td></tr></table></figure>
+
+<h2 id="容器组件"><a href="#容器组件" class="headerlink" title="容器组件"></a>容器组件</h2><p>容器组件把展示组件和 Redux 关联起来。技术上讲，容器组件就是使用<code>store.subscribe()</code> 从 Redux state 树中读取部分数据，并通过 props 来把这些数据提供给要渲染的组件。可以手工来开发容器组件，但建议使用 React Redux 库的 <a href="https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options" target="_blank" rel="noopener"><code>connect()</code></a> 方法来生成，这个方法做了性能优化来避免很多不必要的重复渲染。</p>
+<p>使用 <code>connect()</code> 前，需要先定义 <code>mapStateToProps</code> 函数来指定如何把当前 Redux store state 映射到展示组件的 props 中，定义 <code>mapDispatchToProps()</code> 方法接收 <a href="https://cn.redux.js.org/docs/api/Store.html#dispatch" target="_blank" rel="noopener"><code>dispatch()</code></a> 方法并返回期望注入到展示组件的 props 中的回调方法。</p>
+<p>所有容器组件都可以访问 Redux store，所以可以手动监听它。一种方式是把它以 props 的形式传入到所有容器组件中。但这太麻烦了，因为必须要用 <code>store</code> 把展示组件包裹一层，仅仅是因为恰好在组件树中渲染了一个容器组件。jnnk.liu1j</p>
+<p>建议的方式是使用指定的 React Redux 组件 <code>&lt;Provider&gt;</code>让所有容器组件都可以访问 store，而不必显式地传递它。只需要在渲染根组件时使用即可。</p>
+
+                </article>
+            </div>
+
+        
+            <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
+                 <aside class="toc-wrap nav" data-spy="affix">
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#学习资料："><span class="toc-number">1.</span> <span class="toc-text">学习资料：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">2.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本概念"><span class="toc-number">3.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Store"><span class="toc-number">3.1.</span> <span class="toc-text">Store</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-number">3.2.</span> <span class="toc-text">State</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Action"><span class="toc-number">3.3.</span> <span class="toc-text">Action</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Action-创建函数"><span class="toc-number">3.3.1.</span> <span class="toc-text">Action 创建函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reducer"><span class="toc-number">3.4.</span> <span class="toc-text">Reducer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#combineReducers"><span class="toc-number">3.4.1.</span> <span class="toc-text">combineReducers()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据流"><span class="toc-number">3.5.</span> <span class="toc-text">数据流</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react-redux"><span class="toc-number">4.</span> <span class="toc-text">react-redux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#容器组件"><span class="toc-number">4.1.</span> <span class="toc-text">容器组件</span></a></li></ol></li></ol>
+</aside>
+            </div>
+        
+    </div>
+
+    <div class="row">
+        <!-- Comments -->
+         
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <hr />
+<!-- <h3>comment:</h3> -->
+
+    <div id="vcomments"></div>
+    <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'rf9KhKGBt9w4pNpcXT8H0v8n-MdYXbMMI',
+            appKey: 'cp5GJeuotYOQqqyOrf4MNnoA',
+            placeholder: '欢迎留言交流',
+            pageSize: '8',
+            visitor: 'true'
+        });
+    </script>
+
+
+
+            </div>
+        
+    </div>
+    
+    <div class="row">
+         
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-comment">
+                <div class="donate">
+  <hr />
+  <p>如果喜欢，欢迎请作者喝咖啡☕️☕️☕️</p>
+  <div style="text-align: center;">
+    
+    <img src="/imgs/wechat.jpg" alt="" height="128px" width="128px" />
+    
+    <img src="/imgs/alipay.jpg" alt="" height="128px" width="128px" />
+    
+  </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+    
+    <div id="totop" title="Let me fly">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+    <hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/brightonzhang" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/brightonzhang" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="mailto:hello@brightonzhang.com" target="_blank" rel="external nofollow">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+
+                <p class="copyright text-muted">
+                    &copy; 2020 Brighton Zhang<br>
+                    Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow">Hexo</a> ⌘ 
+                    Theme from <a href="https://github.com/brightonzhang/hexo-theme-nutshell" target="_blank" rel="external nofollow">Nutshell</a>
+
+                    
+                        
+                            
+                                ⌘ Deployed on <a href="https://github.com/brightonzhang/brightonzhang.com.git" target="_blank" rel="external nofollow">GitHub Pages</a>
+                                
+                    
+                    <br/>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<script src="//cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.min.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>

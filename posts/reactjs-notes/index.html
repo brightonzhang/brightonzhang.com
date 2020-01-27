@@ -15,19 +15,19 @@
 
     <!-- open graph -->
     
-    <meta name="description" content="本文主要记录React学习笔记。 学习资料： React官网 《React.js 小书》 Redux 中文文档 http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.htmlhttps://jin-yang.github.io/post/react-redux-introduce.html">
+    <meta name="description" content="React，是一个用于构建用户界面的 JavaScript 库，提供了DOM 的抽象层。  本文主要记录React学习笔记。">
 <meta name="keywords" content="JavaScript,React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React.js笔记">
 <meta property="og:url" content="https://brightonzhang.com/posts/reactjs-notes/index.html">
 <meta property="og:site_name" content="BRIGHTON ZHANG">
-<meta property="og:description" content="本文主要记录React学习笔记。 学习资料： React官网 《React.js 小书》 Redux 中文文档 http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.htmlhttps://jin-yang.github.io/post/react-redux-introduce.html">
+<meta property="og:description" content="React，是一个用于构建用户界面的 JavaScript 库，提供了DOM 的抽象层。  本文主要记录React学习笔记。">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="https://brightonzhang.com/imgs/neptune.png">
 <meta property="og:updated_time" content="2019-11-10T09:50:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React.js笔记">
-<meta name="twitter:description" content="本文主要记录React学习笔记。 学习资料： React官网 《React.js 小书》 Redux 中文文档 http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.htmlhttps://jin-yang.github.io/post/react-redux-introduce.html">
+<meta name="twitter:description" content="React，是一个用于构建用户界面的 JavaScript 库，提供了DOM 的抽象层。  本文主要记录React学习笔记。">
 <meta name="twitter:image" content="https://brightonzhang.com/imgs/neptune.png">
 
     <!-- CSS -->
@@ -181,16 +181,14 @@
         
 
                 <article class="post-article" >
-                    <p>本文主要记录React学习笔记。</p>
-<p>学习资料：</p>
-<p><a href="https://zh-hans.reactjs.org/" target="_blank" rel="noopener">React官网</a></p>
-<p><a href="http://huziketang.mangojuice.top/books/react/" target="_blank" rel="noopener">《React.js 小书》</a></p>
-<p><a href="http://github.com/camsong/redux-in-chinese" target="_blank" rel="noopener">Redux 中文文档</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html</a><br><a href="https://jin-yang.github.io/post/react-redux-introduce.html" target="_blank" rel="noopener">https://jin-yang.github.io/post/react-redux-introduce.html</a></p>
+                    <p>React，是一个用于构建用户界面的 JavaScript 库，提供了DOM 的抽象层。 </p>
+<p>本文主要记录React学习笔记。</p>
 <a id="more"></a> 
 
 
 
+<h1 id="学习资料："><a href="#学习资料：" class="headerlink" title="学习资料："></a>学习资料：</h1><p><a href="https://zh-hans.reactjs.org/" target="_blank" rel="noopener">React官网</a></p>
+<p><a href="http://huziketang.mangojuice.top/books/react/" target="_blank" rel="noopener">《React.js 小书》</a></p>
 <h1 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h1><p>JSX 是 JavaScript 语言的一种语法扩展，长得像 HTML，但并不是 HTML。React.js 可以用 JSX 来描述你的组件长什么样的。JSX 在编译的时候会变成相应的 JavaScript 对象描述。react-dom 负责把这个用来描述 UI 信息的 JavaScript 对象变成 DOM 元素，并且渲染到页面上。</p>
 <p>在 JSX 当中可以插入 JavaScript 的表达式，表达式返回的结果会相应地渲染到页面上。表达式用 {} 包裹。{} 内可以放任何 JavaScript 的代码，包括变量、表达式计算、函数执行等等。 render 会把这些代码返回的内容如实地渲染到页面上，非常的灵活。</p>
 <p>表达式插入不仅仅可以用在标签内部，也可以用在标签的属性上。</p>
@@ -265,6 +263,7 @@
 <p>假如 <code>InputWithUserName</code> 的功能需求是挂载的时候从 LocalStorage 里面加载 <code>username</code> 字段作为 <code>&lt;input /&gt;</code> 的 <code>value</code> 值，现在有了 <code>wrapWithLoadData</code>，我们可以很容易地做到这件事情。</p>
 <p>高阶组件的作用是用于代码复用，可以把组件之间可复用的代码、逻辑抽离到高阶组件当中。新的组件和传入的组件通过 props 传递信息。</p>
 <h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><p>Redux 是一种架构模式（Flux 架构的一种变种），它不关注你到底用什么库，你可以把它应用到 React 和 Vue，甚至跟 jQuery 结合都没有问题。而 React-redux 就是把 Redux 这种架构模式和 React.js 结合起来的一个库，就是 Redux 架构在 React.js 中的体现。</p>
+<p>更多参考<a href="../redux-notes">Redux笔记</a>。</p>
 <h1 id="Smart-组件-vs-Dumb-组件"><a href="#Smart-组件-vs-Dumb-组件" class="headerlink" title="Smart 组件 vs Dumb 组件"></a>Smart 组件 vs Dumb 组件</h1><p>根据是否需要高度的复用性，把组件划分为 Dumb 和 Smart 组件，约定俗成地把它们分别放到 components 和 containers 目录下。</p>
 <p>Dumb 基本只做一件事情 —— 根据 props 进行渲染。而 Smart 则是负责应用的逻辑、数据，把所有相关的 Dumb（Smart）组件组合起来，通过 props 控制它们。</p>
 <p>Smart 组件可以使用 Smart、Dumb 组件；而 Dumb 组件最好只使用 Dumb 组件，否则它的复用性就会丧失。</p>
@@ -278,7 +277,7 @@
             <div class="col-lg-3  col-md-2 hidden-xs hidden-sm" id="tocScrollspy">
                  <aside class="toc-wrap nav" data-spy="affix">
     <strong class="toc-title">Contents</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JSX"><span class="toc-number">1.</span> <span class="toc-text">JSX</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件"><span class="toc-number">2.</span> <span class="toc-text">组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件监听"><span class="toc-number">2.1.</span> <span class="toc-text">事件监听</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#state"><span class="toc-number">2.2.</span> <span class="toc-text">state</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#props"><span class="toc-number">2.3.</span> <span class="toc-text">props</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#state-vs-props"><span class="toc-number">2.4.</span> <span class="toc-text">state vs props</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#渲染列表数据"><span class="toc-number">3.</span> <span class="toc-text">渲染列表数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#处理用户输入"><span class="toc-number">4.</span> <span class="toc-text">处理用户输入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件生命周期"><span class="toc-number">5.</span> <span class="toc-text">组件生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ref"><span class="toc-number">6.</span> <span class="toc-text">ref</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#props-children"><span class="toc-number">7.</span> <span class="toc-text">props.children</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PropTypes"><span class="toc-number">8.</span> <span class="toc-text">PropTypes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高阶组件（Higher-Order-Components）"><span class="toc-number">9.</span> <span class="toc-text">高阶组件（Higher-Order Components）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redux"><span class="toc-number">10.</span> <span class="toc-text">Redux</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Smart-组件-vs-Dumb-组件"><span class="toc-number">11.</span> <span class="toc-text">Smart 组件 vs Dumb 组件</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#学习资料："><span class="toc-number">1.</span> <span class="toc-text">学习资料：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSX"><span class="toc-number">2.</span> <span class="toc-text">JSX</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件"><span class="toc-number">3.</span> <span class="toc-text">组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件监听"><span class="toc-number">3.1.</span> <span class="toc-text">事件监听</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#state"><span class="toc-number">3.2.</span> <span class="toc-text">state</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#props"><span class="toc-number">3.3.</span> <span class="toc-text">props</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#state-vs-props"><span class="toc-number">3.4.</span> <span class="toc-text">state vs props</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#渲染列表数据"><span class="toc-number">4.</span> <span class="toc-text">渲染列表数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#处理用户输入"><span class="toc-number">5.</span> <span class="toc-text">处理用户输入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件生命周期"><span class="toc-number">6.</span> <span class="toc-text">组件生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ref"><span class="toc-number">7.</span> <span class="toc-text">ref</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#props-children"><span class="toc-number">8.</span> <span class="toc-text">props.children</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PropTypes"><span class="toc-number">9.</span> <span class="toc-text">PropTypes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高阶组件（Higher-Order-Components）"><span class="toc-number">10.</span> <span class="toc-text">高阶组件（Higher-Order Components）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redux"><span class="toc-number">11.</span> <span class="toc-text">Redux</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Smart-组件-vs-Dumb-组件"><span class="toc-number">12.</span> <span class="toc-text">Smart 组件 vs Dumb 组件</span></a></li></ol>
 </aside>
             </div>
         
