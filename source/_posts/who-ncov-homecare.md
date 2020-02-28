@@ -13,7 +13,7 @@ tags:
 
 WHO只提供了英文版本，我参考google翻译，整理了中文译本，如下，供参考。
 
-翻译有误之处，或其他任何建议或意见，欢迎留言或[PR](https://github.com/brightonzhang/brightonzhang.com/pulls)。
+翻译有误之处，或其他任何建议或意见，欢迎留言或[PR](https://github.com/brightonzhang/brightonzhang.com/tree/gh-pages)。
 
 <!--more--> 
 

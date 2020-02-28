@@ -11,23 +11,19 @@ tags:
 - JavaScript
 ---
 
-
+React，是一个用于构建用户界面的 JavaScript 库，提供了DOM 的抽象层。 
 
 本文主要记录React学习笔记。
 
-学习资料：
+<!--more--> 
+
+
+
+# 学习资料：
 
 [React官网](https://zh-hans.reactjs.org/)
 
 [《React.js 小书》](http://huziketang.mangojuice.top/books/react/)
-
-[Redux 中文文档](http://github.com/camsong/redux-in-chinese)
-
-http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html
-https://jin-yang.github.io/post/react-redux-introduce.html
-<!--more--> 
-
-
 
 # JSX
 
@@ -284,7 +280,7 @@ export default InputWithUserName
 
 Redux 是一种架构模式（Flux 架构的一种变种），它不关注你到底用什么库，你可以把它应用到 React 和 Vue，甚至跟 jQuery 结合都没有问题。而 React-redux 就是把 Redux 这种架构模式和 React.js 结合起来的一个库，就是 Redux 架构在 React.js 中的体现。
 
-
+更多参考[Redux笔记](../redux-notes)。
 
 
 
@@ -304,13 +300,37 @@ Smart 组件可以使用 Smart、Dumb 组件；而 Dumb 组件最好只使用 Du
 
 
 
+# Hooks
 
+React v16.8 版本引入了全新的 API，叫做 [React Hooks](https://reactjs.org/docs/hooks-reference.html)，颠覆了以前的用法。
 
+React Hooks 的设计目的，就是加强版函数组件，完全不使用"类"，就能写出一个全功能的组件。组件尽量写成纯函数，如果需要外部功能和副作用，就用钩子把外部代码"钩"进来。React Hooks 就是那些钩子。
 
+所有的钩子都是为函数引入外部功能，所以 React 约定，钩子一律使用`use`前缀命名，便于识别。你要使用 xxx 功能，钩子就命名为 usexxx。
 
+React 默认提供的四个最常用的钩子：
+ - useState()
+ - useContext()
+ - useReducer()
+ - useEffect()
 
+```jsx
+import React, { useState } from 'react';
 
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
 
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
 
 
 
