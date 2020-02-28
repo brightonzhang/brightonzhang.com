@@ -1,9 +1,11 @@
+https://brightonzhang.com/posts/financial-statement-notes/
 https://brightonzhang.com/posts/redux-notes/
 https://brightonzhang.com/posts/who-ncov-homecare/
 https://brightonzhang.com/posts/typescript-notes/
 https://brightonzhang.com/posts/2020-on-the-way/
 https://brightonzhang.com/posts/promise-reject-throw/
 https://brightonzhang.com/posts/bye-2019/
+https://brightonzhang.com/posts/react-native-notes/
 https://brightonzhang.com/posts/reactjs-notes/
 https://brightonzhang.com/posts/js-style/
 https://brightonzhang.com/posts/upper-shadow/

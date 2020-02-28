@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://brightonzhang.com/posts/financial-statement-notes/</loc>
+    
+    <lastmod>2020-02-25T13:06:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://brightonzhang.com/posts/react-native-notes/</loc>
+    
+    <lastmod>2020-02-01T05:32:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://brightonzhang.com/posts/redux-notes/</loc>
     
     <lastmod>2020-01-26T10:34:25.000Z</lastmod>
